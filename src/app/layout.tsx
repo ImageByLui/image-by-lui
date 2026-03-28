@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Libre_Franklin } from "next/font/google";
 import Script from "next/script";
 import { siteConfig } from "@/config/site.config";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/features/WhatsAppButton";
+import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import "./globals.css";
 
 // =============================================================================
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
 // This wraps every page on the site. It provides:
 // - Font CSS variables (consumed by globals.css @theme)
 // - Google Analytics 4 script (loaded after interactive, skipped if no ID)
-// - Global components will be added in Phase 2: Header, Footer, WhatsAppButton
+// - Global components: Header, Footer, WhatsAppButton, SchemaMarkup
 // =============================================================================
 
 export default function RootLayout({
@@ -67,12 +71,13 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${libreFranklin.variable}`}
     >
       <body className="min-h-screen flex flex-col">
-        {/* Header will be added in Phase 2 */}
+        <SchemaMarkup />
+        <Header />
 
         <main className="flex-1">{children}</main>
 
-        {/* Footer will be added in Phase 2 */}
-        {/* WhatsAppButton will be added in Phase 2 */}
+        <Footer />
+        <WhatsAppButton />
 
         {/* Google Analytics 4 — only loads if measurement ID is configured */}
         {ga4Id && (
