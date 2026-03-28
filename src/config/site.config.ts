@@ -21,7 +21,7 @@ export const siteConfig = {
   // Contact
   // ---------------------------------------------------------------------------
   whatsapp: {
-    number: "1XXXXXXXXXX", // [REPLACE: Lu's WhatsApp Business number, no dashes or spaces, include country code]
+    number: "573158137078", // [REPLACE: Lu's WhatsApp Business number, no dashes or spaces, include country code]
     message: {
       en: "Hi Lu! I'm interested in learning more about Image by LUI and your services.",
       es: "¡Hola Lu! Me interesa conocer más sobre Image by LUI y tus servicios.",
