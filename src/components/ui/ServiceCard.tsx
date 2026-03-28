@@ -46,15 +46,15 @@ export default function ServiceCard({
         </span>
       )}
 
-      {/* Service name */}
-      <h3 className="font-heading font-medium text-[22px] md:text-[24px] text-espresso mb-2">
-        {name}
-      </h3>
-
-      {/* Price */}
-      <p className="font-body font-semibold text-espresso text-[18px] mb-4">
-        {price}
-      </p>
+      {/* Service name + price on same line */}
+      <div className="flex items-baseline justify-between gap-3 mb-4">
+        <h3 className="font-heading font-medium text-[20px] md:text-[22px] text-espresso">
+          {name}
+        </h3>
+        <span className="font-body font-semibold text-espresso text-[16px] md:text-[18px] whitespace-nowrap">
+          {price}
+        </span>
+      </div>
 
       {/* Description */}
       <p className="text-warm-grey leading-relaxed mb-6 flex-1">

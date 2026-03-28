@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site.config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/features/WhatsAppButton";
+import LangUpdater from "@/components/features/LangUpdater";
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import "./globals.css";
 
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
   title: {
     default: `${siteConfig.name} | Diagnostic Image Consulting Miami`,
-    template: `%s | ${siteConfig.name}`,
+    template: "%s",
   },
   description:
     "Diagnostic image consulting in Miami. Colorimetry, morphological analysis, and lifestyle mapping for professionals. Book your complimentary color analysis.",
@@ -71,6 +72,7 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${libreFranklin.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <LangUpdater />
         <SchemaMarkup />
         <Header />
 

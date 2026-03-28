@@ -15,12 +15,16 @@ import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 // When real Instagram embed or API is desired, this component can be swapped.
 // =============================================================================
 
+import type { Lang } from "@/types/content";
+
 interface InstagramFeedProps {
   heading: string;
   subtext: string;
+  lang?: Lang;
 }
 
-export default function InstagramFeed({ heading, subtext }: InstagramFeedProps) {
+export default function InstagramFeed({ heading, subtext, lang = "en" }: InstagramFeedProps) {
+  const ctaText = lang === "es" ? "SIGUE EN INSTAGRAM" : "FOLLOW ON INSTAGRAM";
   return (
     <div className="text-center">
       <h2 className="mb-2">{heading}</h2>
@@ -53,9 +57,9 @@ export default function InstagramFeed({ heading, subtext }: InstagramFeedProps) 
           href={siteConfig.instagram.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-terracotta text-white font-body font-semibold text-[13px] md:text-[14px] uppercase tracking-[1.5px] px-8 py-3.5 rounded-none no-underline hover:bg-terracotta-dark transition-colors duration-200"
+          className="inline-block bg-terracotta text-white font-body font-semibold text-[13px] md:text-[14px] uppercase tracking-[1.5px] px-8 py-3.5 rounded-none no-underline hover:bg-terracotta-dark hover:no-underline transition-colors duration-200"
         >
-          {subtext === "@imagebylui" ? "FOLLOW ON INSTAGRAM" : "SIGUE EN INSTAGRAM"}
+          {ctaText}
         </a>
       </div>
     </div>

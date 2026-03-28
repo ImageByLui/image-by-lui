@@ -32,14 +32,14 @@ export default function Button({
 
   const variants = {
     primary: [
-      "bg-terracotta text-white",
+      "bg-terracotta text-white no-underline",
       "font-semibold text-[13px] md:text-[14px] uppercase",
       "tracking-[1.5px] px-8 py-3.5",
       "rounded-none border-none",
-      "hover:bg-terracotta-dark",
+      "hover:bg-terracotta-dark hover:no-underline hover:text-white",
     ].join(" "),
     secondary: [
-      "bg-transparent text-terracotta",
+      "bg-transparent text-terracotta no-underline",
       "font-normal text-[15px] md:text-[16px]",
       "p-0",
       "hover:underline",

@@ -154,6 +154,7 @@ export default function HomePage() {
           <InstagramFeed
             heading={content.instagramFeed.heading}
             subtext={content.instagramFeed.subtext}
+            lang="en"
           />
         </div>
       </section>

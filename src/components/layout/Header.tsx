@@ -66,13 +66,13 @@ export default function Header() {
             {/* Logo */}
             <Link
               href={homeHref}
-              className="flex flex-col items-start leading-none no-underline group"
+              className="flex flex-col items-start leading-none no-underline hover:no-underline group"
               aria-label="Image by LUI — Home"
             >
-              <span className="font-body font-light text-[10px] md:text-[11px] uppercase tracking-[3px] text-espresso">
+              <span className="font-body font-light text-[10px] md:text-[11px] uppercase tracking-[3px] text-espresso" aria-hidden="true">
                 Image by
               </span>
-              <span className="font-heading font-semibold text-[22px] md:text-[24px] text-espresso -mt-1">
+              <span className="font-heading font-semibold text-[22px] md:text-[24px] text-espresso -mt-1" aria-hidden="true">
                 LUI
               </span>
             </Link>
@@ -83,7 +83,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`font-body text-[14px] tracking-[0.5px] no-underline transition-colors ${
+                  className={`font-body text-[14px] tracking-[0.5px] no-underline hover:no-underline transition-colors ${
                     pathname === item.href
                       ? "text-terracotta font-semibold"
                       : "text-espresso hover:text-terracotta"
