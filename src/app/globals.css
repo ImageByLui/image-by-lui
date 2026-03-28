@@ -1,0 +1,210 @@
+/* =============================================================================
+   Global Styles — Image by LUI
+   =============================================================================
+   Brand design tokens defined as CSS custom properties and registered with
+   Tailwind v4 via @theme. No dark mode — this is a single-palette brand site.
+   ============================================================================= */
+
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   CSS Custom Properties — Brand Color System
+   ---------------------------------------------------------------------------
+   These are the canonical color values. Tailwind tokens below reference these.
+
+   ACCESSIBILITY RULES (never violate):
+   - Espresso on Warm Ivory: 13.78:1 — headings, primary text
+   - Warm Grey on Warm Ivory: 5.20:1 — body text
+   - Terracotta on White: 5.25:1 — CTA button text
+   - Burnished Gold on light bg: FAILS — decorative only, NEVER as text
+   - Warm Taupe as body text: FAILS — large text only (24px+)
+   --------------------------------------------------------------------------- */
+
+:root {
+  --lui-espresso: #2C2420;
+  --lui-warm-taupe: #8C7B6B;
+  --lui-champagne: #D4C5B2;
+  --lui-warm-ivory: #F7F3EF;
+  --lui-terracotta: #A35741;
+  --lui-terracotta-dark: #8A4735;
+  --lui-gold: #C49A5C;
+  --lui-soft-stone: #E8E0D6;
+  --lui-warm-grey: #6B6560;
+  --lui-white: #FFFFFF;
+}
+
+/* ---------------------------------------------------------------------------
+   Tailwind v4 Theme — Maps CSS variables to utility classes
+   ---------------------------------------------------------------------------
+   Usage: bg-espresso, text-warm-grey, border-champagne, etc.
+   --------------------------------------------------------------------------- */
+
+@theme inline {
+  /* Colors */
+  --color-espresso: var(--lui-espresso);
+  --color-warm-taupe: var(--lui-warm-taupe);
+  --color-champagne: var(--lui-champagne);
+  --color-warm-ivory: var(--lui-warm-ivory);
+  --color-terracotta: var(--lui-terracotta);
+  --color-terracotta-dark: var(--lui-terracotta-dark);
+  --color-gold: var(--lui-gold);
+  --color-soft-stone: var(--lui-soft-stone);
+  --color-warm-grey: var(--lui-warm-grey);
+
+  /* Fonts — CSS variable names set by next/font in layout.tsx */
+  --font-heading: var(--font-cormorant-garamond), "Georgia", serif;
+  --font-body: var(--font-libre-franklin), "Helvetica Neue", "Arial", sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+   Base Styles
+   --------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--lui-warm-ivory);
+  color: var(--lui-warm-grey);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Typography Base
+   --------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--lui-espresso);
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}
+
+a {
+  color: var(--lui-terracotta);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+blockquote {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--lui-espresso);
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  blockquote {
+    font-size: 26px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Utility Classes — Brand-specific
+   --------------------------------------------------------------------------- */
+
+/* Page title / Hero — Cormorant Garamond 600, tracked */
+.text-page-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--lui-espresso);
+  letter-spacing: 2px;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .text-page-title {
+    font-size: 44px;
+  }
+}
+
+/* Caption text — Libre Franklin 300 */
+.text-caption {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 12px;
+  color: var(--lui-warm-taupe);
+}
+
+@media (min-width: 768px) {
+  .text-caption {
+    font-size: 13px;
+  }
+}
+
+/* Terracotta section divider */
+.divider-terracotta {
+  height: 1px;
+  background-color: var(--lui-terracotta);
+  border: none;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Focus Styles — Accessibility
+   --------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--lui-terracotta);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   Selection Color
+   --------------------------------------------------------------------------- */
+
+::selection {
+  background-color: var(--lui-champagne);
+  color: var(--lui-espresso);
+}
