@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site.config";
 
 // =============================================================================
@@ -8,11 +8,20 @@ import { siteConfig } from "@/config/site.config";
 // =============================================================================
 // Inline Calendly embed for the Contact page. Shows all three event types.
 // Loads Calendly script only when this component mounts (not site-wide).
+// Uses Calendly.initInlineWidget() to manually initialize after script loads.
 // Brand colors passed via embed parameters: primaryColor, textColor.
-//
-// Optional: Listens for calendly.event_scheduled postMessage to show
-// a custom confirmation. If unreliable, Calendly shows its own confirmation.
 // =============================================================================
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: {
+        url: string;
+        parentElement: HTMLElement;
+      }) => void;
+    };
+  }
+}
 
 interface CalendlyEmbedProps {
   /** Callback when a booking is completed (optional enhancement) */
@@ -20,31 +29,43 @@ interface CalendlyEmbedProps {
 }
 
 export default function CalendlyEmbed({ onEventScheduled }: CalendlyEmbedProps) {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(true);
 
-  // Load Calendly embed script
   useEffect(() => {
-    // Check if already loaded
-    if (document.querySelector('script[src*="calendly.com/assets/external/widget.js"]')) {
-      setScriptLoaded(true);
+    const calendlyUrl = `${siteConfig.calendly.baseUrl}?hide_gdpr_banner=1&primary_color=A35741&text_color=2C2420`;
+
+    // Load CSS
+    if (!document.querySelector('link[href*="calendly.com/assets/external/widget.css"]')) {
+      const link = document.createElement("link");
+      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    }
+
+    const initWidget = () => {
+      if (window.Calendly && containerRef.current) {
+        containerRef.current.innerHTML = "";
+        window.Calendly.initInlineWidget({
+          url: calendlyUrl,
+          parentElement: containerRef.current,
+        });
+        setLoading(false);
+      }
+    };
+
+    // Check if script is already loaded
+    if (window.Calendly) {
+      initWidget();
       return;
     }
 
+    // Load script then initialize
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
-    script.onload = () => setScriptLoaded(true);
+    script.onload = () => initWidget();
     document.head.appendChild(script);
-
-    // Load Calendly CSS
-    const link = document.createElement("link");
-    link.href = "https://assets.calendly.com/assets/external/widget.css";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-
-    return () => {
-      // Don't remove on unmount — script can stay cached
-    };
   }, []);
 
   // Listen for booking confirmation (optional enhancement)
@@ -64,19 +85,17 @@ export default function CalendlyEmbed({ onEventScheduled }: CalendlyEmbedProps) 
     return () => window.removeEventListener("message", handleMessage);
   }, [onEventScheduled]);
 
-  const calendlyUrl = siteConfig.calendly.baseUrl;
-
   return (
     <div className="w-full min-h-[650px]">
-      {scriptLoaded ? (
-        <div
-          className="calendly-inline-widget"
-          data-url={`${calendlyUrl}?hide_gdpr_banner=1&primary_color=A35741&text_color=2C2420`}
-          style={{ minWidth: "320px", height: "700px" }}
-        />
-      ) : (
-        // Loading state while script loads
-        <div className="flex items-center justify-center h-[650px] bg-soft-stone/30">
+      {/* Container for Calendly widget */}
+      <div
+        ref={containerRef}
+        style={{ minWidth: "320px", height: "700px" }}
+      />
+
+      {/* Loading state — hidden once widget initializes */}
+      {loading && (
+        <div className="flex items-center justify-center h-[200px]">
           <div className="text-center">
             <div className="w-8 h-8 border-2 border-terracotta border-t-transparent rounded-full animate-spin mx-auto mb-3" />
             <p className="text-warm-grey text-[14px]">Loading booking calendar...</p>
