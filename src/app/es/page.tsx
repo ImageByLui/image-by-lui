@@ -141,6 +141,7 @@ export default function HomePageEs() {
           <InstagramFeed
             heading={content.instagramFeed.heading}
             subtext={content.instagramFeed.subtext}
+            lang="es"
           />
         </div>
       </section>
