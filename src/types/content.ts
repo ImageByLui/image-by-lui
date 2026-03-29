@@ -134,10 +134,17 @@ export interface TransformationsSection {
 
 export interface HomeContent {
   hero: HeroSection;
+  /** Inspirational quote — displayed as espresso poster moment */
+  quote?: {
+    text: string;
+    attribution: string;
+  };
   whoIsThisFor: WhoIsThisForSection;
-  howItWorks: HowItWorksSection;
+  /** @deprecated — Removed from homepage in V6. Kept for backward compat. */
+  howItWorks?: HowItWorksSection;
   servicePreview: ServicePreviewSection;
-  transformations: TransformationsSection;
+  /** @deprecated — Removed from homepage in V6. Kept for backward compat. */
+  transformations?: TransformationsSection;
   socialProof: SocialProofSection;
   aboutPreview: AboutPreviewSection;
   /** @deprecated — Instagram link moved into aboutPreview. Kept for backward compat. */

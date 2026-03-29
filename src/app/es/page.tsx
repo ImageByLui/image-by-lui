@@ -2,299 +2,451 @@ import type { Metadata } from "next";
 import { homeContentEs } from "@/content/es/home";
 import { testimonials, testimonialsContextLine } from "@/content/shared/testimonials";
 import { buildPageMetadata } from "@/lib/metadata";
-import { getCalendlyUrl } from "@/config/site.config";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import PersonaCard from "@/components/ui/PersonaCard";
-import ProcessSteps from "@/components/ui/ProcessSteps";
-import TransformationCard from "@/components/ui/TransformationCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
-// Homepage — Spanish (/es) — V4
+// Homepage — Spanish (/es) — V6 Final
+// =============================================================================
+// Structure:
+//   1. Hero — image left (desktop) / above (mobile), aspirational serif italic subtitle
+//   2. Coco Chanel quote — espresso poster with decorative gold quotes
+//   3. Where to Begin — Power Palette invitation + transition + editorial paid tiers
+//   4. Image break
+//   5. Designed for Professionals — espresso, terracotta bars
+//   6. Testimonials — champagne, headshots + @handles
+//   7. Meet Lu — image + text
+//   8. Final CTA — espresso, button
 // =============================================================================
 
-export const metadata: Metadata = buildPageMetadata(homeContentEs.seo, "es", "home");
+export const metadata: Metadata = buildPageMetadata(homeContentEs.seo, "en", "home");
 
 export default function HomePageEs() {
-  const content = homeContentEs;
-  const freeCard = content.servicePreview.cards[0];
-  const paidCards = content.servicePreview.cards.slice(1);
+  const c = homeContentEs;
+  const freeCard = c.servicePreview.cards[0];
+  const paidCards = c.servicePreview.cards.slice(1);
 
   return (
     <>
-      {/* 1. Hero — Warm Ivory */}
+      {/* ----------------------------------------------------------------- */}
+      {/* 1. HERO                                                          */}
+      {/* ----------------------------------------------------------------- */}
       <section className="bg-warm-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-24">
-          <div className="md:hidden mb-4">
+        {/* Desktop: image left, text right */}
+        <div className="hidden lg:grid grid-cols-[1.2fr_1fr] min-h-[80vh] max-h-[720px]">
+          <div className="overflow-hidden">
             <ImagePlaceholder
-              alt={content.hero.imageAlt}
-              width={1920}
-              height={1080}
+              alt={c.hero.imageAlt}
+              width={800}
+              height={1000}
               colorIndex={0}
-              className="w-full"
+              className="w-full h-full object-cover"
               priority
             />
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="flex items-center px-12 py-16">
             <ScrollReveal>
-              <h1 className="text-page-title mb-4 md:mb-6">{content.hero.headline}</h1>
-              <p className="text-warm-grey leading-relaxed text-[16px] md:text-[18px] mb-4">
-                {content.hero.subheadline}
-              </p>
-              {content.hero.trustLine && (
-                <p className="font-body font-semibold text-espresso/70 text-[12px] md:text-[14px] uppercase tracking-[1.5px] mb-5 md:mb-6">
-                  {content.hero.trustLine}
+              <div>
+                <div className="w-12 h-[1px] bg-terracotta mb-6" />
+                <h1 className="font-heading font-semibold text-[48px] leading-[1.08] text-espresso mb-5">
+                  {c.hero.headline}
+                </h1>
+                <p className="font-heading italic text-[22px] text-warm-grey leading-snug mb-8">
+                  {c.hero.subheadline}
                 </p>
-              )}
-              <Button
-                href={content.hero.cta.href}
-                external={content.hero.cta.external}
-                className="w-full md:w-auto"
-              >
-                {content.hero.cta.text}
-              </Button>
-              <p className="text-caption mt-2 text-center md:text-left">{content.hero.ctaSubtext}</p>
+                <Button href={c.hero.cta.href} external={c.hero.cta.external}>
+                  {c.hero.cta.text}
+                </Button>
+                <p className="font-body text-[13px] text-warm-taupe mt-3">
+                  {c.hero.ctaSubtext}
+                </p>
+              </div>
             </ScrollReveal>
+          </div>
+        </div>
 
-            <ScrollReveal delay={200} className="hidden md:block">
-              <ImagePlaceholder
-                alt={content.hero.imageAlt}
-                width={1920}
-                height={1080}
-                colorIndex={0}
-                className="w-full"
-                priority
-              />
-            </ScrollReveal>
+        {/* Mobile: image above, text below */}
+        <div className="lg:hidden">
+          <ImagePlaceholder
+            alt={c.hero.imageAlt}
+            width={750}
+            height={422}
+            colorIndex={0}
+            className="w-full"
+            priority
+          />
+          <div className="px-6 py-6">
+            <h1 className="font-heading font-semibold text-[30px] leading-[1.15] text-espresso mb-3">
+              {c.hero.headline}
+            </h1>
+            <p className="font-heading italic text-[18px] text-warm-grey leading-snug mb-5">
+              {c.hero.subheadline}
+            </p>
+            <Button
+              href={c.hero.cta.href}
+              external={c.hero.cta.external}
+              className="w-full"
+            >
+              {c.hero.cta.text}
+            </Button>
+            <p className="font-body text-[12px] text-warm-taupe text-center mt-2">
+              {c.hero.ctaSubtext}
+            </p>
           </div>
         </div>
       </section>
 
-      <hr className="lui-divider" />
-
-      {/* Sections 2-4: Reordered on mobile */}
-      <div className="flex flex-col">
-
-        {/* 2. Who Is This For — order-3 mobile, order-1 desktop */}
-        <section className="bg-soft-stone order-3 md:order-1">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <ScrollReveal>
-              <SectionHeading>{content.whoIsThisFor.sectionHeading}</SectionHeading>
-            </ScrollReveal>
-
-            <div className="hidden md:grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {content.whoIsThisFor.cards.map((card, i) => (
-                <ScrollReveal key={card.headline} delay={i * 100}>
-                  <div className="h-full">
-                    <PersonaCard headline={card.headline} body={card.body} />
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <div className="md:hidden flex flex-col gap-3">
-              {content.whoIsThisFor.cards.map((card) => (
-                <PersonaCard key={card.headline} headline={card.headline} body={card.body} />
-              ))}
-            </div>
+      {/* ----------------------------------------------------------------- */}
+      {/* 2. QUOTE — Espresso poster with decorative gold quotes            */}
+      {/* ----------------------------------------------------------------- */}
+      {c.quote && (
+        <section className="bg-espresso relative overflow-hidden py-9 md:py-14">
+          <span
+            className="font-heading absolute top-2 left-3 md:left-10 text-[120px] md:text-[180px] text-gold/[0.10] leading-none select-none"
+            aria-hidden="true"
+          >
+            &ldquo;
+          </span>
+          <span
+            className="font-heading absolute -bottom-6 right-3 md:right-10 text-[120px] md:text-[180px] text-gold/[0.10] leading-none select-none"
+            aria-hidden="true"
+          >
+            &rdquo;
+          </span>
+          <div className="max-w-[720px] mx-auto px-6 md:px-10 text-center relative z-10">
+            <p className="font-heading italic text-warm-ivory text-[20px] md:text-[26px] leading-snug">
+              {c.quote.text}
+            </p>
+            <div className="w-8 h-[1px] bg-gold mx-auto my-4 md:my-5" />
+            <p className="font-body font-semibold text-[11px] md:text-[13px] tracking-[1.5px] uppercase text-warm-ivory/35">
+              {c.quote.attribution}
+            </p>
           </div>
         </section>
+      )}
 
-        {/* 3. How It Works — order-1 mobile, order-2 desktop */}
-        <section className="bg-warm-ivory order-1 md:order-2">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <ScrollReveal>
-              <ProcessSteps
-                heading={content.howItWorks.sectionHeading}
-                steps={content.howItWorks.steps}
-              />
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* 4. Where to Begin — order-2 mobile, order-3 desktop */}
-        <section className="bg-soft-stone order-2 md:order-3">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <ScrollReveal>
-              <SectionHeading>{content.servicePreview.heading}</SectionHeading>
-            </ScrollReveal>
-
-            <div className="max-w-4xl mx-auto">
-              <ScrollReveal>
-                <div className="lui-card bg-champagne p-5 md:p-6 mb-2 md:flex md:items-center md:justify-between md:gap-6">
-                  <div>
-                    <span className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta">
-                      Empieza aquí — de cortesía
-                    </span>
-                    <p className="font-heading font-medium text-[20px] md:text-[22px] text-espresso mt-1 mb-1">
-                      {freeCard.name}
-                    </p>
-                    <p className="text-warm-grey text-[15px] md:text-[16px] leading-relaxed">
-                      {freeCard.description}
-                    </p>
-                  </div>
-                  <div className="mt-3 md:mt-0 md:shrink-0">
-                    <Button
-                      href={freeCard.cta.href}
-                      external={freeCard.cta.external}
-                      className="w-full md:w-auto"
-                    >
-                      {freeCard.cta.text}
-                    </Button>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {paidCards.map((card, i) => (
-                  <ScrollReveal key={card.name} delay={i * 100}>
-                    <div
-                      className={`lui-card bg-white p-5 md:p-6 flex flex-col h-full ${
-                        i === 1 ? "border-t-[3px] border-t-gold" : ""
-                      }`}
-                    >
-                      <div className="h-[22px] flex items-end mb-1">
-                        {i === 1 && (
-                          <span className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-warm-taupe">
-                            Más Completo
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="font-heading font-medium text-[20px] md:text-[22px] text-espresso">
-                        {card.name}
-                      </h3>
-                      <span className="font-body font-semibold text-[18px] md:text-[20px] text-espresso mt-1">
-                        {card.price}
-                      </span>
-
-                      <div className={`w-8 h-[1px] my-3 ${i === 1 ? "bg-gold" : "bg-terracotta"}`} />
-
-                      {card.positioningLine && (
-                        <p className="font-heading italic text-warm-taupe text-[15px] md:text-[16px] mb-2">
-                          {card.positioningLine}
-                        </p>
-                      )}
-
-                      <p className="text-warm-grey text-[15px] md:text-[16px] leading-relaxed mb-3 flex-1">
-                        {card.outcomeText && (
-                          <strong className="text-espresso">{card.outcomeText} </strong>
-                        )}
-                        {card.description}
-                      </p>
-
-                      {card.detailsLine && (
-                        <div className={`mb-3 ${i === 1 ? "bg-champagne p-2" : ""}`}>
-                          <p className={`font-body text-espresso text-[13px] md:text-[14px] ${
-                            i === 1 ? "font-semibold text-center" : "font-medium"
-                          }`}>
-                            {card.detailsLine}
-                          </p>
-                        </div>
-                      )}
-
-                      <div className="mt-auto">
-                        <div className="md:hidden">
-                          <Link
-                            href={card.cta.href || "#"}
-                            className="font-body font-semibold text-terracotta text-[14px] tracking-[0.5px] no-underline hover:underline"
-                          >
-                            {card.cta.text} →
-                          </Link>
-                        </div>
-                        <div className="hidden md:block">
-                          <Button href={card.cta.href} external={card.cta.external} className="w-full">
-                            {card.cta.text}
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      {/* 5. Transformations — Warm Ivory */}
-      <section className="bg-warm-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      {/* ----------------------------------------------------------------- */}
+      {/* 3. WHERE TO BEGIN                                                 */}
+      {/* ----------------------------------------------------------------- */}
+      <section className="bg-warm-ivory pt-10 md:pt-[72px]">
+        <div className="max-w-[960px] mx-auto px-6 lg:px-10">
           <ScrollReveal>
-            <SectionHeading subtitle={content.transformations.sectionSubheading}>
-              {content.transformations.sectionHeading}
-            </SectionHeading>
+            <p className="font-body font-semibold text-[11px] md:text-[12px] tracking-[2px] uppercase text-terracotta text-center mb-2">
+              Por dónde empezar
+            </p>
+            <p className="font-heading font-medium text-[22px] md:text-[28px] text-espresso text-center mb-8 md:mb-12">
+              Tres Niveles de Transformación
+            </p>
           </ScrollReveal>
 
-          <div className="hidden md:grid grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {content.transformations.cards.map((card, i) => (
-              <ScrollReveal key={card.caption} delay={i * 100}>
-                <TransformationCard beforeImage={card.beforeImage} afterImage={card.afterImage} caption={card.caption} />
+          {/* Power Palette — invitation card */}
+          <ScrollReveal>
+            <div className="bg-warm-ivory border border-champagne overflow-hidden md:grid md:grid-cols-2 mb-8 md:mb-10">
+              <div className="p-1.5 md:p-0 md:min-h-[300px]">
+                <ImagePlaceholder
+                  alt="Color draping session"
+                  width={800}
+                  height={600}
+                  colorIndex={1}
+                  className="w-full md:h-full md:object-cover"
+                />
+              </div>
+              <div className="px-5 pb-5 pt-3 md:px-10 md:py-9 flex flex-col justify-center">
+                <span className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-terracotta mb-2">
+                  Empieza aquí — de cortesía
+                </span>
+                <h3 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso mb-3">
+                  {freeCard.name}
+                </h3>
+                <p className="font-body text-warm-grey text-[15px] md:text-[16px] leading-relaxed mb-5">
+                  {freeCard.description}
+                </p>
+                <div>
+                  <Button
+                    href={freeCard.cta.href}
+                    external={freeCard.cta.external}
+                    className="w-full md:w-auto"
+                  >
+                    {freeCard.cta.text}
+                  </Button>
+                </div>
+                <p className="font-body text-[12px] text-warm-taupe mt-2 text-center md:text-left">
+                  Sin compromiso
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Transition */}
+          <div className="text-center mb-8 md:mb-10">
+            <div className="w-12 h-[1px] bg-champagne mx-auto mb-3" />
+            <p className="font-heading italic text-[15px] md:text-[16px] text-warm-taupe">
+              Cuando estés lista para más
+            </p>
+            <div className="w-12 h-[1px] bg-champagne mx-auto mt-3" />
+          </div>
+
+          {/* First Impression — editorial layout */}
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-10 md:mb-12 pb-10 md:pb-12 border-b border-b-soft-stone">
+              <div>
+                {/* Mobile: inline price. Desktop: stacked */}
+                <div className="flex items-baseline justify-between lg:block">
+                  <h3 className="font-heading font-medium text-[20px] lg:text-[26px] text-espresso">
+                    {paidCards[0].name}
+                  </h3>
+                  <p className="font-body font-semibold text-[15px] lg:text-[18px] text-terracotta lg:mt-1">
+                    {paidCards[0].price}
+                  </p>
+                </div>
+                <div className="w-8 h-[1px] bg-terracotta my-3 lg:my-4" />
+                {paidCards[0].positioningLine && (
+                  <p className="font-heading italic text-[14px] lg:text-[17px] text-warm-taupe mb-2 lg:mb-3">
+                    {paidCards[0].positioningLine}
+                  </p>
+                )}
+                <p className="font-body text-[15px] lg:text-[16px] text-warm-grey leading-relaxed mb-3">
+                  {paidCards[0].outcomeText && (
+                    <strong className="text-espresso">{paidCards[0].outcomeText} </strong>
+                  )}
+                  {paidCards[0].description}
+                </p>
+                {paidCards[0].detailsLine && (
+                  <p className="font-body text-[13px] text-warm-taupe mb-4">
+                    {paidCards[0].detailsLine}
+                  </p>
+                )}
+                <Link
+                  href={paidCards[0].cta.href || "#"}
+                  className="font-body font-semibold text-terracotta text-[14px] lg:text-[15px] tracking-[0.5px] no-underline hover:underline"
+                >
+                  {paidCards[0].cta.text} →
+                </Link>
+              </div>
+              {/* Desktop-only image */}
+              <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
+                <ImagePlaceholder
+                  alt="Style diagnostic session"
+                  width={600}
+                  height={450}
+                  colorIndex={1}
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Identity Transformation — flagship, image first on desktop */}
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start pb-10 md:pb-[72px]">
+              {/* Desktop-only image — gold frame */}
+              <div className="hidden lg:block border border-gold/40 p-1.5 bg-warm-ivory">
+                <ImagePlaceholder
+                  alt="Complete transformation"
+                  width={600}
+                  height={450}
+                  colorIndex={1}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                {/* Mobile: gold top border */}
+                <div className="border-t-[3px] border-t-gold pt-5 lg:border-t-0 lg:pt-0">
+                  <span className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-gold mb-2 block">
+                    Más Completo
+                  </span>
+                  <div className="flex items-baseline justify-between lg:block">
+                    <h3 className="font-heading font-medium text-[20px] lg:text-[26px] text-espresso">
+                      {paidCards[1].name}
+                    </h3>
+                    <p className="font-body font-semibold text-[15px] lg:text-[18px] text-terracotta lg:mt-1">
+                      {paidCards[1].price}
+                    </p>
+                  </div>
+                  <div className="w-8 h-[1px] bg-gold my-3 lg:my-4" />
+                  {paidCards[1].positioningLine && (
+                    <p className="font-heading italic text-[14px] lg:text-[17px] text-warm-taupe mb-2 lg:mb-3">
+                      {paidCards[1].positioningLine}
+                    </p>
+                  )}
+                  <p className="font-body text-[15px] lg:text-[16px] text-warm-grey leading-relaxed mb-3">
+                    {paidCards[1].outcomeText && (
+                      <strong className="text-espresso">{paidCards[1].outcomeText} </strong>
+                    )}
+                    {paidCards[1].description}
+                  </p>
+                  {paidCards[1].detailsLine && (
+                    <div className="bg-champagne px-3 py-2 inline-block mb-4">
+                      <p className="font-body font-semibold text-[12px] lg:text-[13px] text-espresso">
+                        {paidCards[1].detailsLine}
+                      </p>
+                    </div>
+                  )}
+                  <div className="block">
+                    <Link
+                      href={paidCards[1].cta.href || "#"}
+                      className="font-body font-semibold text-terracotta text-[14px] lg:text-[15px] tracking-[0.5px] no-underline hover:underline"
+                    >
+                      {paidCards[1].cta.text} →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 4. IMAGE BREAK                                                    */}
+      {/* ----------------------------------------------------------------- */}
+      <ImagePlaceholder
+        alt="Color draping in action"
+        width={1200}
+        height={400}
+        colorIndex={1}
+        className="w-full"
+      />
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 5. DESIGNED FOR PROFESSIONALS — Espresso                          */}
+      {/* ----------------------------------------------------------------- */}
+      <section className="bg-espresso">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
+          <ScrollReveal>
+            <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-warm-ivory text-center mb-1 md:mb-2">
+              {c.whoIsThisFor.sectionHeading}
+            </h2>
+            <div className="w-8 h-[1px] bg-gold mx-auto mb-5 md:mb-9" />
+          </ScrollReveal>
+
+          {/* Desktop: 2x2 grid */}
+          <div className="hidden md:grid grid-cols-2 gap-6 max-w-[900px] mx-auto">
+            {c.whoIsThisFor.cards.map((card, i) => (
+              <ScrollReveal key={card.headline} delay={i * 100}>
+                <div className="pl-5 border-l-[3px] border-l-terracotta py-2">
+                  <p className="font-body font-semibold text-[18px] text-warm-ivory mb-2">
+                    {card.headline}
+                  </p>
+                  <p className="font-body text-[15px] text-warm-ivory/55 leading-relaxed">
+                    {card.body}
+                  </p>
+                </div>
               </ScrollReveal>
             ))}
           </div>
 
-          <div className="md:hidden flex flex-col gap-3">
-            {content.transformations.cards.map((card) => (
-              <TransformationCard key={card.caption} beforeImage={card.beforeImage} afterImage={card.afterImage} caption={card.caption} />
+          {/* Mobile: stacked */}
+          <div className="md:hidden flex flex-col">
+            {c.whoIsThisFor.cards.map((card, i) => (
+              <div
+                key={card.headline}
+                className={`flex items-start gap-3 py-3.5 ${
+                  i < c.whoIsThisFor.cards.length - 1
+                    ? "border-b border-b-warm-ivory/10"
+                    : ""
+                }`}
+              >
+                <div className="w-[3px] min-h-full bg-terracotta shrink-0 mt-1 self-stretch" />
+                <div>
+                  <p className="font-body font-semibold text-[17px] text-warm-ivory mb-1">
+                    {card.headline}
+                  </p>
+                  <p className="font-body text-[14px] text-warm-ivory/55 leading-relaxed">
+                    {card.body}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <hr className="lui-divider" />
-
-      {/* 6. Testimonials — Champagne */}
+      {/* ----------------------------------------------------------------- */}
+      {/* 6. TESTIMONIALS — Champagne, headshots + @handles                 */}
+      {/* ----------------------------------------------------------------- */}
       <section className="bg-champagne">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
           <ScrollReveal>
-            <SectionHeading>{content.socialProof.heading}</SectionHeading>
-            <p className="text-center font-heading italic text-warm-taupe text-[14px] md:text-[15px] mb-6 md:mb-8 -mt-4">
+            <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso text-center mb-1">
+              {c.socialProof.heading}
+            </h2>
+            <p className="text-center font-heading italic text-warm-taupe text-[13px] md:text-[14px] mb-4 md:mb-8">
               {testimonialsContextLine.es}
             </p>
           </ScrollReveal>
 
-          <div className="hidden md:grid grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {/* Desktop: 3-column */}
+          <div className="hidden md:grid grid-cols-3 gap-5 max-w-[960px] mx-auto">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} delay={i * 100}>
-                <TestimonialCard quote={t.quote.es} attribution={t.attribution.es} />
+                <TestimonialCard
+                  quote={t.quote.es}
+                  attribution={t.attribution.es}
+                  initials={t.initials}
+                  social={t.social}
+                />
               </ScrollReveal>
             ))}
           </div>
 
+          {/* Mobile: stacked */}
           <div className="md:hidden flex flex-col gap-3">
             {testimonials.map((t, i) => (
-              <TestimonialCard key={i} quote={t.quote.es} attribution={t.attribution.es} />
+              <TestimonialCard
+                key={i}
+                quote={t.quote.es}
+                attribution={t.attribution.es}
+                initials={t.initials}
+                social={t.social}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. Meet Lu + Instagram — Warm Ivory */}
+      {/* ----------------------------------------------------------------- */}
+      {/* 7. MEET LU                                                        */}
+      {/* ----------------------------------------------------------------- */}
       <section className="bg-warm-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-start max-w-[960px] mx-auto">
             <ScrollReveal>
-              <ImagePlaceholder alt="Lu — Consultora de Imagen" width={1200} height={800} colorIndex={1} className="w-full" />
+              <ImagePlaceholder
+                alt="Lu — Image Consultant"
+                width={1200}
+                height={900}
+                colorIndex={1}
+                className="w-full"
+              />
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <SectionHeading centered={false}>{content.aboutPreview.heading}</SectionHeading>
-              <p className="text-warm-grey leading-relaxed text-[15px] md:text-[17px] mb-4">
-                {content.aboutPreview.body}
+              <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso mb-3 md:mb-4">
+                {c.aboutPreview.heading}
+              </h2>
+              <p className="font-body text-warm-grey leading-relaxed text-[16px] md:text-[17px] mb-5">
+                {c.aboutPreview.body}
               </p>
-              <div className="flex items-center justify-between md:justify-start md:gap-6">
-                <Link href={content.aboutPreview.link.href} className="font-body font-semibold text-terracotta text-[14px] tracking-[0.5px] no-underline hover:underline">
-                  {content.aboutPreview.link.text} →
+              <div className="flex items-center gap-10">
+                <Link
+                  href={c.aboutPreview.link.href}
+                  className="font-body font-semibold text-terracotta text-[14px] md:text-[15px] tracking-[0.5px] no-underline hover:underline"
+                >
+                  {c.aboutPreview.link.text} →
                 </Link>
-                {content.aboutPreview.instagramLink && (
-                  <a href={content.aboutPreview.instagramLink.href} target="_blank" rel="noopener noreferrer" className="font-body font-semibold text-terracotta text-[14px] tracking-[0.5px] no-underline hover:underline">
-                    {content.aboutPreview.instagramLink.text} →
+                {c.aboutPreview.instagramLink && (
+                  <a
+                    href={c.aboutPreview.instagramLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body font-semibold text-terracotta text-[14px] md:text-[15px] tracking-[0.5px] no-underline hover:underline"
+                  >
+                    {c.aboutPreview.instagramLink.text} →
                   </a>
                 )}
               </div>
@@ -303,19 +455,24 @@ export default function HomePageEs() {
         </div>
       </section>
 
-      {/* 8. Final CTA — Espresso */}
+      {/* ----------------------------------------------------------------- */}
+      {/* 8. FINAL CTA                                                      */}
+      {/* ----------------------------------------------------------------- */}
       <section className="bg-espresso">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-8 md:py-16 text-center">
           <ScrollReveal>
-            <h2 className="text-warm-ivory font-heading font-medium mb-3 md:mb-4">{content.finalCta.heading}</h2>
-            <p className="text-warm-ivory/80 leading-relaxed text-[15px] md:text-[17px] mb-0 md:mb-8">
-              {content.finalCta.body}
+            <div className="w-8 h-[1px] bg-gold mx-auto mb-5 md:mb-6" />
+            <h2 className="text-warm-ivory font-heading font-medium text-[22px] md:text-[28px] mb-2 md:mb-3">
+              {c.finalCta.heading}
+            </h2>
+            <p className="text-warm-ivory/70 leading-relaxed text-[15px] md:text-[17px] mb-5 md:mb-8">
+              {c.finalCta.body}
             </p>
-            <div className="hidden md:block">
-              <Button href={getCalendlyUrl("powerPalette")} external>
-                RESERVA TU CONSULTA GRATIS
+            {c.finalCta.cta && (
+              <Button href={c.finalCta.cta.href} external={c.finalCta.cta.external}>
+                {c.finalCta.cta.text}
               </Button>
-            </div>
+            )}
           </ScrollReveal>
         </div>
       </section>

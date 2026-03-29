@@ -22,6 +22,8 @@ export const testimonials: Testimonial[] = [
       en: "A.R., Finance Professional",
       es: "A.R., Profesional de Finanzas",
     },
+    initials: "AR",
+    social: "@placeholder",
   },
   {
     quote: {
@@ -32,6 +34,8 @@ export const testimonials: Testimonial[] = [
       en: "M.T., Healthcare Executive",
       es: "M.T., Ejecutiva de Salud",
     },
+    initials: "MT",
+    social: "@placeholder",
   },
   {
     quote: {
@@ -42,5 +46,7 @@ export const testimonials: Testimonial[] = [
       en: "C.L., Real Estate Agent",
       es: "C.L., Agente de Bienes Raíces",
     },
+    initials: "CL",
+    social: "@placeholder",
   },
 ];

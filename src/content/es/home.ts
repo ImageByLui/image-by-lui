@@ -3,65 +3,50 @@ import { getCalendlyUrl } from "@/config/site.config";
 import { siteConfig } from "@/config/site.config";
 
 // =============================================================================
-// Homepage Content — Spanish (V2 — Natively written, NOT a translation)
+// Homepage Content — Spanish (V6 — Final Approved)
+// =============================================================================
+// Natively written Spanish, NOT a translation.
 // =============================================================================
 
 export const homeContentEs: HomeContent = {
   hero: {
     headline: "Tu Imagen, Arquitectura de Estilo.",
     subheadline:
-      "Image by LUI es una práctica de consultoría de imagen diagnóstica en Miami. Mediante colorimetría, análisis morfológico y mapeo de estilo de vida, ayudamos a profesionales a alinear cómo se ven con hacia dónde van.",
-    trustLine: "Práctica bilingüe al servicio de profesionales en todo el condado de Miami-Dade.",
+      "Cuando entras a una habitación, tu imagen habla antes que tú. Nos aseguramos de que diga exactamente lo que tú quieres.",
     cta: {
-      text: "DESCUBRE TU POWER PALETTE",
+      text: "DESCUBRE TUS COLORES",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },
     ctaSubtext:
-      "Análisis de color de cortesía — 20 minutos, virtual o presencial",
+      "Sesión de cortesía de 20 minutos — virtual o presencial",
     imageAlt:
-      "Mujer profesional con un atuendo a medida revisando muestras de color durante una sesión de consultoría de imagen en un entorno moderno y luminoso",
+      "Lu consultando con una clienta durante una sesión de estrategia de imagen",
+  },
+
+  quote: {
+    text: "Viste mal y notarán el vestido; viste impecable y notarán a la mujer.",
+    attribution: "Coco Chanel",
   },
 
   whoIsThisFor: {
     sectionHeading: "Diseñado para Profesionales Que...",
     cards: [
       {
-        headline: "Navega dos culturas con confianza",
-        body: "Te mudaste a EE.UU. por tu carrera. Ahora navegas los códigos de vestimenta corporativos americanos mientras mantienes la identidad que te hace ser tú. LUI te ayuda a conectar ambos mundos — estratégicamente.",
+        headline: "Navegan dos culturas",
+        body: "Te mudaste a EE.UU. por tu carrera. LUI te ayuda a conectar ambos mundos — estratégicamente.",
       },
       {
-        headline: "Destaca en un mercado saturado",
-        body: "En una ciudad con 61,000 agentes de bienes raíces, tu imagen es tu primera presentación de listado. Un look estratégico y cohesivo genera confianza antes de que digas una palabra.",
+        headline: "Destacan en un mercado saturado",
+        body: "En una ciudad con 61,000 agentes de bienes raíces, tu imagen es tu primera presentación.",
       },
       {
-        headline: "Eleva tu imagen sin improvisación",
-        body: "Sabes que tu imagen profesional importa pero no tienes tiempo para resolverlo solo. La metodología diagnóstica de LUI entrega un sistema claro y ejecutable — resuelto por ti.",
+        headline: "Elevan su imagen sin improvisación",
+        body: "Sabes que tu imagen importa pero no tienes tiempo para resolverlo. LUI entrega un sistema claro y ejecutable.",
       },
       {
-        headline: "Prepárate para lo que viene",
-        body: "Un ascenso. Un cambio de carrera. Un rol público. Una transición importante. Cuando lo que está en juego es alto, tu imagen debe ser tan intencional como tu estrategia.",
-      },
-    ],
-  },
-
-  howItWorks: {
-    sectionHeading: "Tres Pasos Hacia una Imagen Estratégica",
-    steps: [
-      {
-        number: 1,
-        heading: "Descubre Tus Colores",
-        body: "Reserva tu sesión Power Palette de cortesía. En 20 minutos, identificamos tu subtono y revelamos los cinco colores que te hacen lucir más poderosa.",
-      },
-      {
-        number: 2,
-        heading: "Recibe Tu Perfil Diagnóstico",
-        body: "Mediante colorimetría, análisis morfológico y mapeo de estilo de vida, construimos una estrategia de imagen personalizada basada en tus rasgos y metas.",
-      },
-      {
-        number: 3,
-        heading: "Transforma Tu Presencia",
-        body: "Con tu marco personalizado en mano, cada elección de outfit se vuelve intencional. Tu guardarropa trabaja para ti — y el mundo responde diferente.",
+        headline: "Se preparan para lo que viene",
+        body: "Un ascenso. Un cambio de carrera. Cuando lo que está en juego es alto, tu imagen debe ser tan intencional como tu estrategia.",
       },
     ],
   },
@@ -73,9 +58,9 @@ export const homeContentEs: HomeContent = {
         name: "Tu Power Palette",
         price: "Gratis",
         description:
-          "Análisis de color de 20 minutos que identifica tu subtono y tus 5 colores de poder.",
+          "Un análisis de color de 20 minutos que identifica tu subtono y revela tus 5 colores de poder.",
         cta: {
-          text: "RESERVA TU SESIÓN",
+          text: "DESCUBRE TUS COLORES",
           href: getCalendlyUrl("powerPalette"),
           external: true,
         },
@@ -89,7 +74,7 @@ export const homeContentEs: HomeContent = {
           "exactamente qué colores y siluetas funcionan para tu cuerpo y tu carrera — con 3–5 outfits que puedes usar esta semana.",
         detailsLine: "~2 horas · Análisis de color · Diagnóstico de estilo · Lookbook digital",
         cta: {
-          text: "EXPLORA PRIMERA IMPRESIÓN",
+          text: "Explora Primera Impresión",
           href: "/es/servicios#primera-impresion",
         },
       },
@@ -102,25 +87,9 @@ export const homeContentEs: HomeContent = {
           "Análisis colorimétrico y morfológico completo, auditoría de clóset, compras personalizadas y un sistema de estilo construido alrededor de tu vida.",
         detailsLine: "12–15 horas a través de 7 entregables distintos",
         cta: {
-          text: "EXPLORA TRANSFORMACIÓN",
+          text: "Explora Transformación",
           href: "/es/servicios#transformacion-de-identidad",
         },
-      },
-    ],
-  },
-
-  transformations: {
-    sectionHeading: "Transformaciones Reales",
-    sectionSubheading: "Mira cómo la metodología LUI genera cambios medibles.",
-    cards: [
-      {
-        caption: "Profesional corporativa — Realineación de guardarropa para un nuevo rol ejecutivo",
-      },
-      {
-        caption: "Agente de bienes raíces — Identidad visual cohesiva para presencia con clientes",
-      },
-      {
-        caption: "Emprendedora — Refinamiento de marca personal para presentaciones públicas",
       },
     ],
   },
@@ -131,9 +100,9 @@ export const homeContentEs: HomeContent = {
 
   aboutPreview: {
     heading: "Conoce a Lu",
-    body: "Con una formación en diseño de moda, certificaciones especializadas en colorimetría y estilismo, y un enfoque diagnóstico refinado a lo largo de años de práctica, Lu aporta precisión y calidez a cada compromiso. Nacida en Colombia, basada en Miami, fluida en los matices culturales que definen cómo los profesionales se presentan en una ciudad global.",
+    body: "Nacida en Colombia. Basada en Miami. Con formación en diseño de moda y entrenamiento especializado en colorimetría y estilismo, Lu aporta precisión diagnóstica y calidez personal a cada compromiso.",
     link: {
-      text: "Sobre Lu",
+      text: "Más sobre Lu",
       href: "/es/sobre-mi",
     },
     instagramLink: {
@@ -143,19 +112,14 @@ export const homeContentEs: HomeContent = {
     },
   },
 
-  instagramCta: {
-    heading: "Sigue el Proceso",
-    body: "Mira el método LUI en acción — sesiones de análisis de color, transformaciones de estilo e ideas diarias de estrategia de imagen.",
-    cta: {
-      text: "SIGUE A @IMAGEBYLUI EN INSTAGRAM",
-      href: siteConfig.instagram.url,
-      external: true,
-    },
-  },
-
   finalCta: {
     heading: "¿Tienes preguntas? Habla con Lu directamente.",
-    body: "Reserva una conversación de cortesía de 20 minutos. Sin presión, sin compromiso.",
+    body: "Ya sea que estés lista para reservar o simplemente quieras saber más, Lu estará encantada de conversar — sin presión, sin compromiso.",
+    cta: {
+      text: "RESERVA UNA CONVERSACIÓN GRATIS",
+      href: getCalendlyUrl("powerPalette"),
+      external: true,
+    },
   },
 
   seo: {
