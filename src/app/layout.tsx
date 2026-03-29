@@ -9,29 +9,24 @@ import MobileCTABar from "@/components/features/MobileCTABar";
 import LangUpdater from "@/components/features/LangUpdater";
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import "./globals.css";
-
 // =============================================================================
 // Font Loading — next/font/google with display: swap for performance
 // =============================================================================
-
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500", "600"],
   variable: "--font-cormorant-garamond",
   display: "swap",
 });
-
 const libreFranklin = Libre_Franklin({
   subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "600"],
   variable: "--font-libre-franklin",
   display: "swap",
 });
-
 // =============================================================================
 // Default Metadata — overridden per page via generateMetadata
 // =============================================================================
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
   title: {
@@ -46,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/og/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "Image by LUI — Diagnostic Image Consulting Miami",
@@ -58,14 +53,13 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | Diagnostic Image Consulting Miami`,
     description:
       "Diagnostic image consulting in Miami. Colorimetry, morphological analysis, and lifestyle mapping for professionals.",
-    images: ["/images/og-image.png"],
+    images: ["/og/og-default.jpg"],
   },
   robots: {
     index: true,
     follow: true,
   },
 };
-
 // =============================================================================
 // Root Layout
 // =============================================================================
@@ -74,14 +68,12 @@ export const metadata: Metadata = {
 // - Google Analytics 4 script (loaded after interactive, skipped if no ID)
 // - Global components: Header, Footer, WhatsAppButton, SchemaMarkup
 // =============================================================================
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const ga4Id = siteConfig.ga4MeasurementId;
-
   return (
     <html
       lang="en"
@@ -91,13 +83,10 @@ export default function RootLayout({
         <LangUpdater />
         <SchemaMarkup />
         <Header />
-
         <main className="flex-1">{children}</main>
-
         <Footer />
         <WhatsAppButton />
         <MobileCTABar />
-
         {/* Google Analytics 4 — only loads if measurement ID is configured */}
         {ga4Id && (
           <>
