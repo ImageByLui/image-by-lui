@@ -34,11 +34,13 @@ export default function AboutPage() {
         <div className="hidden lg:grid grid-cols-[1.3fr_1fr] h-[680px]">
           <div className="overflow-hidden">
             <ImagePlaceholder
-              alt={c.hero.imageAlt || "Lu — portrait"}
+              src="/images/about-hero-cartier.jpg"
+              alt="Lu, bilingual image consultant based in Miami, in a warm professional setting"
               width={800}
               height={1000}
               colorIndex={1}
               className="w-full h-full object-cover"
+              fill
               priority
             />
           </div>
@@ -63,11 +65,14 @@ export default function AboutPage() {
         {/* Mobile: portrait then text */}
         <div className="lg:hidden">
           <ImagePlaceholder
-            alt={c.hero.imageAlt || "Lu — portrait"}
+            src="/images/about-hero-cartier.jpg"
+            alt="Lu, bilingual image consultant based in Miami, in a warm professional setting"
             width={750}
             height={563}
             colorIndex={1}
             className="w-full"
+            fill
+            objectPosition="center 25%"
             priority
           />
           <div className="px-6 py-7">
@@ -156,9 +161,10 @@ export default function AboutPage() {
             <ScrollReveal delay={150}>
               <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
-                  alt={c.origin.imageAlt || "Lu at work"}
+                  src="/images/about-story-bw-blazer.jpg"
+                  alt="Black and white editorial portrait of Lu in a professional blazer"
                   width={600}
-                  height={400}
+                  height={800}
                   colorIndex={1}
                   className="w-full"
                 />
@@ -172,11 +178,14 @@ export default function AboutPage() {
       {/* 4. SESSION IMAGE                                                  */}
       {/* ----------------------------------------------------------------- */}
       <ImagePlaceholder
-        alt={c.sessionImageAlt || "Lu during a session"}
+        src="/images/about-story-bw-blazer.jpg"
+        alt="Black and white editorial portrait of Lu in a professional blazer"
         width={1200}
         height={400}
         colorIndex={1}
         className="w-full"
+        fill
+        objectPosition="center 15%"
       />
 
       {/* ----------------------------------------------------------------- */}
