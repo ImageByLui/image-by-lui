@@ -2,48 +2,55 @@ import type { AboutContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// About Page Content — English
+// About Page Content — English (V5 — Editorial Redesign)
+// =============================================================================
+// All copy from the approved Brand Brief. Restructured for editorial layout:
+// hero with pull-quote, two-part story with image breaks, inline client voice,
+// philosophy as statement/closer pair.
 // =============================================================================
 
 export const aboutContent: AboutContent = {
   hero: {
-    headline: "Meet Lu",
+    headline: "Built on precision. Delivered with warmth.",
     subheadline:
-      "Born in Colombia. Based in Miami. Trained in the science of how image shapes opportunity. Lu brings diagnostic precision and personal warmth to every client she works with.",
+      "Born in Colombia. Based in Miami. Diagnostic image consultant for professionals who need their appearance to work as strategically as they do.",
+    pullQuote:
+      "If you've ever stood in front of your closet before an important day and thought 'I have nothing to wear' — I understand.",
+    imageAlt:
+      "Lu — portrait in natural light",
   },
 
-  originStory: {
-    paragraphs: [
-      "If you've ever stood in front of your closet before an important day and thought 'I have nothing to wear' — even though it's full — Lu understands. Not because she read about it, but because she lived it. Growing up in Colombia, then building a career across cultures, she experienced firsthand how the right image opens doors and the wrong one keeps them closed.",
-      "Lu's path to image consulting started in a fashion design program in Colombia — not with trends, but with structure. Pattern construction. Textile science. The engineering behind how garments interact with the human form. That foundation shaped everything that followed.",
-      "After years of specialized training in colorimetry, styling, and fashion production, a clear methodology emerged: image isn't about following trends or copying looks. It's about understanding the science of color, proportion, and personal context — and using that understanding to build something intentional.",
-      "Today, Image by LUI serves professionals across Miami who need their appearance to work as strategically as they do. Latin American executives navigating a new corporate culture. Realtors competing in one of the country's most visual markets. Entrepreneurs whose personal brand is their company's first impression.",
+  story: {
+    part1: [
+      "Growing up in Colombia, then building a career across cultures, Lu experienced firsthand how the right image opens doors — and the wrong one keeps them closed.",
+      "Her path started in fashion design school. Not with trends — with structure. Pattern construction. Textile science. How garments actually interact with the human body. That foundation shaped everything that followed.",
     ],
+    part1ImageAlt: "Lu with color swatches",
+    part2: [
+      "After years of specialized training — <strong>certified colorimetry, professional styling, fashion production</strong> — a clear methodology emerged.",
+      "Image isn't about following trends or copying looks. It's about understanding the science of <strong>color, proportion, and personal context</strong> — and using that understanding to build something intentional.",
+    ],
+    part2ImageAlt: "Color draping session",
   },
 
-  credentials: {
-    heading: "Training and Credentials",
-    items: [
-      "Fashion Design Bachelor's Degree (Colombia)",
-      "Certified Colorimetry Specialist",
-      "Certified Fashion Stylist",
-      "Fashion Production Training",
-      "Special Effects Makeup Certification",
-      "Fashion Illustration (advanced coursework)",
-      "Bilingual practice: English and Spanish",
-    ],
+  clientVoice: {
+    quote:
+      "Lu didn't just change my wardrobe — she changed how I walk into a room. I finally look like the leader I am.",
+    attribution: "C.L., Real Estate Agent, Miami",
   },
 
   philosophy: {
-    heading: "The LUI Approach",
-    body: "Image consulting at LUI is not about telling you what to wear. It's about giving you a framework — grounded in colorimetry, morphological analysis, and lifestyle mapping — that makes every choice intentional. We believe your image should reflect your ambition, your culture, and your reality. Not a magazine cover. Not someone else's idea of success. Yours.",
+    statement:
+      "Your image should reflect your ambition, your culture, and your reality.",
+    closer:
+      "Not a magazine cover. Not someone else's idea of success. Yours.",
   },
 
   cta: {
-    heading: "Experience the Methodology for Yourself",
+    heading: "Ready to start?",
     body: "Your Power Palette is a complimentary 20-minute color analysis — and the first step in understanding how the LUI method can work for you.",
     cta: {
-      text: "DISCOVER YOUR POWER PALETTE",
+      text: "BOOK YOUR FREE SESSION",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },

@@ -232,22 +232,39 @@ export interface AboutContent {
   hero: {
     headline: string;
     subheadline: string;
+    /** First-person pull-quote integrated into hero */
+    pullQuote?: string;
+    imageAlt?: string;
   };
-  originStory: {
-    paragraphs: string[];
+  /** Two-part story with alternating image blocks */
+  story: {
+    part1: string[];
+    part1ImageAlt?: string;
+    part2: string[];
+    part2ImageAlt?: string;
   };
-  credentials: {
-    heading: string;
-    items: string[];
+  /** Inline client testimonial between story and philosophy */
+  clientVoice?: {
+    quote: string;
+    attribution: string;
   };
   philosophy: {
-    heading: string;
-    body: string;
+    statement: string;
+    closer: string;
   };
   cta: {
     heading: string;
     body: string;
     cta: CTAButton;
+  };
+  /** @deprecated — Credentials removed per Lu's request. Kept for backward compat. */
+  credentials?: {
+    heading: string;
+    items: string[];
+  };
+  /** @deprecated — Replaced by story field. Kept for backward compat. */
+  originStory?: {
+    paragraphs: string[];
   };
   seo: PageSEO;
 }

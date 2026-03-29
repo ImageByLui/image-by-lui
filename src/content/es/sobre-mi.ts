@@ -2,48 +2,53 @@ import type { AboutContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// About Page Content — Spanish (Natively written, NOT a translation)
+// About Page Content — Spanish (V5 — Editorial Redesign)
+// =============================================================================
+// Natively written Spanish, NOT a translation.
 // =============================================================================
 
 export const aboutContentEs: AboutContent = {
   hero: {
-    headline: "Conoce a Lu",
+    headline: "Precisión como base. Calidez como entrega.",
     subheadline:
-      "Nacida en Colombia. Basada en Miami. Formada en la ciencia de cómo la imagen moldea las oportunidades. Lu aporta precisión diagnóstica y calidez personal a cada cliente con quien trabaja.",
+      "Nacida en Colombia. Basada en Miami. Consultora de imagen diagnóstica para profesionales que necesitan que su apariencia trabaje tan estratégicamente como ellos.",
+    pullQuote:
+      "Si alguna vez te paraste frente a tu clóset antes de un día importante y pensaste 'no tengo nada que ponerme' — te entiendo.",
+    imageAlt:
+      "Lu — retrato en luz natural",
   },
 
-  originStory: {
-    paragraphs: [
-      "Si alguna vez te has parado frente a tu clóset antes de un día importante y pensado 'no tengo nada que ponerme' — aunque esté lleno — Lu entiende. No porque lo leyó, sino porque lo vivió. Creciendo en Colombia y luego construyendo una carrera entre culturas, experimentó de primera mano cómo la imagen correcta abre puertas y la incorrecta las mantiene cerradas.",
-      "El camino de Lu hacia la consultoría de imagen comenzó en un programa de diseño de moda en Colombia — no con tendencias, sino con estructura. Patronaje. Ciencia textil. La ingeniería detrás de cómo las prendas interactúan con el cuerpo humano. Esa base formó todo lo que vino después.",
-      "Después de años de formación especializada en colorimetría, estilismo y producción de moda, surgió una metodología clara: la imagen no se trata de seguir tendencias ni de copiar looks. Se trata de entender la ciencia del color, la proporción y el contexto personal — y usar ese entendimiento para construir algo intencional.",
-      "Hoy, Image by LUI atiende a profesionales en Miami que necesitan que su apariencia trabaje tan estratégicamente como ellos. Ejecutivas latinoamericanas navegando una nueva cultura corporativa. Agentes de bienes raíces compitiendo en uno de los mercados más visuales del país. Emprendedores cuya marca personal es la primera impresión de su empresa.",
+  story: {
+    part1: [
+      "Creciendo en Colombia y luego construyendo una carrera entre culturas, Lu experimentó de primera mano cómo la imagen correcta abre puertas — y la incorrecta las mantiene cerradas.",
+      "Su camino comenzó en una escuela de diseño de moda. No con tendencias — con estructura. Patronaje. Ciencia textil. Cómo las prendas realmente interactúan con el cuerpo humano. Esa base formó todo lo que vino después.",
     ],
+    part1ImageAlt: "Lu con muestras de color",
+    part2: [
+      "Después de años de formación especializada — <strong>colorimetría certificada, estilismo profesional, producción de moda</strong> — surgió una metodología clara.",
+      "La imagen no se trata de seguir tendencias ni de copiar looks. Se trata de entender la ciencia del <strong>color, la proporción y el contexto personal</strong> — y usar ese entendimiento para construir algo intencional.",
+    ],
+    part2ImageAlt: "Sesión de drapeado de color",
   },
 
-  credentials: {
-    heading: "Formación y Credenciales",
-    items: [
-      "Licenciatura en Diseño de Moda (Colombia)",
-      "Especialista Certificada en Colorimetría",
-      "Estilista de Moda Certificada",
-      "Formación en Producción de Moda",
-      "Certificación en Maquillaje de Efectos Especiales",
-      "Ilustración de Moda (formación avanzada)",
-      "Práctica bilingüe: Español e Inglés",
-    ],
+  clientVoice: {
+    quote:
+      "Lu no solo cambió mi guardarropa — cambió cómo entro a una habitación. Por fin me veo como la líder que soy.",
+    attribution: "C.L., Agente de Bienes Raíces, Miami",
   },
 
   philosophy: {
-    heading: "El Enfoque LUI",
-    body: "La consultoría de imagen en LUI no se trata de decirte qué ponerte. Se trata de darte un marco — basado en colorimetría, análisis morfológico y mapeo de estilo de vida — que hace que cada elección sea intencional. Creemos que tu imagen debe reflejar tu ambición, tu cultura y tu realidad. No una portada de revista. No la idea de éxito de otra persona. La tuya.",
+    statement:
+      "Tu imagen debe reflejar tu ambición, tu cultura y tu realidad.",
+    closer:
+      "No una portada de revista. No la idea de éxito de otra persona. La tuya.",
   },
 
   cta: {
-    heading: "Experimenta la Metodología por Ti Misma",
+    heading: "¿Lista para empezar?",
     body: "Tu Power Palette es un análisis de color de cortesía de 20 minutos — y el primer paso para entender cómo el método LUI puede trabajar para ti.",
     cta: {
-      text: "DESCUBRE TU POWER PALETTE",
+      text: "RESERVA TU SESIÓN GRATIS",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },

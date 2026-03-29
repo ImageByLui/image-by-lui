@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { aboutContentEs } from "@/content/es/sobre-mi";
 import { buildPageMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
-// About Page — Spanish (/es/sobre-mi)
+// About Page — Spanish (/es/sobre-mi) — V5 Editorial Redesign
 // =============================================================================
 
 export const metadata: Metadata = buildPageMetadata(aboutContentEs.seo, "es", "about");
@@ -17,84 +16,188 @@ export default function AboutPageEs() {
 
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero — Portrait dominant */}
       <section className="bg-warm-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* Desktop */}
+        <div className="hidden lg:grid grid-cols-[1.3fr_1fr] min-h-[85vh] max-h-[720px]">
+          <ImagePlaceholder
+            alt={content.hero.imageAlt || "Lu — retrato"}
+            width={800}
+            height={1000}
+            colorIndex={1}
+            className="w-full h-full object-cover"
+            priority
+          />
+          <div className="flex items-center px-12 py-16">
             <ScrollReveal>
-              <h1 className="text-page-title mb-6">{content.hero.headline}</h1>
-              <p className="text-warm-grey leading-relaxed text-[16px] md:text-[18px]">
-                {content.hero.subheadline}
-              </p>
+              <div>
+                <p className="font-body font-semibold text-[12px] tracking-[2.5px] uppercase text-terracotta mb-3">
+                  Conoce a Lu
+                </p>
+                <div className="w-12 h-[1px] bg-terracotta mb-6" />
+                <h1 className="font-heading font-semibold text-[42px] leading-[1.12] text-espresso mb-6">
+                  {content.hero.headline}
+                </h1>
+                <p className="font-body text-[18px] text-warm-grey leading-relaxed mb-7">
+                  {content.hero.subheadline}
+                </p>
+                {content.hero.pullQuote && (
+                  <div className="border-l-[3px] border-l-terracotta pl-4">
+                    <p className="font-heading italic text-[20px] text-espresso leading-snug">
+                      &ldquo;{content.hero.pullQuote}&rdquo;
+                    </p>
+                  </div>
+                )}
+              </div>
             </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <ImagePlaceholder
-                alt="Lu — Consultora de Imagen y fundadora de Image by LUI"
-                width={1200}
-                height={800}
-                colorIndex={1}
-                className="w-full"
-                priority
-              />
+          </div>
+        </div>
+
+        {/* Mobile */}
+        <div className="lg:hidden">
+          <ImagePlaceholder
+            alt={content.hero.imageAlt || "Lu — retrato"}
+            width={750}
+            height={1000}
+            colorIndex={1}
+            className="w-full"
+            priority
+          />
+          <div className="px-6 py-7">
+            <p className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-terracotta mb-2">
+              Conoce a Lu
+            </p>
+            <h1 className="font-heading font-semibold text-[28px] leading-[1.2] text-espresso mb-3">
+              {content.hero.headline}
+            </h1>
+            <p className="font-body text-[15px] text-warm-grey leading-relaxed">
+              {content.hero.subheadline}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile-only pull-quote */}
+      {content.hero.pullQuote && (
+        <section className="lg:hidden px-6 pb-8">
+          <div className="border-l-[3px] border-l-terracotta pl-4">
+            <p className="font-heading italic text-[19px] text-espresso leading-snug">
+              &ldquo;{content.hero.pullQuote}&rdquo;
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* 2. Story Block 1 — Text left, image right */}
+      <section className="bg-soft-stone">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 md:py-[72px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+            <ScrollReveal>
+              <div>
+                {content.story.part1.map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className="font-body text-[15px] md:text-[18px] text-warm-grey leading-relaxed mb-4 last:mb-0"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={150}>
+              <div className="border border-champagne p-1.5 bg-warm-ivory">
+                <ImagePlaceholder
+                  alt={content.story.part1ImageAlt || "Lu trabajando"}
+                  width={600}
+                  height={750}
+                  colorIndex={1}
+                  className="w-full"
+                />
+              </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* 2. Origin Story */}
-      <section className="bg-soft-stone">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <ScrollReveal>
-            <div className="space-y-6">
-              {content.originStory.paragraphs.map((paragraph, i) => (
-                <p key={i} className="text-warm-grey leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* 3. Credentials */}
+      {/* 3. Story Block 2 — Image left, text right */}
       <section className="bg-warm-ivory">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <ScrollReveal>
-            <SectionHeading>{content.credentials.heading}</SectionHeading>
-            <ul className="space-y-3 max-w-xl mx-auto">
-              {content.credentials.items.map((item, i) => (
-                <li key={i} className="lui-accent-bar text-warm-grey py-1">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 md:py-[72px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+            <ScrollReveal>
+              <div className="border border-champagne p-1.5 bg-warm-ivory">
+                <ImagePlaceholder
+                  alt={content.story.part2ImageAlt || "Sesión de drapeado"}
+                  width={600}
+                  height={450}
+                  colorIndex={1}
+                  className="w-full"
+                />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={150}>
+              <div>
+                {content.story.part2.map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className="font-body text-[15px] md:text-[18px] text-warm-grey leading-relaxed mb-4 last:mb-0"
+                    dangerouslySetInnerHTML={{ __html: paragraph }}
+                  />
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* 4. Philosophy */}
-      <section className="bg-soft-stone">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <ScrollReveal>
-            <SectionHeading>{content.philosophy.heading}</SectionHeading>
-            <p className="text-warm-grey leading-relaxed text-center">
-              {content.philosophy.body}
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* 4. Client Voice */}
+      {content.clientVoice && (
+        <section className="bg-soft-stone">
+          <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-14 text-center">
+            <ScrollReveal>
+              <div className="w-10 h-[1px] bg-gold mx-auto mb-5 md:mb-6" />
+              <p className="font-heading italic text-espresso text-[19px] md:text-[26px] leading-snug mb-3 md:mb-4">
+                &ldquo;{content.clientVoice.quote}&rdquo;
+              </p>
+              <p className="font-body font-semibold text-[13px] md:text-[14px] text-warm-taupe">
+                &mdash; {content.clientVoice.attribution}
+              </p>
+              <div className="w-10 h-[1px] bg-gold mx-auto mt-5 md:mt-6" />
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
-      {/* 5. CTA */}
+      {/* 5. Philosophy */}
       <section className="bg-espresso">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
+        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-20 text-center">
           <ScrollReveal>
-            <h2 className="text-warm-ivory mb-4">{content.cta.heading}</h2>
-            <p className="text-warm-ivory/80 leading-relaxed mb-8">
+            <div className="w-12 h-[1px] bg-gold mx-auto mb-6 md:mb-8" />
+            <p className="font-heading font-medium text-warm-ivory text-[19px] md:text-[32px] leading-snug mb-4 md:mb-5">
+              {content.philosophy.statement}
+            </p>
+            <p className="font-heading italic text-warm-ivory/50 text-[17px] md:text-[24px] leading-snug">
+              {content.philosophy.closer}
+            </p>
+            <div className="w-12 h-[1px] bg-gold mx-auto mt-6 md:mt-8" />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 6. CTA — Desktop button, mobile text-only */}
+      <section className="bg-warm-ivory">
+        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-14 text-center">
+          <ScrollReveal>
+            <p className="font-heading font-medium text-espresso text-[22px] md:text-[28px] mb-3">
+              {content.cta.heading}
+            </p>
+            <p className="font-body text-warm-grey text-[14px] md:text-[17px] leading-relaxed mb-0 md:mb-7">
               {content.cta.body}
             </p>
-            <Button href={content.cta.cta.href} external={content.cta.cta.external}>
-              {content.cta.cta.text}
-            </Button>
+            <div className="hidden md:block">
+              <Button href={content.cta.cta.href} external={content.cta.cta.external}>
+                {content.cta.cta.text}
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
       </section>
