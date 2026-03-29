@@ -4,6 +4,7 @@ import { useState } from "react";
 import { contactContent } from "@/content/en/contact";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import CalendlyEmbed from "@/components/features/CalendlyEmbed";
 
 // =============================================================================
@@ -63,23 +64,27 @@ export default function ContactPage() {
       {/* 3. WhatsApp Alternative */}
       <section className="bg-warm-ivory">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
-          <SectionHeading>{content.whatsappAlternative.heading}</SectionHeading>
-          <p className="text-warm-grey leading-relaxed mb-8">
-            {content.whatsappAlternative.body}
-          </p>
-          <Button
-            href={content.whatsappAlternative.cta.href}
-            external={content.whatsappAlternative.cta.external}
-          >
-            {content.whatsappAlternative.cta.text}
-          </Button>
+          <ScrollReveal>
+            <SectionHeading>{content.whatsappAlternative.heading}</SectionHeading>
+            <p className="text-warm-grey leading-relaxed mb-8">
+              {content.whatsappAlternative.body}
+            </p>
+            <Button
+              href={content.whatsappAlternative.cta.href}
+              external={content.whatsappAlternative.cta.external}
+            >
+              {content.whatsappAlternative.cta.text}
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 4. Location Note */}
       <section className="bg-soft-stone">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
-          <p className="text-warm-grey text-[15px]">{content.locationNote}</p>
+          <ScrollReveal>
+            <p className="text-warm-grey text-[15px]">{content.locationNote}</p>
+          </ScrollReveal>
         </div>
       </section>
     </>

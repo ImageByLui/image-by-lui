@@ -14,6 +14,7 @@ export const homeContent: HomeContent = {
     headline: "Your Image, Architected.",
     subheadline:
       "Image by LUI is a diagnostic image consulting practice in Miami. Using colorimetry, morphological analysis, and lifestyle mapping, we help professionals align how they look with where they're going.",
+    trustLine: "Bilingual practice serving professionals across Miami-Dade County.",
     cta: {
       text: "DISCOVER YOUR POWER PALETTE",
       href: getCalendlyUrl("powerPalette"),

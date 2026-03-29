@@ -31,6 +31,7 @@ export interface TextLink {
 export interface HeroSection {
   headline: string;
   subheadline: string;
+  trustLine?: string;
   cta: CTAButton;
   ctaSubtext: string;
   imageAlt: string;

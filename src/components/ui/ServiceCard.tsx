@@ -1,10 +1,13 @@
 import Button from "@/components/ui/Button";
 
 // =============================================================================
-// ServiceCard Component — Image by LUI
+// ServiceCard Component — Image by LUI (V2-B)
 // =============================================================================
-// Renders one service tier card. Used on Homepage (preview) and Services page.
-// Accepts all data via props — no hardcoded content.
+// Renders one service tier card. Supports visual hierarchy via:
+//   - badge: small label above title (e.g., "MOST POPULAR")
+//   - badgeColor: text color for badge (default: terracotta)
+//   - topBorderColor: colored top border (e.g., gold for premium tier)
+//   - featured: champagne background for highlighted card
 // =============================================================================
 
 interface ServiceCardProps {
@@ -13,12 +16,15 @@ interface ServiceCardProps {
   description: string;
   ctaText: string;
   ctaHref: string;
-  /** If true, CTA opens in new tab (Calendly links) */
   ctaExternal?: boolean;
-  /** Optional label like "START HERE" above the name */
   label?: string;
-  /** Highlight the card (e.g., for the free session) */
   featured?: boolean;
+  /** Small badge text above the card title */
+  badge?: string;
+  /** Badge text color — CSS class (default: "text-terracotta") */
+  badgeColor?: string;
+  /** Top border color — CSS class (e.g., "border-t-gold") */
+  topBorderColor?: string;
 }
 
 export default function ServiceCard({
@@ -30,16 +36,28 @@ export default function ServiceCard({
   ctaExternal = false,
   label,
   featured = false,
+  badge,
+  badgeColor = "text-terracotta",
+  topBorderColor,
 }: ServiceCardProps) {
+  const bgClass = featured
+    ? "bg-champagne border border-gold/30"
+    : "bg-white border border-champagne";
+
+  const topBorder = topBorderColor
+    ? `border-t-[3px] ${topBorderColor}`
+    : "";
+
   return (
-    <div
-      className={`lui-card flex flex-col p-6 md:p-8 h-full ${
-        featured
-          ? "bg-champagne border border-gold/30"
-          : "bg-white border border-champagne"
-      }`}
-    >
-      {/* Optional label */}
+    <div className={`lui-card flex flex-col p-6 md:p-8 h-full ${bgClass} ${topBorder}`}>
+      {/* Badge — small label like "MOST POPULAR" */}
+      {badge && (
+        <span className={`inline-block font-body font-semibold text-[10px] tracking-[1.5px] uppercase ${badgeColor} mb-2`}>
+          {badge}
+        </span>
+      )}
+
+      {/* Optional label like "START HERE" */}
       {label && (
         <span className="inline-block font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta mb-3">
           {label}

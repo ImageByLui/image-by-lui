@@ -11,6 +11,7 @@ export const homeContentEs: HomeContent = {
     headline: "Tu Imagen, Arquitectura de Estilo.",
     subheadline:
       "Image by LUI es una práctica de consultoría de imagen diagnóstica en Miami. Mediante colorimetría, análisis morfológico y mapeo de estilo de vida, ayudamos a profesionales a alinear cómo se ven con hacia dónde van.",
+    trustLine: "Práctica bilingüe al servicio de profesionales en todo el condado de Miami-Dade.",
     cta: {
       text: "DESCUBRE TU POWER PALETTE",
       href: getCalendlyUrl("powerPalette"),

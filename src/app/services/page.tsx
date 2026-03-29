@@ -5,6 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // =============================================================================
 // Services Page — English (/services)
@@ -21,10 +22,12 @@ export default function ServicesPage() {
       {/* 1. Hero */}
       <section className="bg-warm-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-          <h1 className="text-page-title mb-6">{content.hero.headline}</h1>
-          <p className="text-warm-grey leading-relaxed text-[16px] md:text-[18px]">
-            {content.hero.subheadline}
-          </p>
+          <ScrollReveal>
+            <h1 className="text-page-title mb-6">{content.hero.headline}</h1>
+            <p className="text-warm-grey leading-relaxed text-[16px] md:text-[18px]">
+              {content.hero.subheadline}
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -102,34 +105,40 @@ export default function ServicesPage() {
       {/* 5. Methodology Deep Dive */}
       <section className="bg-soft-stone">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <SectionHeading>{content.methodology.heading}</SectionHeading>
-          <p className="text-warm-grey leading-relaxed max-w-3xl mx-auto text-center mb-6">
-            {content.methodology.body}
-          </p>
-          <p className="text-center font-heading font-medium text-espresso text-[18px] md:text-[20px]">
-            {content.methodology.closingLine}
-          </p>
+          <ScrollReveal>
+            <SectionHeading>{content.methodology.heading}</SectionHeading>
+            <p className="text-warm-grey leading-relaxed max-w-3xl mx-auto text-center mb-6">
+              {content.methodology.body}
+            </p>
+            <p className="text-center font-heading font-medium text-espresso text-[18px] md:text-[20px]">
+              {content.methodology.closingLine}
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 6. FAQ */}
       <section className="bg-warm-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <SectionHeading>{content.faq.heading}</SectionHeading>
-          <FaqAccordion items={faqItems} />
+          <ScrollReveal>
+            <SectionHeading>{content.faq.heading}</SectionHeading>
+            <FaqAccordion items={faqItems} />
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 7. Final CTA */}
       <section className="bg-espresso">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
-          <h2 className="text-warm-ivory mb-4">{content.finalCta.heading}</h2>
-          <p className="text-warm-ivory/80 leading-relaxed mb-8">
-            {content.finalCta.body}
-          </p>
-          <Button href={content.finalCta.cta.href} external={content.finalCta.cta.external}>
-            {content.finalCta.cta.text}
-          </Button>
+          <ScrollReveal>
+            <h2 className="text-warm-ivory mb-4">{content.finalCta.heading}</h2>
+            <p className="text-warm-ivory/80 leading-relaxed mb-8">
+              {content.finalCta.body}
+            </p>
+            <Button href={content.finalCta.cta.href} external={content.finalCta.cta.external}>
+              {content.finalCta.cta.text}
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
     </>
