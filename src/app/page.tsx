@@ -15,7 +15,7 @@ import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 // Homepage — English (/) — V6 Final + Hero Image Update
 // =============================================================================
 // Hero: text left, Lu transparent PNG right, warm-ivory→champagne gradient.
-// Lu's full-body PNG is cropped to upper body via CSS overflow-hidden.
+// Lu's full-body PNG is absolutely positioned and overflow-hidden crops her.
 // All other sections unchanged from V6.
 // =============================================================================
 
@@ -53,14 +53,14 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
           </div>
-          {/* Lu — full PNG, CSS crops to upper body via overflow-hidden */}
+          {/* Lu — absolutely positioned, overflow clips to upper body */}
           <div className="relative h-full overflow-hidden">
             <Image
               src="/images/hero-burgundy-dress-no-bg.png"
               alt="Lu, founder of Image by LUI, wearing an elegant burgundy cape dress"
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              width={1480}
+              height={2000}
+              className="absolute -bottom-[20%] right-[-5%] w-[90%] h-auto"
               priority
             />
           </div>
@@ -72,9 +72,9 @@ export default function HomePage() {
             <Image
               src="/images/hero-burgundy-dress-no-bg.png"
               alt="Lu, founder of Image by LUI, wearing an elegant burgundy cape dress"
-              fill
-              className="object-cover object-top"
-              sizes="100vw"
+              width={1480}
+              height={2000}
+              className="absolute -bottom-[40%] left-1/2 -translate-x-1/2 w-[85%] h-auto"
               priority
             />
           </div>
