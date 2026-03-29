@@ -41,11 +41,14 @@ export default function HomePageEs() {
         <div className="hidden lg:grid grid-cols-[1.2fr_1fr] h-[680px]">
           <div className="overflow-hidden">
             <ImagePlaceholder
-              alt={c.hero.imageAlt}
+              src="/images/hero-burgundy-dress.jpg"
+              alt="Lu, fundadora de Image by LUI, con un elegante vestido burdeos en un evento en Miami"
               width={800}
               height={1000}
               colorIndex={0}
               className="w-full h-full object-cover"
+              fill
+              objectPosition="center 15%"
               priority
             />
           </div>
@@ -73,11 +76,14 @@ export default function HomePageEs() {
         {/* Mobile: image above, text below */}
         <div className="lg:hidden">
           <ImagePlaceholder
-            alt={c.hero.imageAlt}
+            src="/images/hero-burgundy-dress.jpg"
+            alt="Lu, fundadora de Image by LUI, con un elegante vestido burdeos en un evento en Miami"
             width={750}
             height={750}
             colorIndex={0}
             className="w-full"
+            fill
+            objectPosition="center 15%"
             priority
           />
           <div className="px-6 py-6">
@@ -418,9 +424,10 @@ export default function HomePageEs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-start max-w-[960px] mx-auto">
             <ScrollReveal>
               <ImagePlaceholder
-                alt="Lu — Image Consultant"
-                width={1200}
-                height={900}
+                src="/images/meet-lu-square.jpg"
+                alt="Lu en un evento profesional en Miami rodeada de vegetación tropical"
+                width={600}
+                height={600}
                 colorIndex={1}
                 className="w-full"
               />
