@@ -3,6 +3,7 @@ import { homeContent } from "@/content/en/home";
 import { testimonials, testimonialsContextLine } from "@/content/shared/testimonials";
 import { buildPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TestimonialCard from "@/components/ui/TestimonialCard";
@@ -11,17 +12,10 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
-// Homepage — English (/) — V6 Final
+// Homepage — English (/) — V6 Final + Hero Image Update
 // =============================================================================
-// Structure:
-//   1. Hero — image left (desktop) / above (mobile), aspirational serif italic subtitle
-//   2. Coco Chanel quote — espresso poster with decorative gold quotes
-//   3. Where to Begin — Power Palette invitation + transition + editorial paid tiers
-//   4. Image break
-//   5. Designed for Professionals — espresso, terracotta bars
-//   6. Testimonials — champagne, headshots + @handles
-//   7. Meet Lu — image + text
-//   8. Final CTA — espresso, button
+// Hero change: text left, Lu transparent PNG right on warm-ivory background.
+// All other sections unchanged.
 // =============================================================================
 
 export const metadata: Metadata = buildPageMetadata(homeContent.seo, "en", "home");
@@ -37,21 +31,8 @@ export default function HomePage() {
       {/* 1. HERO                                                          */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-warm-ivory">
-        {/* Desktop: image left, text right */}
-        <div className="hidden lg:grid grid-cols-[1.2fr_1fr] h-[680px]">
-          <div className="overflow-hidden">
-            <ImagePlaceholder
-              src="/images/hero-burgundy-dress.jpg"
-              alt="Lu, founder of Image by LUI, wearing an elegant burgundy dress at a Miami venue"
-              width={800}
-              height={1000}
-              colorIndex={0}
-              className="w-full h-full object-cover"
-              fill
-              objectPosition="center 15%"
-              priority
-            />
-          </div>
+        {/* Desktop: text left, Lu right */}
+        <div className="hidden lg:grid grid-cols-[1fr_1.2fr] h-[680px]">
           <div className="flex items-center px-12 py-16">
             <ScrollReveal>
               <div>
@@ -71,21 +52,30 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
           </div>
+          <div className="flex items-end justify-center overflow-hidden">
+            <Image
+              src="/images/hero-burgundy-dress-no-bg.png"
+              alt="Lu, founder of Image by LUI, wearing an elegant burgundy dress"
+              width={700}
+              height={568}
+              className="object-contain max-h-[660px] w-auto"
+              priority
+            />
+          </div>
         </div>
 
-        {/* Mobile: image above, text below */}
+        {/* Mobile: Lu above, text below */}
         <div className="lg:hidden">
-          <ImagePlaceholder
-            src="/images/hero-burgundy-dress.jpg"
-            alt="Lu, founder of Image by LUI, wearing an elegant burgundy dress at a Miami venue"
-            width={750}
-            height={750}
-            colorIndex={0}
-            className="w-full"
-            fill
-            objectPosition="center 15%"
-            priority
-          />
+          <div className="flex justify-center pt-6 px-4">
+            <Image
+              src="/images/hero-burgundy-dress-no-bg.png"
+              alt="Lu, founder of Image by LUI, wearing an elegant burgundy dress"
+              width={500}
+              height={406}
+              className="object-contain max-h-[360px] w-auto"
+              priority
+            />
+          </div>
           <div className="px-6 py-6">
             <h1 className="font-heading font-semibold text-[30px] leading-[1.15] text-espresso mb-3">
               {c.hero.headline}
@@ -201,7 +191,6 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-6 lg:mb-12 pb-0 lg:pb-12 lg:border-b lg:border-b-soft-stone">
               <div>
-                {/* Mobile: inline price. Desktop: stacked */}
                 <div className="flex items-baseline justify-between lg:block">
                   <h3 className="font-heading font-medium text-[20px] lg:text-[26px] text-espresso">
                     {paidCards[0].name}
@@ -234,7 +223,6 @@ export default function HomePage() {
                   {paidCards[0].cta.text} →
                 </Link>
               </div>
-              {/* Desktop-only image */}
               <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
                   alt="Style diagnostic session"
@@ -247,10 +235,9 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* Identity Transformation — flagship, champagne on mobile */}
+          {/* Identity Transformation */}
           <ScrollReveal>
             <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start pb-10 md:pb-[72px]">
-              {/* Desktop-only image — gold frame */}
               <div className="hidden lg:block border border-gold/40 p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
                   alt="Complete transformation"
@@ -260,7 +247,6 @@ export default function HomePage() {
                   className="w-full"
                 />
               </div>
-              {/* Mobile: champagne card. Desktop: no background */}
               <div className="bg-champagne p-5 lg:bg-transparent lg:p-0">
                 <div className="border-t-[3px] border-t-gold pt-4 lg:border-t-0 lg:pt-0">
                   <span className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-gold mb-2 block">
@@ -331,7 +317,6 @@ export default function HomePage() {
             <div className="w-8 h-[1px] bg-gold mx-auto mb-5 md:mb-9" />
           </ScrollReveal>
 
-          {/* Desktop: 2x2 grid */}
           <div className="hidden md:grid grid-cols-2 gap-6 max-w-[900px] mx-auto">
             {c.whoIsThisFor.cards.map((card, i) => (
               <ScrollReveal key={card.headline} delay={i * 100}>
@@ -347,7 +332,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Mobile: stacked */}
           <div className="md:hidden flex flex-col">
             {c.whoIsThisFor.cards.map((card, i) => (
               <div
@@ -374,7 +358,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------------------------------------------------------- */}
-      {/* 6. TESTIMONIALS — Champagne, headshots + @handles                 */}
+      {/* 6. TESTIMONIALS                                                   */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-champagne">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
@@ -387,7 +371,6 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
 
-          {/* Desktop: 3-column */}
           <div className="hidden md:grid grid-cols-3 gap-5 max-w-[960px] mx-auto">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} delay={i * 100}>
@@ -401,7 +384,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Mobile: stacked */}
           <div className="md:hidden flex flex-col gap-3">
             {testimonials.map((t, i) => (
               <TestimonialCard
