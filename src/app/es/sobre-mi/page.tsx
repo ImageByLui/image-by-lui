@@ -20,14 +20,16 @@ export default function AboutPageEs() {
       <section className="bg-warm-ivory">
         {/* Desktop */}
         <div className="hidden lg:grid grid-cols-[1.3fr_1fr] h-[680px]">
-          <ImagePlaceholder
-            alt={c.hero.imageAlt || "Lu — retrato"}
-            width={800}
-            height={1000}
-            colorIndex={1}
-            className="w-full h-full object-cover"
-            priority
-          />
+          <div className="overflow-hidden">
+            <ImagePlaceholder
+              alt={c.hero.imageAlt || "Lu — retrato"}
+              width={800}
+              height={1000}
+              colorIndex={1}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
           <div className="flex items-center px-12 py-16">
             <ScrollReveal>
               <div>
@@ -85,7 +87,7 @@ export default function AboutPageEs() {
           &rdquo;
         </span>
         <div className="max-w-[680px] mx-auto px-7 md:px-10 text-center relative z-10">
-          <p className="font-body font-medium text-warm-ivory text-[18px] md:text-[24px] leading-snug">
+          <p className="font-heading italic text-warm-ivory text-[18px] md:text-[26px] leading-snug">
             {c.pullQuote}
           </p>
           <div className="w-8 h-[1px] bg-gold mx-auto mt-4 md:mt-5" />
@@ -136,7 +138,7 @@ export default function AboutPageEs() {
                 <ImagePlaceholder
                   alt={c.origin.imageAlt || "Lu trabajando"}
                   width={600}
-                  height={750}
+                  height={400}
                   colorIndex={1}
                   className="w-full"
                 />
@@ -219,14 +221,14 @@ export default function AboutPageEs() {
             width={600}
             height={600}
             colorIndex={1}
-            className="w-full aspect-square md:aspect-[2/1]"
+            className="w-full aspect-square md:aspect-[3/1]"
           />
           <ImagePlaceholder
             alt={c.imageStrip.rightAlt}
             width={600}
             height={600}
             colorIndex={1}
-            className="w-full aspect-square md:aspect-[2/1]"
+            className="w-full aspect-square md:aspect-[3/1]"
           />
         </div>
       )}
