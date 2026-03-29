@@ -3,22 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getCurrentLanguage } from "@/lib/language";
-import { siteConfig, getWhatsAppUrl } from "@/config/site.config";
+import { siteConfig, getWhatsAppUrl, getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// Footer Component — Image by LUI
+// Footer Component — Image by LUI (V2-B)
 // =============================================================================
 // Background: Espresso (#2C2420), Text: Warm Ivory (#F7F3EF)
-// Contains: tagline, contact line, WhatsApp link, Instagram, nav, copyright.
-// Language-aware — detects from URL path.
+// V2-B: Added CTA section above nav, updated Miami identity line.
 // =============================================================================
 
 const FOOTER_EN = {
   tagline: "Your image, architected.",
-  contactLine: "Miami, FL | Bilingual: English & Spanish",
+  contactLine: "Serving professionals across Miami-Dade County | Bilingual: English & Spanish",
   whatsappText: "Chat with Lu on WhatsApp",
   instagramText: "@imagebylui",
   copyright: `© ${new Date().getFullYear()} Image by LUI. All rights reserved.`,
+  ctaText: "Ready to begin? Book your complimentary color analysis.",
+  ctaButton: "DISCOVER YOUR POWER PALETTE",
   navItems: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
@@ -29,10 +30,12 @@ const FOOTER_EN = {
 
 const FOOTER_ES = {
   tagline: "Tu imagen, arquitectura de estilo.",
-  contactLine: "Miami, FL | Bilingüe: Español e Inglés",
+  contactLine: "Atendiendo a profesionales en todo el condado de Miami-Dade | Bilingüe: Español e Inglés",
   whatsappText: "Conversa con Lu por WhatsApp",
   instagramText: "@imagebylui",
   copyright: `© ${new Date().getFullYear()} Image by LUI. Todos los derechos reservados.`,
+  ctaText: "¿Lista para empezar? Reserva tu análisis de color de cortesía.",
+  ctaButton: "DESCUBRE TU POWER PALETTE",
   navItems: [
     { label: "Inicio", href: "/es" },
     { label: "Servicios", href: "/es/servicios" },
@@ -46,10 +49,27 @@ export default function Footer() {
   const lang = getCurrentLanguage(pathname);
   const content = lang === "es" ? FOOTER_ES : FOOTER_EN;
   const whatsappUrl = getWhatsAppUrl(lang);
+  const calendlyUrl = getCalendlyUrl("powerPalette");
 
   return (
     <footer className="bg-espresso text-warm-ivory">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+        {/* Footer CTA — last-chance conversion */}
+        <div className="text-center mb-10 pb-10 border-b border-warm-ivory/20">
+          <p className="text-warm-ivory/80 text-[15px] mb-4">
+            {content.ctaText}
+          </p>
+          <a
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-terracotta text-white font-body font-semibold text-[13px] md:text-[14px] uppercase tracking-[1.5px] px-8 py-3.5 no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-200"
+          >
+            {content.ctaButton}
+          </a>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Column 1: Brand */}
           <div>

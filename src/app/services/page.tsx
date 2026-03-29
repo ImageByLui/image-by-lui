@@ -5,6 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import ProcessSteps from "@/components/ui/ProcessSteps";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // =============================================================================
@@ -68,6 +69,15 @@ export default function ServicesPage() {
               {tier.description}
             </p>
 
+            {/* Value callout (Signature tier) */}
+            {tier.valueCallout && (
+              <div className="bg-champagne p-4 max-w-3xl mx-auto mb-8">
+                <p className="font-body font-semibold text-espresso text-[15px] text-center">
+                  {tier.valueCallout}
+                </p>
+              </div>
+            )}
+
             {/* Inclusions */}
             <div className="max-w-2xl mx-auto mb-8">
               <h3 className="mb-4">What{tier.label ? " you receive" : "'s included"}:</h3>
@@ -102,15 +112,15 @@ export default function ServicesPage() {
 
       <hr className="lui-divider" />
 
-      {/* 5. Methodology Deep Dive */}
+      {/* 5. Methodology — Visual Pillars */}
       <section className="bg-soft-stone">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <ScrollReveal>
-            <SectionHeading>{content.methodology.heading}</SectionHeading>
-            <p className="text-warm-grey leading-relaxed max-w-3xl mx-auto text-center mb-6">
-              {content.methodology.body}
-            </p>
-            <p className="text-center font-heading font-medium text-espresso text-[18px] md:text-[20px]">
+            <ProcessSteps
+              heading={content.methodology.heading}
+              steps={content.methodology.steps}
+            />
+            <p className="text-center font-heading font-medium text-espresso text-[18px] md:text-[20px] mt-10">
               {content.methodology.closingLine}
             </p>
           </ScrollReveal>

@@ -61,6 +61,8 @@ export const servicesContentEs: ServicesContent = {
         "La reinvención completa de cómo te presentas al mundo.",
       description:
         "Esta es la experiencia LUI completa. Durante 12–15 horas de trabajo dedicado uno a uno, deconstruimos y reconstruimos tu imagen profesional desde los cimientos. Análisis colorimétrico completo con precisión Pantone. Mapeo morfológico para identificar las siluetas, telas y detalles de construcción que honran la arquitectura natural de tu cuerpo. Una auditoría de clóset que separa lo que te sirve de lo que no. Y una experiencia de compras curada — presencial o virtual — para completar los espacios con intención.",
+      valueCallout:
+        "12–15 horas de trabajo dedicado uno a uno a través de 7 entregables distintos — una inversión estratégica en cómo te presentas durante años.",
       inclusions: [
         { text: "Cuestionario personal integral y revisión de estilo de vida" },
         { text: "Análisis colorimétrico completo con calibración Pantone" },
@@ -81,7 +83,23 @@ export const servicesContentEs: ServicesContent = {
 
   methodology: {
     heading: "El Método LUI: Cómo Funciona",
-    body: "El método LUI comienza con una evaluación diagnóstica integral. Mediante colorimetría profesional con telas calibradas en sistema Pantone, identificamos la paleta de colores que realza tus rasgos naturales. El análisis morfológico mapea las proporciones, líneas y estructura de tu cuerpo para determinar las siluetas, telas y detalles de construcción que trabajan con tu arquitectura natural, no en contra de ella. Finalmente, el mapeo de estilo de vida asegura que cada recomendación se alinee con cómo realmente vives y trabajas: tu industria, tu entorno diario, tus metas y tu contexto cultural.",
+    steps: [
+      {
+        number: 1,
+        heading: "Colorimetría",
+        body: "Mediante telas profesionales calibradas en sistema Pantone, identificamos la paleta de colores que realza tus rasgos naturales. Esto no es un quiz de temporada — es un diagnóstico preciso que mapea tu subtono único a los colores que proyectan tu mejor versión.",
+      },
+      {
+        number: 2,
+        heading: "Análisis Morfológico",
+        body: "Mapeamos las proporciones, líneas y estructura de tu cuerpo para determinar las siluetas, telas y detalles de construcción que trabajan con tu arquitectura natural — no en contra. El objetivo es armonía entre quién eres y cómo tu ropa te presenta.",
+      },
+      {
+        number: 3,
+        heading: "Mapeo de Estilo de Vida",
+        body: "Cada recomendación se alinea con cómo realmente vives y trabajas: tu industria, tu entorno diario, tus metas y tu contexto cultural. Una estrategia que no encaja en tu vida no perdura. La nuestra sí.",
+      },
+    ],
     closingLine:
       "Análisis de color + arquitectura corporal + mapeo de estilo de vida = una estrategia de imagen basada en ciencia, no en improvisación.",
   },

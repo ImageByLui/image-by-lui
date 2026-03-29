@@ -61,6 +61,8 @@ export const servicesContent: ServicesContent = {
         "The complete reinvention of how you present yourself to the world.",
       description:
         "This is the full LUI experience. Over 12–15 hours of dedicated one-on-one work, we deconstruct and rebuild your professional image from the foundation up. Complete colorimetric analysis with Pantone-matched precision. Morphological mapping to identify the silhouettes, fabrics, and construction details that honor your body's natural architecture. A closet audit that separates what serves you from what doesn't. And a curated shopping experience — in person or virtually — to fill the gaps with intention.",
+      valueCallout:
+        "12–15 hours of dedicated one-on-one work across 7 distinct deliverables — a strategic investment in how you present yourself for years to come.",
       inclusions: [
         { text: "Comprehensive personal questionnaire and lifestyle review" },
         { text: "Complete colorimetric analysis with Pantone color matching" },
@@ -81,7 +83,23 @@ export const servicesContent: ServicesContent = {
 
   methodology: {
     heading: "The LUI Method: How It Works",
-    body: "The LUI method begins with a comprehensive diagnostic assessment. Using professional colorimetry with Pantone-matched draping, we identify the color palette that makes your natural features come alive. Morphological analysis maps your body's proportions, lines, and structure to determine the silhouettes, fabrics, and construction details that work with your natural architecture — not against it. Finally, lifestyle mapping ensures every recommendation aligns with how you actually live and work: your industry, your daily environment, your goals, and your cultural context.",
+    steps: [
+      {
+        number: 1,
+        heading: "Colorimetry",
+        body: "Using professional Pantone-matched draping, we identify the color palette that makes your natural features come alive. This isn't a seasonal color quiz — it's a precise diagnostic that maps your unique undertone to the colors that project your strongest self.",
+      },
+      {
+        number: 2,
+        heading: "Morphological Analysis",
+        body: "We map your body's proportions, lines, and structure to determine the silhouettes, fabrics, and construction details that work with your natural architecture — not against it. The goal is harmony between who you are and how your clothing presents you.",
+      },
+      {
+        number: 3,
+        heading: "Lifestyle Mapping",
+        body: "Every recommendation aligns with how you actually live and work: your industry, your daily environment, your goals, and your cultural context. A strategy that doesn't fit your life won't stick. Ours does.",
+      },
+    ],
     closingLine:
       "Color analysis + body architecture + lifestyle mapping = an image strategy built on science, not guesswork.",
   },

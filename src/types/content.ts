@@ -147,11 +147,13 @@ export interface ServiceTierInclusion {
 
 export interface ServiceTier {
   anchor: string;
-  label?: string; // e.g., "START HERE" / "EMPIEZA AQUÍ"
+  label?: string;
   name: string;
   price: string;
   positioningLine?: string;
   description: string;
+  /** Styled callout text to justify value (used on Signature tier) */
+  valueCallout?: string;
   inclusions: ServiceTierInclusion[];
   duration?: string;
   cta: CTAButton;
@@ -159,7 +161,8 @@ export interface ServiceTier {
 
 export interface MethodologyDeepDive {
   heading: string;
-  body: string;
+  /** Visual pillar steps — replaces prose paragraph in V2-B */
+  steps: ProcessStep[];
   closingLine: string;
 }
 
