@@ -71,12 +71,14 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="text-center md:text-left">
             <div className="mb-4">
-              <span className="font-body font-light text-[10px] uppercase tracking-[3px] text-warm-ivory block">
-                Image by
-              </span>
-              <span className="font-heading font-semibold text-[22px] text-warm-ivory -mt-1 block">
-                LUI
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo-footer.svg"
+                alt="Image by LUI"
+                width={120}
+                height={48}
+                className="h-10 w-auto mx-auto md:mx-0"
+              />
             </div>
             <p className="font-heading font-light italic text-[18px] text-warm-ivory/80 mb-3">
               {content.tagline}

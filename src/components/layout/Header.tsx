@@ -61,18 +61,20 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
+            {/* Logo — SVG */}
             <Link
               href={homeHref}
-              className="flex flex-col items-start leading-none no-underline hover:no-underline group"
+              className="no-underline hover:no-underline"
               aria-label="Image by LUI — Home"
             >
-              <span className="font-body font-light text-[10px] md:text-[11px] uppercase tracking-[3px] text-espresso" aria-hidden="true">
-                Image by
-              </span>
-              <span className="font-heading font-semibold text-[22px] md:text-[24px] text-espresso -mt-1" aria-hidden="true">
-                LUI
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo-header.svg"
+                alt="Image by LUI"
+                width={120}
+                height={48}
+                className="h-9 md:h-11 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}
