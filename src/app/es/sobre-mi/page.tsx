@@ -29,7 +29,7 @@ export default function AboutPageEs() {
               colorIndex={1}
               className="w-full h-full object-cover"
               fill
-              objectPosition="32% 35%"
+              objectPosition="32% 55%"
               priority
             />
           </div>
