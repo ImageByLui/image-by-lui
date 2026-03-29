@@ -7,9 +7,9 @@ import { getWhatsAppUrl } from "@/config/site.config";
 
 export const contactContent: ContactContent = {
   hero: {
-    headline: "Let's Begin",
+    headline: "Book Your Session",
     subheadline:
-      "Select a session below to reserve your time with Lu. Not ready to commit? Start with Your Power Palette — it's complimentary.",
+      "Choose the session that fits where you are — or start with Your Power Palette. It's complimentary.",
   },
 
   calendlyWrapper: {

@@ -25,7 +25,6 @@ const NAV_EN: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
-  { label: "Blog", href: "/blog" },
 ];
 
 const NAV_ES: NavItem[] = [
@@ -33,7 +32,6 @@ const NAV_ES: NavItem[] = [
   { label: "Servicios", href: "/es/servicios" },
   { label: "Sobre Lu", href: "/es/sobre-mi" },
   { label: "Contacto", href: "/es/contacto" },
-  { label: "Blog", href: "/es/blog" },
 ];
 
 export default function Header() {

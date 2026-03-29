@@ -7,13 +7,14 @@ import { getCalendlyUrl } from "@/config/site.config";
 
 export const aboutContentEs: AboutContent = {
   hero: {
-    headline: "La Estratega Detrás del Método",
+    headline: "Conoce a Lu",
     subheadline:
-      "Consultoría de imagen basada en precisión diagnóstica, fluidez cultural y la convicción de que cómo te presentas nunca debería dejarse al azar.",
+      "Nacida en Colombia. Basada en Miami. Formada en la ciencia de cómo la imagen moldea las oportunidades. Lu aporta precisión diagnóstica y calidez personal a cada cliente con quien trabaja.",
   },
 
   originStory: {
     paragraphs: [
+      "Si alguna vez te has parado frente a tu clóset antes de un día importante y pensado 'no tengo nada que ponerme' — aunque esté lleno — Lu entiende. No porque lo leyó, sino porque lo vivió. Creciendo en Colombia y luego construyendo una carrera entre culturas, experimentó de primera mano cómo la imagen correcta abre puertas y la incorrecta las mantiene cerradas.",
       "El camino de Lu hacia la consultoría de imagen comenzó en un programa de diseño de moda en Colombia — no con tendencias, sino con estructura. Patronaje. Ciencia textil. La ingeniería detrás de cómo las prendas interactúan con el cuerpo humano. Esa base formó todo lo que vino después.",
       "Después de años de formación especializada en colorimetría, estilismo y producción de moda, surgió una metodología clara: la imagen no se trata de seguir tendencias ni de copiar looks. Se trata de entender la ciencia del color, la proporción y el contexto personal — y usar ese entendimiento para construir algo intencional.",
       "Hoy, Image by LUI atiende a profesionales en Miami que necesitan que su apariencia trabaje tan estratégicamente como ellos. Ejecutivas latinoamericanas navegando una nueva cultura corporativa. Agentes de bienes raíces compitiendo en uno de los mercados más visuales del país. Emprendedores cuya marca personal es la primera impresión de su empresa.",

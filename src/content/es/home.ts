@@ -1,8 +1,9 @@
 import type { HomeContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
+import { siteConfig } from "@/config/site.config";
 
 // =============================================================================
-// Homepage Content — Spanish (Natively written, NOT a translation)
+// Homepage Content — Spanish (V2 — Natively written, NOT a translation)
 // =============================================================================
 
 export const homeContentEs: HomeContent = {
@@ -19,30 +20,6 @@ export const homeContentEs: HomeContent = {
       "Análisis de color de cortesía — 20 minutos, virtual o presencial",
     imageAlt:
       "Mujer profesional con un atuendo a medida revisando muestras de color durante una sesión de consultoría de imagen en un entorno moderno y luminoso",
-  },
-
-  methodology: {
-    heading: "Una Metodología, No un Cambio de Look",
-    body: "La consultoría de imagen en LUI se basa en precisión diagnóstica. No adivinamos qué se ve bien — lo analizamos. Tres pilares definen cada compromiso:",
-    items: [
-      {
-        title: "Colorimetría",
-        description:
-          "Mediante telas profesionales calibradas en sistema Pantone, identificamos la paleta que realza tus rasgos naturales.",
-      },
-      {
-        title: "Análisis Morfológico",
-        description:
-          "Mapeamos las proporciones, líneas y estructura de tu cuerpo para determinar las siluetas que trabajan con tu arquitectura natural.",
-      },
-      {
-        title: "Mapeo de Estilo de Vida",
-        description:
-          "Cada recomendación se alinea con cómo realmente vives y trabajas — tu industria, tu entorno, tus metas.",
-      },
-    ],
-    closingLine:
-      "Análisis de color + arquitectura corporal + mapeo de estilo de vida = una estrategia de imagen basada en ciencia, no en improvisación.",
   },
 
   servicePreview: {
@@ -95,9 +72,14 @@ export const homeContentEs: HomeContent = {
     },
   },
 
-  instagramFeed: {
-    heading: "El Método LUI en Acción",
-    subtext: "@imagebylui",
+  instagramCta: {
+    heading: "Sigue el Proceso",
+    body: "Mira el método LUI en acción — sesiones de análisis de color, transformaciones de estilo e ideas diarias de estrategia de imagen.",
+    cta: {
+      text: "SIGUE A @IMAGEBYLUI EN INSTAGRAM",
+      href: siteConfig.instagram.url,
+      external: true,
+    },
   },
 
   finalCta: {

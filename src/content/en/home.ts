@@ -1,12 +1,12 @@
 import type { HomeContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
+import { siteConfig } from "@/config/site.config";
 
 // =============================================================================
-// Homepage Content — English
+// Homepage Content — English (V2)
 // =============================================================================
-// All copy approved by Web Strategist. Do not modify without approval.
-// Naming: "Image by LUI" (not "LUI Image Consultant")
-// Instagram: @imagebylui (not @luiimageconsultant)
+// Methodology section removed — replaced by "How It Works" in Batch B.
+// Instagram grid replaced with text CTA.
 // =============================================================================
 
 export const homeContent: HomeContent = {
@@ -23,30 +23,6 @@ export const homeContent: HomeContent = {
       "Complimentary 20-minute color analysis — virtual or in-person",
     imageAlt:
       "Professional woman in a tailored outfit reviewing color swatches during an image consulting session in a bright, modern setting",
-  },
-
-  methodology: {
-    heading: "A Methodology, Not a Makeover",
-    body: "Image consulting at LUI is built on diagnostic precision. We don't guess what looks good — we analyze it. Three pillars define every engagement:",
-    items: [
-      {
-        title: "Colorimetry",
-        description:
-          "Professional Pantone-matched draping identifies the palette that makes your natural features come alive.",
-      },
-      {
-        title: "Morphological Analysis",
-        description:
-          "We map your body's proportions, lines, and structure to determine the silhouettes that work with your natural architecture.",
-      },
-      {
-        title: "Lifestyle Mapping",
-        description:
-          "Every recommendation aligns with how you actually live and work — your industry, your environment, your goals.",
-      },
-    ],
-    closingLine:
-      "The result is an image strategy built on science, not guesswork.",
   },
 
   servicePreview: {
@@ -99,9 +75,14 @@ export const homeContent: HomeContent = {
     },
   },
 
-  instagramFeed: {
-    heading: "Follow the LUI Method in Action",
-    subtext: "@imagebylui",
+  instagramCta: {
+    heading: "Follow the Journey",
+    body: "See the LUI method in action — color analysis sessions, style transformations, and daily image strategy insights.",
+    cta: {
+      text: "FOLLOW @IMAGEBYLUI ON INSTAGRAM",
+      href: siteConfig.instagram.url,
+      external: true,
+    },
   },
 
   finalCta: {

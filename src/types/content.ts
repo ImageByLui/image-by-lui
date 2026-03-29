@@ -76,6 +76,12 @@ export interface InstagramFeedSection {
   subtext: string;
 }
 
+export interface InstagramCTASection {
+  heading: string;
+  body: string;
+  cta: CTAButton;
+}
+
 export interface FinalCTASection {
   heading: string;
   body: string;
@@ -84,11 +90,10 @@ export interface FinalCTASection {
 
 export interface HomeContent {
   hero: HeroSection;
-  methodology: MethodologySection;
   servicePreview: ServicePreviewSection;
   socialProof: SocialProofSection;
   aboutPreview: AboutPreviewSection;
-  instagramFeed: InstagramFeedSection;
+  instagramCta: InstagramCTASection;
   finalCta: FinalCTASection;
   seo: PageSEO;
 }
@@ -267,6 +272,10 @@ export interface Testimonial {
     es: string;
   };
   attribution: {
+    en: string;
+    es: string;
+  };
+  contextLine?: {
     en: string;
     es: string;
   };

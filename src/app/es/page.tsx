@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { homeContentEs } from "@/content/es/home";
-import { testimonials } from "@/content/shared/testimonials";
+import { testimonials, testimonialsContextLine } from "@/content/shared/testimonials";
 import { buildPageMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceCard from "@/components/ui/ServiceCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
-import InstagramFeed from "@/components/features/InstagramFeed";
 
 // =============================================================================
-// Homepage — Spanish (/es)
+// Homepage — Spanish (/es) — V2 Batch A
 // =============================================================================
 
 export const metadata: Metadata = buildPageMetadata(homeContentEs.seo, "es", "home");
@@ -20,7 +19,7 @@ export default function HomePageEs() {
 
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero — Warm Ivory */}
       <section className="bg-warm-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -48,36 +47,16 @@ export default function HomePageEs() {
         </div>
       </section>
 
-      {/* 2. Methodology Snapshot */}
-      <section className="bg-soft-stone">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <SectionHeading>{content.methodology.heading}</SectionHeading>
-          <p className="text-center max-w-3xl mx-auto text-warm-grey leading-relaxed mb-10">
-            {content.methodology.body}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {content.methodology.items.map((item) => (
-              <div key={item.title} className="text-center">
-                <div className="w-10 h-[2px] bg-gold mx-auto mb-4" />
-                <h3 className="mb-3">{item.title}</h3>
-                <p className="text-warm-grey leading-relaxed text-[15px]">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center mt-10 font-heading font-medium text-espresso text-[18px] md:text-[20px]">
-            {content.methodology.closingLine}
-          </p>
-        </div>
-      </section>
+      {/* BATCH B: Section 2 — "Who Is This For?" (Soft Stone) goes here */}
 
-      {/* 3. Service Preview */}
-      <section className="bg-warm-ivory">
+      {/* BATCH B: Section 3 — "How It Works" (Warm Ivory) goes here */}
+
+      {/* 4. Service Cards — Soft Stone */}
+      <section className="bg-soft-stone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <SectionHeading>{content.servicePreview.heading}</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {content.servicePreview.cards.map((card, i) => (
+            {content.servicePreview.cards.map((card) => (
               <ServiceCard
                 key={card.name}
                 name={card.name}
@@ -86,17 +65,21 @@ export default function HomePageEs() {
                 ctaText={card.cta.text}
                 ctaHref={card.cta.href}
                 ctaExternal={card.cta.external}
-                featured={i === 0}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Social Proof */}
+      {/* BATCH B: Section 5 — "Transformations" (Warm Ivory) goes here */}
+
+      {/* 6. Testimonials — Champagne */}
       <section className="bg-champagne">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <SectionHeading>{content.socialProof.heading}</SectionHeading>
+          <p className="text-center font-heading italic text-warm-taupe text-[14px] mb-8 -mt-4">
+            {testimonialsContextLine.es}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {testimonials.map((t, i) => (
               <TestimonialCard
@@ -109,7 +92,7 @@ export default function HomePageEs() {
         </div>
       </section>
 
-      {/* 5. About Preview */}
+      {/* 7. About Preview — Warm Ivory */}
       <section className="bg-warm-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -135,18 +118,20 @@ export default function HomePageEs() {
         </div>
       </section>
 
-      {/* 6. Instagram Feed */}
+      {/* 8. Instagram Follow CTA — Soft Stone */}
       <section className="bg-soft-stone">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <InstagramFeed
-            heading={content.instagramFeed.heading}
-            subtext={content.instagramFeed.subtext}
-            lang="es"
-          />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
+          <h2 className="mb-4">{content.instagramCta.heading}</h2>
+          <p className="text-warm-grey leading-relaxed mb-8">
+            {content.instagramCta.body}
+          </p>
+          <Button href={content.instagramCta.cta.href} external={content.instagramCta.cta.external}>
+            {content.instagramCta.cta.text}
+          </Button>
         </div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* 9. Final CTA — Espresso */}
       <section className="bg-espresso">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
           <h2 className="text-warm-ivory mb-4">{content.finalCta.heading}</h2>

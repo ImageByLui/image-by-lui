@@ -16,23 +16,17 @@ export default function ContactPageEs() {
 
   return (
     <>
-      {/* 1. Hero */}
-      <section className="bg-warm-ivory">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-          <h1 className="text-page-title mb-6">{content.hero.headline}</h1>
-          <p className="text-warm-grey leading-relaxed text-[16px] md:text-[18px]">
-            {content.hero.subheadline}
-          </p>
-        </div>
-      </section>
+      {/* Compact header — Calendly must be above the fold */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 text-center">
+        <h1 className="text-page-title mb-3">{content.hero.headline}</h1>
+        <p className="text-warm-grey leading-relaxed text-[15px] md:text-[16px]">
+          {content.hero.subheadline}
+        </p>
+      </div>
 
-      {/* 2. Calendly Embed */}
+      {/* Calendly Embed — no extra padding above */}
       <section className="bg-soft-stone">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <SectionHeading>{content.calendlyWrapper.heading}</SectionHeading>
-          <p className="text-center text-warm-grey leading-relaxed max-w-2xl mx-auto mb-8">
-            {content.calendlyWrapper.introText}
-          </p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
 
           {booked ? (
             <div className="bg-champagne p-8 md:p-10 text-center max-w-2xl mx-auto">
