@@ -251,6 +251,7 @@ export interface AboutContent {
     name: string;
     initials: string;
     title: string;
+    instagram?: string;
   };
   /** Image strip — two atmospheric detail shots */
   imageStrip?: {

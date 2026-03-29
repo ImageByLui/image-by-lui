@@ -39,6 +39,7 @@ export const aboutContent: AboutContent = {
     name: "C.L.",
     initials: "CL",
     title: "Real Estate Agent, Miami",
+    instagram: "@placeholder",
   },
 
   imageStrip: {

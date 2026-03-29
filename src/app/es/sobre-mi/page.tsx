@@ -185,6 +185,11 @@ export default function AboutPageEs() {
                 <p className="font-body text-[13px] text-warm-grey">
                   {c.clientVoice.title}
                 </p>
+                {c.clientVoice.instagram && (
+                  <p className="font-body text-[13px] text-terracotta">
+                    {c.clientVoice.instagram}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -208,6 +213,11 @@ export default function AboutPageEs() {
                   <p className="font-body text-[11px] text-warm-taupe">
                     {c.clientVoice.title}
                   </p>
+                  {c.clientVoice.instagram && (
+                    <p className="font-body text-[11px] text-terracotta">
+                      {c.clientVoice.instagram}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
