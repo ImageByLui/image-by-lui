@@ -193,7 +193,7 @@ export default function HomePage() {
 
           {/* First Impression — editorial layout */}
           <ScrollReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-10 md:mb-12 pb-10 md:pb-12 border-b border-b-soft-stone">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-6 lg:mb-12 pb-0 lg:pb-12 lg:border-b lg:border-b-soft-stone">
               <div>
                 {/* Mobile: inline price. Desktop: stacked */}
                 <div className="flex items-baseline justify-between lg:block">
@@ -241,9 +241,9 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* Identity Transformation — flagship, image first on desktop */}
+          {/* Identity Transformation — flagship, champagne on mobile */}
           <ScrollReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start pb-10 md:pb-[72px]">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start pb-10 md:pb-[72px]">
               {/* Desktop-only image — gold frame */}
               <div className="hidden lg:block border border-gold/40 p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
@@ -254,9 +254,9 @@ export default function HomePage() {
                   className="w-full"
                 />
               </div>
-              <div>
-                {/* Mobile: gold top border */}
-                <div className="border-t-[3px] border-t-gold pt-5 lg:border-t-0 lg:pt-0">
+              {/* Mobile: champagne card. Desktop: no background */}
+              <div className="bg-champagne p-5 lg:bg-transparent lg:p-0">
+                <div className="border-t-[3px] border-t-gold pt-4 lg:border-t-0 lg:pt-0">
                   <span className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-gold mb-2 block">
                     Most Comprehensive
                   </span>
@@ -281,7 +281,7 @@ export default function HomePage() {
                     {paidCards[1].description}
                   </p>
                   {paidCards[1].detailsLine && (
-                    <div className="bg-champagne px-3 py-2 inline-block mb-4">
+                    <div className="bg-warm-ivory/70 lg:bg-champagne px-3 py-2 inline-block mb-4">
                       <p className="font-body font-semibold text-[12px] lg:text-[13px] text-espresso">
                         {paidCards[1].detailsLine}
                       </p>
