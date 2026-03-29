@@ -102,7 +102,7 @@ export default function AboutPage() {
           &rdquo;
         </span>
         <div className="max-w-[680px] mx-auto px-7 md:px-10 text-center relative z-10">
-          <p className="font-heading italic text-warm-ivory text-[18px] md:text-[26px] leading-snug">
+          <p className="font-heading italic text-warm-ivory text-[21px] md:text-[26px] leading-snug">
             {c.pullQuote}
           </p>
           <div className="w-8 h-[1px] bg-gold mx-auto mt-4 md:mt-5" />
@@ -278,7 +278,7 @@ export default function AboutPage() {
       {/* 7. PHILOSOPHY — Espresso close                                   */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-espresso">
-        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-9 md:py-20 text-center">
+        <div className="max-w-[680px] mx-auto px-6 lg:px-10 pt-9 pb-6 md:py-20 text-center">
           <ScrollReveal>
             <div className="w-12 h-[1px] bg-gold mx-auto mb-5 md:mb-8" />
             <p className="font-body font-semibold text-warm-ivory text-[19px] md:text-[28px] leading-snug mb-3 md:mb-4">
@@ -287,7 +287,7 @@ export default function AboutPage() {
             <p className="font-body italic text-warm-ivory/50 text-[17px] md:text-[22px] leading-snug">
               {c.philosophy.closer}
             </p>
-            <div className="w-12 h-[1px] bg-gold mx-auto mt-5 md:mt-8" />
+            <div className="w-12 h-[1px] bg-gold mx-auto mt-3 md:mt-8" />
           </ScrollReveal>
         </div>
       </section>
