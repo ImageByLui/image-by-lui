@@ -31,7 +31,7 @@ export default function TransformationCard({
               src={beforeImage}
               alt="Before"
               width={400}
-              height={500}
+              height={560}
               colorIndex={2}
               className="w-full"
             />
@@ -51,7 +51,7 @@ export default function TransformationCard({
               src={afterImage}
               alt="After"
               width={400}
-              height={500}
+              height={560}
               colorIndex={0}
               className="w-full"
             />

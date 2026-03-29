@@ -54,13 +54,16 @@ export default function Footer() {
     <footer id="site-footer" className="bg-espresso text-warm-ivory">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
 
-        {/* Mobile-only CTA — first element in footer */}
-        <div className="md:hidden text-center mb-6 pb-6 border-b border-warm-ivory/10">
+        {/* Footer CTA — visible on all viewports */}
+        <div className="text-center mb-6 pb-6 border-b border-warm-ivory/10">
+          <p className="text-warm-ivory/70 text-[14px] md:text-[15px] mb-3 hidden md:block">
+            Ready to begin? Book your complimentary color analysis.
+          </p>
           <a
             href={calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full bg-terracotta text-white font-body font-semibold text-[13px] uppercase tracking-[1.5px] py-3.5 text-center no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-200"
+            className="block w-full md:inline-block md:w-auto bg-terracotta text-white font-body font-semibold text-[13px] uppercase tracking-[1.5px] py-3.5 md:px-8 text-center no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-200"
           >
             {content.mobileCta}
           </a>

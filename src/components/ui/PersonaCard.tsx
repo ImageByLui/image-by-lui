@@ -12,11 +12,11 @@ interface PersonaCardProps {
 
 export default function PersonaCard({ headline, body }: PersonaCardProps) {
   return (
-    <div className="lui-card bg-white border-l-4 border-l-terracotta p-6">
+    <div className="lui-card bg-white border-l-4 border-l-terracotta p-6 h-full">
       <h3 className="font-body font-semibold text-[16px] md:text-[18px] text-espresso mb-3">
         {headline}
       </h3>
-      <p className="text-warm-grey leading-relaxed text-[15px]">
+      <p className="text-warm-grey leading-relaxed text-[15px] md:text-[16px]">
         {body}
       </p>
     </div>
