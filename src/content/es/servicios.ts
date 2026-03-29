@@ -2,7 +2,9 @@ import type { ServicesContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// Services Page Content — Spanish (Natively written, NOT a translation)
+// Services Page Content — Spanish (V5 — Redesign)
+// =============================================================================
+// Natively written Spanish, NOT a translation.
 // =============================================================================
 
 export const servicesContentEs: ServicesContent = {
@@ -10,16 +12,19 @@ export const servicesContentEs: ServicesContent = {
     headline: "Estrategia de Imagen para Profesionales que Van en Serio",
     subheadline:
       "Cada compromiso LUI comienza con análisis diagnóstico — no con suposiciones. Ya sea que estés refinando tu presencia para la sala de juntas, la cita con clientes o el escenario, la metodología es la misma: precisa, personalizada y construida para perdurar.",
+    imageAlt:
+      "Lu trabajando con una clienta durante una sesión de consultoría de imagen",
   },
 
   tiers: [
     {
       anchor: "power-palette",
-      label: "EMPIEZA AQUÍ",
+      label: "EMPIEZA AQUÍ — DE CORTESÍA",
       name: "Tu Power Palette",
       price: "De cortesía",
       description:
-        "¿No sabes por dónde empezar? Comienza aquí. En esta sesión de 20 minutos — virtual o presencial — analizaremos tu subtono natural mediante drapeado profesional de color e identificaremos los cinco colores que hacen que tus rasgos cobren vida. Te llevarás una tarjeta de color personalizada y una comprensión clara de cómo las elecciones estratégicas de color elevan tu presencia profesional.",
+        "En 20 minutos, Lu identifica tu subtono natural y revela los cinco colores que te hacen lucir más segura y poderosa. Virtual o presencial. Te llevarás una tarjeta de color personalizada y total claridad sobre tu próximo paso.",
+      imageAlt: "Lu realizando drapeado de color con una clienta",
       inclusions: [
         { text: "Análisis profesional de subtono" },
         { text: "Tus 5 colores de poder identificados" },
@@ -27,7 +32,7 @@ export const servicesContentEs: ServicesContent = {
         { text: "Orientación sobre ajustes inmediatos en tu guardarropa" },
       ],
       cta: {
-        text: "DESCUBRE TU POWER PALETTE",
+        text: "RESERVA TU SESIÓN GRATIS",
         href: getCalendlyUrl("powerPalette"),
         external: true,
       },
@@ -37,18 +42,21 @@ export const servicesContentEs: ServicesContent = {
       name: "Primera Impresión",
       price: "$400",
       positioningLine: "Una inversión profesional en claridad.",
+      outcomeText: "Saldrás sabiendo",
       description:
-        "Una sesión diagnóstica de 90 minutos que va más allá del color. Analizamos tu coloración, tus rasgos y tu contexto profesional para construir una dirección de estilo que puedes ejecutar de inmediato. Recibirás estrategias de outfits aplicables con tu guardarropa actual — sin necesidad de compras.",
+        "exactamente qué colores y siluetas funcionan para tu cuerpo y tu carrera — con 3–5 outfits que puedes usar esta semana.",
+      summaryLine: "~2 horas · Análisis de color · Diagnóstico de estilo · Lookbook",
+      imageAlt: "Clienta revisando su lookbook digital con Lu",
       inclusions: [
-        { text: "Análisis colorimétrico básico (subtono + 10 colores de poder)" },
-        { text: "Diagnóstico de estilo basado en tu contexto profesional" },
-        { text: "3–5 recomendaciones de outfits con tu guardarropa existente" },
-        { text: "Lookbook digital con tu dirección de estilo personalizada" },
-        { text: "Resumen de seguimiento entregado en 48 horas" },
+        { text: "Análisis colorimétrico (subtono + 10 colores de poder)" },
+        { text: "Diagnóstico de estilo para tu contexto profesional" },
+        { text: "3–5 recomendaciones de outfits con tu guardarropa" },
+        { text: "Lookbook digital con dirección personalizada" },
+        { text: "Resumen de seguimiento en 48 horas" },
       ],
-      duration: "~2 horas de compromiso total",
+      duration: "~2 horas en total",
       cta: {
-        text: "COMIENZA TU PRIMERA IMPRESIÓN",
+        text: "RESERVA PRIMERA IMPRESIÓN",
         href: getCalendlyUrl("firstImpression"),
         external: true,
       },
@@ -57,62 +65,73 @@ export const servicesContentEs: ServicesContent = {
       anchor: "transformacion-de-identidad",
       name: "Transformación de Identidad",
       price: "$1,800",
-      positioningLine:
-        "La reinvención completa de cómo te presentas al mundo.",
+      badge: "MÁS COMPLETO",
+      positioningLine: "La reinvención completa.",
+      outcomeText:
+        "Nunca más te pararás frente a tu clóset sintiéndote perdida.",
       description:
-        "Esta es la experiencia LUI completa. Durante 12–15 horas de trabajo dedicado uno a uno, deconstruimos y reconstruimos tu imagen profesional desde los cimientos. Análisis colorimétrico completo con precisión Pantone. Mapeo morfológico para identificar las siluetas, telas y detalles de construcción que honran la arquitectura natural de tu cuerpo. Una auditoría de clóset que separa lo que te sirve de lo que no. Y una experiencia de compras curada — presencial o virtual — para completar los espacios con intención.",
+        "Análisis completo, auditoría de clóset, compras personalizadas y un sistema de estilo construido alrededor de tu vida.",
       valueCallout:
-        "12–15 horas de trabajo dedicado uno a uno a través de 7 entregables distintos — una inversión estratégica en cómo te presentas durante años.",
+        "12–15 horas de trabajo dedicado uno a uno a través de 7 entregables distintos",
+      imageAlt: "Lu seleccionando outfits durante una auditoría de clóset",
       inclusions: [
-        { text: "Cuestionario personal integral y revisión de estilo de vida" },
+        { text: "Cuestionario integral y revisión de estilo de vida" },
         { text: "Análisis colorimétrico completo con calibración Pantone" },
         { text: "Análisis morfológico con optimización de silueta" },
-        { text: "Auditoría de clóset y detox de guardarropa en casa (2–3 horas)" },
-        { text: "Experiencia de compras personalizadas curada (3–4 horas)" },
+        { text: "Auditoría de clóset y detox de guardarropa (2–3 hrs)" },
+        { text: "Compras personalizadas curadas (3–4 hrs)" },
         { text: "Documento de Perfil de Identidad y Mapeo de Estilo de Vida" },
         { text: "Guía de estilo digital con 15–20 outfits completos" },
       ],
-      duration: "~12–15 horas de compromiso total en múltiples sesiones",
+      duration: "~12–15 horas en múltiples sesiones",
       cta: {
-        text: "COMIENZA TU TRANSFORMACIÓN",
+        text: "RESERVA TU TRANSFORMACIÓN",
         href: getCalendlyUrl("identityTransformation"),
         external: true,
       },
     },
   ],
 
-  methodology: {
-    heading: "El Método LUI: Cómo Funciona",
-    steps: [
-      {
-        number: 1,
-        heading: "Colorimetría",
-        body: "Mediante telas profesionales calibradas en sistema Pantone, identificamos la paleta de colores que realza tus rasgos naturales. Esto no es un quiz de temporada — es un diagnóstico preciso que mapea tu subtono único a los colores que proyectan tu mejor versión.",
-      },
-      {
-        number: 2,
-        heading: "Análisis Morfológico",
-        body: "Mapeamos las proporciones, líneas y estructura de tu cuerpo para determinar las siluetas, telas y detalles de construcción que trabajan con tu arquitectura natural — no en contra. El objetivo es armonía entre quién eres y cómo tu ropa te presenta.",
-      },
-      {
-        number: 3,
-        heading: "Mapeo de Estilo de Vida",
-        body: "Cada recomendación se alinea con cómo realmente vives y trabajas: tu industria, tu entorno diario, tus metas y tu contexto cultural. Una estrategia que no encaja en tu vida no perdura. La nuestra sí.",
-      },
-    ],
-    closingLine:
-      "Análisis de color + arquitectura corporal + mapeo de estilo de vida = una estrategia de imagen basada en ciencia, no en improvisación.",
+  transition: {
+    heading: "Cuando estés lista para más",
+    body: "La mayoría de las clientas empiezan con la sesión gratis, luego eligen su camino.",
+  },
+
+  socialProof: [
+    {
+      quote:
+        "La sesión de Lu me dio la confianza de que mi outfit estaba trabajando a mi favor. Gané el listado.",
+      name: "C.L.",
+      title: "Agente de Bienes Raíces, Miami",
+      initials: "CL",
+      social: "@placeholder",
+    },
+    {
+      quote:
+        "Dejé de comprar ropa que quedaba sin usar. Lu identificó 8 colores que nunca había considerado.",
+      name: "A.R.",
+      title: "Ejecutiva de Finanzas",
+      initials: "AR",
+      social: "@placeholder",
+    },
+  ],
+
+  visualMoment: {
+    quote: "Mi guardarropa es la mitad del tamaño y el doble de efectivo.",
+    name: "M.T.",
+    title: "Ejecutiva de Salud",
+    initials: "MT",
   },
 
   faq: {
-    heading: "Preguntas Frecuentes",
+    heading: "Preguntas Que Escuchamos Seguido",
   },
 
   finalCta: {
-    heading: "¿No Sabes Por Dónde Empezar?",
-    body: "Tu Power Palette es el punto de entrada perfecto. En 20 minutos, descubrirás los colores que transforman tu presencia — y entenderás exactamente por qué la metodología LUI funciona.",
+    heading: "¿Tienes preguntas? Habla con Lu directamente.",
+    body: "Reserva una conversación de cortesía de 20 minutos. Sin presión, sin compromiso.",
     cta: {
-      text: "DESCUBRE TU POWER PALETTE",
+      text: "RESERVA TU CONSULTA GRATIS",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },

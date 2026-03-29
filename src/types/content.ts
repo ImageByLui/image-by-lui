@@ -160,9 +160,17 @@ export interface ServiceTier {
   name: string;
   price: string;
   positioningLine?: string;
+  /** Bold lead-in for outcome description (e.g., "You'll walk away knowing") */
+  outcomeText?: string;
   description: string;
   /** Styled callout text to justify value (used on Signature tier) */
   valueCallout?: string;
+  /** Always-visible summary (e.g., "~2 hours · Color analysis · Lookbook") */
+  summaryLine?: string;
+  /** Badge text (e.g., "MOST COMPREHENSIVE") */
+  badge?: string;
+  /** Alt text for the card's image placeholder */
+  imageAlt?: string;
   inclusions: ServiceTierInclusion[];
   duration?: string;
   cta: CTAButton;
@@ -177,19 +185,40 @@ export interface MethodologyDeepDive {
 
 export interface FAQItem {
   question: string;
+  /** Supports HTML for bold key phrases */
   answer: string;
+}
+
+/** Inline testimonial for services page — shorter quote with headshot */
+export interface ServicesTestimonial {
+  quote: string;
+  name: string;
+  title: string;
+  initials: string;
+  social?: string;
 }
 
 export interface ServicesContent {
   hero: {
     headline: string;
     subheadline: string;
+    /** Alt text for hero image placeholder (desktop layout) */
+    imageAlt?: string;
   };
   tiers: ServiceTier[];
-  methodology: MethodologyDeepDive;
+  /** @deprecated — Methodology moved to homepage only */
+  methodology?: MethodologyDeepDive;
+  /** Transition text between free session and paid tiers */
+  transition?: {
+    heading: string;
+    body: string;
+  };
+  /** Inline testimonials shown after Power Palette */
+  socialProof?: ServicesTestimonial[];
+  /** Visual moment section between tiers and FAQ */
+  visualMoment?: ServicesTestimonial;
   faq: {
     heading: string;
-    // Items imported from shared/faq.ts
   };
   finalCta: FinalCTASection;
   seo: PageSEO;
@@ -326,6 +355,10 @@ export interface Testimonial {
     en: string;
     es: string;
   };
+  /** Initials for avatar circle (e.g., "CL") */
+  initials?: string;
+  /** Social handle placeholder (e.g., "@placeholder") */
+  social?: string;
   contextLine?: {
     en: string;
     es: string;

@@ -1,10 +1,11 @@
 "use client";
 
 // =============================================================================
-// FaqAccordion Component — Image by LUI
+// FaqAccordion Component — Image by LUI (V5)
 // =============================================================================
-// Expandable Q&A using native <details>/<summary> for zero-JS progressive
-// enhancement and accessibility. No animation library needed.
+// Clean hairline separators between questions. + / − terracotta icons.
+// Supports bold key phrases in answers via <strong> tags.
+// Uses native <details> for accessibility — no JS required for basic function.
 // =============================================================================
 
 interface FaqItem {
@@ -18,38 +19,27 @@ interface FaqAccordionProps {
 
 export default function FaqAccordion({ items }: FaqAccordionProps) {
   return (
-    <div className="space-y-3 max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       {items.map((item, index) => (
         <details
           key={index}
-          className="lui-card group border border-champagne bg-white"
+          className={`group ${
+            index < items.length - 1 ? "border-b border-soft-stone" : ""
+          }`}
         >
-          <summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
-            <h3 className="font-body font-semibold text-[16px] md:text-[18px] text-espresso pr-4 m-0">
+          <summary className="flex items-center justify-between cursor-pointer py-5 md:py-6 list-none">
+            <h3 className="font-body font-semibold text-[15px] md:text-[17px] text-espresso pr-4 m-0">
               {item.question}
             </h3>
-            {/* Chevron icon — rotates when open */}
-            <span className="shrink-0 text-terracotta transition-transform duration-200 group-open:rotate-180">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 7.5L10 12.5L15 7.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            {/* + / − icon */}
+            <span className="shrink-0 text-terracotta text-[20px] leading-none w-5 text-center select-none">
+              <span className="group-open:hidden">+</span>
+              <span className="hidden group-open:inline">&minus;</span>
             </span>
           </summary>
-          <div className="px-5 pb-5 md:px-6 md:pb-6 text-warm-grey leading-relaxed">
-            {item.answer}
+          <div className="pb-5 md:pb-6 text-warm-grey leading-relaxed text-[14px] md:text-[16px] max-w-[640px]">
+            {/* Support bold key phrases via dangerouslySetInnerHTML */}
+            <p dangerouslySetInnerHTML={{ __html: item.answer }} />
           </div>
         </details>
       ))}
