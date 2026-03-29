@@ -2,7 +2,7 @@ import type { AboutContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// About Page Content — Spanish (V5 — Editorial Redesign)
+// About Page Content — Spanish (V7 — Final Approved)
 // =============================================================================
 // Natively written Spanish, NOT a translation.
 // =============================================================================
@@ -11,30 +11,41 @@ export const aboutContentEs: AboutContent = {
   hero: {
     headline: "Precisión como base. Calidez como entrega.",
     subheadline:
-      "Nacida en Colombia. Basada en Miami. Consultora de imagen diagnóstica para profesionales que necesitan que su apariencia trabaje tan estratégicamente como ellos.",
-    pullQuote:
-      "Si alguna vez te paraste frente a tu clóset antes de un día importante y pensaste 'no tengo nada que ponerme' — te entiendo.",
-    imageAlt:
-      "Lu — retrato en luz natural",
+      "Nacida en Colombia. Basada en Miami. Consultora de imagen diagnóstica que ayuda a profesionales a alinear cómo se ven con hacia dónde van.",
+    imageAlt: "Lu — retrato en luz natural",
   },
 
-  story: {
-    part1: [
-      "Creciendo en Colombia y luego construyendo una carrera entre culturas, Lu experimentó de primera mano cómo la imagen correcta abre puertas — y la incorrecta las mantiene cerradas.",
-      "Su camino comenzó en una escuela de diseño de moda. No con tendencias — con estructura. Patronaje. Ciencia textil. Cómo las prendas realmente interactúan con el cuerpo humano. Esa base formó todo lo que vino después.",
+  pullQuote:
+    "Si alguna vez te paraste frente a tu clóset antes de un día importante y pensaste 'no tengo nada que ponerme' — te entiendo.",
+
+  origin: {
+    intro: [
+      "Lu sabe lo que es navegar entre dos culturas. La imagen correcta abre puertas — la incorrecta las mantiene cerradas.",
+      "Su camino comenzó en una escuela de diseño de moda en Colombia. No con tendencias — con estructura:",
     ],
-    part1ImageAlt: "Lu con muestras de color",
-    part2: [
-      "Después de años de formación especializada — <strong>colorimetría certificada, estilismo profesional, producción de moda</strong> — surgió una metodología clara.",
-      "La imagen no se trata de seguir tendencias ni de copiar looks. Se trata de entender la ciencia del <strong>color, la proporción y el contexto personal</strong> — y usar ese entendimiento para construir algo intencional.",
+    disciplines: [
+      "Patronaje",
+      "Ciencia Textil",
+      "Ingeniería de Prendas",
     ],
-    part2ImageAlt: "Sesión de drapeado de color",
+    closing:
+      "Esa base llevó a años de formación especializada — colorimetría certificada, estilismo profesional, producción de moda — y una metodología clara: imagen construida sobre ciencia, no tendencias.",
+    imageAlt: "Lu con muestras de color",
   },
+
+  sessionImageAlt: "Lu durante una sesión de drapeado de color",
 
   clientVoice: {
     quote:
       "Lu no solo cambió mi guardarropa — cambió cómo entro a una habitación. Por fin me veo como la líder que soy.",
-    attribution: "C.L., Agente de Bienes Raíces, Miami",
+    name: "C.L.",
+    initials: "CL",
+    title: "Agente de Bienes Raíces, Miami",
+  },
+
+  imageStrip: {
+    leftAlt: "Muestras de color",
+    rightAlt: "Espacio de trabajo de Lu",
   },
 
   philosophy: {

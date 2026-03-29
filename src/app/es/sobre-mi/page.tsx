@@ -6,22 +6,22 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
-// About Page — Spanish (/es/sobre-mi) — V5 Editorial Redesign
+// About Page — Spanish (/es/sobre-mi) — V7 Final
 // =============================================================================
 
 export const metadata: Metadata = buildPageMetadata(aboutContentEs.seo, "es", "about");
 
 export default function AboutPageEs() {
-  const content = aboutContentEs;
+  const c = aboutContentEs;
 
   return (
     <>
-      {/* 1. Hero — Portrait dominant */}
+      {/* 1. HERO */}
       <section className="bg-warm-ivory">
         {/* Desktop */}
         <div className="hidden lg:grid grid-cols-[1.3fr_1fr] h-[680px]">
           <ImagePlaceholder
-            alt={content.hero.imageAlt || "Lu — retrato"}
+            alt={c.hero.imageAlt || "Lu — retrato"}
             width={800}
             height={1000}
             colorIndex={1}
@@ -36,18 +36,11 @@ export default function AboutPageEs() {
                 </p>
                 <div className="w-12 h-[1px] bg-terracotta mb-6" />
                 <h1 className="font-heading font-semibold text-[42px] leading-[1.12] text-espresso mb-6">
-                  {content.hero.headline}
+                  {c.hero.headline}
                 </h1>
-                <p className="font-body text-[18px] text-warm-grey leading-relaxed mb-7">
-                  {content.hero.subheadline}
+                <p className="font-body text-[18px] text-warm-grey leading-relaxed">
+                  {c.hero.subheadline}
                 </p>
-                {content.hero.pullQuote && (
-                  <div className="border-l-[3px] border-l-terracotta pl-4">
-                    <p className="font-heading italic text-[20px] text-espresso leading-snug">
-                      &ldquo;{content.hero.pullQuote}&rdquo;
-                    </p>
-                  </div>
-                )}
               </div>
             </ScrollReveal>
           </div>
@@ -56,9 +49,9 @@ export default function AboutPageEs() {
         {/* Mobile */}
         <div className="lg:hidden">
           <ImagePlaceholder
-            alt={content.hero.imageAlt || "Lu — retrato"}
+            alt={c.hero.imageAlt || "Lu — retrato"}
             width={750}
-            height={1000}
+            height={563}
             colorIndex={1}
             className="w-full"
             priority
@@ -67,49 +60,83 @@ export default function AboutPageEs() {
             <p className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-terracotta mb-2">
               Conoce a Lu
             </p>
-            <h1 className="font-heading font-semibold text-[28px] leading-[1.2] text-espresso mb-3">
-              {content.hero.headline}
+            <h1 className="font-heading font-semibold text-[26px] leading-[1.2] text-espresso mb-3">
+              {c.hero.headline}
             </h1>
-            <p className="font-body text-[15px] text-warm-grey leading-relaxed">
-              {content.hero.subheadline}
+            <p className="font-body text-[16px] text-warm-grey leading-relaxed">
+              {c.hero.subheadline}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mobile-only pull-quote */}
-      {content.hero.pullQuote && (
-        <section className="lg:hidden px-6 pb-8">
-          <div className="border-l-[3px] border-l-terracotta pl-4">
-            <p className="font-heading italic text-[19px] text-espresso leading-snug">
-              &ldquo;{content.hero.pullQuote}&rdquo;
-            </p>
-          </div>
-        </section>
-      )}
+      {/* 2. PULL QUOTE */}
+      <section className="bg-espresso relative overflow-hidden py-10 md:py-16">
+        <span
+          className="font-heading absolute top-2 left-4 md:left-10 text-[120px] md:text-[200px] text-gold/[0.12] leading-none select-none"
+          aria-hidden="true"
+        >
+          &ldquo;
+        </span>
+        <span
+          className="font-heading absolute -bottom-5 right-4 md:right-10 text-[120px] md:text-[200px] text-gold/[0.12] leading-none select-none"
+          aria-hidden="true"
+        >
+          &rdquo;
+        </span>
+        <div className="max-w-[680px] mx-auto px-7 md:px-10 text-center relative z-10">
+          <p className="font-body font-medium text-warm-ivory text-[18px] md:text-[24px] leading-snug">
+            {c.pullQuote}
+          </p>
+          <div className="w-8 h-[1px] bg-gold mx-auto mt-4 md:mt-5" />
+        </div>
+      </section>
 
-      {/* 2. Story Block 1 — Text left, image right */}
+      {/* 3. ORIGIN */}
       <section className="bg-soft-stone">
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 md:py-[72px]">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-7 md:py-[72px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
             <ScrollReveal>
-              <div className="lg:pt-4">
-                {content.story.part1.map((paragraph, i) => (
+              <div className="lg:pt-1">
+                {c.origin.intro.map((p, i) => (
                   <p
                     key={i}
-                    className="font-body text-[15px] md:text-[18px] text-warm-grey leading-relaxed mb-4 last:mb-0"
+                    className="font-body text-[16px] md:text-[18px] text-warm-grey leading-relaxed mb-4"
                   >
-                    {paragraph}
+                    {p}
                   </p>
                 ))}
+
+                <div className="flex flex-col mt-2 mb-4">
+                  {c.origin.disciplines.map((d, i) => (
+                    <div
+                      key={i}
+                      className={`flex items-center gap-3 py-3 ${
+                        i < c.origin.disciplines.length - 1
+                          ? "border-b border-b-champagne"
+                          : ""
+                      }`}
+                    >
+                      <div className="w-[3px] h-5 bg-terracotta shrink-0" />
+                      <span className="font-body font-semibold text-[15px] md:text-[16px] text-espresso">
+                        {d}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="font-body text-[14px] md:text-[15px] text-warm-taupe leading-relaxed">
+                  {c.origin.closing}
+                </p>
               </div>
             </ScrollReveal>
+
             <ScrollReveal delay={150}>
-              <div className="border border-champagne p-1.5 bg-warm-ivory">
+              <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
-                  alt={content.story.part1ImageAlt || "Lu trabajando"}
+                  alt={c.origin.imageAlt || "Lu trabajando"}
                   width={600}
-                  height={400}
+                  height={750}
                   colorIndex={1}
                   className="w-full"
                 />
@@ -119,95 +146,120 @@ export default function AboutPageEs() {
         </div>
       </section>
 
-      {/* 3. Story Block 2 — Image left, text right */}
-      <section className="bg-warm-ivory">
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 md:py-[72px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-            <ScrollReveal>
-              <div className="border border-champagne p-1.5 bg-warm-ivory">
-                <ImagePlaceholder
-                  alt={content.story.part2ImageAlt || "Sesión de drapeado"}
-                  width={600}
-                  height={450}
-                  colorIndex={1}
-                  className="w-full"
-                />
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={150}>
-              <div>
-                {content.story.part2.map((paragraph, i) => (
-                  <p
-                    key={i}
-                    className="font-body text-[15px] md:text-[18px] text-warm-grey leading-relaxed mb-4 last:mb-0"
-                    dangerouslySetInnerHTML={{ __html: paragraph }}
-                  />
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
+      {/* 4. SESSION IMAGE */}
+      <ImagePlaceholder
+        alt={c.sessionImageAlt || "Lu durante una sesión"}
+        width={1200}
+        height={400}
+        colorIndex={1}
+        className="w-full"
+      />
 
-      {/* 4. Client Voice */}
-      {content.clientVoice && (
-        <section className="bg-soft-stone">
-          <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-14 text-center">
-            <ScrollReveal>
-              <div className="w-10 h-[1px] bg-gold mx-auto mb-5 md:mb-6" />
-              <p className="font-heading italic text-espresso text-[19px] md:text-[26px] leading-snug mb-4 md:mb-5">
-                &ldquo;{content.clientVoice.quote}&rdquo;
+      {/* 5. CLIENT VOICE */}
+      <section className="bg-champagne relative overflow-hidden">
+        <span
+          className="font-heading absolute top-2 left-4 md:left-16 text-[80px] md:text-[160px] text-gold/[0.15] leading-none select-none"
+          aria-hidden="true"
+        >
+          &ldquo;
+        </span>
+
+        <div className="relative z-10 max-w-[780px] mx-auto px-6 lg:px-10 py-7 md:py-14">
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex flex-col items-center gap-2 shrink-0">
+              <div className="w-20 h-20 rounded-full bg-warm-ivory flex items-center justify-center border-2 border-gold/30">
+                <span className="font-body font-semibold text-[22px] text-warm-taupe">
+                  {c.clientVoice.initials}
+                </span>
+              </div>
+              <p className="font-body font-semibold text-[13px] text-espresso">
+                {c.clientVoice.name}
               </p>
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-champagne flex items-center justify-center shrink-0">
-                  <span className="font-body font-semibold text-[13px] text-warm-taupe">CL</span>
+              <p className="font-body text-[11px] text-warm-grey -mt-1">
+                {c.clientVoice.title}
+              </p>
+            </div>
+            <p className="font-heading italic text-[24px] text-espresso leading-snug">
+              &ldquo;{c.clientVoice.quote}&rdquo;
+            </p>
+          </div>
+
+          {/* Mobile */}
+          <div className="md:hidden">
+            <div className="border-l-[3px] border-l-gold pl-4">
+              <p className="font-body text-[16px] italic text-espresso leading-relaxed mb-4">
+                &ldquo;{c.clientVoice.quote}&rdquo;
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-warm-ivory flex items-center justify-center shrink-0">
+                  <span className="font-body font-semibold text-[12px] text-warm-taupe">
+                    {c.clientVoice.initials}
+                  </span>
                 </div>
-                <div className="text-left">
-                  <p className="font-body font-semibold text-[14px] text-espresso">
-                    C.L.
+                <div>
+                  <p className="font-body font-semibold text-[13px] text-espresso">
+                    {c.clientVoice.name}
                   </p>
-                  <p className="font-body text-[12px] text-warm-taupe">
-                    {content.clientVoice.attribution}
+                  <p className="font-body text-[11px] text-warm-taupe">
+                    {c.clientVoice.title}
                   </p>
                 </div>
               </div>
-              <div className="w-10 h-[1px] bg-gold mx-auto mt-5 md:mt-6" />
-            </ScrollReveal>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      {/* 6. IMAGE STRIP */}
+      {c.imageStrip && (
+        <div className="grid grid-cols-2 gap-[2px] md:gap-[3px]">
+          <ImagePlaceholder
+            alt={c.imageStrip.leftAlt}
+            width={600}
+            height={600}
+            colorIndex={1}
+            className="w-full aspect-square md:aspect-[2/1]"
+          />
+          <ImagePlaceholder
+            alt={c.imageStrip.rightAlt}
+            width={600}
+            height={600}
+            colorIndex={1}
+            className="w-full aspect-square md:aspect-[2/1]"
+          />
+        </div>
       )}
 
-      {/* 5. Philosophy */}
+      {/* 7. PHILOSOPHY */}
       <section className="bg-espresso">
-        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-20 text-center">
+        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-9 md:py-20 text-center">
           <ScrollReveal>
-            <div className="w-12 h-[1px] bg-gold mx-auto mb-6 md:mb-8" />
-            <p className="font-heading font-medium text-warm-ivory text-[19px] md:text-[32px] leading-snug mb-4 md:mb-5">
-              {content.philosophy.statement}
+            <div className="w-12 h-[1px] bg-gold mx-auto mb-5 md:mb-8" />
+            <p className="font-body font-semibold text-warm-ivory text-[18px] md:text-[28px] leading-snug mb-3 md:mb-4">
+              {c.philosophy.statement}
             </p>
-            <p className="font-heading italic text-warm-ivory/50 text-[17px] md:text-[24px] leading-snug">
-              {content.philosophy.closer}
+            <p className="font-body italic text-warm-ivory/50 text-[16px] md:text-[22px] leading-snug">
+              {c.philosophy.closer}
             </p>
-            <div className="w-12 h-[1px] bg-gold mx-auto mt-6 md:mt-8" />
+            <div className="w-12 h-[1px] bg-gold mx-auto mt-5 md:mt-8" />
           </ScrollReveal>
         </div>
       </section>
 
-      {/* 6. CTA — Desktop button, mobile text-only */}
-      <section className="bg-warm-ivory">
-        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-14 text-center">
+      {/* 8. CTA — Desktop only */}
+      <section className="hidden md:block bg-warm-ivory">
+        <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-14 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-medium text-espresso text-[22px] md:text-[28px] mb-3">
-              {content.cta.heading}
+            <h2 className="font-heading font-medium text-espresso text-[28px] mb-3">
+              {c.cta.heading}
             </h2>
-            <p className="font-body text-warm-grey text-[14px] md:text-[17px] leading-relaxed mb-0 md:mb-7">
-              {content.cta.body}
+            <p className="font-body text-warm-grey text-[17px] leading-relaxed mb-7">
+              {c.cta.body}
             </p>
-            <div className="hidden md:block">
-              <Button href={content.cta.cta.href} external={content.cta.cta.external}>
-                {content.cta.cta.text}
-              </Button>
-            </div>
+            <Button href={c.cta.cta.href} external={c.cta.cta.external}>
+              {c.cta.cta.text}
+            </Button>
           </ScrollReveal>
         </div>
       </section>

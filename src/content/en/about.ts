@@ -2,41 +2,48 @@ import type { AboutContent } from "@/types/content";
 import { getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// About Page Content — English (V5 — Editorial Redesign)
-// =============================================================================
-// All copy from the approved Brand Brief. Restructured for editorial layout:
-// hero with pull-quote, two-part story with image breaks, inline client voice,
-// philosophy as statement/closer pair.
+// About Page Content — English (V7 — Final Approved)
 // =============================================================================
 
 export const aboutContent: AboutContent = {
   hero: {
     headline: "Built on precision. Delivered with warmth.",
     subheadline:
-      "Born in Colombia. Based in Miami. Diagnostic image consultant for professionals who need their appearance to work as strategically as they do.",
-    pullQuote:
-      "If you've ever stood in front of your closet before an important day and thought 'I have nothing to wear' — I understand.",
-    imageAlt:
-      "Lu — portrait in natural light",
+      "Born in Colombia. Based in Miami. Diagnostic image consultant who helps professionals align how they look with where they're going.",
+    imageAlt: "Lu — portrait in natural light",
   },
 
-  story: {
-    part1: [
-      "Growing up in Colombia, then building a career across cultures, Lu experienced firsthand how the right image opens doors — and the wrong one keeps them closed.",
-      "Her path started in fashion design school. Not with trends — with structure. Pattern construction. Textile science. How garments actually interact with the human body. That foundation shaped everything that followed.",
+  pullQuote:
+    "If you've ever stood in front of your closet before an important day and thought 'I have nothing to wear' — I understand.",
+
+  origin: {
+    intro: [
+      "Lu knows what it's like to navigate two cultures. The right image opens doors — the wrong one keeps them closed.",
+      "Her path started in fashion design school in Colombia. Not with trends — with structure:",
     ],
-    part1ImageAlt: "Lu with color swatches",
-    part2: [
-      "After years of specialized training — <strong>certified colorimetry, professional styling, fashion production</strong> — a clear methodology emerged.",
-      "Image isn't about following trends or copying looks. It's about understanding the science of <strong>color, proportion, and personal context</strong> — and using that understanding to build something intentional.",
+    disciplines: [
+      "Pattern Construction",
+      "Textile Science",
+      "Garment Engineering",
     ],
-    part2ImageAlt: "Color draping session",
+    closing:
+      "That foundation led to years of specialized training — certified colorimetry, professional styling, fashion production — and a clear methodology: image built on science, not trends.",
+    imageAlt: "Lu with color swatches",
   },
+
+  sessionImageAlt: "Lu during a color draping session",
 
   clientVoice: {
     quote:
       "Lu didn't just change my wardrobe — she changed how I walk into a room. I finally look like the leader I am.",
-    attribution: "C.L., Real Estate Agent, Miami",
+    name: "C.L.",
+    initials: "CL",
+    title: "Real Estate Agent, Miami",
+  },
+
+  imageStrip: {
+    leftAlt: "Color swatches",
+    rightAlt: "Lu's workspace",
   },
 
   philosophy: {

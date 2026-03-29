@@ -232,21 +232,30 @@ export interface AboutContent {
   hero: {
     headline: string;
     subheadline: string;
-    /** First-person pull-quote integrated into hero */
-    pullQuote?: string;
     imageAlt?: string;
   };
-  /** Two-part story with alternating image blocks */
-  story: {
-    part1: string[];
-    part1ImageAlt?: string;
-    part2: string[];
-    part2ImageAlt?: string;
+  /** First-person pull-quote — displayed as poster moment */
+  pullQuote: string;
+  /** Origin story with discipline bars */
+  origin: {
+    intro: string[];
+    disciplines: string[];
+    closing: string;
+    imageAlt?: string;
   };
-  /** Inline client testimonial between story and philosophy */
-  clientVoice?: {
+  /** Full-width session image */
+  sessionImageAlt?: string;
+  /** Client testimonial — displayed before origin closing */
+  clientVoice: {
     quote: string;
-    attribution: string;
+    name: string;
+    initials: string;
+    title: string;
+  };
+  /** Image strip — two atmospheric detail shots */
+  imageStrip?: {
+    leftAlt: string;
+    rightAlt: string;
   };
   philosophy: {
     statement: string;
@@ -256,15 +265,6 @@ export interface AboutContent {
     heading: string;
     body: string;
     cta: CTAButton;
-  };
-  /** @deprecated — Credentials removed per Lu's request. Kept for backward compat. */
-  credentials?: {
-    heading: string;
-    items: string[];
-  };
-  /** @deprecated — Replaced by story field. Kept for backward compat. */
-  originStory?: {
-    paragraphs: string[];
   };
   seo: PageSEO;
 }
