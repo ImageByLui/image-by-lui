@@ -22,11 +22,13 @@ export default function AboutPageEs() {
         <div className="hidden lg:grid grid-cols-[1.3fr_1fr] h-[680px]">
           <div className="overflow-hidden">
             <ImagePlaceholder
-              alt={c.hero.imageAlt || "Lu — retrato"}
+              src="/images/about-hero-cartier.jpg"
+              alt="Lu, consultora de imagen bilingüe en Miami, en un entorno profesional cálido"
               width={800}
               height={1000}
               colorIndex={1}
               className="w-full h-full object-cover"
+              fill
               priority
             />
           </div>
@@ -51,11 +53,14 @@ export default function AboutPageEs() {
         {/* Mobile */}
         <div className="lg:hidden">
           <ImagePlaceholder
-            alt={c.hero.imageAlt || "Lu — retrato"}
+            src="/images/about-hero-cartier.jpg"
+            alt="Lu, consultora de imagen bilingüe en Miami, en un entorno profesional cálido"
             width={750}
             height={563}
             colorIndex={1}
             className="w-full"
+            fill
+            objectPosition="center 25%"
             priority
           />
           <div className="px-6 py-7">
@@ -136,9 +141,10 @@ export default function AboutPageEs() {
             <ScrollReveal delay={150}>
               <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
-                  alt={c.origin.imageAlt || "Lu trabajando"}
+                  src="/images/about-story-bw-blazer.jpg"
+                  alt="Retrato editorial en blanco y negro de Lu con blazer profesional"
                   width={600}
-                  height={400}
+                  height={800}
                   colorIndex={1}
                   className="w-full"
                 />
@@ -150,11 +156,14 @@ export default function AboutPageEs() {
 
       {/* 4. SESSION IMAGE */}
       <ImagePlaceholder
-        alt={c.sessionImageAlt || "Lu durante una sesión"}
+        src="/images/about-story-bw-blazer.jpg"
+        alt="Retrato editorial en blanco y negro de Lu con blazer profesional"
         width={1200}
         height={400}
         colorIndex={1}
         className="w-full"
+        fill
+        objectPosition="center 15%"
       />
 
       {/* 5. CLIENT VOICE */}
