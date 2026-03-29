@@ -31,7 +31,7 @@ export default function AboutPage() {
       {/* ----------------------------------------------------------------- */}
       <section className="bg-warm-ivory">
         {/* Desktop layout */}
-        <div className="hidden lg:grid grid-cols-[1.3fr_1fr] min-h-[85vh] max-h-[720px]">
+        <div className="hidden lg:grid grid-cols-[1.3fr_1fr] h-[680px]">
           {/* Portrait — dominant, edge-to-edge */}
           <ImagePlaceholder
             alt={content.hero.imageAlt || "Lu — portrait"}
@@ -107,9 +107,9 @@ export default function AboutPage() {
       {/* ----------------------------------------------------------------- */}
       <section className="bg-soft-stone">
         <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 md:py-[72px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
             <ScrollReveal>
-              <div>
+              <div className="lg:pt-4">
                 {content.story.part1.map((paragraph, i) => (
                   <p
                     key={i}
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 <ImagePlaceholder
                   alt={content.story.part1ImageAlt || "Lu at work"}
                   width={600}
-                  height={750}
+                  height={400}
                   colorIndex={1}
                   className="w-full"
                 />
@@ -141,7 +141,7 @@ export default function AboutPage() {
       {/* ----------------------------------------------------------------- */}
       <section className="bg-warm-ivory">
         <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 md:py-[72px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
             <ScrollReveal>
               <div className="border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
@@ -176,12 +176,23 @@ export default function AboutPage() {
           <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-14 text-center">
             <ScrollReveal>
               <div className="w-10 h-[1px] bg-gold mx-auto mb-5 md:mb-6" />
-              <p className="font-heading italic text-espresso text-[19px] md:text-[26px] leading-snug mb-3 md:mb-4">
+              <p className="font-heading italic text-espresso text-[19px] md:text-[26px] leading-snug mb-4 md:mb-5">
                 &ldquo;{content.clientVoice.quote}&rdquo;
               </p>
-              <p className="font-body font-semibold text-[13px] md:text-[14px] text-warm-taupe">
-                &mdash; {content.clientVoice.attribution}
-              </p>
+              {/* Headshot + attribution */}
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-11 h-11 rounded-full bg-champagne flex items-center justify-center shrink-0">
+                  <span className="font-body font-semibold text-[13px] text-warm-taupe">CL</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-body font-semibold text-[14px] text-espresso">
+                    C.L.
+                  </p>
+                  <p className="font-body text-[12px] text-warm-taupe">
+                    {content.clientVoice.attribution}
+                  </p>
+                </div>
+              </div>
               <div className="w-10 h-[1px] bg-gold mx-auto mt-5 md:mt-6" />
             </ScrollReveal>
           </div>
@@ -212,9 +223,9 @@ export default function AboutPage() {
       <section className="bg-warm-ivory">
         <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-10 md:py-14 text-center">
           <ScrollReveal>
-            <p className="font-heading font-medium text-espresso text-[22px] md:text-[28px] mb-3">
+            <h2 className="font-heading font-medium text-espresso text-[22px] md:text-[28px] mb-3">
               {content.cta.heading}
-            </p>
+            </h2>
             <p className="font-body text-warm-grey text-[14px] md:text-[17px] leading-relaxed mb-0 md:mb-7">
               {content.cta.body}
             </p>
