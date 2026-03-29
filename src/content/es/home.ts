@@ -22,6 +22,49 @@ export const homeContentEs: HomeContent = {
       "Mujer profesional con un atuendo a medida revisando muestras de color durante una sesión de consultoría de imagen en un entorno moderno y luminoso",
   },
 
+  whoIsThisFor: {
+    sectionHeading: "Diseñado para Profesionales Que...",
+    cards: [
+      {
+        headline: "Navega dos culturas con confianza",
+        body: "Te mudaste a EE.UU. por tu carrera. Ahora navegas los códigos de vestimenta corporativos americanos mientras mantienes la identidad que te hace ser tú. LUI te ayuda a conectar ambos mundos — estratégicamente.",
+      },
+      {
+        headline: "Destaca en un mercado saturado",
+        body: "En una ciudad con 61,000 agentes de bienes raíces, tu imagen es tu primera presentación de listado. Un look estratégico y cohesivo genera confianza antes de que digas una palabra.",
+      },
+      {
+        headline: "Eleva tu imagen sin improvisación",
+        body: "Sabes que tu imagen profesional importa pero no tienes tiempo para resolverlo solo. La metodología diagnóstica de LUI entrega un sistema claro y ejecutable — resuelto por ti.",
+      },
+      {
+        headline: "Prepárate para lo que viene",
+        body: "Un ascenso. Un cambio de carrera. Un rol público. Una transición importante. Cuando lo que está en juego es alto, tu imagen debe ser tan intencional como tu estrategia.",
+      },
+    ],
+  },
+
+  howItWorks: {
+    sectionHeading: "Tres Pasos Hacia una Imagen Estratégica",
+    steps: [
+      {
+        number: 1,
+        heading: "Descubre Tus Colores",
+        body: "Reserva tu sesión Power Palette de cortesía. En 20 minutos, identificamos tu subtono y revelamos los cinco colores que te hacen lucir más poderosa.",
+      },
+      {
+        number: 2,
+        heading: "Recibe Tu Perfil Diagnóstico",
+        body: "Mediante colorimetría, análisis morfológico y mapeo de estilo de vida, construimos una estrategia de imagen personalizada basada en tus rasgos y metas.",
+      },
+      {
+        number: 3,
+        heading: "Transforma Tu Presencia",
+        body: "Con tu marco personalizado en mano, cada elección de outfit se vuelve intencional. Tu guardarropa trabaja para ti — y el mundo responde diferente.",
+      },
+    ],
+  },
+
   servicePreview: {
     heading: "Por Dónde Empezar",
     cards: [
@@ -55,6 +98,22 @@ export const homeContentEs: HomeContent = {
           text: "EXPLORA TRANSFORMACIÓN DE IDENTIDAD",
           href: "/es/servicios#transformacion-de-identidad",
         },
+      },
+    ],
+  },
+
+  transformations: {
+    sectionHeading: "Transformaciones Reales",
+    sectionSubheading: "Mira cómo la metodología LUI genera cambios medibles.",
+    cards: [
+      {
+        caption: "Profesional corporativa — Realineación de guardarropa para un nuevo rol ejecutivo",
+      },
+      {
+        caption: "Agente de bienes raíces — Identidad visual cohesiva para presencia con clientes",
+      },
+      {
+        caption: "Emprendedora — Refinamiento de marca personal para presentaciones públicas",
       },
     ],
   },

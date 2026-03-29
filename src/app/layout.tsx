@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site.config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/features/WhatsAppButton";
+import MobileCTABar from "@/components/features/MobileCTABar";
 import LangUpdater from "@/components/features/LangUpdater";
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import "./globals.css";
@@ -80,6 +81,7 @@ export default function RootLayout({
 
         <Footer />
         <WhatsAppButton />
+        <MobileCTABar />
 
         {/* Google Analytics 4 — only loads if measurement ID is configured */}
         {ga4Id && (

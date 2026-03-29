@@ -6,10 +6,13 @@ import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceCard from "@/components/ui/ServiceCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
+import PersonaCard from "@/components/ui/PersonaCard";
+import ProcessSteps from "@/components/ui/ProcessSteps";
+import TransformationCard from "@/components/ui/TransformationCard";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
-// Homepage — Spanish (/es) — V2 Batch A
+// Homepage — Spanish (/es) — V2 Complete
 // =============================================================================
 
 export const metadata: Metadata = buildPageMetadata(homeContentEs.seo, "es", "home");
@@ -47,9 +50,42 @@ export default function HomePageEs() {
         </div>
       </section>
 
-      {/* BATCH B: Section 2 — "Who Is This For?" (Soft Stone) goes here */}
+      {/* 2. Who Is This For? — Soft Stone */}
+      <section className="bg-soft-stone">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <SectionHeading>{content.whoIsThisFor.sectionHeading}</SectionHeading>
 
-      {/* BATCH B: Section 3 — "How It Works" (Warm Ivory) goes here */}
+          {/* Desktop: 2x2 grid */}
+          <div className="hidden md:grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {content.whoIsThisFor.cards.map((card) => (
+              <PersonaCard
+                key={card.headline}
+                headline={card.headline}
+                body={card.body}
+              />
+            ))}
+          </div>
+
+          {/* Mobile: Swipeable carousel */}
+          <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
+            {content.whoIsThisFor.cards.map((card) => (
+              <div key={card.headline} className="min-w-[280px] snap-start shrink-0">
+                <PersonaCard headline={card.headline} body={card.body} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. How It Works — Warm Ivory */}
+      <section className="bg-warm-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <ProcessSteps
+            heading={content.howItWorks.sectionHeading}
+            steps={content.howItWorks.steps}
+          />
+        </div>
+      </section>
 
       {/* 4. Service Cards — Soft Stone */}
       <section className="bg-soft-stone">
@@ -71,7 +107,39 @@ export default function HomePageEs() {
         </div>
       </section>
 
-      {/* BATCH B: Section 5 — "Transformations" (Warm Ivory) goes here */}
+      {/* 5. Transformations — Warm Ivory */}
+      <section className="bg-warm-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <SectionHeading subtitle={content.transformations.sectionSubheading}>
+            {content.transformations.sectionHeading}
+          </SectionHeading>
+
+          {/* Desktop: 3 columns */}
+          <div className="hidden md:grid grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {content.transformations.cards.map((card) => (
+              <TransformationCard
+                key={card.caption}
+                beforeImage={card.beforeImage}
+                afterImage={card.afterImage}
+                caption={card.caption}
+              />
+            ))}
+          </div>
+
+          {/* Mobile: Swipeable carousel */}
+          <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
+            {content.transformations.cards.map((card) => (
+              <div key={card.caption} className="min-w-[300px] snap-start shrink-0">
+                <TransformationCard
+                  beforeImage={card.beforeImage}
+                  afterImage={card.afterImage}
+                  caption={card.caption}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 6. Testimonials — Champagne */}
       <section className="bg-champagne">

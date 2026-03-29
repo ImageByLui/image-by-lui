@@ -88,9 +88,47 @@ export interface FinalCTASection {
   cta: CTAButton;
 }
 
+// V2 — New homepage section types
+
+export interface PersonaCardData {
+  headline: string;
+  body: string;
+}
+
+export interface WhoIsThisForSection {
+  sectionHeading: string;
+  cards: PersonaCardData[];
+}
+
+export interface ProcessStep {
+  number: number;
+  heading: string;
+  body: string;
+}
+
+export interface HowItWorksSection {
+  sectionHeading: string;
+  steps: ProcessStep[];
+}
+
+export interface TransformationCardData {
+  beforeImage?: string;
+  afterImage?: string;
+  caption: string;
+}
+
+export interface TransformationsSection {
+  sectionHeading: string;
+  sectionSubheading: string;
+  cards: TransformationCardData[];
+}
+
 export interface HomeContent {
   hero: HeroSection;
+  whoIsThisFor: WhoIsThisForSection;
+  howItWorks: HowItWorksSection;
   servicePreview: ServicePreviewSection;
+  transformations: TransformationsSection;
   socialProof: SocialProofSection;
   aboutPreview: AboutPreviewSection;
   instagramCta: InstagramCTASection;
