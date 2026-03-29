@@ -65,7 +65,7 @@ export default function AboutPageEs() {
             <h1 className="font-heading font-semibold text-[26px] leading-[1.2] text-espresso mb-3">
               {c.hero.headline}
             </h1>
-            <p className="font-body text-[16px] text-warm-grey leading-relaxed">
+            <p className="font-body text-[17px] text-espresso/70 leading-relaxed">
               {c.hero.subheadline}
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function AboutPageEs() {
                 {c.origin.intro.map((p, i) => (
                   <p
                     key={i}
-                    className="font-body text-[16px] md:text-[18px] text-warm-grey leading-relaxed mb-4"
+                    className="font-body text-[17px] md:text-[18px] text-espresso/80 leading-relaxed mb-4"
                   >
                     {p}
                   </p>
@@ -120,14 +120,14 @@ export default function AboutPageEs() {
                       }`}
                     >
                       <div className="w-[3px] h-5 bg-terracotta shrink-0" />
-                      <span className="font-body font-semibold text-[15px] md:text-[16px] text-espresso">
+                      <span className="font-body font-semibold text-[16px] md:text-[16px] text-espresso">
                         {d}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <p className="font-body text-[14px] md:text-[15px] text-warm-taupe leading-relaxed">
+                <p className="font-body text-[16px] md:text-[15px] text-espresso/60 leading-relaxed">
                   {c.origin.closing}
                 </p>
               </div>
@@ -190,7 +190,7 @@ export default function AboutPageEs() {
           {/* Mobile */}
           <div className="md:hidden">
             <div className="border-l-[3px] border-l-gold pl-4">
-              <p className="font-body text-[16px] italic text-espresso leading-relaxed mb-4">
+              <p className="font-body text-[17px] italic text-espresso leading-relaxed mb-4">
                 &ldquo;{c.clientVoice.quote}&rdquo;
               </p>
               <div className="flex items-center gap-3">
@@ -238,10 +238,10 @@ export default function AboutPageEs() {
         <div className="max-w-[680px] mx-auto px-6 lg:px-10 py-9 md:py-20 text-center">
           <ScrollReveal>
             <div className="w-12 h-[1px] bg-gold mx-auto mb-5 md:mb-8" />
-            <p className="font-body font-semibold text-warm-ivory text-[18px] md:text-[28px] leading-snug mb-3 md:mb-4">
+            <p className="font-body font-semibold text-warm-ivory text-[19px] md:text-[28px] leading-snug mb-3 md:mb-4">
               {c.philosophy.statement}
             </p>
-            <p className="font-body italic text-warm-ivory/50 text-[16px] md:text-[22px] leading-snug">
+            <p className="font-body italic text-warm-ivory/50 text-[17px] md:text-[22px] leading-snug">
               {c.philosophy.closer}
             </p>
             <div className="w-12 h-[1px] bg-gold mx-auto mt-5 md:mt-8" />
