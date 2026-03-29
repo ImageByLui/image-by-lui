@@ -194,26 +194,26 @@ export default function AboutPage() {
         </span>
 
         <div className="relative z-10 max-w-[780px] mx-auto px-6 lg:px-10 py-7 md:py-14">
-          {/* Desktop: side by side */}
-          <div className="hidden md:flex items-center gap-8">
-            {/* Headshot */}
-            <div className="flex flex-col items-center gap-2 shrink-0">
-              <div className="w-20 h-20 rounded-full bg-warm-ivory flex items-center justify-center border-2 border-gold/30">
-                <span className="font-body font-semibold text-[22px] text-warm-taupe">
+          {/* Desktop */}
+          <div className="hidden md:block">
+            <p className="font-heading italic text-[24px] text-espresso leading-snug mb-6">
+              &ldquo;{c.clientVoice.quote}&rdquo;
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-full bg-warm-ivory flex items-center justify-center border-2 border-gold/30 shrink-0">
+                <span className="font-body font-semibold text-[18px] text-warm-taupe">
                   {c.clientVoice.initials}
                 </span>
               </div>
-              <p className="font-body font-semibold text-[13px] text-espresso">
-                {c.clientVoice.name}
-              </p>
-              <p className="font-body text-[11px] text-warm-grey -mt-1">
-                {c.clientVoice.title}
-              </p>
+              <div>
+                <p className="font-body font-semibold text-[15px] text-espresso">
+                  {c.clientVoice.name}
+                </p>
+                <p className="font-body text-[13px] text-warm-grey">
+                  {c.clientVoice.title}
+                </p>
+              </div>
             </div>
-            {/* Quote */}
-            <p className="font-heading italic text-[24px] text-espresso leading-snug">
-              &ldquo;{c.clientVoice.quote}&rdquo;
-            </p>
           </div>
 
           {/* Mobile: stacked */}
