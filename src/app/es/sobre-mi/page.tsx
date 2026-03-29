@@ -19,16 +19,17 @@ export default function AboutPageEs() {
       {/* 1. HERO */}
       <section className="bg-warm-ivory">
         {/* Desktop */}
-        <div className="hidden lg:grid grid-cols-[1.3fr_1fr] h-[680px]">
+        <div className="hidden lg:grid grid-cols-[1.5fr_1fr] h-[680px]">
           <div className="overflow-hidden">
             <ImagePlaceholder
-              src="/images/about-hero-cartier.jpg"
-              alt="Lu, consultora de imagen bilingüe en Miami, en un entorno profesional cálido"
+              src="/images/about-hero.jpg"
+              alt="Lu, consultora de imagen bilingüe en Miami, en un evento profesional"
               width={800}
               height={1000}
               colorIndex={1}
               className="w-full h-full object-cover"
               fill
+              objectPosition="32% 35%"
               priority
             />
           </div>
@@ -53,14 +54,14 @@ export default function AboutPageEs() {
         {/* Mobile */}
         <div className="lg:hidden">
           <ImagePlaceholder
-            src="/images/about-hero-cartier.jpg"
-            alt="Lu, consultora de imagen bilingüe en Miami, en un entorno profesional cálido"
+            src="/images/about-hero.jpg"
+            alt="Lu, consultora de imagen bilingüe en Miami, en un evento profesional"
             width={750}
             height={563}
             colorIndex={1}
             className="w-full"
             fill
-            objectPosition="center 25%"
+            objectPosition="32% 38%"
             priority
           />
           <div className="px-6 py-7">
