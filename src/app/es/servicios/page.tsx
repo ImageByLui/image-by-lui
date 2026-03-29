@@ -28,7 +28,7 @@ export default function ServicesPageEs() {
         </div>
       </section>
 
-      <hr className="divider-terracotta max-w-24 mx-auto" />
+      <hr className="lui-divider" />
 
       {/* 2–4. Service Tiers */}
       {content.tiers.map((tier, index) => (
@@ -90,10 +90,10 @@ export default function ServicesPageEs() {
         </section>
       ))}
 
-      <hr className="divider-terracotta max-w-24 mx-auto" />
+      <hr className="lui-divider" />
 
       {/* 5. Methodology Deep Dive */}
-      <section className="bg-warm-ivory">
+      <section className="bg-soft-stone">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <SectionHeading>{content.methodology.heading}</SectionHeading>
           <p className="text-warm-grey leading-relaxed max-w-3xl mx-auto text-center mb-6">
@@ -106,7 +106,7 @@ export default function ServicesPageEs() {
       </section>
 
       {/* 6. FAQ */}
-      <section className="bg-soft-stone">
+      <section className="bg-warm-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <SectionHeading>{content.faq.heading}</SectionHeading>
           <FaqAccordion items={faqItems} />

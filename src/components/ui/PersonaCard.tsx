@@ -12,7 +12,7 @@ interface PersonaCardProps {
 
 export default function PersonaCard({ headline, body }: PersonaCardProps) {
   return (
-    <div className="bg-white border-l-4 border-l-terracotta p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+    <div className="lui-card bg-white border-l-4 border-l-terracotta p-6">
       <h3 className="font-body font-semibold text-[16px] md:text-[18px] text-espresso mb-3">
         {headline}
       </h3>

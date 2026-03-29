@@ -182,12 +182,69 @@ body {
   }
 }
 
-/* Terracotta section divider */
+/* Terracotta section divider — thin line between major sections */
+.lui-divider {
+  height: 1px;
+  background-color: var(--lui-terracotta);
+  border: none;
+  margin: 2rem auto;
+  max-width: 80px;
+}
+
+/* Legacy class — keep for backwards compatibility */
 .divider-terracotta {
   height: 1px;
   background-color: var(--lui-terracotta);
   border: none;
   margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Card Interaction Effects (Item 10)
+   ---------------------------------------------------------------------------
+   Apply .lui-card to any interactive card for hover lift + shadow + border.
+   Respects prefers-reduced-motion.
+   --------------------------------------------------------------------------- */
+
+.lui-card {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  border-bottom: 2px solid transparent;
+}
+
+.lui-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08);
+  border-bottom-color: var(--lui-terracotta);
+}
+
+.lui-card:active {
+  transform: scale(0.98);
+  transition-duration: 100ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lui-card:hover {
+    transform: none;
+  }
+  .lui-card:active {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Brand Decorative Elements (Item 11)
+   --------------------------------------------------------------------------- */
+
+/* Champagne frame around images — 1px border + 8px padding */
+.lui-image-frame {
+  border: 1px solid var(--lui-champagne);
+  padding: 8px;
+}
+
+/* Gold accent left bar — for testimonials, credentials, blockquotes */
+.lui-accent-bar {
+  border-left: 4px solid var(--lui-gold);
+  padding-left: 16px;
 }
 
 /* ---------------------------------------------------------------------------

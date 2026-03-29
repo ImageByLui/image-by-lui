@@ -57,12 +57,7 @@ export default function AboutPage() {
           <SectionHeading>{content.credentials.heading}</SectionHeading>
           <ul className="space-y-3 max-w-xl mx-auto">
             {content.credentials.items.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-warm-grey">
-                <span className="text-gold mt-1.5 shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
-                    <circle cx="7" cy="7" r="3" />
-                  </svg>
-                </span>
+              <li key={i} className="lui-accent-bar text-warm-grey py-1">
                 {item}
               </li>
             ))}

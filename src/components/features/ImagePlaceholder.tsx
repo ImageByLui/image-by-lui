@@ -44,28 +44,31 @@ export default function ImagePlaceholder({
   if (src) {
     if (fill) {
       return (
-        <div className={`relative ${className}`} style={{ aspectRatio: `${width}/${height}` }}>
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
-            priority={priority}
-          />
+        <div className={`lui-image-frame ${className}`}>
+          <div className="relative" style={{ aspectRatio: `${width}/${height}` }}>
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+              priority={priority}
+            />
+          </div>
         </div>
       );
     }
 
     return (
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className={className}
-        priority={priority}
-      />
+      <div className={`lui-image-frame ${className}`}>
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          priority={priority}
+        />
+      </div>
     );
   }
 
@@ -73,17 +76,19 @@ export default function ImagePlaceholder({
   const bgColor = placeholderColors[colorIndex % placeholderColors.length];
 
   return (
-    <div
-      className={`${bgColor} flex items-center justify-center ${className}`}
-      style={{ aspectRatio: `${width}/${height}` }}
-      role="img"
-      aria-label={alt}
-    >
-      {/* LUI Badge — subtle brand mark */}
-      <div className="bg-espresso rounded-full px-4 py-1.5 opacity-20">
-        <span className="font-body font-semibold text-warm-ivory text-[11px] tracking-[2px] uppercase">
-          LUI
-        </span>
+    <div className={`lui-image-frame ${className}`}>
+      <div
+        className={`${bgColor} flex items-center justify-center`}
+        style={{ aspectRatio: `${width}/${height}` }}
+        role="img"
+        aria-label={alt}
+      >
+        {/* LUI Badge — subtle brand mark */}
+        <div className="bg-espresso rounded-full px-4 py-1.5 opacity-20">
+          <span className="font-body font-semibold text-warm-ivory text-[11px] tracking-[2px] uppercase">
+            LUI
+          </span>
+        </div>
       </div>
     </div>
   );

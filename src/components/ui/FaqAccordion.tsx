@@ -22,7 +22,7 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
       {items.map((item, index) => (
         <details
           key={index}
-          className="group border border-champagne bg-white"
+          className="lui-card group border border-champagne bg-white"
         >
           <summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 list-none">
             <h3 className="font-body font-semibold text-[16px] md:text-[18px] text-espresso pr-4 m-0">

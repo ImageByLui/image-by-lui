@@ -15,7 +15,7 @@ export default function TestimonialCard({
   attribution,
 }: TestimonialCardProps) {
   return (
-    <figure className="bg-white/50 p-6 md:p-8">
+    <figure className="lui-card lui-accent-bar bg-white/50 p-6 md:p-8">
       <blockquote className="mb-4">
         <p>&ldquo;{quote}&rdquo;</p>
       </blockquote>

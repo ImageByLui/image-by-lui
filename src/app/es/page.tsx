@@ -50,6 +50,8 @@ export default function HomePageEs() {
         </div>
       </section>
 
+      <hr className="lui-divider" />
+
       {/* 2. Who Is This For? — Soft Stone */}
       <section className="bg-soft-stone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -140,6 +142,8 @@ export default function HomePageEs() {
           </div>
         </div>
       </section>
+
+      <hr className="lui-divider" />
 
       {/* 6. Testimonials — Champagne */}
       <section className="bg-champagne">

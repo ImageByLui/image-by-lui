@@ -53,10 +53,10 @@ export default function MobileCTABar() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-30 lg:hidden transition-transform duration-200 ${
+      className={`fixed bottom-0 left-0 right-0 z-30 lg:hidden transition-transform duration-300 ease-out ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
-      style={{ boxShadow: "0 -2px 8px rgba(0,0,0,0.1)" }}
+      style={{ boxShadow: "0 -2px 8px rgba(0,0,0,0.1)", borderTop: "1px solid #8A4735" }}
     >
       <a
         href={calendlyUrl}

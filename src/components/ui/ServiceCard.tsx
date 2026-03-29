@@ -33,7 +33,7 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div
-      className={`flex flex-col p-6 md:p-8 h-full ${
+      className={`lui-card flex flex-col p-6 md:p-8 h-full ${
         featured
           ? "bg-champagne border border-gold/30"
           : "bg-white border border-champagne"

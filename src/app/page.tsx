@@ -52,6 +52,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <hr className="lui-divider" />
+
       {/* ----------------------------------------------------------------- */}
       {/* 2. Who Is This For? — Soft Stone */}
       {/* ----------------------------------------------------------------- */}
@@ -150,6 +152,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <hr className="lui-divider" />
 
       {/* ----------------------------------------------------------------- */}
       {/* 6. Testimonials — Champagne */}
