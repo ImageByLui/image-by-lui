@@ -73,7 +73,7 @@ export const homeContentEs: HomeContent = {
         name: "Tu Power Palette",
         price: "Gratis",
         description:
-          "Un análisis de color de cortesía de 20 minutos que identifica tu subtono y tus 5 colores de poder. El primer paso para entender cómo el color transforma tu presencia.",
+          "Análisis de color de 20 minutos que identifica tu subtono y tus 5 colores de poder.",
         cta: {
           text: "RESERVA TU SESIÓN",
           href: getCalendlyUrl("powerPalette"),
@@ -83,8 +83,11 @@ export const homeContentEs: HomeContent = {
       {
         name: "Primera Impresión",
         price: "$400",
+        positioningLine: "Una inversión profesional en claridad.",
+        outcomeText: "Saldrás sabiendo",
         description:
-          "Una sesión diagnóstica de estilo personal de 90 minutos. Recibe tu análisis de color, 3–5 estrategias de outfits con tu guardarropa actual y un lookbook digital con dirección clara.",
+          "exactamente qué colores y siluetas funcionan para tu cuerpo y tu carrera — con 3–5 outfits que puedes usar esta semana.",
+        detailsLine: "~2 horas · Análisis de color · Diagnóstico de estilo · Lookbook digital",
         cta: {
           text: "EXPLORA PRIMERA IMPRESIÓN",
           href: "/es/servicios#primera-impresion",
@@ -93,10 +96,13 @@ export const homeContentEs: HomeContent = {
       {
         name: "Transformación de Identidad",
         price: "$1,800",
+        positioningLine: "La reinvención completa.",
+        outcomeText: "Nunca más te pararás frente a tu clóset sintiéndote perdida.",
         description:
-          "La experiencia LUI completa. Análisis colorimétrico y morfológico integral, auditoría de clóset, compras personalizadas y una guía de estilo con 15–20 outfits curados.",
+          "Análisis colorimétrico y morfológico completo, auditoría de clóset, compras personalizadas y un sistema de estilo construido alrededor de tu vida.",
+        detailsLine: "12–15 horas a través de 7 entregables distintos",
         cta: {
-          text: "EXPLORA TRANSFORMACIÓN DE IDENTIDAD",
+          text: "EXPLORA TRANSFORMACIÓN",
           href: "/es/servicios#transformacion-de-identidad",
         },
       },
@@ -127,8 +133,13 @@ export const homeContentEs: HomeContent = {
     heading: "Conoce a Lu",
     body: "Con una formación en diseño de moda, certificaciones especializadas en colorimetría y estilismo, y un enfoque diagnóstico refinado a lo largo de años de práctica, Lu aporta precisión y calidez a cada compromiso. Nacida en Colombia, basada en Miami, fluida en los matices culturales que definen cómo los profesionales se presentan en una ciudad global.",
     link: {
-      text: "Conoce más sobre Lu y la metodología LUI →",
+      text: "Sobre Lu",
       href: "/es/sobre-mi",
+    },
+    instagramLink: {
+      text: "@imagebylui",
+      href: siteConfig.instagram.url,
+      external: true,
     },
   },
 
@@ -143,13 +154,8 @@ export const homeContentEs: HomeContent = {
   },
 
   finalCta: {
-    heading: "¿Lista para Descubrir Tus Mejores Colores?",
-    body: "Tu Power Palette es una sesión de cortesía de 20 minutos donde identificamos tu subtono y revelamos los cinco colores que te hacen lucir más segura, alineada y poderosa.",
-    cta: {
-      text: "DESCUBRE TU POWER PALETTE",
-      href: getCalendlyUrl("powerPalette"),
-      external: true,
-    },
+    heading: "¿Tienes preguntas? Habla con Lu directamente.",
+    body: "Reserva una conversación de cortesía de 20 minutos. Sin presión, sin compromiso.",
   },
 
   seo: {

@@ -6,39 +6,54 @@ import { getCurrentLanguage } from "@/lib/language";
 import { getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// MobileCTABar Component — Image by LUI
+// MobileCTABar Component — Image by LUI (V3 — Redesign)
 // =============================================================================
-// Persistent conversion bar on mobile (≤768px). Fixed bottom, full width.
-// Shows when hero is NOT in viewport. Hides when user scrolls back to hero.
-// Shifts WhatsApp button up by 56px when visible to avoid overlap.
+// Sticky bottom bar on mobile (≤768px). Shows after scrolling past hero.
+// Hides when footer (#site-footer) enters viewport — the footer has its own
+// CTA button that takes over. Smooth slide animation.
 // =============================================================================
 
 const CTA_TEXT = {
-  en: "FREE COLOR SESSION",
-  es: "SESIÓN DE COLOR GRATIS",
+  en: "BOOK A FREE CONSULTATION",
+  es: "RESERVA TU CONSULTA GRATIS",
 };
 
 export default function MobileCTABar() {
   const pathname = usePathname();
   const lang = getCurrentLanguage(pathname);
-  const [visible, setVisible] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+  const [atFooter, setAtFooter] = useState(false);
 
   useEffect(() => {
-    // Find the hero section — first <section> in <main>
+    // Watch the hero — show bar when scrolled past
     const hero = document.querySelector("main > section:first-of-type");
     if (!hero) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Show bar when hero is NOT intersecting (scrolled past)
-        setVisible(!entry.isIntersecting);
-      },
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => setPastHero(!entry.isIntersecting),
       { threshold: 0 }
     );
+    heroObserver.observe(hero);
 
-    observer.observe(hero);
-    return () => observer.disconnect();
+    // Watch the footer — hide bar when footer is visible
+    const footer = document.getElementById("site-footer");
+    let footerObserver: IntersectionObserver | null = null;
+    if (footer) {
+      footerObserver = new IntersectionObserver(
+        ([entry]) => setAtFooter(entry.isIntersecting),
+        { threshold: 0 }
+      );
+      footerObserver.observe(footer);
+    }
+
+    return () => {
+      heroObserver.disconnect();
+      footerObserver?.disconnect();
+    };
   }, []);
+
+  // Visible = past the hero AND not at the footer
+  const visible = pastHero && !atFooter;
 
   // Shift WhatsApp button when bar is visible
   useEffect(() => {
@@ -62,7 +77,7 @@ export default function MobileCTABar() {
         href={calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-full h-[56px] bg-terracotta text-white font-body font-semibold text-[14px] uppercase tracking-[1.5px] no-underline hover:no-underline hover:bg-terracotta-dark transition-colors"
+        className="flex items-center justify-center w-full h-[56px] bg-terracotta text-white font-body font-semibold text-[13px] uppercase tracking-[1.5px] no-underline hover:no-underline hover:bg-terracotta-dark transition-colors"
       >
         {CTA_TEXT[lang]}
       </a>

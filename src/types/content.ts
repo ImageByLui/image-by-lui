@@ -53,6 +53,12 @@ export interface ServicePreviewCard {
   name: string;
   price: string;
   description: string;
+  /** Italic positioning line below price divider (e.g., "A professional investment in clarity.") */
+  positioningLine?: string;
+  /** Bold lead-in for the outcome text (e.g., "You'll walk away knowing") */
+  outcomeText?: string;
+  /** Compact details line (e.g., "~2 hours · Color analysis · Style diagnostic · Lookbook") */
+  detailsLine?: string;
   cta: CTAButton;
 }
 
@@ -63,13 +69,14 @@ export interface ServicePreviewSection {
 
 export interface SocialProofSection {
   heading: string;
-  // Testimonials are imported from shared/testimonials.ts
 }
 
 export interface AboutPreviewSection {
   heading: string;
   body: string;
   link: TextLink;
+  /** Instagram link displayed alongside the About link */
+  instagramLink?: TextLink;
 }
 
 export interface InstagramFeedSection {
@@ -86,7 +93,8 @@ export interface InstagramCTASection {
 export interface FinalCTASection {
   heading: string;
   body: string;
-  cta: CTAButton;
+  /** Optional — omit for text-only sections */
+  cta?: CTAButton;
 }
 
 // V2 — New homepage section types
@@ -132,7 +140,8 @@ export interface HomeContent {
   transformations: TransformationsSection;
   socialProof: SocialProofSection;
   aboutPreview: AboutPreviewSection;
-  instagramCta: InstagramCTASection;
+  /** @deprecated — Instagram link moved into aboutPreview. Kept for backward compat. */
+  instagramCta?: InstagramCTASection;
   finalCta: FinalCTASection;
   seo: PageSEO;
 }

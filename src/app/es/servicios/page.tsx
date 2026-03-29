@@ -138,8 +138,8 @@ export default function ServicesPageEs() {
             <p className="text-warm-ivory/80 leading-relaxed mb-8">
               {content.finalCta.body}
             </p>
-            <Button href={content.finalCta.cta.href} external={content.finalCta.cta.external}>
-              {content.finalCta.cta.text}
+            <Button href={content.finalCta.cta?.href || "#"} external={content.finalCta.cta?.external}>
+              {content.finalCta.cta?.text}
             </Button>
           </ScrollReveal>
         </div>

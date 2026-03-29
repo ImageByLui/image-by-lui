@@ -6,10 +6,11 @@ import { getCurrentLanguage } from "@/lib/language";
 import { siteConfig, getWhatsAppUrl, getCalendlyUrl } from "@/config/site.config";
 
 // =============================================================================
-// Footer Component — Image by LUI (V2-B)
+// Footer Component — Image by LUI (V3 — Redesign)
 // =============================================================================
-// Background: Espresso (#2C2420), Text: Warm Ivory (#F7F3EF)
-// V2-B: Added CTA section above nav, updated Miami identity line.
+// Desktop: Brand + nav + social + copyright. No CTA button.
+// Mobile: "Book a Free Consultation" CTA as first element, then compact nav.
+// Has id="site-footer" for MobileCTABar intersection observer.
 // =============================================================================
 
 const FOOTER_EN = {
@@ -18,8 +19,7 @@ const FOOTER_EN = {
   whatsappText: "Chat with Lu on WhatsApp",
   instagramText: "@imagebylui",
   copyright: `© ${new Date().getFullYear()} Image by LUI. All rights reserved.`,
-  ctaText: "Ready to begin? Book your complimentary color analysis.",
-  ctaButton: "DISCOVER YOUR POWER PALETTE",
+  mobileCta: "BOOK A FREE CONSULTATION",
   navItems: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
@@ -34,8 +34,7 @@ const FOOTER_ES = {
   whatsappText: "Conversa con Lu por WhatsApp",
   instagramText: "@imagebylui",
   copyright: `© ${new Date().getFullYear()} Image by LUI. Todos los derechos reservados.`,
-  ctaText: "¿Lista para empezar? Reserva tu análisis de color de cortesía.",
-  ctaButton: "DESCUBRE TU POWER PALETTE",
+  mobileCta: "RESERVA TU CONSULTA GRATIS",
   navItems: [
     { label: "Inicio", href: "/es" },
     { label: "Servicios", href: "/es/servicios" },
@@ -52,28 +51,25 @@ export default function Footer() {
   const calendlyUrl = getCalendlyUrl("powerPalette");
 
   return (
-    <footer className="bg-espresso text-warm-ivory">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <footer id="site-footer" className="bg-espresso text-warm-ivory">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
 
-        {/* Footer CTA — last-chance conversion */}
-        <div className="text-center mb-10 pb-10 border-b border-warm-ivory/20">
-          <p className="text-warm-ivory/80 text-[15px] mb-4">
-            {content.ctaText}
-          </p>
+        {/* Mobile-only CTA — first element in footer */}
+        <div className="md:hidden text-center mb-6 pb-6 border-b border-warm-ivory/10">
           <a
             href={calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-terracotta text-white font-body font-semibold text-[13px] md:text-[14px] uppercase tracking-[1.5px] px-8 py-3.5 no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-200"
+            className="block w-full bg-terracotta text-white font-body font-semibold text-[13px] uppercase tracking-[1.5px] py-3.5 text-center no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-200"
           >
-            {content.ctaButton}
+            {content.mobileCta}
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        {/* Desktop: 3-column grid. Mobile: centered stack */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
           {/* Column 1: Brand */}
-          <div>
-            {/* Logo */}
+          <div className="text-center md:text-left">
             <div className="mb-4">
               <span className="font-body font-light text-[10px] uppercase tracking-[3px] text-warm-ivory block">
                 Image by
@@ -91,8 +87,12 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Navigation */}
-          <div>
-            <nav className="flex flex-col gap-2" aria-label="Footer navigation">
+          <div className="text-center md:text-left">
+            {/* Mobile: horizontal row. Desktop: vertical list */}
+            <nav
+              className="flex flex-row justify-center gap-5 md:flex-col md:justify-start md:gap-2"
+              aria-label="Footer navigation"
+            >
               {content.navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -106,8 +106,8 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Connect */}
-          <div>
-            <div className="flex flex-col gap-3">
+          <div className="text-center md:text-left">
+            <div className="flex flex-row justify-center gap-5 md:flex-col md:justify-start md:gap-3">
               {/* WhatsApp */}
               <a
                 href={whatsappUrl}
@@ -150,7 +150,7 @@ export default function Footer() {
         </div>
 
         {/* Divider + Copyright */}
-        <div className="mt-10 pt-6 border-t border-warm-ivory/20">
+        <div className="mt-8 pt-6 border-t border-warm-ivory/20">
           <p className="text-warm-ivory/50 text-[13px] text-center">
             {content.copyright}
           </p>
