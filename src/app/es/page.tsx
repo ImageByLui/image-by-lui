@@ -75,7 +75,7 @@ export default function HomePageEs() {
           <ImagePlaceholder
             alt={c.hero.imageAlt}
             width={750}
-            height={422}
+            height={750}
             colorIndex={0}
             className="w-full"
             priority
@@ -183,12 +183,12 @@ export default function HomePageEs() {
           </ScrollReveal>
 
           {/* Transition */}
-          <div className="text-center mb-8 md:mb-10">
-            <div className="w-12 h-[1px] bg-champagne mx-auto mb-3" />
-            <p className="font-heading italic text-[15px] md:text-[18px] text-warm-taupe">
+          <div className="text-center mb-8 md:mb-10 py-2">
+            <div className="w-16 h-[1px] bg-champagne mx-auto mb-3" />
+            <p className="font-heading italic text-[18px] md:text-[18px] text-espresso/50">
               Cuando estés lista para más
             </p>
-            <div className="w-12 h-[1px] bg-champagne mx-auto mt-3" />
+            <div className="w-16 h-[1px] bg-champagne mx-auto mt-3" />
           </div>
 
           {/* First Impression — editorial layout */}
@@ -458,14 +458,14 @@ export default function HomePageEs() {
       {/* ----------------------------------------------------------------- */}
       {/* 8. FINAL CTA                                                      */}
       {/* ----------------------------------------------------------------- */}
-      <section className="bg-espresso">
-        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-8 md:py-16 text-center">
+      <section className="hidden md:block bg-espresso">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-16 text-center">
           <ScrollReveal>
-            <div className="w-8 h-[1px] bg-gold mx-auto mb-5 md:mb-6" />
-            <h2 className="text-warm-ivory font-heading font-medium text-[22px] md:text-[28px] mb-2 md:mb-3">
+            <div className="w-8 h-[1px] bg-gold mx-auto mb-6" />
+            <h2 className="text-warm-ivory font-heading font-medium text-[28px] mb-3">
               {c.finalCta.heading}
             </h2>
-            <p className="text-warm-ivory/70 leading-relaxed text-[15px] md:text-[17px] mb-5 md:mb-8">
+            <p className="text-warm-ivory/70 leading-relaxed text-[17px] mb-8">
               {c.finalCta.body}
             </p>
             {c.finalCta.cta && (
