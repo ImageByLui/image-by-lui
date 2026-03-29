@@ -25,6 +25,9 @@ export function buildPageMetadata(
   const enUrl = `${domain}${urls.en}`;
   const esUrl = `${domain}${urls.es}`;
 
+  // Default OG image — used when page doesn't specify its own
+  const ogImageUrl = seo.ogImage || `${domain}/images/og-image.png`;
+
   return {
     title: seo.title,
     description: seo.description,
@@ -42,19 +45,16 @@ export function buildPageMetadata(
       url: canonicalUrl,
       siteName: siteConfig.name,
       locale: getOgLocale(lang),
-      // alternateLocale is typed as string[] in Next.js
       alternateLocale: [getAlternateOgLocale(lang)],
       type: "website",
-      ...(seo.ogImage && {
-        images: [
-          {
-            url: seo.ogImage,
-            width: 1200,
-            height: 630,
-            alt: seo.title,
-          },
-        ],
-      }),
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: seo.title,
+        },
+      ],
     },
     robots: {
       index: true,
