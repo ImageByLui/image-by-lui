@@ -28,6 +28,10 @@ interface ImagePlaceholderProps {
   /** Make the image fill its container (for responsive layouts) */
   fill?: boolean;
   priority?: boolean;
+  /** CSS object-position value — controls focal point when image is cropped.
+   *  Only applies when src is provided. Useful for hero images on mobile
+   *  where you want to shift the focus (e.g., "center 20%" to show more face). */
+  objectPosition?: string;
 }
 
 export default function ImagePlaceholder({
@@ -39,6 +43,7 @@ export default function ImagePlaceholder({
   className = "",
   fill = false,
   priority = false,
+  objectPosition,
 }: ImagePlaceholderProps) {
   // If a real image src is provided, render Next.js Image
   if (src) {
@@ -52,6 +57,7 @@ export default function ImagePlaceholder({
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
+              style={objectPosition ? { objectPosition } : undefined}
               priority={priority}
             />
           </div>
@@ -66,6 +72,8 @@ export default function ImagePlaceholder({
           alt={alt}
           width={width}
           height={height}
+          className={objectPosition ? "object-cover" : undefined}
+          style={objectPosition ? { objectPosition } : undefined}
           priority={priority}
         />
       </div>
