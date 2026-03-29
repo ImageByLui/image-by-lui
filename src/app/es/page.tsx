@@ -38,7 +38,7 @@ export default function HomePageEs() {
       {/* ----------------------------------------------------------------- */}
       <section className="bg-warm-ivory">
         {/* Desktop: image left, text right */}
-        <div className="hidden lg:grid grid-cols-[1.2fr_1fr] min-h-[80vh] max-h-[720px]">
+        <div className="hidden lg:grid grid-cols-[1.2fr_1fr] h-[680px]">
           <div className="overflow-hidden">
             <ImagePlaceholder
               alt={c.hero.imageAlt}
@@ -136,11 +136,11 @@ export default function HomePageEs() {
       <section className="bg-warm-ivory pt-10 md:pt-[72px]">
         <div className="max-w-[960px] mx-auto px-6 lg:px-10">
           <ScrollReveal>
-            <p className="font-body font-semibold text-[11px] md:text-[12px] tracking-[2px] uppercase text-terracotta text-center mb-2">
-              Por dónde empezar
-            </p>
-            <p className="font-heading font-medium text-[22px] md:text-[28px] text-espresso text-center mb-8 md:mb-12">
-              Tres Niveles de Transformación
+            <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso text-center mb-2">
+              Por Dónde Empezar
+            </h2>
+            <p className="font-body text-[15px] md:text-[16px] text-warm-taupe text-center mb-8 md:mb-12">
+              Tres niveles de transformación — empieza con una sesión de cortesía
             </p>
           </ScrollReveal>
 
@@ -157,7 +157,7 @@ export default function HomePageEs() {
                 />
               </div>
               <div className="px-5 pb-5 pt-3 md:px-10 md:py-9 flex flex-col justify-center">
-                <span className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-terracotta mb-2">
+                <span className="font-body font-semibold text-[11px] md:text-[13px] tracking-[2px] uppercase text-terracotta mb-2">
                   Empieza aquí — de cortesía
                 </span>
                 <h3 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso mb-3">
@@ -185,7 +185,7 @@ export default function HomePageEs() {
           {/* Transition */}
           <div className="text-center mb-8 md:mb-10">
             <div className="w-12 h-[1px] bg-champagne mx-auto mb-3" />
-            <p className="font-heading italic text-[15px] md:text-[16px] text-warm-taupe">
+            <p className="font-heading italic text-[15px] md:text-[18px] text-warm-taupe">
               Cuando estés lista para más
             </p>
             <div className="w-12 h-[1px] bg-champagne mx-auto mt-3" />
