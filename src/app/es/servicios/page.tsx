@@ -161,38 +161,33 @@ export default function ServicesPageEs() {
 
       {/* 6. Visual Moment */}
       {content.visualMoment && (
-        <section className="bg-espresso">
-          <div className="md:grid md:grid-cols-[1.1fr_1fr] min-h-[280px] md:min-h-[420px]">
-            <div className="hidden md:block">
-              <ImagePlaceholder
-                alt="Resultado de transformación"
-                width={800}
-                height={600}
-                colorIndex={2}
-                className="w-full h-full object-cover"
+        <section>
+          <div className="md:grid md:grid-cols-[0.4fr_0.6fr] md:h-[320px]">
+            {/* Image — left column with subtle dark overlay */}
+            <div className="hidden md:block relative overflow-hidden">
+              <Image
+                src="/images/Service-tesamonial-Big.jpg"
+                alt="Transformation result"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 15%" }}
+                sizes="40vw"
               />
+              <div className="absolute inset-0 bg-espresso/25" />
             </div>
-            <div className="flex items-center justify-center px-6 py-10 md:px-14 md:py-16">
-              <div>
-                <div className="w-10 h-[1px] bg-gold mb-6" />
-                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[30px] leading-snug mb-5">
+            {/* Quote — right column, solid espresso */}
+            <div className="bg-espresso flex items-center px-6 py-10 md:px-14 md:py-0">
+              <div className="max-w-[440px]">
+                <div className="w-7 h-[1px] bg-gold mb-5 opacity-70" />
+                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[26px] leading-snug mb-5">
                   &ldquo;{content.visualMoment.quote}&rdquo;
                 </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-warm-ivory/10 flex items-center justify-center shrink-0">
-                    <span className="font-body font-semibold text-[13px] text-warm-ivory/50">
-                      {content.visualMoment.initials}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-body font-semibold text-[14px] text-warm-ivory/70">
-                      {content.visualMoment.name}
-                    </p>
-                    <p className="font-body text-[12px] text-warm-ivory/40">
-                      {content.visualMoment.title}
-                    </p>
-                  </div>
-                </div>
+                <p className="font-body font-semibold text-[13px] text-warm-ivory/70">
+                  {content.visualMoment.name}
+                </p>
+                <p className="font-body text-[11px] text-warm-ivory/35 mt-0.5">
+                  {content.visualMoment.title}
+                </p>
               </div>
             </div>
           </div>
