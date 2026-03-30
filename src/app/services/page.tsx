@@ -200,6 +200,7 @@ export default function ServicesPage() {
             {/* Image */}
             <div className="hidden md:block">
               <ImagePlaceholder
+                src="/images/Service-tesamonial-Big.jpg"
                 alt="Transformation result"
                 width={800}
                 height={600}
