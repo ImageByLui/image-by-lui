@@ -190,26 +190,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-   {content.visualMoment && (
+  {content.visualMoment && (
         <section className="bg-espresso">
-          <div className="md:grid md:grid-cols-[0.4fr_1.6fr] md:h-[320px]">
-            {/* Image — narrow accent strip */}
-            <div className="hidden md:block overflow-hidden">
-              <ImagePlaceholder
-                src="/images/Service-tesamonial-Big.jpg"
-                alt="Transformation result"
-                width={800}
-                height={600}
-                colorIndex={2}
-                className="w-full h-full object-cover"
-                objectPosition="center 25%"
-              />
-            </div>
-            {/* Quote */}
+          <div className="md:grid md:grid-cols-[1.4fr_0.8fr] md:h-[450px]">
+            {/* Quote — left, read first */}
             <div className="flex items-center px-6 py-10 md:px-16 md:py-0">
               <div>
                 <div className="w-10 h-[1px] bg-gold mb-6" />
-                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[26px] leading-snug mb-5">
+                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[28px] leading-snug mb-5">
                   &ldquo;{content.visualMoment.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
@@ -228,6 +216,18 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
+            </div>
+            {/* Image — right, portrait column */}
+            <div className="hidden md:block overflow-hidden">
+              <ImagePlaceholder
+                src="/images/Service-tesamonial-Big.jpg"
+                alt="Transformation result"
+                width={800}
+                height={600}
+                colorIndex={2}
+                className="w-full h-full object-cover"
+                objectPosition="center 20%"
+              />
             </div>
           </div>
         </section>
