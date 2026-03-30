@@ -238,7 +238,7 @@ export default function ServicesPage() {
                 style={{
                   backgroundImage: "url(/images/Service-tesamonial-Big.jpg)",
                   backgroundSize: "350%",
-                  backgroundPosition: "50% 8%",
+                  backgroundPosition: "46% 12%",
                 }}
               />
               <div>
