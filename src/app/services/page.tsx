@@ -196,39 +196,33 @@ export default function ServicesPage() {
       {/* ----------------------------------------------------------------- */}
       
 {content.visualMoment && (
-        <section className="relative md:h-[500px] overflow-hidden">
-          <div className="hidden md:block absolute inset-0">
-            <Image
-              src="/images/Service-tesamonial-Big.jpg"
-              alt="Transformation result"
-              fill
-              className="object-cover"
-              style={{ objectPosition: "center 12%" }}
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-espresso/40 to-espresso/90" />
-          </div>
-          
-        <div className="relative z-10 bg-espresso md:bg-transparent flex items-center justify-end px-6 py-10 md:py-0 md:pr-16 md:h-full">
-            <div className="max-w-[480px] text-left">
-              <div className="w-10 h-[1px] bg-gold mb-6" />
-              <p className="font-heading italic text-warm-ivory text-[20px] md:text-[30px] leading-snug mb-5">
-                &ldquo;{content.visualMoment.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-warm-ivory/10 flex items-center justify-center shrink-0">
-                  <span className="font-body font-semibold text-[13px] text-warm-ivory/50">
-                    {content.visualMoment.initials}
-                  </span>
-                </div>
-                <div className="text-left">
-                  <p className="font-body font-semibold text-[14px] text-warm-ivory/70">
-                    {content.visualMoment.name}
-                  </p>
-                  <p className="font-body text-[12px] text-warm-ivory/40">
-                    {content.visualMoment.title}
-                  </p>
-                </div>
+        <section>
+          <div className="md:grid md:grid-cols-[0.4fr_0.6fr] md:h-[320px]">
+            {/* Image — left column with subtle dark overlay */}
+            <div className="hidden md:block relative overflow-hidden">
+              <Image
+                src="/images/Service-tesamonial-Big.jpg"
+                alt="Transformation result"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 15%" }}
+                sizes="40vw"
+              />
+              <div className="absolute inset-0 bg-espresso/25" />
+            </div>
+            {/* Quote — right column, solid espresso */}
+            <div className="bg-espresso flex items-center px-6 py-10 md:px-14 md:py-0">
+              <div className="max-w-[440px]">
+                <div className="w-7 h-[1px] bg-gold mb-5 opacity-70" />
+                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[26px] leading-snug mb-5">
+                  &ldquo;{content.visualMoment.quote}&rdquo;
+                </p>
+                <p className="font-body font-semibold text-[13px] text-warm-ivory/70">
+                  {content.visualMoment.name}
+                </p>
+                <p className="font-body text-[11px] text-warm-ivory/35 mt-0.5">
+                  {content.visualMoment.title}
+                </p>
               </div>
             </div>
           </div>
