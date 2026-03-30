@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { aboutContent } from "@/content/en/about";
 import { buildPageMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
@@ -7,16 +8,6 @@ import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
 // About Page — English (/about) — V7 Final
-// =============================================================================
-// Structure (matches approved mockups):
-//   1. Hero — portrait dominant (desktop 60/40) / full-width (mobile)
-//   2. Pull quote — espresso poster with decorative gold quotes
-//   3. Origin — discipline bars, credentials woven into closing
-//   4. Session image — cinematic (desktop) / 16:9 (mobile)
-//   5. Client voice — headshot left + quote right (desktop) / stacked (mobile)
-//   6. Image strip — two atmospheric detail shots
-//   7. Philosophy — espresso close
-//   8. CTA — desktop only (mobile uses sticky bar)
 // =============================================================================
 
 export const metadata: Metadata = buildPageMetadata(aboutContent.seo, "en", "about");
@@ -32,16 +23,14 @@ export default function AboutPage() {
       <section className="bg-warm-ivory">
         {/* Desktop: 60/40 split */}
         <div className="hidden lg:grid grid-cols-[1.5fr_1fr] h-[680px]">
-          <div className="overflow-hidden">
-            <ImagePlaceholder
+          <div className="relative h-full overflow-hidden">
+            <Image
               src="/images/about-hero.jpg"
               alt="Lu, bilingual image consultant based in Miami, at a professional event"
-              width={800}
-              height={1000}
-              colorIndex={1}
-              className="w-full h-full object-cover"
               fill
-              objectPosition="32% 55%"
+              className="object-cover"
+              style={{ objectPosition: "32% 70%" }}
+              sizes="(max-width: 1024px) 100vw, 60vw"
               priority
             />
           </div>
@@ -65,17 +54,17 @@ export default function AboutPage() {
 
         {/* Mobile: portrait then text */}
         <div className="lg:hidden">
-          <ImagePlaceholder
-            src="/images/about-hero.jpg"
-            alt="Lu, bilingual image consultant based in Miami, at a professional event"
-            width={750}
-            height={563}
-            colorIndex={1}
-            className="w-full"
-            fill
-            objectPosition="32% 38%"
-            priority
-          />
+          <div className="relative h-[500px] overflow-hidden">
+            <Image
+              src="/images/about-hero.jpg"
+              alt="Lu, bilingual image consultant based in Miami, at a professional event"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "32% 55%" }}
+              sizes="100vw"
+              priority
+            />
+          </div>
           <div className="px-6 py-7">
             <p className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-terracotta mb-2">
               Meet Lu
@@ -91,10 +80,9 @@ export default function AboutPage() {
       </section>
 
       {/* ----------------------------------------------------------------- */}
-      {/* 2. PULL QUOTE — Espresso poster with decorative gold quotes       */}
+      {/* 2. PULL QUOTE                                                     */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-espresso relative overflow-hidden py-10 md:py-16">
-        {/* Decorative quotes */}
         <span
           className="font-heading absolute top-2 left-4 md:left-10 text-[120px] md:text-[200px] text-gold/[0.12] leading-none select-none"
           aria-hidden="true"
@@ -116,12 +104,11 @@ export default function AboutPage() {
       </section>
 
       {/* ----------------------------------------------------------------- */}
-      {/* 3. ORIGIN — Discipline bars + credentials in closing             */}
+      {/* 3. ORIGIN                                                         */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-soft-stone">
         <div className="max-w-6xl mx-auto px-6 lg:px-10 py-7 md:py-[72px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-            {/* Text + disciplines */}
             <ScrollReveal>
               <div className="lg:pt-1">
                 {c.origin.intro.map((p, i) => (
@@ -133,7 +120,6 @@ export default function AboutPage() {
                   </p>
                 ))}
 
-                {/* Discipline bars */}
                 <div className="flex flex-col mt-2 mb-4">
                   {c.origin.disciplines.map((d, i) => (
                     <div
@@ -158,7 +144,6 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
-            {/* Image — desktop only (mobile gets full-width session image below) */}
             <ScrollReveal delay={150}>
               <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
@@ -191,11 +176,8 @@ export default function AboutPage() {
 
       {/* ----------------------------------------------------------------- */}
       {/* 5. CLIENT VOICE                                                   */}
-      {/* Desktop: headshot left, serif italic quote right                  */}
-      {/* Mobile: stacked with decorative quote mark                       */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-champagne relative overflow-hidden">
-        {/* Decorative quote — subtle */}
         <span
           className="font-heading absolute top-2 left-4 md:left-16 text-[80px] md:text-[160px] text-gold/[0.15] leading-none select-none"
           aria-hidden="true"
@@ -204,7 +186,6 @@ export default function AboutPage() {
         </span>
 
         <div className="relative z-10 max-w-[780px] mx-auto px-6 lg:px-10 py-7 md:py-14">
-          {/* Desktop */}
           <div className="hidden md:block">
             <p className="font-heading italic text-[24px] text-espresso leading-snug mb-6">
               &ldquo;{c.clientVoice.quote}&rdquo;
@@ -231,7 +212,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Mobile: stacked */}
           <div className="md:hidden">
             <div className="border-l-[3px] border-l-gold pl-4">
               <p className="font-body text-[17px] italic text-espresso leading-relaxed mb-4">
@@ -285,7 +265,7 @@ export default function AboutPage() {
       )}
 
       {/* ----------------------------------------------------------------- */}
-      {/* 7. PHILOSOPHY — Espresso close                                   */}
+      {/* 7. PHILOSOPHY                                                     */}
       {/* ----------------------------------------------------------------- */}
       <section className="bg-espresso">
         <div className="max-w-[680px] mx-auto px-6 lg:px-10 pt-9 pb-6 md:py-20 text-center">
