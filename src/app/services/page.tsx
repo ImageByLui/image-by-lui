@@ -237,8 +237,8 @@ export default function ServicesPage() {
                 className="w-11 h-11 rounded-full shrink-0 border-[1.5px] border-gold/30"
                 style={{
                   backgroundImage: "url(/images/Service-tesamonial-Big.jpg)",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center 15%",
+                  backgroundSize: "250%",
+                  backgroundPosition: "50% 10%",
                 }}
               />
               <div>
