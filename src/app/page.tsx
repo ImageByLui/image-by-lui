@@ -1,4 +1,4 @@
-TestimonialCardimport type { Metadata } from "next";
+import type { Metadata } from "next";
 import { homeContent } from "@/content/en/home";
 import { testimonials, testimonialsContextLine } from "@/content/shared/testimonials";
 import { buildPageMetadata } from "@/lib/metadata";
