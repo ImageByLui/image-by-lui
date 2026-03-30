@@ -8,6 +8,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 import ServicesTierCards from "@/components/ui/ServicesTierCards";
+import Image from "next/image";
 
 // =============================================================================
 // Services Page — English (/services) — V5 Redesign
@@ -194,24 +195,19 @@ export default function ServicesPage() {
       {/* 6. Testimonial and Quote                                             */}
       {/* ----------------------------------------------------------------- */}
       
- {content.visualMoment && (
+{content.visualMoment && (
         <section className="relative md:h-[500px] overflow-hidden">
-          {/* Background image — hidden on mobile, shown on desktop */}
           <div className="hidden md:block absolute inset-0">
-            <ImagePlaceholder
+            <Image
               src="/images/Service-tesamonial-Big.jpg"
               alt="Transformation result"
-              width={1200}
-              height={800}
-              colorIndex={2}
-              className="w-full h-full object-cover"
-              objectPosition="40% 30%"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
             />
-            {/* Dark overlay so text is legible */}
             <div className="absolute inset-0 bg-espresso/70" />
           </div>
           
-          {/* Quote content — centered on top of image */}
           <div className="relative z-10 bg-espresso md:bg-transparent flex items-center justify-center px-6 py-10 md:py-0 md:h-full">
             <div className="max-w-[600px] text-center">
               <div className="w-10 h-[1px] bg-gold mx-auto mb-6" />
