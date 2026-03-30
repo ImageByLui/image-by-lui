@@ -152,7 +152,7 @@ export default function AboutPage() {
                   width={600}
                   height={800}
                   colorIndex={1}
-                  className="w-full lg:hidden"
+                  className="w-full"
                 />
               </div>
             </ScrollReveal>
@@ -169,7 +169,7 @@ export default function AboutPage() {
         width={1200}
         height={400}
         colorIndex={1}
-        className="w-full"
+        className="w-full lg:hidden"
         fill
         objectPosition="center 15%"
       />
