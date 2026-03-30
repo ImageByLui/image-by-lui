@@ -23,21 +23,12 @@ export default function ContactPageEs() {
           {/* Desktop: two-column grid */}
           <div className="hidden lg:grid grid-cols-[1fr_1.4fr] gap-12 py-12">
             {/* Left — heading + info */}
-            <div className="flex flex-col justify-center">
+           <div className="flex flex-col justify-start pt-4">
               <h1 className="font-heading font-semibold text-[42px] leading-[1.12] text-espresso mb-4">
                 {content.hero.headline}
               </h1>
               <p className="font-body text-[17px] text-warm-grey leading-relaxed mb-6">
                 {content.hero.subheadline}
-              </p>
-
-              <SectionHeading>{content.calendlyWrapper.heading}</SectionHeading>
-              <p className="font-body text-[15px] text-warm-grey leading-relaxed mb-8">
-                {content.calendlyWrapper.introText}
-              </p>
-
-              <p className="font-body text-[13px] text-warm-taupe mb-10">
-                {content.calendlyWrapper.belowEmbedNote}
               </p>
 
               {/* WhatsApp alternative */}
