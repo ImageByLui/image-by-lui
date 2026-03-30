@@ -35,16 +35,15 @@ export default function TestimonialCard({
       </blockquote>
       <figcaption className="flex items-center gap-3">
         {/* Photo or initials fallback */}
-        {image ? (
-          <div className="w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden shrink-0">
-            <Image
-              src={image}
-              alt={attribution}
-              width={44}
-              height={44}
-              className="w-full h-full object-cover"
-            />
-          </div>
+       {image ? (
+          <div
+            className="w-10 h-10 md:w-11 md:h-11 rounded-full shrink-0 border border-champagne"
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: "200%",
+              backgroundPosition: "center center",
+            }}
+          />
         ) : initials ? (
           <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-champagne flex items-center justify-center shrink-0">
             <span className="font-body font-semibold text-[13px] md:text-[14px] text-warm-taupe">
