@@ -190,6 +190,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
+   {/* ----------------------------------------------------------------- */}
+      {/* 6. Testimonial and Quote                                             */}
+      {/* ----------------------------------------------------------------- */}
+      
  {content.visualMoment && (
         <section className="relative md:h-[500px] overflow-hidden">
           {/* Background image — hidden on mobile, shown on desktop */}
@@ -201,7 +205,7 @@ export default function ServicesPage() {
               height={800}
               colorIndex={2}
               className="w-full h-full object-cover"
-              objectPosition="center 20%"
+              objectPosition="40% 30%"
             />
             {/* Dark overlay so text is legible */}
             <div className="absolute inset-0 bg-espresso/70" />
