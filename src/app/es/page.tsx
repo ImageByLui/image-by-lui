@@ -79,7 +79,7 @@ export default function HomePageEs() {
             src="/images/hero-burgundy-dress.jpg"
             alt="Lu, fundadora de Image by LUI, con un elegante vestido burdeos en un evento en Miami"
             width={750}
-            height={1000}
+            height={950}
             colorIndex={0}
             className="w-full"
             fill
