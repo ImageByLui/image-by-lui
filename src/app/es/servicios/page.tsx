@@ -8,6 +8,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 import ServicesTierCards from "@/components/ui/ServicesTierCards";
+import Image from "next/image";
 
 // =============================================================================
 // Services Page — Spanish (/es/servicios) — V5 Redesign
