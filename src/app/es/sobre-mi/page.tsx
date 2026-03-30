@@ -58,7 +58,7 @@ export default function AboutPageEs() {
               alt="Lu, consultora de imagen bilingüe en Miami, en un evento profesional"
               fill
               className="object-cover"
-              style={{ objectPosition: "32% 55%" }}
+              style={{ objectPosition: "35% 80%" }}
               sizes="100vw"
               priority
             />
