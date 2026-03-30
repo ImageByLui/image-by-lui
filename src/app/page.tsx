@@ -72,7 +72,7 @@ export default function HomePage() {
             src="/images/hero-burgundy-dress.jpg"
             alt="Lu, founder of Image by LUI, wearing an elegant burgundy dress at a Miami venue"
             width={750}
-            height={750}
+            height={1000}
             colorIndex={0}
             className="w-full"
             fill
