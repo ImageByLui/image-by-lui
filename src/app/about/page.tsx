@@ -60,7 +60,7 @@ export default function AboutPage() {
               alt="Lu, bilingual image consultant based in Miami, at a professional event"
               fill
               className="object-cover"
-              style={{ objectPosition: "32% 55%" }}
+              style={{ objectPosition: "25% 55%" }}
               sizes="100vw"
               priority
             />
