@@ -206,16 +206,16 @@ export default function ServicesPage() {
               style={{ objectPosition: "center 12%" }}
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-espresso/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-espresso/40 to-espresso/90" />
           </div>
           
-          <div className="relative z-10 bg-espresso md:bg-transparent flex items-center justify-center px-6 py-10 md:py-0 md:h-full">
-            <div className="max-w-[600px] text-center">
-              <div className="w-10 h-[1px] bg-gold mx-auto mb-6" />
+        <div className="relative z-10 bg-espresso md:bg-transparent flex items-center justify-end px-6 py-10 md:py-0 md:pr-16 md:h-full">
+            <div className="max-w-[480px] text-left">
+              <div className="w-10 h-[1px] bg-gold mb-6" />
               <p className="font-heading italic text-warm-ivory text-[20px] md:text-[30px] leading-snug mb-5">
                 &ldquo;{content.visualMoment.quote}&rdquo;
               </p>
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-warm-ivory/10 flex items-center justify-center shrink-0">
                   <span className="font-body font-semibold text-[13px] text-warm-ivory/50">
                     {content.visualMoment.initials}
