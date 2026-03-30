@@ -161,11 +161,11 @@ export default function ServicesPageEs() {
       </section>
 
       {/* 6. Visual Moment */}
-      {content.visualMoment && (
+   {content.visualMoment && (
         <section>
-          <div className="md:grid md:grid-cols-[0.4fr_0.6fr] md:h-[320px]">
-            {/* Image — left column with subtle dark overlay */}
-            <div className="hidden md:block relative overflow-hidden">
+          {/* Desktop: two-column split */}
+          <div className="hidden md:grid md:grid-cols-[0.4fr_0.6fr] md:h-[320px]">
+            <div className="relative overflow-hidden">
               <Image
                 src="/images/Service-tesamonial-Big.jpg"
                 alt="Transformation result"
@@ -176,17 +176,42 @@ export default function ServicesPageEs() {
               />
               <div className="absolute inset-0 bg-espresso/25" />
             </div>
-            {/* Quote — right column, solid espresso */}
-            <div className="bg-espresso flex items-center px-6 py-10 md:px-14 md:py-0">
+            <div className="bg-espresso flex items-center px-14">
               <div className="max-w-[440px]">
                 <div className="w-7 h-[1px] bg-gold mb-5 opacity-70" />
-                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[26px] leading-snug mb-5">
+                <p className="font-heading italic text-warm-ivory text-[26px] leading-snug mb-5">
                   &ldquo;{content.visualMoment.quote}&rdquo;
                 </p>
                 <p className="font-body font-semibold text-[13px] text-warm-ivory/70">
                   {content.visualMoment.name}
                 </p>
                 <p className="font-body text-[11px] text-warm-ivory/35 mt-0.5">
+                  {content.visualMoment.title}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: clean editorial quote with circular photo */}
+          <div className="md:hidden bg-espresso px-6 py-7">
+            <div className="w-6 h-[1px] bg-gold mb-4 opacity-70" />
+            <p className="font-heading italic text-warm-ivory text-[24px] leading-snug mb-5">
+              &ldquo;{content.visualMoment.quote}&rdquo;
+            </p>
+            <div className="flex items-center gap-3">
+             <div
+                className="w-11 h-11 rounded-full shrink-0 border-[1.5px] border-gold/30"
+                style={{
+                  backgroundImage: "url(/images/Service-tesamonial-Big.jpg)",
+                  backgroundSize: "350%",
+                  backgroundPosition: "42% 18%",
+                }}
+              />
+              <div>
+                <p className="font-body font-semibold text-[13px] text-warm-ivory/75">
+                  {content.visualMoment.name}
+                </p>
+                <p className="font-body text-[11px] text-warm-ivory/35">
                   {content.visualMoment.title}
                 </p>
               </div>
