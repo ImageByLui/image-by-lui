@@ -1,52 +1,56 @@
-import type { Testimonial } from "@/types/content";
-
 // =============================================================================
-// Testimonials — Shared Bilingual Content (V2 — Revised)
+// Testimonials — Shared Bilingual Content
 // =============================================================================
-// Revised for specificity and outcomes. Each quote references a concrete
-// result from the methodology. contextLine displays below section heading.
+// Used on: Homepage (EN + ES), Services page social proof
+// Images are circular profile photos stored in public/images/
 // =============================================================================
 
 export const testimonialsContextLine = {
-  en: "From Lu's image consulting practice",
-  es: "De la práctica de consultoría de imagen de Lu",
+  en: "Real clients. Real transformations.",
+  es: "Clientas reales. Transformaciones reales.",
 };
 
-export const testimonials: Testimonial[] = [
+export const testimonials = [
   {
     quote: {
-      en: "After my color analysis, I stopped buying clothes that sat unworn in my closet. Lu identified 8 colors I'd never considered — and every one of them gets compliments at work.",
-      es: "Después de mi análisis de color, dejé de comprar ropa que quedaba sin usar en mi clóset. Lu identificó 8 colores que nunca había considerado — y cada uno de ellos recibe elogios en el trabajo.",
+      en: "I was delighted with the styling service — every detail was thought out to highlight the best of me. I loved the whole process from the consultation to the final result. The dress was simply perfect! Highly recommended.",
+      es: "Quedé encantada con el servicio de Styling, cada detalle fue pensado para resaltar lo mejor de mí. Amé todo el proceso desde la asesoría hasta el resultado final. El vestido fue simplemente perfecto! Súper recomendado.",
     },
     attribution: {
-      en: "A.R., Finance Professional",
-      es: "A.R., Profesional de Finanzas",
+      en: "Silvia Castrillón",
+      es: "Silvia Castrillón",
     },
-    initials: "AR",
-    social: "@placeholder",
+    initials: "SC",
+    social: "@silviacastrillon",
+    socialUrl: "https://www.instagram.com/silviacastrillon",
+    image: "/images/silviacastrillon.jpg",
   },
   {
     quote: {
-      en: "The morphological analysis changed how I shop. I used to buy based on trends; now I buy based on what actually works with my proportions. My wardrobe is half the size and twice as effective.",
-      es: "El análisis morfológico cambió cómo compro. Solía comprar según tendencias; ahora compro según lo que realmente funciona con mis proporciones. Mi guardarropa es la mitad del tamaño y el doble de efectivo.",
+      en: "I had a wonderful experience with this styling consultation. From the start, she was very professional — she understood my style, my body, and what I wanted to project. I took away incredibly useful tools for dressing better and feeling more confident every day. Thank you so much!",
+      es: "Tuve una experiencia maravillosa en esta asesoría de styling. Desde el inicio fue muy profesional, ella entendió mi estilo, mi cuerpo y lo que quería proyectar. Me llevo herramientas súper útiles para vestir mejor y sentirme más segura en mi día a día. ¡Gracias por tanto!",
     },
     attribution: {
-      en: "M.T., Healthcare Executive",
-      es: "M.T., Ejecutiva de Salud",
+      en: "Valentina Pacheco",
+      es: "Valentina Pacheco",
     },
-    initials: "MT",
-    social: "@placeholder",
+    initials: "VP",
+    social: "@valentinapachecof_",
+    socialUrl: "https://www.instagram.com/valentinapachecof_",
+    image: "/images/valentinapachecof_.jpg",
   },
   {
     quote: {
-      en: "I was preparing for a major client pitch and needed to look the part. Lu's power palette session gave me the confidence that my outfit was working for me, not against me. I won the listing.",
-      es: "Me estaba preparando para una presentación importante con clientes y necesitaba lucir a la altura. La sesión de power palette de Lu me dio la confianza de que mi outfit estaba trabajando a mi favor, no en mi contra. Gané el listado.",
+      en: "Thanks to Luisa for helping me with my outfit. She not only has great taste, but knows exactly how to make you feel comfortable and confident in what you wear. I loved the result!",
+      es: "Gracias a Luisa por ayudarme con mi outfit. No solo tiene buen gusto, sino que sabe exactamente cómo hacerte sentir cómoda y segura con lo que llevas. ¡Me encantó el resultado!",
     },
     attribution: {
-      en: "C.L., Real Estate Agent",
-      es: "C.L., Agente de Bienes Raíces",
+      en: "Angélica G.P.",
+      es: "Angélica G.P.",
     },
-    initials: "CL",
-    social: "@placeholder",
+    initials: "AG",
+    social: "@angelicagp8",
+    socialUrl: "https://www.instagram.com/angelicagp8",
+    image: "/images/angelicagp8.jpg",
   },
 ];
