@@ -233,14 +233,14 @@ export default function ServicesPage() {
               &ldquo;{content.visualMoment.quote}&rdquo;
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 border-[1.5px] border-gold/30">
+              <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 border-[1.5px] border-gold/30 relative">
                 <Image
                   src="/images/Service-tesamonial-Big.jpg"
                   alt="Transformation result"
-                  width={44}
-                  height={44}
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 5%", transform: "scale(4)" }}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "center 15%" }}
+                  sizes="44px"
                 />
               </div>
               <div>
