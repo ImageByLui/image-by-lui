@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+TestimonialCardimport type { Metadata } from "next";
 import { homeContent } from "@/content/en/home";
 import { testimonials, testimonialsContextLine } from "@/content/shared/testimonials";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -382,6 +382,8 @@ export default function HomePage() {
                   attribution={t.attribution.en}
                   initials={t.initials}
                   social={t.social}
+                  socialUrl={t.socialUrl}
+                  image={t.image}
                 />
               </ScrollReveal>
             ))}
@@ -389,13 +391,14 @@ export default function HomePage() {
 
           <div className="md:hidden flex flex-col gap-3">
             {testimonials.map((t, i) => (
-              <TestimonialCard
-                key={i}
-                quote={t.quote.en}
-                attribution={t.attribution.en}
-                initials={t.initials}
-                social={t.social}
-              />
+             <TestimonialCard
+                  quote={t.quote.en}
+                  attribution={t.attribution.en}
+                  initials={t.initials}
+                  social={t.social}
+                  socialUrl={t.socialUrl}
+                  image={t.image}
+                />
             ))}
           </div>
         </div>
