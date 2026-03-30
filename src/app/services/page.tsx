@@ -240,7 +240,7 @@ export default function ServicesPage() {
                   width={44}
                   height={44}
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 12%", transform: "scale(1.5)" }}
+                  style={{ objectPosition: "center 12%", transform: "scale(4)" }}
                 />
               </div>
               <div>
