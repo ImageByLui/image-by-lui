@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { aboutContentEs } from "@/content/es/sobre-mi";
 import { buildPageMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
@@ -20,16 +21,14 @@ export default function AboutPageEs() {
       <section className="bg-warm-ivory">
         {/* Desktop */}
         <div className="hidden lg:grid grid-cols-[1.5fr_1fr] h-[680px]">
-          <div className="overflow-hidden">
-            <ImagePlaceholder
+          <div className="relative h-full overflow-hidden">
+            <Image
               src="/images/about-hero.jpg"
               alt="Lu, consultora de imagen bilingüe en Miami, en un evento profesional"
-              width={800}
-              height={1000}
-              colorIndex={1}
-              className="w-full h-full object-cover"
               fill
-              objectPosition="32% 55%"
+              className="object-cover"
+              style={{ objectPosition: "32% 70%" }}
+              sizes="(max-width: 1024px) 100vw, 60vw"
               priority
             />
           </div>
@@ -53,17 +52,17 @@ export default function AboutPageEs() {
 
         {/* Mobile */}
         <div className="lg:hidden">
-          <ImagePlaceholder
-            src="/images/about-hero.jpg"
-            alt="Lu, consultora de imagen bilingüe en Miami, en un evento profesional"
-            width={750}
-            height={563}
-            colorIndex={1}
-            className="w-full"
-            fill
-            objectPosition="32% 38%"
-            priority
-          />
+          <div className="relative h-[500px] overflow-hidden">
+            <Image
+              src="/images/about-hero.jpg"
+              alt="Lu, consultora de imagen bilingüe en Miami, en un evento profesional"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "32% 55%" }}
+              sizes="100vw"
+              priority
+            />
+          </div>
           <div className="px-6 py-7">
             <p className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-terracotta mb-2">
               Conoce a Lu
@@ -177,7 +176,6 @@ export default function AboutPageEs() {
         </span>
 
         <div className="relative z-10 max-w-[780px] mx-auto px-6 lg:px-10 py-7 md:py-14">
-          {/* Desktop */}
           <div className="hidden md:block">
             <p className="font-heading italic text-[24px] text-espresso leading-snug mb-6">
               &ldquo;{c.clientVoice.quote}&rdquo;
@@ -204,7 +202,6 @@ export default function AboutPageEs() {
             </div>
           </div>
 
-          {/* Mobile */}
           <div className="md:hidden">
             <div className="border-l-[3px] border-l-gold pl-4">
               <p className="font-body text-[17px] italic text-espresso leading-relaxed mb-4">
