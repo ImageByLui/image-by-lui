@@ -146,7 +146,7 @@ export default function AboutPageEs() {
                   width={600}
                   height={800}
                   colorIndex={1}
-                  className="w-full"
+                  className="w-full lg:hidden"
                 />
               </div>
             </ScrollReveal>
