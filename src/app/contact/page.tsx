@@ -4,16 +4,13 @@ import { useState } from "react";
 import { contactContent } from "@/content/en/contact";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import CalendlyEmbed from "@/components/features/CalendlyEmbed";
 
 // =============================================================================
-// Contact Page — English (/contact)
+// Contact Page — English (/contact) — V2 Side-by-side layout
 // =============================================================================
-// Note: This is a client component because of the Calendly post-booking
-// confirmation state. SEO metadata is handled via a separate metadata export
-// in a layout or via head tags since "use client" pages can't export metadata
-// directly in Next.js App Router.
+// Desktop: heading + subtitle + WhatsApp on the left, Calendly on the right
+// Mobile: stacked — heading on top, Calendly below
 // =============================================================================
 
 export default function ContactPage() {
@@ -22,69 +19,131 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Compact header — Calendly must be above the fold */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 text-center">
-        <h1 className="text-page-title mb-3">{content.hero.headline}</h1>
-        <p className="text-warm-grey leading-relaxed text-[15px] md:text-[16px]">
-          {content.hero.subheadline}
-        </p>
-      </div>
-
-      {/* Calendly Embed — no extra padding above */}
+      {/* Main section — side-by-side on desktop */}
       <section className="bg-soft-stone">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
-          {/* Post-booking confirmation (shown after Calendly event) */}
-          {booked ? (
-            <div className="bg-champagne p-8 md:p-10 text-center max-w-2xl mx-auto">
-              <h3 className="font-heading font-medium text-[24px] text-espresso mb-4">
-                {content.postBookingConfirmation.heading}
-              </h3>
-              <p className="text-warm-grey leading-relaxed mb-6">
-                {content.postBookingConfirmation.body}
+          {/* Desktop: two-column grid */}
+          <div className="hidden lg:grid grid-cols-[1fr_1.4fr] gap-12 py-12">
+            {/* Left — heading + info */}
+            <div className="flex flex-col justify-center">
+              <h1 className="font-heading font-semibold text-[42px] leading-[1.12] text-espresso mb-4">
+                {content.hero.headline}
+              </h1>
+              <p className="font-body text-[17px] text-warm-grey leading-relaxed mb-6">
+                {content.hero.subheadline}
               </p>
-              <Button
-                href={content.postBookingConfirmation.link.href}
-                external={content.postBookingConfirmation.link.external}
-                variant="secondary"
-              >
-                {content.postBookingConfirmation.link.text}
-              </Button>
+
+              <SectionHeading>{content.calendlyWrapper.heading}</SectionHeading>
+              <p className="font-body text-[15px] text-warm-grey leading-relaxed mb-8">
+                {content.calendlyWrapper.introText}
+              </p>
+
+              <p className="font-body text-[13px] text-warm-taupe mb-10">
+                {content.calendlyWrapper.belowEmbedNote}
+              </p>
+
+              {/* WhatsApp alternative */}
+              <div className="border-t border-t-champagne pt-8">
+                <h2 className="font-heading font-medium text-[22px] text-espresso mb-3">
+                  {content.whatsappAlternative.heading}
+                </h2>
+                <p className="font-body text-[15px] text-warm-grey leading-relaxed mb-5">
+                  {content.whatsappAlternative.body}
+                </p>
+                <Button
+                  href={content.whatsappAlternative.cta.href}
+                  external={content.whatsappAlternative.cta.external}
+                >
+                  {content.whatsappAlternative.cta.text}
+                </Button>
+              </div>
             </div>
-          ) : (
-            <CalendlyEmbed onEventScheduled={() => setBooked(true)} />
-          )}
 
-          <p className="text-center text-caption mt-6 max-w-2xl mx-auto">
-            {content.calendlyWrapper.belowEmbedNote}
-          </p>
-        </div>
-      </section>
+            {/* Right — Calendly embed */}
+            <div>
+              {booked ? (
+                <div className="bg-champagne p-8 md:p-10 text-center">
+                  <h3 className="font-heading font-medium text-[24px] text-espresso mb-4">
+                    {content.postBookingConfirmation.heading}
+                  </h3>
+                  <p className="font-body text-warm-grey leading-relaxed mb-6">
+                    {content.postBookingConfirmation.body}
+                  </p>
+                  <Button
+                    href={content.postBookingConfirmation.link.href}
+                    external={content.postBookingConfirmation.link.external}
+                    variant="secondary"
+                  >
+                    {content.postBookingConfirmation.link.text}
+                  </Button>
+                </div>
+              ) : (
+                <CalendlyEmbed onEventScheduled={() => setBooked(true)} />
+              )}
+            </div>
+          </div>
 
-      {/* 3. WhatsApp Alternative */}
-      <section className="bg-warm-ivory">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
-          <ScrollReveal>
-            <SectionHeading>{content.whatsappAlternative.heading}</SectionHeading>
-            <p className="text-warm-grey leading-relaxed mb-8">
-              {content.whatsappAlternative.body}
+          {/* Mobile: stacked */}
+          <div className="lg:hidden py-8">
+            <div className="text-center mb-6">
+              <h1 className="font-heading font-semibold text-[28px] leading-[1.2] text-espresso mb-3">
+                {content.hero.headline}
+              </h1>
+              <p className="font-body text-[16px] text-warm-grey leading-relaxed">
+                {content.hero.subheadline}
+              </p>
+            </div>
+
+            {booked ? (
+              <div className="bg-champagne p-6 text-center">
+                <h3 className="font-heading font-medium text-[22px] text-espresso mb-3">
+                  {content.postBookingConfirmation.heading}
+                </h3>
+                <p className="font-body text-warm-grey leading-relaxed mb-5">
+                  {content.postBookingConfirmation.body}
+                </p>
+                <Button
+                  href={content.postBookingConfirmation.link.href}
+                  external={content.postBookingConfirmation.link.external}
+                  variant="secondary"
+                >
+                  {content.postBookingConfirmation.link.text}
+                </Button>
+              </div>
+            ) : (
+              <CalendlyEmbed onEventScheduled={() => setBooked(true)} />
+            )}
+
+            <p className="text-center font-body text-[13px] text-warm-taupe mt-4">
+              {content.calendlyWrapper.belowEmbedNote}
             </p>
-            <Button
-              href={content.whatsappAlternative.cta.href}
-              external={content.whatsappAlternative.cta.external}
-            >
-              {content.whatsappAlternative.cta.text}
-            </Button>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* 4. Location Note */}
+      {/* WhatsApp — mobile only (desktop has it in the left column) */}
+      <section className="lg:hidden bg-warm-ivory">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+          <h2 className="font-heading font-medium text-[20px] text-espresso mb-3">
+            {content.whatsappAlternative.heading}
+          </h2>
+          <p className="font-body text-[15px] text-warm-grey leading-relaxed mb-5">
+            {content.whatsappAlternative.body}
+          </p>
+          <Button
+            href={content.whatsappAlternative.cta.href}
+            external={content.whatsappAlternative.cta.external}
+          >
+            {content.whatsappAlternative.cta.text}
+          </Button>
+        </div>
+      </section>
+
+      {/* Location Note */}
       <section className="bg-soft-stone">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
-          <ScrollReveal>
-            <p className="text-warm-grey text-[15px]">{content.locationNote}</p>
-          </ScrollReveal>
+          <p className="font-body text-warm-grey text-[15px]">{content.locationNote}</p>
         </div>
       </section>
     </>
