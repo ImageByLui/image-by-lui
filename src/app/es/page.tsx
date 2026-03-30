@@ -391,11 +391,13 @@ export default function HomePageEs() {
           <div className="hidden md:grid grid-cols-3 gap-5 max-w-[960px] mx-auto">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} delay={i * 100}>
-                <TestimonialCard
+             <TestimonialCard
                   quote={t.quote.es}
                   attribution={t.attribution.es}
                   initials={t.initials}
                   social={t.social}
+                  socialUrl={t.socialUrl}
+                  image={t.image}
                 />
               </ScrollReveal>
             ))}
@@ -405,12 +407,13 @@ export default function HomePageEs() {
           <div className="md:hidden flex flex-col gap-3">
             {testimonials.map((t, i) => (
               <TestimonialCard
-                key={i}
-                quote={t.quote.es}
-                attribution={t.attribution.es}
-                initials={t.initials}
-                social={t.social}
-              />
+                  quote={t.quote.es}
+                  attribution={t.attribution.es}
+                  initials={t.initials}
+                  social={t.social}
+                  socialUrl={t.socialUrl}
+                  image={t.image}
+                />
             ))}
           </div>
         </div>
