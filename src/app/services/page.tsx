@@ -229,18 +229,18 @@ export default function ServicesPage() {
           {/* Mobile: clean editorial quote with circular photo */}
           <div className="md:hidden bg-espresso px-6 py-7">
             <div className="w-6 h-[1px] bg-gold mb-4 opacity-70" />
-            <p className="font-heading italic text-warm-ivory text-[20px] leading-snug mb-5">
+            <p className="font-heading italic text-warm-ivory text-[24px] leading-snug mb-5">
               &ldquo;{content.visualMoment.quote}&rdquo;
             </p>
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 border-[1.5px] border-gold/30">
                 <Image
                   src="/images/Service-tesamonial-Big.jpg"
-                  alt={content.visualMoment.name}
+                  alt="Transformation result"
                   width={44}
                   height={44}
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 15%" }}
+                  style={{ objectPosition: "center 12%", transform: "scale(1.5)" }}
                 />
               </div>
               <div>
