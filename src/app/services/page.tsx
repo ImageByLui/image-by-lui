@@ -202,7 +202,8 @@ export default function ServicesPage() {
               src="/images/Service-tesamonial-Big.jpg"
               alt="Transformation result"
               fill
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: "center 12%" }}
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-espresso/70" />
