@@ -190,44 +190,45 @@ export default function ServicesPage() {
         </div>
       </section>
 
-  {content.visualMoment && (
-        <section className="bg-espresso">
-          <div className="md:grid md:grid-cols-[1.4fr_0.8fr] md:h-[450px]">
-            {/* Quote — left, read first */}
-            <div className="flex items-center px-6 py-10 md:px-16 md:py-0">
-              <div>
-                <div className="w-10 h-[1px] bg-gold mb-6" />
-                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[28px] leading-snug mb-5">
-                  &ldquo;{content.visualMoment.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-warm-ivory/10 flex items-center justify-center shrink-0">
-                    <span className="font-body font-semibold text-[13px] text-warm-ivory/50">
-                      {content.visualMoment.initials}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-body font-semibold text-[14px] text-warm-ivory/70">
-                      {content.visualMoment.name}
-                    </p>
-                    <p className="font-body text-[12px] text-warm-ivory/40">
-                      {content.visualMoment.title}
-                    </p>
-                  </div>
+ {content.visualMoment && (
+        <section className="relative md:h-[500px] overflow-hidden">
+          {/* Background image — hidden on mobile, shown on desktop */}
+          <div className="hidden md:block absolute inset-0">
+            <ImagePlaceholder
+              src="/images/Service-tesamonial-Big.jpg"
+              alt="Transformation result"
+              width={1200}
+              height={800}
+              colorIndex={2}
+              className="w-full h-full object-cover"
+              objectPosition="center 20%"
+            />
+            {/* Dark overlay so text is legible */}
+            <div className="absolute inset-0 bg-espresso/70" />
+          </div>
+          
+          {/* Quote content — centered on top of image */}
+          <div className="relative z-10 bg-espresso md:bg-transparent flex items-center justify-center px-6 py-10 md:py-0 md:h-full">
+            <div className="max-w-[600px] text-center">
+              <div className="w-10 h-[1px] bg-gold mx-auto mb-6" />
+              <p className="font-heading italic text-warm-ivory text-[20px] md:text-[30px] leading-snug mb-5">
+                &ldquo;{content.visualMoment.quote}&rdquo;
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-warm-ivory/10 flex items-center justify-center shrink-0">
+                  <span className="font-body font-semibold text-[13px] text-warm-ivory/50">
+                    {content.visualMoment.initials}
+                  </span>
+                </div>
+                <div className="text-left">
+                  <p className="font-body font-semibold text-[14px] text-warm-ivory/70">
+                    {content.visualMoment.name}
+                  </p>
+                  <p className="font-body text-[12px] text-warm-ivory/40">
+                    {content.visualMoment.title}
+                  </p>
                 </div>
               </div>
-            </div>
-            {/* Image — right, portrait column */}
-            <div className="hidden md:block overflow-hidden">
-              <ImagePlaceholder
-                src="/images/Service-tesamonial-Big.jpg"
-                alt="Transformation result"
-                width={800}
-                height={600}
-                colorIndex={2}
-                className="w-full h-full object-cover"
-                objectPosition="center 20%"
-              />
             </div>
           </div>
         </section>
