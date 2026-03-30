@@ -196,7 +196,7 @@ export default function ServicesPage() {
       {/* ----------------------------------------------------------------- */}
       {content.visualMoment && (
         <section className="bg-espresso">
-          <div className="md:grid md:grid-cols-[1.1fr_1fr] min-h-[280px] md:min-h-[420px]">
+          <div className="md:grid md:grid-cols-[1.1fr_1fr] min-h-[200px] md:min-h-[300px] md:max-h-[350px]">
             {/* Image */}
             <div className="hidden md:block">
               <ImagePlaceholder
