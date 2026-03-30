@@ -43,7 +43,7 @@ export default function ServicesPage() {
             <ScrollReveal className="hidden lg:block">
               <div className="border border-champagne p-1.5 bg-warm-ivory">
                 <ImagePlaceholder
-                  src="/images/services-bw-portrait.jpg"
+                  src="/images/Services-page-hero-image.JPG"
                   alt="Black and white portrait of Lu, certified image consultant and colorimetry specialist"
                   width={800}
                   height={1000}
