@@ -118,7 +118,7 @@ export default function HomePage() {
             &rdquo;
           </span>
           <div className="max-w-[720px] mx-auto px-6 md:px-10 text-center relative z-10">
-            <p className="font-heading italic text-warm-ivory text-[20px] md:text-[26px] leading-snug">
+            <p className="font-heading italic text-warm-ivory text-[24px] md:text-[26px] leading-snug">
               {c.quote.text}
             </p>
             <div className="w-8 h-[1px] bg-gold mx-auto my-4 md:my-5" />
