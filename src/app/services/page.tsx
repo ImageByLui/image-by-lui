@@ -190,15 +190,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* 6. Visual Moment — Editorial split                               */}
-      {/* Desktop: full-width image + espresso quote. Mobile: stacked.     */}
-      {/* ----------------------------------------------------------------- */}
-      {content.visualMoment && (
+     {content.visualMoment && (
         <section className="bg-espresso">
-          <div className="md:grid md:grid-cols-[1.1fr_1fr] min-h-[200px] md:min-h-[300px] md:max-h-[350px]">
+          <div className="md:grid md:grid-cols-[1.1fr_1fr] md:h-[350px]">
             {/* Image */}
-            <div className="hidden md:block">
+            <div className="hidden md:block overflow-hidden">
               <ImagePlaceholder
                 src="/images/Service-tesamonial-Big.jpg"
                 alt="Transformation result"
@@ -208,12 +204,11 @@ export default function ServicesPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-
             {/* Quote */}
-            <div className="flex items-center justify-center px-6 py-10 md:px-14 md:py-16">
+            <div className="flex items-center justify-center px-6 py-10 md:px-14 md:py-0">
               <div>
                 <div className="w-10 h-[1px] bg-gold mb-6" />
-                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[30px] leading-snug mb-5">
+                <p className="font-heading italic text-warm-ivory text-[20px] md:text-[24px] leading-snug mb-5">
                   &ldquo;{content.visualMoment.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
