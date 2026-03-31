@@ -389,6 +389,107 @@ export interface OccasionStylingContent {
 }
 
 // ---------------------------------------------------------------------------
+// Image Consulting Page Content
+// ---------------------------------------------------------------------------
+
+export interface PricingSummaryColumn {
+  value: string;
+  label: string;
+}
+
+export interface JourneyComponentData {
+  stepNumber: number;
+  name: string;
+  duration: string;
+  subtitle: string;
+  description: string;
+  imageAlt: string;
+  inclusions: {
+    /** Bold key phrase */
+    key: string;
+    /** Remaining description after the dash */
+    detail: string;
+  }[];
+  /** Italic gold line: "You receive: ..." */
+  deliverableLine: string;
+}
+
+export interface DeliverableItem {
+  title: string;
+  qualifier: string;
+}
+
+export interface TransformationData {
+  initials: string;
+  caption: string;
+  /** true for the currently active/shown transformation */
+  active?: boolean;
+}
+
+export interface PhotoOption {
+  title: string;
+  badge: string;
+  badgeVariant: "terracotta" | "gold";
+  borderColor: "champagne" | "gold";
+  description: string;
+}
+
+export interface ImageConsultingContent {
+  hero: {
+    label: string;
+    headline: string;
+    description: string;
+    tags: string[];
+    imageAlt: string;
+  };
+  pricing: {
+    price: string;
+    priceStrikethrough: string;
+    priceNote: string;
+    summary: PricingSummaryColumn[];
+  };
+  journey: {
+    label: string;
+    subheading: string;
+    components: JourneyComponentData[];
+  };
+  deliverables: {
+    label: string;
+    subheading: string;
+    items: DeliverableItem[];
+    whatsappCallout: {
+      title: string;
+      description: string;
+    };
+  };
+  transformations: {
+    label: string;
+    subheading: string;
+    items: TransformationData[];
+  };
+  photoOptions: {
+    label: string;
+    options: PhotoOption[];
+  };
+  bottomCta: {
+    heading: string;
+    description: string;
+    primaryCta: CTAButton;
+    secondaryText: string;
+    secondaryLinkText: string;
+    secondaryLinkHref: string;
+    faqLinkText: string;
+    faqLinkHref: string;
+  };
+  stickyBar: {
+    text: string;
+    subtext: string;
+    href: string;
+  };
+  seo: PageSEO;
+}
+
+// ---------------------------------------------------------------------------
 // About Page Content
 // ---------------------------------------------------------------------------
 

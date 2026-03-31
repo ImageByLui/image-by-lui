@@ -83,10 +83,11 @@ export const siteConfig = {
   pages: {
     home: { en: "/", es: "/es" },
     services: { en: "/services", es: "/es/servicios" },
+    occasionStyling: { en: "/services/occasion-styling", es: "/es/servicios/estilismo-de-ocasion" },
+    imageConsulting: { en: "/services/image-consulting", es: "/es/servicios/consultoria-de-imagen" },
     about: { en: "/about", es: "/es/sobre-mi" },
     contact: { en: "/contact", es: "/es/contacto" },
     blog: { en: "/blog", es: "/es/blog" },
-    occasionStyling: { en: "/services/occasion-styling", es: "/es/servicios/estilismo-de-ocasion" },
   },
 } as const;
 

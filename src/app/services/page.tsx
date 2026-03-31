@@ -1,26 +1,18 @@
 import type { Metadata } from "next";
 import { servicesOverviewContent } from "@/content/en/services-overview";
 import { buildPageMetadata } from "@/lib/metadata";
+import type { ServiceSelectorCardData } from "@/types/content";
 
 import ServicesHero from "@/components/services/ServicesHero";
 import FreeSessionCard from "@/components/services/FreeSessionCard";
 import TrustLine from "@/components/services/TrustLine";
 import ServiceSelectorCard from "@/components/services/ServiceSelectorCard";
 import ServicesTestimonialBlock from "@/components/services/ServicesTestimonialBlock";
-import ServicesBottomCTA from "@/components/services/ServicesBottomCTA";
+import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
 
 // =============================================================================
-// Services Overview — English (/services) — V6 Redesign
-// =============================================================================
-// Replaces the V5 services page. Structure:
-//   1. Hero (text only)
-//   2. Free Session Card (Power Palette invitation)
-//   3. Trust Line (Lu's credentials)
-//   4. Service Selector (Occasion Styling + Image Consulting cards)
-//   5. Testimonial
-//   6. Bottom CTA (WhatsApp + secondary link)
-//   7. Sticky Bar (Calendly link)
+// Services Overview — English (/services) — V6
 // =============================================================================
 
 const content = servicesOverviewContent;
@@ -39,30 +31,18 @@ export const metadata: Metadata = {
     title: "Image Consulting & Occasion Styling in Miami",
     description:
       "Professional image strategy built on colorimetry and style science. Complimentary color analysis available. Bilingual EN/ES.",
-    images: [
-      {
-        url: "/og/services-overview.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Image by LUI — Image Consulting & Styling in Miami",
-      },
-    ],
+    images: [{ url: "/og/services-overview.jpg", width: 1200, height: 630, alt: "Image by LUI — Image Consulting & Styling in Miami" }],
     locale: "en_US",
     type: "website",
   },
 };
 
-/** Page-specific Service schema (not in root layout — unique to this page) */
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Image Consulting & Occasion Styling",
   description: content.hero.description,
-  provider: {
-    "@type": "LocalBusiness",
-    name: "Image by LUI",
-    url: "https://imagebylui.com",
-  },
+  provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" },
   areaServed: "Miami",
   availableLanguage: ["English", "Spanish"],
 };
@@ -70,19 +50,10 @@ const serviceSchema = {
 export default function ServicesPage() {
   return (
     <>
-      {/* JSON-LD Service Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
-      {/* 1. Hero */}
-      <ServicesHero
-        headline={content.hero.headline}
-        description={content.hero.description}
-      />
+      <ServicesHero headline={content.hero.headline} description={content.hero.description} />
 
-      {/* 2. Free Session Card */}
       <FreeSessionCard
         imageAlt={content.freeSession.imageAlt}
         title={content.freeSession.title}
@@ -93,13 +64,8 @@ export default function ServicesPage() {
         footnote={content.freeSession.footnote}
       />
 
-      {/* 3. Trust Line */}
-      <TrustLine
-        name={content.trustLine.name}
-        credentials={content.trustLine.credentials}
-      />
+      <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
 
-      {/* 4. Service Selector */}
       <section className="bg-warm-ivory pt-7 px-3.5 pb-3.5" aria-label="Our services">
         <p className="font-body font-semibold text-[12px] text-espresso text-center tracking-[1px] uppercase mb-1">
           {content.selector.heading}
@@ -107,13 +73,11 @@ export default function ServicesPage() {
         <p className="font-body text-[12px] text-warm-taupe text-center leading-[1.5] mb-[22px]">
           {content.selector.subheading}
         </p>
-
-        {content.selector.cards.map((card) => (
+        {content.selector.cards.map((card: ServiceSelectorCardData) => (
           <ServiceSelectorCard key={card.name} {...card} />
         ))}
       </section>
 
-      {/* 5. Testimonial */}
       <ServicesTestimonialBlock
         quote={content.testimonial.quote}
         name={content.testimonial.name}
@@ -121,22 +85,35 @@ export default function ServicesPage() {
         title={content.testimonial.title}
       />
 
-      {/* 6. Bottom CTA */}
-      <ServicesBottomCTA
-        heading={content.bottomCta.heading}
-        description={content.bottomCta.description}
-        primaryCta={content.bottomCta.primaryCta}
-        secondaryText={content.bottomCta.secondaryText}
-        secondaryLinkText={content.bottomCta.secondaryLinkText}
-        secondaryLinkHref={content.bottomCta.secondaryLinkHref}
-      />
+      {/* Bottom CTA — WhatsApp primary */}
+      <BottomCTASection>
+        <h2 className="font-heading font-normal text-[22px] text-warm-ivory mb-2.5">
+          {content.bottomCta.heading}
+        </h2>
+        <p className="font-body text-[14px] leading-[1.6] text-warm-ivory/65 mb-6">
+          {content.bottomCta.description}
+        </p>
+        <a
+          href={content.bottomCta.primaryCta.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2.5 bg-white text-espresso font-body font-semibold text-[12px] tracking-[1px] uppercase px-8 py-4 no-underline hover:no-underline transition-colors duration-150 active:bg-warm-ivory focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+          aria-label="Message Lu on WhatsApp (opens in new tab)"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          {content.bottomCta.primaryCta.text}
+        </a>
+        <p className="font-body text-[11px] text-warm-ivory/40 mt-3">
+          {content.bottomCta.secondaryText}{" "}
+          <a href={content.bottomCta.secondaryLinkHref} target="_blank" rel="noopener noreferrer" className="text-gold font-semibold underline hover:text-gold">
+            {content.bottomCta.secondaryLinkText}
+          </a>
+        </p>
+      </BottomCTASection>
 
-      {/* 7. Sticky Bar */}
-      <ServicesStickyBar
-        text={content.stickyBar.text}
-        subtext={content.stickyBar.subtext}
-        href={content.stickyBar.href}
-      />
+      <ServicesStickyBar text={content.stickyBar.text} subtext={content.stickyBar.subtext} href={content.stickyBar.href} />
     </>
   );
 }
