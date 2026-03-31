@@ -22,7 +22,12 @@ const CTA_TEXT = {
 };
 
 /** Pages that render their own ServicesStickyBar — suppress this global bar */
-const PAGES_WITH_OWN_STICKY = ["/services", "/es/servicios"];
+const PAGES_WITH_OWN_STICKY = [
+  "/services",
+  "/es/servicios",
+  "/services/occasion-styling",
+  "/es/servicios/estilismo-de-ocasion",
+];
 
 export default function MobileCTABar() {
   const pathname = usePathname();
