@@ -124,3 +124,8 @@ export function getAlternatePageUrl(
   // Fallback: return homepage for target language
   return targetLang === "es" ? "/es" : "/";
 }
+
+/** V2 fix 4d: Tier-specific Calendly URL with query param (Option B) */
+export function getCalendlyTierUrl(tier: "essential" | "complete" | "vip"): string {
+  return `${getCalendlyUrl("powerPalette")}?a1=${tier}`;
+}

@@ -1,128 +1,42 @@
 import Link from "next/link";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
-
-// =============================================================================
-// ServiceSelectorCard — Image by LUI (Services Overview)
-// =============================================================================
-// Section 4. Reusable card for Occasion Styling and Image Consulting.
-// Uses <article> per accessibility spec. Two variants controlled by props:
-//   Standard: champagne border, stone bg placeholder
-//   Premium (isPremium): 3px gold top border, gold image frame, champagne bg
-// =============================================================================
-
-interface ServiceSelectorCardProps {
-  badge: string;
-  name: string;
-  tags: string[];
-  description: string;
-  imageAlt: string;
-  accentColor: "champagne" | "gold";
-  isPremium?: boolean;
-  price: string;
-  priceStrikethrough?: string;
-  priceNote?: string;
-  ctaText: string;
-  ctaHref: string;
-}
+import type { ServiceSelectorCardData } from "@/types/content";
 
 export default function ServiceSelectorCard({
-  badge,
-  name,
-  tags,
-  description,
-  imageAlt,
-  accentColor,
-  isPremium = false,
-  price,
-  priceStrikethrough,
-  priceNote,
-  ctaText,
-  ctaHref,
-}: ServiceSelectorCardProps) {
-  const badgeStyles =
-    accentColor === "gold"
-      ? "bg-gold/10 text-[#9A7B40]"
-      : "bg-terracotta/[0.06] text-terracotta";
-
-  const frameBorder = accentColor === "gold" ? "border-gold" : "border-champagne";
-  const placeholderColor = accentColor === "gold" ? 0 : 1; // 0=champagne, 1=stone
-  const titleSize = isPremium ? "text-[26px]" : "text-[24px]";
+  name, badge, accentColor, isPremium, price, priceNote, description, tags, imageAlt, ctaText, ctaHref,
+}: ServiceSelectorCardData) {
+  const isGold = accentColor === "gold";
+  const cardBg = isGold ? "bg-gold/[0.03] border-l-[3px] border-l-gold" : "";
+  const topBorder = isGold ? "border-t-[4px] border-t-gold" : "border-t-[3px] border-t-terracotta";
+  const badgeCls = isGold ? "bg-gold/10 text-[#9A7B40]" : "bg-terracotta/[0.06] text-terracotta";
 
   return (
-    <article
-      className={`bg-white border-[0.5px] border-champagne overflow-hidden transition-transform duration-150 active:scale-[0.99] mb-3.5 ${
-        isPremium ? "border-t-[3px] border-t-gold" : ""
-      }`}
-    >
-      {/* Card body */}
-      <div className={`px-5 pb-4 ${isPremium ? "pt-[26px]" : "pt-6"}`}>
-        <span
-          className={`inline-block font-body font-semibold text-[9px] tracking-[1.2px] uppercase px-3 py-[5px] mb-3 ${badgeStyles}`}
-        >
-          {badge}
-        </span>
-
-        <p className={`font-heading font-medium ${titleSize} leading-[1.15] text-espresso mb-2.5`}>
-          {name}
-        </p>
-
-        <div className="flex flex-nowrap gap-[5px] mb-3.5">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-body font-medium text-[10px] tracking-[0.2px] text-terracotta bg-terracotta/[0.05] px-2 py-1 border-l-2 border-terracotta"
-            >
-              {tag}
-            </span>
-          ))}
+    <div className={`bg-white border border-champagne/50 ${topBorder} ${cardBg} mb-3.5 overflow-hidden`}>
+      <div className="p-5">
+        <div className="flex items-baseline justify-between mb-2">
+          <h3 className={`font-heading font-medium ${isGold ? "text-[26px]" : "text-[24px]"} text-espresso`}>{name}</h3>
+          {badge && <span className={`font-body font-semibold text-[11px] tracking-[1px] uppercase px-2.5 py-1 shrink-0 ml-2 ${badgeCls}`}>{badge}</span>}
         </div>
-
-        <p className="font-body text-[13px] leading-[1.55] text-warm-grey">
-          {description}
-        </p>
-      </div>
-
-      {/* Image area */}
-      <div className="px-2">
-        <div className={`border ${frameBorder} p-0.5`}>
-          <ImagePlaceholder
-            alt={imageAlt}
-            width={200}
-            height={100}
-            colorIndex={placeholderColor}
-            className="w-full"
-          />
+        <div className="flex items-baseline gap-2 mb-1">
+          <span className="font-body font-semibold text-[18px] text-terracotta">{price}</span>
+          {priceNote && <span className="font-body text-[13px] text-warm-taupe">{priceNote}</span>}
         </div>
+        <div className="w-8 h-[2px] bg-gold my-3" aria-hidden="true" />
+        <p className="font-body text-[15px] text-warm-grey leading-[1.6] mb-3">{description}</p>
+        <p className="font-body text-[12px] text-warm-taupe mb-4">{tags.join(" · ")}</p>
       </div>
-
-      {/* Footer — price + CTA link */}
-      <div className="py-3.5 px-5 flex items-center justify-between">
-        <div>
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-body font-semibold text-[16px] text-terracotta">
-              {price}
-            </span>
-            {priceStrikethrough && (
-              <span className="font-body text-[12px] text-warm-taupe line-through">
-                {priceStrikethrough}
-              </span>
-            )}
+      {imageAlt && (
+        <div className="px-3.5 pb-3.5">
+          <div className={`border ${isGold ? "border-gold" : "border-champagne"} p-0.5`}>
+            <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
           </div>
-          {priceNote && (
-            <p className="font-body font-semibold text-[9px] tracking-[0.8px] uppercase text-gold mt-0.5">
-              {priceNote}
-            </p>
-          )}
         </div>
-
-        <Link
-          href={ctaHref}
-          className="font-body font-semibold text-[13px] text-terracotta no-underline hover:underline py-2 transition-colors duration-150 active:text-terracotta-dark focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-          aria-label={`Learn more about ${name}`}
-        >
+      )}
+      <div className="px-5 pb-5">
+        <Link href={ctaHref} className="block text-center font-body font-semibold text-[14px] tracking-[1px] uppercase py-3.5 bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2">
           {ctaText}
         </Link>
       </div>
-    </article>
+    </div>
   );
 }

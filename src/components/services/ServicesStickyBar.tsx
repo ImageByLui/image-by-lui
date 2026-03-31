@@ -1,44 +1,12 @@
-// =============================================================================
-// ServicesStickyBar — Image by LUI (Services Overview)
-// =============================================================================
-// Section 7. Terracotta sticky bar at bottom of page content.
-// Uses CSS `sticky bottom-0` — stays visible while scrolling through page,
-// naturally disappears when footer scrolls into view.
-//
-// Rendered as <nav> per accessibility spec. The entire bar is a link.
-// No JavaScript needed — pure CSS positioning.
-//
-// NOTE: The global MobileCTABar (fixed bottom-0 in layout.tsx) will overlap
-// this bar on /services and /es/servicios. The page files add
-// data-hide-mobile-cta to signal MobileCTABar to hide. See DEPLOYMENT-GUIDE.
-// =============================================================================
-
-interface ServicesStickyBarProps {
-  text: string;
-  subtext: string;
-  href: string;
-}
-
+interface ServicesStickyBarProps { text: string; subtext: string; href: string; }
 export default function ServicesStickyBar({ text, subtext, href }: ServicesStickyBarProps) {
   return (
-    <nav
-      className="sticky bottom-0 z-20 bg-terracotta py-3.5 px-5 flex items-center justify-between shadow-[0_-4px_16px_rgba(44,36,32,0.12)] lg:hidden transition-colors duration-150 active:bg-terracotta-dark"
-      aria-label="Quick booking"
-    >
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-between w-full no-underline hover:no-underline focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-        aria-label="Book free color analysis on Calendly (opens in new tab)"
-      >
-        <span className="text-white font-body font-semibold text-[11px] tracking-[1.2px] uppercase">
-          {text}
-          <span className="text-white/55 font-normal text-[10px] tracking-normal normal-case ml-1.5">
-            {subtext}
-          </span>
-        </span>
-        <span className="text-white/80 text-[18px]" aria-hidden="true">→</span>
+    <nav className="sticky bottom-0 z-30 lg:hidden" aria-label="Quick booking" style={{ boxShadow: "0 -2px 8px rgba(0,0,0,0.1)" }}>
+      <a href={href} target="_blank" rel="noopener noreferrer"
+        className="flex items-center justify-center gap-1 w-full h-[56px] bg-terracotta text-white font-body no-underline hover:no-underline hover:bg-terracotta-dark transition-colors">
+        <span className="font-semibold text-[13px] tracking-[1px] uppercase">{text}</span>
+        <span className="text-[13px] text-white/70">{subtext}</span>
+        <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/70 ml-1" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" /></svg>
       </a>
     </nav>
   );

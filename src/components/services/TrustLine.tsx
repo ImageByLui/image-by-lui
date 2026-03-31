@@ -1,49 +1,27 @@
-import Image from "next/image";
-
-// =============================================================================
-// TrustLine — Image by LUI (Services Overview)
-// =============================================================================
-// Section 3. Horizontal credentials bar: circle photo + name + credentials.
-// Uses <aside> per accessibility spec.
-// =============================================================================
+import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 interface TrustLineProps {
   name: string;
-  credentials: string;
-  imageSrc?: string;
+  credentials: string | string[];
+  compact?: boolean;
 }
 
-export default function TrustLine({ name, credentials, imageSrc }: TrustLineProps) {
+export default function TrustLine({ name, credentials, compact = false }: TrustLineProps) {
+  const size = compact ? "w-12 h-12" : "w-14 h-14";
+  const textSize = compact ? "text-[13px]" : "text-[14px]";
+  const credSize = compact ? "text-[11px]" : "text-[12px]";
+  const credText = Array.isArray(credentials) ? credentials.join(" · ") : credentials;
   return (
-    <aside
-      className="bg-warm-ivory py-[18px] px-5 flex items-center gap-3.5 border-b-[0.5px] border-champagne"
-      aria-label="About Lu"
-    >
-      {/* 56px circle — champagne bg, 2px gold border */}
-      <div className="w-14 h-14 rounded-full bg-champagne border-2 border-gold flex items-center justify-center shrink-0 overflow-hidden">
-        {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={name}
-            width={56}
-            height={56}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <span className="font-heading font-medium text-[16px] text-warm-taupe">
-            Lu
-          </span>
-        )}
+    <section className="bg-warm-ivory py-4 px-5" aria-label="About your consultant">
+      <div className="flex items-center gap-3.5">
+        <div className={`${size} rounded-full overflow-hidden shrink-0 border border-champagne`}>
+          <ImagePlaceholder alt="Lu — Image Consultant" width={56} height={56} colorIndex={0} className="w-full h-full" />
+        </div>
+        <div>
+          <p className={`font-body font-semibold ${textSize} text-espresso`}>{name}</p>
+          <p className={`font-body ${credSize} text-warm-taupe leading-[1.4]`}>{credText}</p>
+        </div>
       </div>
-
-      <div className="flex-1 min-w-0">
-        <p className="font-body font-semibold text-[13px] text-espresso mb-0.5">
-          {name}
-        </p>
-        <p className="font-body text-[11px] text-warm-taupe leading-[1.4]">
-          {credentials}
-        </p>
-      </div>
-    </aside>
+    </section>
   );
 }

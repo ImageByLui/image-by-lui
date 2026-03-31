@@ -22,7 +22,7 @@ export const servicesOverviewContent: ServicesOverviewContent = {
     title: "Your Power Palette",
     subtitle: "Complimentary session",
     description:
-      "In 20 minutes, we identify your natural undertone and reveal the colors that make your features come alive. This is where every client journey begins.",
+      "In 20 minutes, we identify your natural undertone and reveal the colors that make your features come alive.",
     deliverables: [
       { label: "Undertone", sublabel: "analysis" },
       { label: "5 power colors", sublabel: "identified" },

@@ -22,7 +22,7 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
     title: "Tu Paleta de Poder",
     subtitle: "Sesión de cortesía",
     description:
-      "En 20 minutos, identificamos su tono natural y revelamos los colores que hacen que sus rasgos cobren vida. Aquí comienza cada transformación.",
+      "En 20 minutos, identificamos su tono natural y revelamos los colores que hacen que sus rasgos cobren vida.",
     deliverables: [
       { label: "Subtono", sublabel: "análisis" },
       { label: "5 colores", sublabel: "de poder" },
