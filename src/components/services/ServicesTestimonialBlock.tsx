@@ -1,8 +1,10 @@
 // =============================================================================
-// ServicesTestimonialBlock — Image by LUI (Services Overview)
+// ServicesTestimonialBlock — Image by LUI
 // =============================================================================
-// Section 5. Stone background. Gold quotation marks + italic quote +
-// circular attribution with initials.
+// Testimonial section with gold quotation marks + italic quote + attribution.
+// Background is configurable: soft-stone (Overview) or warm-ivory (Occasion).
+//
+// Used on: Services Overview, Occasion Styling, Image Consulting.
 // =============================================================================
 
 interface ServicesTestimonialBlockProps {
@@ -10,34 +12,37 @@ interface ServicesTestimonialBlockProps {
   name: string;
   initials: string;
   title: string;
+  /** Background color — defaults to "soft-stone" (Overview). Occasion Styling uses "warm-ivory". */
+  bgColor?: "soft-stone" | "warm-ivory";
 }
+
+const BG_MAP = {
+  "soft-stone": "bg-soft-stone",
+  "warm-ivory": "bg-warm-ivory",
+} as const;
 
 export default function ServicesTestimonialBlock({
   quote,
   name,
   initials,
   title,
+  bgColor = "soft-stone",
 }: ServicesTestimonialBlockProps) {
   return (
-    <section className="bg-soft-stone py-8 px-5" aria-label="Client testimonial">
-      {/* Opening quotation mark — 56px */}
+    <section className={`${BG_MAP[bgColor]} py-8 px-5`} aria-label="Client testimonial">
       <p className="font-heading font-light text-[56px] text-gold leading-[0.5] mb-3.5" aria-hidden="true">
         &ldquo;
       </p>
 
-      {/* Quote — 20px italic */}
       <blockquote className="font-heading font-light italic text-[20px] leading-[1.45] text-espresso mb-1">
         {quote}
       </blockquote>
 
-      {/* Closing quotation mark — 36px, right-aligned */}
       <p className="font-heading font-light text-[36px] text-gold leading-[0.5] text-right mb-4" aria-hidden="true">
         &rdquo;
       </p>
 
-      {/* Attribution row */}
       <div className="flex items-center gap-3">
-        {/* 48px circle */}
         <div className="w-12 h-12 rounded-full bg-champagne border border-gold flex items-center justify-center shrink-0">
           <span className="font-body font-semibold text-[14px] text-warm-taupe">
             {initials}
