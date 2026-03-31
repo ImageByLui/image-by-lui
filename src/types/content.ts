@@ -306,6 +306,89 @@ export interface ServicesOverviewContent {
 }
 
 // ---------------------------------------------------------------------------
+// Occasion Styling Page Content
+// ---------------------------------------------------------------------------
+
+/** Process step for service pages (distinct from homepage ProcessStep) */
+export interface ServiceProcessStep {
+  title: string;
+  description: string;
+}
+
+export interface PricingTierData {
+  name: string;
+  price: string;
+  subtitle: string;
+  duration: string;
+  description: string;
+  inclusions: string[];
+  ctaText: string;
+  ctaHref: string;
+  /** Visual variant: determines border color, CTA style, badge, expanded state */
+  variant: "essential" | "complete" | "vip";
+  /** Only for Complete tier */
+  badge?: string;
+  /** Only for Complete tier */
+  imageAlt?: string;
+  /** Only for VIP tier */
+  footnote?: string;
+}
+
+export interface GalleryItem {
+  label: string;
+  caption: string;
+  /** Alternating backgrounds for visual variety */
+  background: "stone" | "ivory";
+}
+
+export interface OccasionStylingContent {
+  hero: {
+    label: string;
+    headline: string;
+    description: string;
+    imageAlt: string;
+    tags: string[];
+  };
+  howItWorks: {
+    label: string;
+    steps: ServiceProcessStep[];
+    imageAlt: string;
+  };
+  pricing: {
+    label: string;
+    subheading: string;
+    tiers: PricingTierData[];
+  };
+  testimonial: {
+    quote: string;
+    name: string;
+    initials: string;
+    title: string;
+  };
+  gallery: {
+    label: string;
+    subheading: string;
+    items: GalleryItem[];
+  };
+  bottomCta: {
+    heading: string;
+    description: string;
+    primaryCta: CTAButton;
+    secondaryText: string;
+    secondaryLinkText: string;
+    secondaryLinkHref: string;
+    faqLinkText: string;
+    faqLinkHref: string;
+  };
+  stickyBar: {
+    text: string;
+    subtext: string;
+    href: string;
+  };
+  seo: PageSEO;
+}
+
+// ---------------------------------------------------------------------------
 // About Page Content
 // ---------------------------------------------------------------------------
 
