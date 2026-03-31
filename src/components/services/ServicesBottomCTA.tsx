@@ -1,10 +1,14 @@
+import Link from "next/link";
 import type { CTAButton } from "@/types/content";
 
 // =============================================================================
-// ServicesBottomCTA — Image by LUI (Services Overview)
+// ServicesBottomCTA — Image by LUI
 // =============================================================================
-// Section 6. Espresso background, centered. WhatsApp button + secondary link.
-// Heading weight is 400 (not default 500) per spec.
+// Espresso background, centered. WhatsApp button + secondary link.
+// Optional FAQ link (used on Occasion Styling and Image Consulting pages,
+// not on Services Overview).
+//
+// Used on: Services Overview, Occasion Styling, Image Consulting.
 // =============================================================================
 
 interface ServicesBottomCTAProps {
@@ -14,6 +18,9 @@ interface ServicesBottomCTAProps {
   secondaryText: string;
   secondaryLinkText: string;
   secondaryLinkHref: string;
+  /** Optional FAQ link — only renders when both text and href are provided */
+  faqLinkText?: string;
+  faqLinkHref?: string;
 }
 
 export default function ServicesBottomCTA({
@@ -23,20 +30,20 @@ export default function ServicesBottomCTA({
   secondaryText,
   secondaryLinkText,
   secondaryLinkHref,
+  faqLinkText,
+  faqLinkHref,
 }: ServicesBottomCTAProps) {
   return (
     <section className="bg-espresso text-center py-9 px-5" aria-label="Get started">
-      {/* Heading — 22px, weight 400, ivory */}
       <h2 className="font-heading font-normal text-[22px] text-warm-ivory mb-2.5">
         {heading}
       </h2>
 
-      {/* Description — 14px, 65% opacity ivory */}
       <p className="font-body text-[14px] leading-[1.6] text-warm-ivory/65 mb-6">
         {description}
       </p>
 
-      {/* WhatsApp button — white bg, espresso text, green icon */}
+      {/* WhatsApp CTA */}
       <a
         href={primaryCta.href}
         target={primaryCta.external ? "_blank" : undefined}
@@ -50,7 +57,7 @@ export default function ServicesBottomCTA({
         {primaryCta.text}
       </a>
 
-      {/* Secondary link — 11px, 40% opacity ivory */}
+      {/* Secondary link */}
       <p className="font-body text-[11px] text-warm-ivory/40 mt-3">
         {secondaryText}{" "}
         <a
@@ -62,6 +69,18 @@ export default function ServicesBottomCTA({
           {secondaryLinkText}
         </a>
       </p>
+
+      {/* FAQ link — optional, only renders on service detail pages */}
+      {faqLinkText && faqLinkHref && (
+        <p className="font-body text-[11px] text-warm-ivory/40 mt-2">
+          <Link
+            href={faqLinkHref}
+            className="text-warm-ivory/55 hover:text-warm-ivory transition-colors duration-150 no-underline hover:underline focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+          >
+            {faqLinkText}
+          </Link>
+        </p>
+      )}
     </section>
   );
 }
