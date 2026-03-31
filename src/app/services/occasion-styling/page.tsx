@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { PricingTierData } from "@/types/content";
 import { occasionStylingContent } from "@/content/en/occasion-styling";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -55,7 +56,7 @@ const serviceSchema = {
   },
   areaServed: "Miami",
   availableLanguage: ["English", "Spanish"],
-offers: content.pricing.tiers.map((tier: { name: string; price: string }) => ({
+  offers: content.pricing.tiers.map((tier: PricingTierData) => ({
     "@type": "Offer",
     name: tier.name,
     price: tier.price.replace("$", ""),
@@ -96,7 +97,7 @@ export default function OccasionStylingPage() {
           {content.pricing.subheading}
         </p>
 
-        {content.pricing.tiers.map((tier) => (
+        {content.pricing.tiers.map((tier: PricingTierData) => (
           <PricingTier
             key={tier.name}
             {...tier}
