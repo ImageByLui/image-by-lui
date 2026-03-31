@@ -154,7 +154,7 @@ export interface HomeContent {
 }
 
 // ---------------------------------------------------------------------------
-// Services Page Content
+// Services Page Content (V5)
 // ---------------------------------------------------------------------------
 
 export interface ServiceTierInclusion {
@@ -205,6 +205,7 @@ export interface ServicesTestimonial {
   social?: string;
 }
 
+/** @deprecated V5 services page interface — replaced by ServicesOverviewContent in V6. Kept for rollback. */
 export interface ServicesContent {
   hero: {
     headline: string;
@@ -228,6 +229,79 @@ export interface ServicesContent {
     heading: string;
   };
   finalCta: FinalCTASection;
+  seo: PageSEO;
+}
+
+// ---------------------------------------------------------------------------
+// Services Overview Content (V6 — Mockup Redesign)
+// ---------------------------------------------------------------------------
+
+export interface FreeSessionDeliverable {
+  label: string;
+  sublabel: string;
+}
+
+export interface ServiceSelectorCardData {
+  badge: string;
+  name: string;
+  tags: string[];
+  description: string;
+  imageAlt: string;
+  /** Border accent: 'champagne' for Occasion Styling, 'gold' for Image Consulting */
+  accentColor: "champagne" | "gold";
+  /** Gold top border on premium card */
+  isPremium?: boolean;
+  price: string;
+  priceStrikethrough?: string;
+  priceNote?: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+export interface ServicesOverviewTestimonial {
+  quote: string;
+  name: string;
+  initials: string;
+  title: string;
+}
+
+export interface ServicesOverviewContent {
+  hero: {
+    headline: string;
+    description: string;
+  };
+  freeSession: {
+    imageAlt: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    deliverables: FreeSessionDeliverable[];
+    cta: CTAButton;
+    footnote: string;
+  };
+  trustLine: {
+    name: string;
+    credentials: string;
+  };
+  selector: {
+    heading: string;
+    subheading: string;
+    cards: ServiceSelectorCardData[];
+  };
+  testimonial: ServicesOverviewTestimonial;
+  bottomCta: {
+    heading: string;
+    description: string;
+    primaryCta: CTAButton;
+    secondaryText: string;
+    secondaryLinkText: string;
+    secondaryLinkHref: string;
+  };
+  stickyBar: {
+    text: string;
+    subtext: string;
+    href: string;
+  };
   seo: PageSEO;
 }
 
