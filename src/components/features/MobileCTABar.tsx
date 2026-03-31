@@ -29,6 +29,8 @@ const PAGES_WITH_OWN_STICKY = [
   "/es/servicios/estilismo-de-ocasion",
   "/services/image-consulting",
   "/es/servicios/consultoria-de-imagen",
+  "/faq",
+  "/es/faq",
 ];
 
 export default function MobileCTABar() {

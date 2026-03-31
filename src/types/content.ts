@@ -490,6 +490,43 @@ export interface ImageConsultingContent {
 }
 
 // ---------------------------------------------------------------------------
+// FAQ Page Content
+// ---------------------------------------------------------------------------
+
+export interface FAQCategory {
+  id: string;
+  pillLabel: string;
+  count: number;
+  /** Reuses existing FAQItem interface (question + HTML answer) */
+  items: FAQItem[];
+  crossLinks: {
+    text: string;
+    links: { label: string; categoryId: string }[];
+  };
+}
+
+export interface FAQPageContent {
+  hero: {
+    label: string;
+    headline: string;
+    description: string;
+  };
+  categories: FAQCategory[];
+  bottomCta: {
+    heading: string;
+    description: string;
+    whatsappCta: CTAButton;
+    calendlyCta: CTAButton;
+  };
+  stickyBar: {
+    text: string;
+    subtext: string;
+    href: string;
+  };
+  seo: PageSEO;
+}
+
+// ---------------------------------------------------------------------------
 // About Page Content
 // ---------------------------------------------------------------------------
 
