@@ -13,6 +13,7 @@
    --------------------------------------------------------------------------- */
 
 :root {
+  /* ── Brand Colors ── */
   --lui-espresso: #2C2420;
   --lui-warm-taupe: #8C7B6B;
   --lui-champagne: #D4C5B2;
@@ -23,6 +24,52 @@
   --lui-soft-stone: #E8E0D6;
   --lui-warm-grey: #6B6560;
   --lui-white: #FFFFFF;
+
+  /* ── Typography Scale ── */
+  --lui-fs-hero:          32px;
+  --lui-fs-section:       24px;
+  --lui-fs-card-title:    24px;
+  --lui-fs-premium-title: 26px;
+  --lui-fs-body:          17px;
+  --lui-fs-card:          15px;
+  --lui-fs-caption:       13px;
+  --lui-fs-cta:           14px;
+  --lui-fs-label:         11px;
+  --lui-fs-badge:         11px;
+  --lui-fs-tag:           12px;
+  --lui-fs-sticky:        13px;
+  --lui-fs-price:         18px;
+  --lui-fs-price-lg:      34px;
+  --lui-fs-testimonial:   20px;
+  --lui-fs-step-num:      36px;
+  --lui-fs-faq-q:         17px;
+  --lui-fs-secondary:     13px;
+  --lui-fs-inclusion:     14px;
+  --lui-fs-footnote:      13px;
+  --lui-fs-nav:           16px;
+  --lui-fs-nav-sub:       14px;
+
+  /* ── Font Weights ── */
+  --lui-fw-hero:     600;
+  --lui-fw-section:  500;
+  --lui-fw-body:     400;
+  --lui-fw-semibold: 600;
+  --lui-fw-light:    300;
+
+  /* ── Line Heights ── */
+  --lui-lh-hero:    1.18;
+  --lui-lh-body:    1.65;
+  --lui-lh-card:    1.6;
+  --lui-lh-caption: 1.5;
+  --lui-lh-tight:   1.35;
+
+  /* ── Decorative ── */
+  --lui-gold-line-w: 48px;
+  --lui-gold-line-h: 2px;
+
+  /* ── Opacity ── */
+  --lui-op-secondary: 0.6;
+  --lui-op-tertiary:  0.4;
 }
 
 /* ---------------------------------------------------------------------------
@@ -30,6 +77,7 @@
    --------------------------------------------------------------------------- */
 
 @theme inline {
+  /* Colors */
   --color-espresso: var(--lui-espresso);
   --color-warm-taupe: var(--lui-warm-taupe);
   --color-champagne: var(--lui-champagne);
@@ -40,8 +88,33 @@
   --color-soft-stone: var(--lui-soft-stone);
   --color-warm-grey: var(--lui-warm-grey);
 
+  /* Fonts */
   --font-heading: var(--font-cormorant-garamond), "Georgia", serif;
   --font-body: var(--font-libre-franklin), "Helvetica Neue", "Arial", sans-serif;
+
+  /* Typography Scale — creates text-body, text-card, text-cta, etc. */
+  --font-size-hero: var(--lui-fs-hero);
+  --font-size-section: var(--lui-fs-section);
+  --font-size-card-title: var(--lui-fs-card-title);
+  --font-size-premium-title: var(--lui-fs-premium-title);
+  --font-size-body: var(--lui-fs-body);
+  --font-size-card: var(--lui-fs-card);
+  --font-size-caption: var(--lui-fs-caption);
+  --font-size-cta: var(--lui-fs-cta);
+  --font-size-label: var(--lui-fs-label);
+  --font-size-badge: var(--lui-fs-badge);
+  --font-size-tag: var(--lui-fs-tag);
+  --font-size-sticky: var(--lui-fs-sticky);
+  --font-size-price: var(--lui-fs-price);
+  --font-size-price-lg: var(--lui-fs-price-lg);
+  --font-size-testimonial: var(--lui-fs-testimonial);
+  --font-size-step-num: var(--lui-fs-step-num);
+  --font-size-faq-q: var(--lui-fs-faq-q);
+  --font-size-secondary: var(--lui-fs-secondary);
+  --font-size-inclusion: var(--lui-fs-inclusion);
+  --font-size-footnote: var(--lui-fs-footnote);
+  --font-size-nav: var(--lui-fs-nav);
+  --font-size-nav-sub: var(--lui-fs-nav-sub);
 }
 
 /* ---------------------------------------------------------------------------
@@ -57,7 +130,7 @@ body {
   color: var(--lui-warm-grey);
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 17px; /* V2: 15→17px */
+  font-size: var(--lui-fs-body);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,14 +156,14 @@ body {
   }
 
   h1 {
-    font-weight: 600; /* V2: 500→600 */
-    font-size: 32px;  /* V2: 28→32px */
+    font-weight: var(--lui-fw-hero);
+    font-size: var(--lui-fs-hero);
     line-height: 1.2;
   }
 
   h2 {
-    font-weight: 500;
-    font-size: 24px; /* V2: 22→24px */
+    font-weight: var(--lui-fw-section);
+    font-size: var(--lui-fs-section);
     line-height: 1.3;
   }
 

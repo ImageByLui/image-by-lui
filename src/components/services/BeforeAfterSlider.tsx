@@ -38,8 +38,8 @@ export default function BeforeAfterSlider({ label, subheading, items, activeLabe
   return (
     <section className="bg-warm-ivory py-7 px-3.5" aria-label="Real transformations">
       <div className="px-1.5 mb-5">
-        <p className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta mb-1.5">{label}</p>
-        <p className="font-body text-[14px] text-warm-taupe leading-[1.5]">{subheading}</p>
+        <p className="font-body font-semibold text-label tracking-[1.5px] uppercase text-terracotta mb-1.5">{label}</p>
+        <p className="font-body text-inclusion text-warm-taupe leading-[1.5]">{subheading}</p>
       </div>
       <div className="px-1.5">
         <div className="border border-gold p-0.5">
@@ -48,24 +48,24 @@ export default function BeforeAfterSlider({ label, subheading, items, activeLabe
             onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp}>
             {/* Before (full) */}
             <div className="absolute inset-0 bg-champagne flex items-center justify-center">
-              <span className="text-[13px] text-warm-taupe italic">Before</span>
+              <span className="text-caption text-warm-taupe italic">Before</span>
             </div>
             {/* After (clipped by slider) */}
             <div className="absolute inset-0 bg-warm-ivory flex items-center justify-center" style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}>
-              <span className="text-[13px] text-warm-taupe italic">After</span>
+              <span className="text-caption text-warm-taupe italic">After</span>
             </div>
             {/* Gold line + drag handle */}
             <div className="absolute top-0 bottom-0 z-10" style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}>
               <div className="w-[3px] h-full bg-gold" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border-2 border-gold flex items-center justify-center shadow-[0_2px_8px_rgba(44,36,32,0.15)] cursor-grab active:cursor-grabbing"
                 title="Drag to compare">
-                <span className="text-gold text-[12px] font-semibold select-none">⟷</span>
+                <span className="text-gold text-tag font-semibold select-none">⟷</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <p className="text-[13px] text-warm-taupe italic text-center mt-2.5 px-1">{activeItem?.caption}</p>
+      <p className="text-caption text-warm-taupe italic text-center mt-2.5 px-1">{activeItem?.caption}</p>
       <div className="flex justify-center gap-3.5 mt-[18px] px-1.5" role="group" aria-label="Select transformation">
         {items.map((item, i) => {
           const isActive = i === activeIndex;
@@ -74,9 +74,9 @@ export default function BeforeAfterSlider({ label, subheading, items, activeLabe
               <button onClick={() => setActiveIndex(i)}
                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 active:scale-95 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${isActive ? "bg-champagne border-2 border-gold" : "bg-soft-stone border-[1.5px] border-champagne"}`}
                 aria-label={`View transformation for ${item.initials}`} aria-pressed={isActive}>
-                <span className="font-body font-semibold text-[12px] text-warm-taupe">{item.initials}</span>
+                <span className="font-body font-semibold text-tag text-warm-taupe">{item.initials}</span>
               </button>
-              <span className={`text-[11px] mt-1 ${isActive ? "text-terracotta font-semibold" : "text-warm-taupe"}`}>{isActive ? activeLabel : inactiveLabel}</span>
+              <span className={`text-badge mt-1 ${isActive ? "text-terracotta font-semibold" : "text-warm-taupe"}`}>{isActive ? activeLabel : inactiveLabel}</span>
             </div>
           );
         })}

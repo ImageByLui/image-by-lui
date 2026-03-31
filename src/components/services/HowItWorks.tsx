@@ -12,7 +12,7 @@ interface HowItWorksProps {
 export default function HowItWorks({ label, steps, imageAlt }: HowItWorksProps) {
   return (
     <section className="bg-warm-ivory py-7 px-3.5" aria-label="How it works">
-      <p className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta px-1.5 mb-5">{label}</p>
+      <p className="font-body font-semibold text-label tracking-[1.5px] uppercase text-terracotta px-1.5 mb-5">{label}</p>
 
       {/* Steps with gold left border thread */}
       <div className="px-1.5">
@@ -21,11 +21,11 @@ export default function HowItWorks({ label, steps, imageAlt }: HowItWorksProps) 
             <div className="border-l-2 border-l-gold pl-5 pb-5 relative">
               {/* Terracotta number circle at top of gold border */}
               <div className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-terracotta text-white flex items-center justify-center">
-                <span className="font-heading font-semibold text-[14px] leading-none">{i + 1}</span>
+                <span className="font-heading font-semibold text-inclusion leading-none">{i + 1}</span>
               </div>
               <div className="pt-0.5">
-                <h3 className="font-body font-semibold text-[16px] text-espresso mb-1.5">{step.title}</h3>
-                <p className="font-body text-[15px] text-warm-grey leading-[1.55]">{step.description}</p>
+                <h3 className="font-body font-semibold text-nav text-espresso mb-1.5">{step.title}</h3>
+                <p className="font-body text-card text-warm-grey leading-[1.55]">{step.description}</p>
               </div>
             </div>
             {/* Champagne divider between steps */}

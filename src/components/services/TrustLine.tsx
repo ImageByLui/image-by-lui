@@ -8,8 +8,8 @@ interface TrustLineProps {
 
 export default function TrustLine({ name, credentials, compact = false }: TrustLineProps) {
   const size = compact ? "w-12 h-12" : "w-14 h-14";
-  const textSize = compact ? "text-[13px]" : "text-[14px]";
-  const credSize = compact ? "text-[11px]" : "text-[12px]";
+  const textSize = compact ? "text-caption" : "text-inclusion";
+  const credSize = compact ? "text-badge" : "text-tag";
   const credText = Array.isArray(credentials) ? credentials.join(" · ") : credentials;
   return (
     <section className="bg-warm-ivory py-4 px-5" aria-label="About your consultant">

@@ -25,8 +25,8 @@ export default function PricingSection({ label, subheading, tiers, ariaLabel = "
 
   return (
     <section className="bg-soft-stone pt-7 px-3.5 pb-7" aria-label={ariaLabel}>
-      <p className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta px-1.5 mb-1.5">{label}</p>
-      <p className="font-body text-[14px] text-warm-taupe leading-[1.5] px-1.5 mb-[22px]">{subheading}</p>
+      <p className="font-body font-semibold text-label tracking-[1.5px] uppercase text-terracotta px-1.5 mb-1.5">{label}</p>
+      <p className="font-body text-inclusion text-warm-taupe leading-[1.5] px-1.5 mb-[22px]">{subheading}</p>
       {tiers.map((tier: PricingTierData, i: number) => {
         const tierKey = TIER_PARAMS[tier.variant] || "essential";
         const tierHref = getCalendlyTierUrl(tierKey);

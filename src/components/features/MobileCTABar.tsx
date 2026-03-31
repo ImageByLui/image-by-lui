@@ -99,7 +99,7 @@ export default function MobileCTABar() {
         href={calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-full h-[56px] bg-terracotta text-white font-body font-semibold text-[13px] uppercase tracking-[1.5px] no-underline hover:no-underline hover:bg-terracotta-dark transition-colors"
+        className="flex items-center justify-center w-full h-[56px] bg-terracotta text-white font-body font-semibold text-caption uppercase tracking-[1.5px] no-underline hover:no-underline hover:bg-terracotta-dark transition-colors"
       >
         {CTA_TEXT[lang]}
       </a>

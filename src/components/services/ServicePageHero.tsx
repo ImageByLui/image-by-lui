@@ -21,7 +21,7 @@ export default function ServicePageHero({
   /* V2: Tags as flat dot-separated text — no borders, no background */
   const tagsBlock = (
     <div className={tagsPosition === "above-image" ? "px-5 pb-4" : "pt-4 px-5 pb-7"}>
-      <p className="font-body text-[12px] text-warm-taupe">{tags.join(" · ")}</p>
+      <p className="font-body text-tag text-warm-taupe">{tags.join(" · ")}</p>
     </div>
   );
 
@@ -36,10 +36,10 @@ export default function ServicePageHero({
   return (
     <section className="bg-warm-ivory" aria-label={label}>
       <div className="pt-7 px-5 pb-0">
-        <p className={`font-body font-semibold text-[11px] tracking-[2px] uppercase ${labelCls} mb-3`}>{label}</p>
-        <h1 className="font-heading text-[32px] font-semibold text-espresso leading-[1.18]">{headline}</h1>
-        <div className="w-12 h-[2px] bg-gold my-3.5" aria-hidden="true" />
-        <p className="text-[17px] text-warm-grey leading-[1.65] mb-5">{description}</p>
+        <p className={`font-body font-semibold text-label tracking-[2px] uppercase ${labelCls} mb-3`}>{label}</p>
+        <h1 className="font-heading text-hero font-semibold text-espresso leading-[1.18]">{headline}</h1>
+        <div className="w-[length:var(--lui-gold-line-w)] h-[length:var(--lui-gold-line-h)] bg-gold my-3.5" aria-hidden="true" />
+        <p className="text-body text-warm-grey leading-[1.65] mb-5">{description}</p>
       </div>
       {tagsPosition === "above-image" ? <>{tagsBlock}{imageBlock}</> : <>{imageBlock}{tagsBlock}</>}
     </section>
