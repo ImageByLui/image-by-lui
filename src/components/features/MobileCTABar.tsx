@@ -11,6 +11,9 @@ import { getCalendlyUrl } from "@/config/site.config";
 // Sticky bottom bar on mobile (≤768px). Shows after scrolling past hero.
 // Hides when footer (#site-footer) enters viewport — the footer has its own
 // CTA button that takes over. Smooth slide animation.
+//
+// Pages with their own sticky CTA (e.g., Services Overview) are excluded
+// via PAGES_WITH_OWN_STICKY to avoid double-bar overlap.
 // =============================================================================
 
 const CTA_TEXT = {
@@ -18,13 +21,20 @@ const CTA_TEXT = {
   es: "RESERVA TU CONSULTA GRATIS",
 };
 
+/** Pages that render their own ServicesStickyBar — suppress this global bar */
+const PAGES_WITH_OWN_STICKY = ["/services", "/es/servicios"];
+
 export default function MobileCTABar() {
   const pathname = usePathname();
   const lang = getCurrentLanguage(pathname);
   const [pastHero, setPastHero] = useState(false);
   const [atFooter, setAtFooter] = useState(false);
 
+  const hideOnThisPage = PAGES_WITH_OWN_STICKY.includes(pathname);
+
   useEffect(() => {
+    if (hideOnThisPage) return;
+
     // Watch the hero — show bar when scrolled past
     const hero = document.querySelector("main > section:first-of-type");
     if (!hero) return;
@@ -50,10 +60,10 @@ export default function MobileCTABar() {
       heroObserver.disconnect();
       footerObserver?.disconnect();
     };
-  }, []);
+  }, [hideOnThisPage]);
 
-  // Visible = past the hero AND not at the footer
-  const visible = pastHero && !atFooter;
+  // Visible = past the hero AND not at the footer AND not on a page with its own bar
+  const visible = !hideOnThisPage && pastHero && !atFooter;
 
   // Shift WhatsApp button when bar is visible
   useEffect(() => {
@@ -63,6 +73,9 @@ export default function MobileCTABar() {
       whatsappBtn.style.transform = visible ? "translateY(-56px)" : "translateY(0)";
     }
   }, [visible]);
+
+  // Return null AFTER all hooks (React rules of hooks compliance)
+  if (hideOnThisPage) return null;
 
   const calendlyUrl = getCalendlyUrl("powerPalette");
 

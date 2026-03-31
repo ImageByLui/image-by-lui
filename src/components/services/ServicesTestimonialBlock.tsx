@@ -1,14 +1,8 @@
 // =============================================================================
-// ServicesTestimonialBlock Component — Image by LUI
+// ServicesTestimonialBlock — Image by LUI (Services Overview)
 // =============================================================================
-// Stone background section with:
-//   - Large gold opening quotation mark (Cormorant 56px light)
-//   - Italic quote (Cormorant 20px 300 italic)
-//   - Small gold closing quotation mark (right-aligned, 36px)
-//   - 48px circular avatar (champagne bg, gold border, initials)
-//   - Name (14px semibold espresso) + title (13px warm taupe)
-//
-// Used on: Services Overview page. May be reused with different testimonials.
+// Section 5. Stone background. Gold quotation marks + italic quote +
+// circular attribution with initials.
 // =============================================================================
 
 interface ServicesTestimonialBlockProps {
@@ -25,42 +19,35 @@ export default function ServicesTestimonialBlock({
   title,
 }: ServicesTestimonialBlockProps) {
   return (
-    <section className="bg-soft-stone px-5 py-8">
-      {/* Opening quotation mark */}
-      <p
-        className="font-heading font-light text-[56px] text-gold leading-[0.5] mb-3.5"
-        aria-hidden="true"
-      >
+    <section className="bg-soft-stone py-8 px-5" aria-label="Client testimonial">
+      {/* Opening quotation mark — 56px */}
+      <p className="font-heading font-light text-[56px] text-gold leading-[0.5] mb-3.5" aria-hidden="true">
         &ldquo;
       </p>
 
-      {/* Quote text */}
+      {/* Quote — 20px italic */}
       <blockquote className="font-heading font-light italic text-[20px] leading-[1.45] text-espresso mb-1">
         {quote}
       </blockquote>
 
-      {/* Closing quotation mark */}
-      <p
-        className="font-heading font-light text-[36px] text-gold leading-[0.5] text-right mb-4"
-        aria-hidden="true"
-      >
+      {/* Closing quotation mark — 36px, right-aligned */}
+      <p className="font-heading font-light text-[36px] text-gold leading-[0.5] text-right mb-4" aria-hidden="true">
         &rdquo;
       </p>
 
       {/* Attribution row */}
       <div className="flex items-center gap-3">
-        {/* Circular avatar — 48px */}
+        {/* 48px circle */}
         <div className="w-12 h-12 rounded-full bg-champagne border border-gold flex items-center justify-center shrink-0">
           <span className="font-body font-semibold text-[14px] text-warm-taupe">
             {initials}
           </span>
         </div>
-
         <div>
           <p className="font-body font-semibold text-[14px] text-espresso mb-px">
             {name}
           </p>
-          <p className="font-body font-normal text-[13px] text-warm-taupe">
+          <p className="font-body text-[13px] text-warm-taupe">
             {title}
           </p>
         </div>

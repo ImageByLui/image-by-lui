@@ -1,21 +1,12 @@
 import type { CTAButton } from "@/types/content";
-import Button from "@/components/ui/Button";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
 // =============================================================================
-// FreeSessionCard Component — Image by LUI
+// FreeSessionCard — Image by LUI (Services Overview)
 // =============================================================================
-// White prestige card with gold border on stone background. Contains:
-//   - Gold-framed image placeholder (2.2:1 aspect ratio)
-//   - Centered title (Cormorant 24px 500)
-//   - "Complimentary session" subtitle with gold flanking lines
-//   - Description paragraph
-//   - 3-column deliverable row with gold vertical separators
-//   - Terracotta CTA button (full-width)
-//   - Footnote caption
-//
-// Used on: Services Overview page only (EN + ES).
-// Part B will provide exact measurements for internal spacing.
+// Section 2. White prestige card on stone background with gold border.
+// Contains: framed image → title → subtitle with gold lines → description →
+// 3-col deliverables → full-width CTA → footnote.
 // =============================================================================
 
 interface FreeSessionCardProps {
@@ -38,9 +29,10 @@ export default function FreeSessionCard({
   footnote,
 }: FreeSessionCardProps) {
   return (
-    <section className="bg-soft-stone p-3.5">
+    <section className="bg-soft-stone p-3.5" aria-label="Free color analysis">
       <div className="bg-white border border-gold overflow-hidden">
-        {/* Gold-framed image placeholder */}
+
+        {/* 2a. Image area — gold-framed placeholder */}
         <div className="p-2 pb-0">
           <div className="border border-gold p-0.5">
             <ImagePlaceholder
@@ -53,14 +45,15 @@ export default function FreeSessionCard({
           </div>
         </div>
 
-        {/* Card body — centered content */}
-        <div className="px-[18px] pt-5 pb-6 text-center">
-          {/* Title */}
-          <h2 className="font-heading font-medium text-[24px] text-espresso mb-1.5">
-            {title}
-          </h2>
+        {/* 2b. Content area — centered */}
+        <div className="pt-5 px-[18px] pb-6 text-center">
 
-          {/* Subtitle with gold flanking lines */}
+          {/* 2c. Title */}
+          <p className="font-heading font-medium text-[24px] text-espresso mb-1.5">
+            {title}
+          </p>
+
+          {/* 2d. Subtitle with gold flanking lines */}
           <div className="flex items-center justify-center gap-2.5 mb-3.5">
             <div className="w-5 h-px bg-gold" aria-hidden="true" />
             <span className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-gold">
@@ -69,26 +62,23 @@ export default function FreeSessionCard({
             <div className="w-5 h-px bg-gold" aria-hidden="true" />
           </div>
 
-          {/* Description */}
-          <p className="font-body font-normal text-[14px] text-warm-grey leading-[1.6] mb-5">
+          {/* 2e. Description */}
+          <p className="text-[14px] text-warm-grey leading-[1.6] mb-5">
             {description}
           </p>
 
-          {/* Deliverables row — 3 columns with gold separators */}
-          <div className="flex items-start mb-[22px] border-y border-champagne/50 py-3">
+          {/* 2f. Deliverables row — 3 columns with gold separators */}
+          <div className="flex items-start mb-[22px] border-y-[0.5px] border-champagne py-3">
             {deliverables.map((item, i) => (
               <div key={i} className="flex items-start flex-1">
                 {i > 0 && (
-                  <div
-                    className="w-px h-6 bg-gold shrink-0 mt-px"
-                    aria-hidden="true"
-                  />
+                  <div className="w-px h-6 bg-gold shrink-0 mt-px" aria-hidden="true" />
                 )}
                 <div className="flex-1 text-center px-1">
                   <p className="font-body font-semibold text-[12px] text-espresso mb-px">
                     {item.label}
                   </p>
-                  <p className="font-body font-normal text-[10px] text-warm-taupe">
+                  <p className="font-body text-[10px] text-warm-taupe">
                     {item.sublabel}
                   </p>
                 </div>
@@ -96,13 +86,18 @@ export default function FreeSessionCard({
             ))}
           </div>
 
-          {/* CTA button — full-width terracotta */}
-          <Button href={cta.href} external={cta.external} className="w-full">
+          {/* 2g. CTA — full-width terracotta, 12px/16px per spec */}
+          <a
+            href={cta.href}
+            target={cta.external ? "_blank" : undefined}
+            rel={cta.external ? "noopener noreferrer" : undefined}
+            className="block bg-terracotta text-white font-body font-semibold text-[12px] tracking-[1.5px] uppercase py-4 text-center no-underline hover:no-underline transition-all duration-150 active:bg-terracotta-dark active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+          >
             {cta.text}
-          </Button>
+          </a>
 
-          {/* Footnote */}
-          <p className="font-body font-normal text-[11px] text-warm-taupe mt-2.5">
+          {/* 2h. Footnote */}
+          <p className="text-[11px] text-warm-taupe mt-2.5">
             {footnote}
           </p>
         </div>

@@ -1,30 +1,25 @@
 import Image from "next/image";
 
 // =============================================================================
-// TrustLine Component — Image by LUI
+// TrustLine — Image by LUI (Services Overview)
 // =============================================================================
-// Horizontal bar showing Lu's circular photo + name + credentials.
-// 56px circle: champagne bg, gold 2px border, "Lu" initials as fallback.
-// When imageSrc is provided, renders real photo instead of initials.
-//
-// Used on: Services Overview page. May be reused on other pages.
+// Section 3. Horizontal credentials bar: circle photo + name + credentials.
+// Uses <aside> per accessibility spec.
 // =============================================================================
 
 interface TrustLineProps {
   name: string;
   credentials: string;
-  /** Optional: image path for Lu's photo. Falls back to initials circle. */
   imageSrc?: string;
 }
 
-export default function TrustLine({
-  name,
-  credentials,
-  imageSrc,
-}: TrustLineProps) {
+export default function TrustLine({ name, credentials, imageSrc }: TrustLineProps) {
   return (
-    <div className="bg-warm-ivory px-5 py-[18px] flex items-center gap-3.5 border-b border-champagne/50">
-      {/* Circular avatar — 56px */}
+    <aside
+      className="bg-warm-ivory py-[18px] px-5 flex items-center gap-3.5 border-b-[0.5px] border-champagne"
+      aria-label="About Lu"
+    >
+      {/* 56px circle — champagne bg, 2px gold border */}
       <div className="w-14 h-14 rounded-full bg-champagne border-2 border-gold flex items-center justify-center shrink-0 overflow-hidden">
         {imageSrc ? (
           <Image
@@ -41,15 +36,14 @@ export default function TrustLine({
         )}
       </div>
 
-      {/* Name and credentials */}
       <div className="flex-1 min-w-0">
         <p className="font-body font-semibold text-[13px] text-espresso mb-0.5">
           {name}
         </p>
-        <p className="font-body font-normal text-[11px] text-warm-taupe leading-[1.4]">
+        <p className="font-body text-[11px] text-warm-taupe leading-[1.4]">
           {credentials}
         </p>
       </div>
-    </div>
+    </aside>
   );
 }

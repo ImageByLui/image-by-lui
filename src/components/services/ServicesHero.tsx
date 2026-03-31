@@ -1,14 +1,7 @@
 // =============================================================================
-// ServicesHero Component — Image by LUI
+// ServicesHero — Image by LUI (Services Overview)
 // =============================================================================
-// Hero section for the Services Overview page.
-// Renders: h1 headline + 48px gold decorative line + description paragraph.
-// Full-width on warm ivory background.
-//
-// Mobile: padding 32px top, 20px sides, 28px bottom.
-// Desktop: TBD in Part B desktop adaptation spec.
-//
-// Used on: Services Overview page only (EN + ES).
+// Section 1. Text-only hero: h1 + gold line + description. No image, no CTA.
 // =============================================================================
 
 interface ServicesHeroProps {
@@ -18,19 +11,12 @@ interface ServicesHeroProps {
 
 export default function ServicesHero({ headline, description }: ServicesHeroProps) {
   return (
-    <section className="bg-warm-ivory px-5 pt-8 pb-7">
-      <h1 className="font-heading font-medium text-[28px] leading-[1.18] text-espresso mb-0">
+    <section className="bg-warm-ivory pt-8 px-5 pb-7" aria-label="Hero">
+      <h1 className="font-heading text-[28px] font-medium text-espresso leading-[1.18]">
         {headline}
       </h1>
-
-      {/* Gold decorative line — 48px × 1.5px */}
-      <div
-        className="bg-gold my-3.5"
-        style={{ width: 48, height: 1.5 }}
-        aria-hidden="true"
-      />
-
-      <p className="font-body font-normal text-[15px] leading-[1.65] text-warm-grey">
+      <div className="w-12 h-[1.5px] bg-gold my-3.5" aria-hidden="true" />
+      <p className="text-[15px] text-warm-grey leading-[1.65]">
         {description}
       </p>
     </section>
