@@ -3,12 +3,8 @@ import type { PhotoOption } from "@/types/content";
 // =============================================================================
 // PhotoSessionOptions — Image by LUI (Image Consulting)
 // =============================================================================
-// Section label → 2 stacked white cards. Each: title + badge on same row →
-// description below. Badge styling varies (terracotta or gold). Card border
-// varies (champagne or gold).
-//
-// Used on: Image Consulting page only.
-// Part B will provide exact measurements.
+// Section 6. 2 stacked white cards on stone bg. Each: title + badge → description.
+// Badge and border color vary by option.
 // =============================================================================
 
 interface PhotoSessionOptionsProps {
@@ -16,41 +12,29 @@ interface PhotoSessionOptionsProps {
   options: PhotoOption[];
 }
 
-export default function PhotoSessionOptions({
-  label,
-  options,
-}: PhotoSessionOptionsProps) {
+export default function PhotoSessionOptions({ label, options }: PhotoSessionOptionsProps) {
   return (
-    <section className="bg-warm-ivory px-5 py-8" aria-label="Photo session options">
-      {/* Section label */}
-      <p className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-terracotta mb-4">
+    <section className="bg-soft-stone py-7 px-3.5" aria-label="Photo session options">
+      <p className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-terracotta px-1.5 mb-[18px]">
         {label}
       </p>
 
-      {/* Option cards */}
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {options.map((option, i) => {
-          const borderCls = option.borderColor === "gold" ? "border-gold" : "border-champagne";
-          const badgeBg = option.badgeVariant === "gold"
-            ? "bg-gold/10 text-[#9A7B40]"
+          const borderCls = option.borderColor === "gold" ? "border-gold/50" : "border-champagne/50";
+          const badgeCls = option.badgeVariant === "gold"
+            ? "bg-gold/10 text-gold"
             : "bg-terracotta/[0.06] text-terracotta";
 
           return (
-            <div key={i} className={`bg-white border ${borderCls} px-5 py-4`}>
-              {/* Title + badge row */}
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="font-body font-semibold text-[14px] text-espresso">
-                  {option.title}
-                </h3>
-                <span className={`font-body font-semibold text-[9px] tracking-[1px] uppercase px-2.5 py-1 ${badgeBg}`}>
+            <div key={i} className={`bg-white border ${borderCls} p-5`}>
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="font-body font-semibold text-[15px] text-espresso">{option.title}</h3>
+                <span className={`font-body font-semibold text-[10px] tracking-[1px] uppercase px-2.5 py-1 shrink-0 ${badgeCls}`}>
                   {option.badge}
                 </span>
               </div>
-
-              {/* Description */}
-              <p className="font-body text-[13px] text-warm-grey leading-[1.55]">
-                {option.description}
-              </p>
+              <p className="font-body text-[13px] text-warm-grey leading-[1.55]">{option.description}</p>
             </div>
           );
         })}
