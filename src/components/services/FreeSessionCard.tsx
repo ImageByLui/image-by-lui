@@ -11,7 +11,7 @@ export default function FreeSessionCard({ imageAlt, title, subtitle, description
     <section className="bg-soft-stone py-5 px-3.5" aria-label="Free session">
       <div className="bg-white border border-champagne overflow-hidden">
         <div className="p-1.5">
-          <ImagePlaceholder alt={imageAlt} width={340} height={121} colorIndex={0} className="w-full" style={{ aspectRatio: "2.8/1" }} />
+          <ImagePlaceholder alt={imageAlt} width={340} height={121} colorIndex={0} className="w-full" />
         </div>
         <div className="pt-4 px-5 pb-5">
           <p className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta mb-2">{subtitle}</p>

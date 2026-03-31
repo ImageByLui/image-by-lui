@@ -36,7 +36,7 @@ export default function HowItWorks({ label, steps, imageAlt }: HowItWorksProps) 
 
       {/* V2: Payoff image — wider than step blocks (px-3.5 vs steps px-5) */}
       <div className="mt-4 border border-gold p-0.5">
-        <ImagePlaceholder alt={imageAlt} width={347} height={139} colorIndex={1} className="w-full" style={{ aspectRatio: "2.5/1" }} />
+        <ImagePlaceholder alt={imageAlt} width={347} height={139} colorIndex={1} className="w-full" />
       </div>
     </section>
   );
