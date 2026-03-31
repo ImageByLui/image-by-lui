@@ -55,7 +55,7 @@ const serviceSchema = {
   },
   areaServed: "Miami",
   availableLanguage: ["English", "Spanish"],
-  offers: content.pricing.tiers.map((tier) => ({
+offers: content.pricing.tiers.map((tier: { name: string; price: string }) => ({
     "@type": "Offer",
     name: tier.name,
     price: tier.price.replace("$", ""),
