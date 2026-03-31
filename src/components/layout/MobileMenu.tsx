@@ -3,28 +3,30 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/features/LanguageSwitcher";
+import type { NavItem } from "@/types/content";
 
 // =============================================================================
 // MobileMenu — Image by LUI (V2 Revision)
 // =============================================================================
-// V2: Added service sub-pages (Occasion Styling, Image Consulting) indented
-// under Services, plus FAQ as a top-level item. Users can now navigate
-// between sub-pages directly from the hamburger menu.
+// V2: Service sub-pages (Occasion Styling, Image Consulting) + FAQ added.
+// Accepts navItems from Header for backwards compat but overrides with
+// expanded nav that includes sub-pages.
 // =============================================================================
 
-interface NavItem {
+interface MobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+  /** Passed by Header — used to detect language for expanded nav */
+  navItems: NavItem[];
+}
+
+interface ExpandedNavItem {
   label: string;
   href: string;
   indent?: boolean;
 }
 
-interface MobileMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-  lang: "en" | "es";
-}
-
-const NAV_EN: NavItem[] = [
+const NAV_EN: ExpandedNavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Occasion Styling", href: "/services/occasion-styling", indent: true },
@@ -34,7 +36,7 @@ const NAV_EN: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-const NAV_ES: NavItem[] = [
+const NAV_ES: ExpandedNavItem[] = [
   { label: "Inicio", href: "/es" },
   { label: "Servicios", href: "/es/servicios" },
   { label: "Estilismo de Ocasión", href: "/es/servicios/estilismo-de-ocasion", indent: true },
@@ -44,8 +46,10 @@ const NAV_ES: NavItem[] = [
   { label: "Contacto", href: "/es/contacto" },
 ];
 
-export default function MobileMenu({ isOpen, onClose, lang }: MobileMenuProps) {
-  const navItems = lang === "es" ? NAV_ES : NAV_EN;
+export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
+  // Detect language from the navItems passed by Header
+  const isES = navItems.some((item) => item.href.startsWith("/es"));
+  const expandedNav = isES ? NAV_ES : NAV_EN;
 
   useEffect(() => {
     if (isOpen) {
@@ -70,15 +74,13 @@ export default function MobileMenu({ isOpen, onClose, lang }: MobileMenuProps) {
           </button>
         </div>
         <div className="flex flex-col px-6 gap-1">
-          {navItems.map((item) => (
+          {expandedNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className={`font-body text-nav text-espresso py-3 border-b border-champagne no-underline hover:text-terracotta transition-colors ${
-                item.indent
-                  ? "pl-4 text-nav-sub text-warm-taupe font-normal"
-                  : "font-normal"
+              className={`font-body text-[16px] text-espresso py-3 border-b border-champagne no-underline hover:text-terracotta transition-colors ${
+                item.indent ? "pl-4 text-[14px] text-warm-taupe font-normal" : "font-normal"
               }`}
             >
               {item.indent && <span className="text-gold mr-1.5" aria-hidden="true">→</span>}
