@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import Link from "next/link";
-import { consultoriaDeImagenContent } from "@/content/es/consultoria-de-imagen";
+import { imageConsultingContent } from "@/content/en/image-consulting";
 import { buildPageMetadata } from "@/lib/metadata";
 import ServicePageHero from "@/components/services/ServicePageHero";
 import TrustLine from "@/components/services/TrustLine";
@@ -12,18 +12,18 @@ import BeforeAfterSlider from "@/components/services/BeforeAfterSlider";
 import PhotoSessionOptions from "@/components/services/PhotoSessionOptions";
 import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
-const content = consultoriaDeImagenContent;
-export const metadata: Metadata = { ...buildPageMetadata(content.seo, "es", "imageConsulting"), alternates: { canonical: "/es/servicios/consultoria-de-imagen", languages: { en: "/services/image-consulting", es: "/es/servicios/consultoria-de-imagen", "x-default": "/services/image-consulting" } }, openGraph: { title: "Consultoría de Imagen Completa — 4 Componentes, 7 Entregables", description: "Reinvención diagnóstica de su imagen profesional. $1,500.", images: [{ url: "/og/image-consulting.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" } };
-const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Consultoría de Imagen", description: content.hero.description, provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", availableLanguage: ["English", "Spanish"], offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", description: "Tarifa introductoria. Tarifa estándar $2,000." } };
-export default function ConsultoriaDeImagenPage() {
+const content = imageConsultingContent;
+export const metadata: Metadata = { ...buildPageMetadata(content.seo, "en", "imageConsulting"), alternates: { canonical: "/services/image-consulting", languages: { en: "/services/image-consulting", es: "/es/servicios/consultoria-de-imagen", "x-default": "/services/image-consulting" } }, openGraph: { title: "Complete Image Consulting — 4 Components, 7 Deliverables", description: "Diagnostic reinvention of your professional image. $1,500 introductory rate.", images: [{ url: "/og/image-consulting.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" } };
+const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Image Consulting", description: content.hero.description, provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", availableLanguage: ["English", "Spanish"], offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", description: "Introductory rate. Standard rate $2,000." } };
+export default function ImageConsultingPage() {
   return (<>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
     <ServicePageHero label={content.hero.label} labelColor="gold" headline={content.hero.headline} description={content.hero.description} imageAlt={content.hero.imageAlt} imageBorderColor="gold" tags={content.hero.tags} tagsPosition="above-image" />
-    <TrustLine name="Lu · Consultora de Imagen" credentials={["Especialista certificada en colorimetría", "Bilingüe EN/ES", "Miami"]} compact />
+    <TrustLine name="Lu · Image Consultant" credentials={["Certified colorimetry specialist", "Bilingual EN/ES", "Miami"]} compact />
     <CompactPricingCard price={content.pricing.price} priceStrikethrough={content.pricing.priceStrikethrough} priceNote={content.pricing.priceNote} summary={content.pricing.summary} />
     <JourneySection label={content.journey.label} subheading={content.journey.subheading} components={content.journey.components} />
     <DeliverablesCompact label={content.deliverables.label} subheading={content.deliverables.subheading} items={content.deliverables.items} whatsappCallout={content.deliverables.whatsappCallout} />
-    <BeforeAfterSlider label={content.transformations.label} subheading={content.transformations.subheading} items={content.transformations.items} activeLabel="Activo" inactiveLabel="Tap" />
+    <BeforeAfterSlider label={content.transformations.label} subheading={content.transformations.subheading} items={content.transformations.items} activeLabel="Active" inactiveLabel="Tap" />
     <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
     <BottomCTASection>
       <h2 className="font-heading font-normal text-[length:var(--lui-fs-section)] text-warm-ivory mb-2.5">{content.bottomCta.heading}</h2>
