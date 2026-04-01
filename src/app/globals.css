@@ -372,8 +372,8 @@ details .accordion-content > div {
 }
 
 @keyframes lineGrow {
-  from { width: 0; }
-  to { width: 48px; }
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 @keyframes heroImgIn {

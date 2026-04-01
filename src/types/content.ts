@@ -263,6 +263,41 @@ export interface ServicesOverviewTestimonial {
   name: string;
   initials: string;
   title: string;
+  /** Real photo path — replaces initials circle when available */
+  photo?: string;
+  /** Social media handle */
+  handle?: string;
+}
+
+/** Desktop photography-based service card — LUI-DESK-002 §2.4 */
+export interface DesktopServiceCardData {
+  variant: "occasion" | "premium";
+  image: string;
+  imagePosition: string;
+  label: string;
+  title: string;
+  description: string;
+  inclusions: string[];
+  /** Tier/stats line below inclusions */
+  detailLine: string;
+  price: string;
+  priceStrikethrough?: string;
+  linkText: string;
+  linkHref: string;
+}
+
+/** FAQ preview item — LUI-DESK-002 §2.6 */
+export interface FAQPreviewItem {
+  question: string;
+  answer: string;
+}
+
+/** FAQ preview section data */
+export interface FAQPreviewData {
+  heading: string;
+  items: FAQPreviewItem[];
+  linkText: string;
+  linkHref: string;
 }
 
 export interface ServicesOverviewContent {
@@ -303,6 +338,20 @@ export interface ServicesOverviewContent {
     href: string;
   };
   seo: PageSEO;
+
+  /** Desktop-specific overrides — LUI-DESK-002. Components fall back to mobile data when absent. */
+  desktop?: {
+    serviceCards?: DesktopServiceCardData[];
+    faqPreview?: FAQPreviewData;
+    /** Desktop bottom CTA swaps WhatsApp primary for Calendly primary */
+    bottomCta?: {
+      heading: string;
+      description: string;
+      primaryCta: CTAButton;
+      secondaryText: string;
+      secondaryLinkHref: string;
+    };
+  };
 }
 
 // ---------------------------------------------------------------------------

@@ -80,10 +80,12 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
 
   testimonial: {
     quote:
-      "Me preparaba para una presentación de propiedades importante y necesitaba verme como la agente en quien confiarían con su hogar. Lu no solo me encontró un look — me dio una estrategia. Gané la cuenta.",
-    name: "C.L.",
-    initials: "CL",
-    title: "Agente de Bienes Raíces, Miami",
+      "Gracias a Luisa por ayudarme con mi outfit. No solo tiene buen gusto, sino que sabe exactamente cómo hacerte sentir cómoda y segura con lo que llevas. ¡Me encantó el resultado!",
+    name: "Angélica",
+    initials: "AG",
+    title: "Clienta, Miami",
+    photo: "/images/testimonials/ap.jpg",
+    handle: "@angelicagp8",
   },
 
   bottomCta: {
@@ -111,5 +113,85 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
     description:
       "Consultoría de imagen y estilismo de ocasión para profesionales en Miami. Bilingüe EN/ES. Análisis de color de cortesía de 20 min.",
     ogImage: "/og/services-overview.jpg",
+  },
+
+  // ===========================================================================
+  // Desktop-specific overrides — LUI-DESK-002
+  // ===========================================================================
+  desktop: {
+    serviceCards: [
+      {
+        variant: "occasion",
+        image: "/images/services/occasion-card-shopping.png",
+        imagePosition: "center 20%",
+        label: "PARA EVENTOS",
+        title: "Estilismo de Ocasión",
+        description:
+          "Tiene algo importante por delante. Analizamos el evento, su rol y lo que necesita comunicar — para que llegue con total seguridad y sin dudarlo.",
+        inclusions: [
+          "Curaduría de vestuario con lo que ya tiene",
+          "Piezas nuevas conseguidas si es necesario",
+          "Look completo con notas de estilismo",
+        ],
+        detailLine: "Essential · Complete · VIP — tres niveles desde $250",
+        price: "Desde $250",
+        linkText: "Ver 3 paquetes →",
+        linkHref: "/es/servicios/estilismo-de-ocasion",
+      },
+      {
+        variant: "premium",
+        image: "/images/services/ic-card-consulting.jpg",
+        imagePosition: "center 25%",
+        label: "TRANSFORMACIÓN COMPLETA",
+        title: "Consultoría de Imagen",
+        description:
+          "No es para una noche — es para su próximo capítulo. Una reinvención completa de su imagen profesional, basada en ciencia y entregada en más de 20 horas de trabajo personalizado.",
+        inclusions: [
+          "Análisis de color y paleta personal",
+          "Detox de clóset y reconstrucción de vestuario",
+          "Compras personalizadas con Lu",
+          "Sesión de fotos estilizada y lookbook",
+        ],
+        detailLine: "20+ horas · 7 entregables que conservas para siempre",
+        price: "$1,500",
+        priceStrikethrough: "$2,000",
+        linkText: "Ver el proceso completo →",
+        linkHref: "/es/servicios/consultoria-de-imagen",
+      },
+    ],
+    faqPreview: {
+      heading: "Preguntas frecuentes",
+      items: [
+        {
+          question: "¿Qué pasa si no sé cuál servicio es el indicado para mí?",
+          answer:
+            "Empieza con Tu Paleta de Poder — un análisis de color gratuito de 20 minutos. Le da a Lu todo lo que necesita para recomendarte el camino correcto.",
+        },
+        {
+          question: "¿Dónde se realizan las sesiones?",
+          answer:
+            "Presencial en todo Miami-Dade — en tu hogar para el trabajo de clóset, tiendas curadas para compras, y un entorno profesional para análisis y fotos. Opciones virtuales disponibles.",
+        },
+        {
+          question: "¿Trabajan en español?",
+          answer:
+            "Cada servicio está disponible completamente en español — desde la consulta inicial hasta todos los entregables. Nunca necesitas cambiar de idioma.",
+        },
+      ],
+      linkText: "Ver todas las preguntas →",
+      linkHref: "/es/faq",
+    },
+    bottomCta: {
+      heading: "¿No sabes por dónde empezar?",
+      description:
+        "Tu Paleta de Poder es de cortesía, toma 20 minutos, y te ayuda a entender cuál servicio es el indicado para ti. Sin compromiso — solo claridad.",
+      primaryCta: {
+        text: "RESERVA TU ANÁLISIS DE COLOR GRATIS",
+        href: getCalendlyUrl("powerPalette"),
+        external: true,
+      },
+      secondaryText: "O escríbele a Lu por WhatsApp",
+      secondaryLinkHref: getWhatsAppUrl("es"),
+    },
   },
 };

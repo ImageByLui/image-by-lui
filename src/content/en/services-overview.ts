@@ -80,10 +80,12 @@ export const servicesOverviewContent: ServicesOverviewContent = {
 
   testimonial: {
     quote:
-      "I was preparing for a major listing presentation and needed to look like the agent they'd trust with their home. Lu didn't just find me an outfit — she gave me a strategy. I won the listing.",
-    name: "C.L.",
-    initials: "CL",
-    title: "Real Estate Agent, Miami",
+      "Lu helped me with my outfit and the result was perfect. She doesn't just have great taste — she knows exactly how to make you feel comfortable and confident in what you're wearing. Loved it.",
+    name: "Angélica",
+    initials: "AG",
+    title: "Client, Miami",
+    photo: "/images/testimonials/ap.jpg",
+    handle: "@angelicagp8",
   },
 
   bottomCta: {
@@ -111,5 +113,85 @@ export const servicesOverviewContent: ServicesOverviewContent = {
     description:
       "Diagnostic image consulting and event styling for professionals in Miami. Bilingual EN/ES. Complimentary 20-min color analysis.",
     ogImage: "/og/services-overview.jpg",
+  },
+
+  // ===========================================================================
+  // Desktop-specific overrides — LUI-DESK-002
+  // ===========================================================================
+  desktop: {
+    serviceCards: [
+      {
+        variant: "occasion",
+        image: "/images/services/occasion-card-shopping.png",
+        imagePosition: "center 20%",
+        label: "EVENT-SPECIFIC",
+        title: "Occasion Styling",
+        description:
+          "You have something important ahead. We analyze the event, your role, and what you need to communicate — so you walk in without a second thought.",
+        inclusions: [
+          "Wardrobe curation from what you own",
+          "New pieces sourced if needed",
+          "Complete look with styling notes",
+        ],
+        detailLine: "Essential · Complete · VIP — three levels from $250",
+        price: "From $250",
+        linkText: "See 3 packages →",
+        linkHref: "/services/occasion-styling",
+      },
+      {
+        variant: "premium",
+        image: "/images/services/ic-card-consulting.jpg",
+        imagePosition: "center 25%",
+        label: "COMPLETE TRANSFORMATION",
+        title: "Image Consulting",
+        description:
+          "Not for one event — for the next chapter. A complete reinvention of your professional image, built on science and delivered across 20+ hours of one-on-one work.",
+        inclusions: [
+          "Color analysis & personal palette",
+          "Closet detox & wardrobe rebuild",
+          "Personal shopping with Lu",
+          "Styled photo session & lookbook",
+        ],
+        detailLine: "20+ hours · 7 deliverables you keep forever",
+        price: "$1,500",
+        priceStrikethrough: "$2,000",
+        linkText: "See the full journey →",
+        linkHref: "/services/image-consulting",
+      },
+    ],
+    faqPreview: {
+      heading: "Common questions",
+      items: [
+        {
+          question: "What if I'm not sure which service is right for me?",
+          answer:
+            "Start with Your Power Palette — a free 20-minute color analysis. It gives Lu everything she needs to recommend the right path for you.",
+        },
+        {
+          question: "Where do sessions take place?",
+          answer:
+            "In-person across Miami-Dade — at your home for closet work, curated stores for shopping, and a professional setting for analysis and photos. Virtual options available.",
+        },
+        {
+          question: "Do you work in Spanish?",
+          answer:
+            "Every service is available entirely in Spanish — from the initial consultation through all deliverables. You never need to switch languages.",
+        },
+      ],
+      linkText: "See all questions →",
+      linkHref: "/faq",
+    },
+    bottomCta: {
+      heading: "Not sure where to begin?",
+      description:
+        "Your Power Palette is complimentary, takes 20 minutes, and helps you understand which service is right for you. No commitment — just clarity.",
+      primaryCta: {
+        text: "BOOK YOUR FREE COLOR ANALYSIS",
+        href: getCalendlyUrl("powerPalette"),
+        external: true,
+      },
+      secondaryText: "Or message Lu on WhatsApp",
+      secondaryLinkHref: getWhatsAppUrl("en"),
+    },
   },
 };
