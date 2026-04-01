@@ -15,7 +15,7 @@ export default function ServiceSelectorCard({
       <div className="p-5">
         <div className="flex items-baseline justify-between mb-2">
           <h3 className={`font-heading font-medium ${isGold ? "text-premium-title" : "text-card-title"} text-espresso`}>{name}</h3>
-          {badge && <span className={`font-body font-semibold text-label tracking-[1px] uppercase px-2.5 py-1 shrink-0 ml-2 ${badgeCls}`}>{badge}</span>}
+          {badge && <span className={`font-body font-semibold text-label tracking-[0.3px] uppercase px-2.5 py-1 shrink-0 ml-2 ${badgeCls}`}>{badge}</span>}
         </div>
         <div className="flex items-baseline gap-2 mb-1">
           <span className="font-body font-semibold text-price text-terracotta">{price}</span>
