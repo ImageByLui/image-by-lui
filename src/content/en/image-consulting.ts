@@ -154,6 +154,17 @@ export const imageConsultingContent: ImageConsultingContent = {
     ],
   },
 
+  testimonial: {
+    quote:
+      "The styling consultation was an incredible experience. Lu was professional from the start — she understood my style, my body, and what I wanted to project. I walked away with tools I actually use every day to dress better and feel more confident. Thank you for everything!",
+    name: "Valentina",
+    initials: "VP",
+    title: "Client, Miami",
+    photo: "/images/testimonials/vp.jpg",
+    handle: "@valentinapachecof_",
+    isPlaceholder: true,
+  },
+
   bottomCta: {
     heading: "Ready for what's next?",
     description:
@@ -181,5 +192,96 @@ export const imageConsultingContent: ImageConsultingContent = {
     description:
       "4 components, 20+ hours, 7 deliverables. Diagnostic reinvention of your professional image. Colorimetry and style science. Miami, bilingual.",
     ogImage: "/og/image-consulting.jpg",
+  },
+
+  // ===========================================================================
+  // Desktop-specific overrides — LUI-DESK-004
+  // ===========================================================================
+  desktop: {
+    hero: {
+      image: "/images/heroes/ic-hero-lu-cartier.jpg",
+      imagePosition: "40% 85%",
+      filter: "saturate(0.45) sepia(0.15) brightness(0.95) contrast(1.05)",
+      minHeight: 560,
+      photoWidth: "48%",
+    },
+    investment: {
+      heading: "Your complete transformation",
+      price: "$1,500",
+      priceStrikethrough: "$2,000",
+      stats: [
+        { value: "4", label: "COMPONENTS" },
+        { value: "20–24", label: "HOURS" },
+        { value: "7", label: "DELIVERABLES" },
+      ],
+      entryText: "Every journey begins with a ",
+      entryLinkText: "complimentary color analysis",
+      entryLinkHref: getCalendlyUrl("powerPalette"),
+    },
+    journey: {
+      heading: "Your journey",
+      subheading: "Four components across 4–6 sessions",
+      images: [
+        "/images/journey/color-analysis.jpg",
+        "/images/journey/closet-detox.jpg",
+        "/images/journey/personal-shopping.jpg",
+        "/images/journey/photo-session.jpg",
+      ],
+      photoEmbed: {
+        label: "PHOTO SESSION OPTIONS",
+        options: [
+          { title: "Lu photographs you", price: "Included", description: "Styled and directed photo session" },
+          { title: "Professional photographer", price: "+$300", description: "3-hour session, visual assets for years" },
+        ],
+      },
+    },
+    deliverables: {
+      heading: "What you keep",
+      subheading: "7 DELIVERABLES INCLUDED IN YOUR INVESTMENT",
+      items: [
+        { title: "Color palette card", description: "Full Pantone-matched spectrum" },
+        { title: "Personal style profile", description: "Body, face, archetype, silhouette guide" },
+        { title: "Closet organization guide", description: "Your personalized wardrobe system" },
+        { title: "Strategic shopping list", description: "Gaps and priorities identified" },
+        { title: "Digital lookbook", description: "15–20 outfits with styling notes" },
+        { title: "Professional photos", description: "LinkedIn, social, headshots ready" },
+      ],
+      bonus:
+        "Plus: 7 days of WhatsApp support — Lu available for questions, outfit checks, and advice",
+    },
+    faqPreview: {
+      heading: "Common questions",
+      items: [
+        {
+          question: "How long does the full process take?",
+          answer:
+            "4–6 sessions across 4–8 weeks, depending on your schedule. Total: 20–24 hours of one-on-one work.",
+        },
+        {
+          question: "Do I need to buy a new wardrobe?",
+          answer:
+            "No. The Closet Detox maximizes what you own. Shopping focuses only on strategic gaps — you buy what's actually missing.",
+        },
+      ],
+      linkText: "See all questions →",
+      linkHref: "/faq",
+    },
+    crossNav: {
+      text: "Looking for event-specific styling instead?",
+      linkText: "Explore Occasion Styling →",
+      linkHref: "/services/occasion-styling",
+    },
+    bottomCta: {
+      heading: "Ready for what's next?",
+      description:
+        "Every transformation begins with understanding your colors. A complimentary consultation takes 20 minutes and gives us everything we need to determine if this journey is the right fit.",
+      primaryCta: {
+        text: "SCHEDULE YOUR COMPLIMENTARY CONSULTATION",
+        href: getCalendlyUrl("powerPalette"),
+        external: true,
+      },
+      secondaryText: "Prefer to message first? Reach Lu on WhatsApp",
+      secondaryLinkHref: getWhatsAppUrl("en"),
+    },
   },
 };

@@ -150,6 +150,17 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
     ],
   },
 
+  testimonial: {
+    quote:
+      "Tuve una experiencia maravillosa en esta asesoría de styling. Desde el inicio fue muy profesional, ella entendió mi estilo, mi cuerpo y lo que quería proyectar. Me llevo herramientas súper útiles para vestir mejor y sentirme más segura en mi día a día. ¡Gracias por tanto!",
+    name: "Valentina",
+    initials: "VP",
+    title: "Clienta, Miami",
+    photo: "/images/testimonials/vp.jpg",
+    handle: "@valentinapachecof_",
+    isPlaceholder: true,
+  },
+
   bottomCta: {
     heading: "¿Lista para lo que sigue?",
     description:
@@ -177,5 +188,96 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
     description:
       "4 componentes, +20 horas, 7 entregables. Reinvención diagnóstica de su imagen profesional. Colorimetría y ciencia del estilo. Miami, bilingüe.",
     ogImage: "/og/image-consulting.jpg",
+  },
+
+  // ===========================================================================
+  // Desktop-specific overrides — LUI-DESK-004
+  // ===========================================================================
+  desktop: {
+    hero: {
+      image: "/images/heroes/ic-hero-lu-cartier.jpg",
+      imagePosition: "40% 85%",
+      filter: "saturate(0.45) sepia(0.15) brightness(0.95) contrast(1.05)",
+      minHeight: 560,
+      photoWidth: "48%",
+    },
+    investment: {
+      heading: "Tu transformación completa",
+      price: "$1,500",
+      priceStrikethrough: "$2,000",
+      stats: [
+        { value: "4", label: "COMPONENTES" },
+        { value: "20–24", label: "HORAS" },
+        { value: "7", label: "ENTREGABLES" },
+      ],
+      entryText: "Todo proceso comienza con un ",
+      entryLinkText: "análisis de color de cortesía",
+      entryLinkHref: getCalendlyUrl("powerPalette"),
+    },
+    journey: {
+      heading: "Tu proceso",
+      subheading: "Cuatro componentes en 4–6 sesiones",
+      images: [
+        "/images/journey/color-analysis.jpg",
+        "/images/journey/closet-detox.jpg",
+        "/images/journey/personal-shopping.jpg",
+        "/images/journey/photo-session.jpg",
+      ],
+      photoEmbed: {
+        label: "OPCIONES DE SESIÓN DE FOTOS",
+        options: [
+          { title: "Lu te fotografía", price: "Incluido", description: "Sesión estilizada y dirigida por Lu" },
+          { title: "Fotógrafo profesional", price: "+$300", description: "Sesión de 3 horas, activos visuales por años" },
+        ],
+      },
+    },
+    deliverables: {
+      heading: "Lo que conservas",
+      subheading: "7 ENTREGABLES INCLUIDOS EN TU INVERSIÓN",
+      items: [
+        { title: "Tarjeta de paleta de color", description: "Espectro completo Pantone" },
+        { title: "Perfil de estilo personal", description: "Cuerpo, rostro, arquetipo, guía de silueta" },
+        { title: "Guía de organización de clóset", description: "Tu sistema de guardarropa personalizado" },
+        { title: "Lista de compras estratégica", description: "Brechas y prioridades identificadas" },
+        { title: "Lookbook digital", description: "15–20 outfits con notas de estilismo" },
+        { title: "Fotos profesionales", description: "LinkedIn, redes sociales, headshots" },
+      ],
+      bonus:
+        "Más: 7 días de soporte por WhatsApp — Lu disponible para preguntas, revisiones de outfits y asesoría",
+    },
+    faqPreview: {
+      heading: "Preguntas frecuentes",
+      items: [
+        {
+          question: "¿Cuánto dura el proceso completo?",
+          answer:
+            "4–6 sesiones en 4–8 semanas, según tu agenda. Total: 20–24 horas de trabajo personalizado.",
+        },
+        {
+          question: "¿Necesito comprar un guardarropa nuevo?",
+          answer:
+            "No. El Detox de Clóset maximiza lo que ya tienes. Las compras se enfocan solo en brechas estratégicas — compras lo que realmente falta.",
+        },
+      ],
+      linkText: "Ver todas las preguntas →",
+      linkHref: "/es/faq",
+    },
+    crossNav: {
+      text: "¿Buscas estilismo para un evento específico?",
+      linkText: "Explora Estilismo de Ocasión →",
+      linkHref: "/es/servicios/estilismo-de-ocasion",
+    },
+    bottomCta: {
+      heading: "¿Lista para lo que sigue?",
+      description:
+        "Toda transformación comienza con entender tus colores. Una consulta de cortesía toma 20 minutos y nos da todo lo que necesitamos para determinar si este proceso es el indicado.",
+      primaryCta: {
+        text: "AGENDA TU CONSULTA DE CORTESÍA",
+        href: getCalendlyUrl("powerPalette"),
+        external: true,
+      },
+      secondaryText: "¿Prefieres escribir primero? Escríbele a Lu por WhatsApp",
+      secondaryLinkHref: getWhatsAppUrl("es"),
+    },
   },
 };

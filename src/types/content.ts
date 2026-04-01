@@ -578,6 +578,17 @@ export interface ImageConsultingContent {
     label: string;
     options: PhotoOption[];
   };
+  /** Testimonial — added for desktop (shown on mobile too when present) */
+  testimonial?: {
+    quote: string;
+    name: string;
+    initials: string;
+    title: string;
+    photo?: string;
+    handle?: string;
+    /** Flag for easy identification when placeholder */
+    isPlaceholder?: boolean;
+  };
   bottomCta: {
     heading: string;
     description: string;
@@ -594,6 +605,51 @@ export interface ImageConsultingContent {
     href: string;
   };
   seo: PageSEO;
+
+  /** Desktop-specific overrides — LUI-DESK-004 */
+  desktop?: {
+    hero: {
+      image: string;
+      imagePosition: string;
+      filter?: string;
+      minHeight?: number;
+      photoWidth?: string;
+    };
+    investment: {
+      heading: string;
+      price: string;
+      priceStrikethrough: string;
+      stats: { value: string; label: string }[];
+      entryText: string;
+      entryLinkText: string;
+      entryLinkHref: string;
+    };
+    journey: {
+      heading: string;
+      subheading: string;
+      /** Image paths for each component (indexed by component order) */
+      images: string[];
+      photoEmbed: {
+        label: string;
+        options: { title: string; price: string; description: string }[];
+      };
+    };
+    deliverables: {
+      heading: string;
+      subheading: string;
+      items: { title: string; description: string }[];
+      bonus: string;
+    };
+    faqPreview: FAQPreviewData;
+    crossNav: CrossNavData;
+    bottomCta: {
+      heading: string;
+      description: string;
+      primaryCta: CTAButton;
+      secondaryText: string;
+      secondaryLinkHref: string;
+    };
+  };
 }
 
 // ---------------------------------------------------------------------------
