@@ -319,3 +319,36 @@ details .accordion-content > div {
   background-color: var(--lui-champagne);
   color: var(--lui-espresso);
 }
+
+/* ---------------------------------------------------------------------------
+   Design Token Utility Classes
+   ---------------------------------------------------------------------------
+   Manually defined because Tailwind v4 @theme doesn't reliably generate
+   font-size utilities for custom multi-word names. These classes match the
+   token names used across all components.
+   --------------------------------------------------------------------------- */
+
+@layer utilities {
+  .text-hero { font-size: var(--lui-fs-hero); }
+  .text-section { font-size: var(--lui-fs-section); }
+  .text-card-title { font-size: var(--lui-fs-card-title); }
+  .text-premium-title { font-size: var(--lui-fs-premium-title); }
+  .text-body { font-size: var(--lui-fs-body); }
+  .text-card { font-size: var(--lui-fs-card); }
+  .text-caption { font-size: var(--lui-fs-caption); }
+  .text-cta { font-size: var(--lui-fs-cta); }
+  .text-label { font-size: var(--lui-fs-label); }
+  .text-badge { font-size: var(--lui-fs-badge); }
+  .text-tag { font-size: var(--lui-fs-tag); }
+  .text-sticky { font-size: var(--lui-fs-sticky); }
+  .text-price { font-size: var(--lui-fs-price); }
+  .text-price-lg { font-size: var(--lui-fs-price-lg); }
+  .text-testimonial { font-size: var(--lui-fs-testimonial); }
+  .text-step-num { font-size: var(--lui-fs-step-num); }
+  .text-faq-q { font-size: var(--lui-fs-faq-q); }
+  .text-secondary { font-size: var(--lui-fs-secondary); }
+  .text-inclusion { font-size: var(--lui-fs-inclusion); }
+  .text-footnote { font-size: var(--lui-fs-footnote); }
+  .text-nav { font-size: var(--lui-fs-nav); }
+  .text-nav-sub { font-size: var(--lui-fs-nav-sub); }
+}
