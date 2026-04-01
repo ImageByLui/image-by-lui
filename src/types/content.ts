@@ -390,6 +390,19 @@ export interface GalleryItem {
   background: "stone" | "ivory";
 }
 
+/** Desktop gallery item — real photography instead of placeholders */
+export interface DesktopGalleryItem {
+  image: string;
+  alt: string;
+}
+
+/** Cross-navigation link between service pages */
+export interface CrossNavData {
+  text: string;
+  linkText: string;
+  linkHref: string;
+}
+
 export interface OccasionStylingContent {
   hero: {
     label: string;
@@ -413,6 +426,8 @@ export interface OccasionStylingContent {
     name: string;
     initials: string;
     title: string;
+    photo?: string;
+    handle?: string;
   };
   gallery: {
     label: string;
@@ -435,6 +450,49 @@ export interface OccasionStylingContent {
     href: string;
   };
   seo: PageSEO;
+
+  /** Desktop-specific overrides — LUI-DESK-003 */
+  desktop?: {
+    hero: {
+      image: string;
+      imagePosition: string;
+      filter?: string;
+      minHeight?: number;
+      photoWidth?: string;
+    };
+    howItWorks: {
+      heading: string;
+      steps: ServiceProcessStep[];
+    };
+    pricing: {
+      heading: string;
+      subheading: string;
+      tiers: {
+        name: string;
+        price: string;
+        duration: string;
+        description: string;
+        inclusions: string[];
+        ctaText: string;
+        variant: "essential" | "complete" | "vip";
+        badge?: string;
+        ctaStyle?: "terracotta" | "gold";
+      }[];
+    };
+    gallery: {
+      heading: string;
+      items: DesktopGalleryItem[];
+    };
+    faqPreview: FAQPreviewData;
+    crossNav: CrossNavData;
+    bottomCta: {
+      heading: string;
+      description: string;
+      primaryCta: CTAButton;
+      secondaryText: string;
+      secondaryLinkHref: string;
+    };
+  };
 }
 
 // ---------------------------------------------------------------------------

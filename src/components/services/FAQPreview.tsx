@@ -3,11 +3,11 @@ import type { FAQPreviewItem } from "@/types/content";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // =============================================================================
-// FAQPreview — Image by LUI (LUI-DESK-002 §2.6)
+// FAQPreview — Image by LUI (LUI-DESK-002 §2.6, LUI-DESK-003 §3.7)
 // =============================================================================
-// Desktop-only (hidden below lg:). Renders 3 FAQ items in a grid with a
-// "See all questions →" link. Items have white bg, champagne border that
-// transitions to gold on hover.
+// Desktop-only (hidden below lg:). Renders FAQ items in a grid with a
+// "See all questions →" link. Items have white bg, champagne border → gold hover.
+// Supports 2 or 3 columns (3 default for Services Overview, 2 for Occasion).
 // =============================================================================
 
 interface FAQPreviewProps {
@@ -15,22 +15,29 @@ interface FAQPreviewProps {
   items: FAQPreviewItem[];
   linkText: string;
   linkHref: string;
+  /** Grid columns — 3 for Services Overview, 2 for Occasion Styling */
+  columns?: 2 | 3;
+  /** Optional max-width constraint (e.g., 880px for 2-col variant) */
+  maxWidth?: string;
 }
 
-export default function FAQPreview({ heading, items, linkText, linkHref }: FAQPreviewProps) {
+export default function FAQPreview({ heading, items, linkText, linkHref, columns = 3, maxWidth }: FAQPreviewProps) {
+  const gridCls = columns === 2 ? "grid-cols-2 gap-5" : "grid-cols-3 gap-6";
+  const headingSize = columns === 2 ? "text-[22px]" : "text-[24px]";
+
   return (
-    <section className="hidden lg:block bg-warm-ivory pb-20" aria-label="FAQ preview">
+    <section className="hidden lg:block bg-warm-ivory pb-16" aria-label="FAQ preview">
       <div className="max-w-[1200px] mx-auto px-12">
         <ScrollReveal>
-          <h3 className="font-heading text-[24px] font-normal text-espresso text-center mb-8">
+          <h3 className={`font-heading ${headingSize} font-normal text-espresso text-center mb-7`}>
             {heading}
           </h3>
         </ScrollReveal>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className={`grid ${gridCls}`} style={maxWidth ? { maxWidth, margin: "0 auto" } : undefined}>
           {items.map((item, i) => (
             <ScrollReveal key={i} delay={i * 100}>
-              <div className="bg-white border border-champagne/40 p-6 transition-colors duration-300 hover:border-gold">
+              <div className="bg-white border border-champagne/40 p-5 transition-colors duration-300 hover:border-gold">
                 <h4 className="font-heading text-[17px] font-medium italic text-espresso mb-2 leading-[1.3]">
                   {item.question}
                 </h4>
