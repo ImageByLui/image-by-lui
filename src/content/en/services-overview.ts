@@ -60,7 +60,7 @@ export const servicesOverviewContent: ServicesOverviewContent = {
         ctaHref: "/services/occasion-styling",
       },
       {
-        badge: "Complete transformation",
+        badge: "FULL transformation",
         name: "Image Consulting",
         tags: ["Color", "Closet", "Shopping", "Photos"],
         description:
