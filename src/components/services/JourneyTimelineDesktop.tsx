@@ -62,7 +62,7 @@ export default function JourneyTimelineDesktop({
 
                   {/* Content card */}
                   <div className="bg-white border border-champagne p-6 px-7 transition-colors duration-300 hover:border-gold">
-                    <h3 className="font-heading text-[22px] font-normal italic text-espresso mb-1">{comp.name}</h3>
+                    <h3 className="font-heading text-[22px] font-semibold italic text-espresso mb-1">{comp.name}</h3>
                     <p className="text-[11px] text-warm-taupe mb-2.5">
                       {comp.duration} · {comp.subtitle}
                     </p>
