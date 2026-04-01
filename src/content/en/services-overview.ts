@@ -71,7 +71,7 @@ export const servicesOverviewContent: ServicesOverviewContent = {
         isPremium: true,
         price: "$1,500",
         priceStrikethrough: "$2,000",
-        priceNote: "Introductory rate · limited availability",
+        priceNote: "",
         ctaText: "See the full journey →",
         ctaHref: "/services/image-consulting",
       },
