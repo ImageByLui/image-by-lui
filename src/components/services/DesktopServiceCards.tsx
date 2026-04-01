@@ -22,8 +22,8 @@ interface DesktopServiceCardsProps {
 
 function OccasionCard({ card }: { card: DesktopServiceCardData }) {
   return (
-    <Link href={card.linkHref} className="group/card no-underline hover:no-underline block">
-      <div className="bg-white border border-champagne transition-all duration-[450ms] ease-out cursor-pointer hover:-translate-y-2 hover:border-gold hover:shadow-[0_24px_56px_rgba(44,36,32,0.08)] overflow-hidden flex flex-col">
+    <Link href={card.linkHref} className="group/card no-underline hover:no-underline block h-full">
+      <div className="bg-white border border-champagne transition-all duration-[450ms] ease-out cursor-pointer hover:-translate-y-2 hover:border-gold hover:shadow-[0_24px_56px_rgba(44,36,32,0.08)] overflow-hidden flex flex-col h-full">
         {/* Visual area */}
         <div className="relative aspect-[3/2] overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -73,8 +73,8 @@ function OccasionCard({ card }: { card: DesktopServiceCardData }) {
 
 function PremiumCard({ card }: { card: DesktopServiceCardData }) {
   return (
-    <Link href={card.linkHref} className="group/card no-underline hover:no-underline block">
-      <div className="relative border-[1.5px] border-gold transition-all duration-[450ms] ease-out cursor-pointer hover:-translate-y-2 hover:shadow-[0_24px_56px_rgba(196,154,92,0.12)] overflow-hidden flex flex-col" style={{ background: "linear-gradient(180deg, rgba(196,154,92,0.04) 0%, white 30%)" }}>
+    <Link href={card.linkHref} className="group/card no-underline hover:no-underline block h-full">
+      <div className="relative border-[1.5px] border-gold transition-all duration-[450ms] ease-out cursor-pointer hover:-translate-y-2 hover:shadow-[0_24px_56px_rgba(196,154,92,0.12)] overflow-hidden flex flex-col h-full" style={{ background: "linear-gradient(180deg, rgba(196,154,92,0.04) 0%, white 30%)" }}>
         {/* Gold top accent bar */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold z-[5]" aria-hidden="true" />
 
@@ -137,19 +137,19 @@ export default function DesktopServiceCards({ heading, cards }: DesktopServiceCa
   const premiumCard = cards.find((c) => c.variant === "premium");
 
   return (
-    <section className="hidden lg:block bg-warm-ivory pt-0 pb-0" aria-label="Our services">
+    <section className="hidden lg:block bg-warm-ivory pt-16 pb-16" aria-label="Our services">
       <div className="max-w-[1200px] mx-auto px-12">
         <ScrollReveal>
           <h2 className="font-heading text-[32px] font-normal text-espresso text-center mb-[52px]">{heading}</h2>
         </ScrollReveal>
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols-2 gap-10 items-stretch">
           {occasionCard && (
-            <ScrollReveal>
+            <ScrollReveal className="h-full">
               <OccasionCard card={occasionCard} />
             </ScrollReveal>
           )}
           {premiumCard && (
-            <ScrollReveal delay={150}>
+            <ScrollReveal delay={150} className="h-full">
               <PremiumCard card={premiumCard} />
             </ScrollReveal>
           )}

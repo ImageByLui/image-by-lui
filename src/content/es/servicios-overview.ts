@@ -123,7 +123,7 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
       {
         variant: "occasion",
         image: "/images/services/occasion-card-shopping.png",
-        imagePosition: "center 20%",
+        imagePosition: "center 45%",
         label: "PARA EVENTOS",
         title: "Estilismo de Ocasión",
         description:

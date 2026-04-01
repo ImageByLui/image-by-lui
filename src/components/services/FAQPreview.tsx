@@ -34,10 +34,10 @@ export default function FAQPreview({ heading, items, linkText, linkHref, columns
           </h3>
         </ScrollReveal>
 
-        <div className={`grid ${gridCls}`} style={maxWidth ? { maxWidth, margin: "0 auto" } : undefined}>
+        <div className={`grid ${gridCls} items-stretch`} style={maxWidth ? { maxWidth, margin: "0 auto" } : undefined}>
           {items.map((item, i) => (
-            <ScrollReveal key={i} delay={i * 100}>
-              <div className="bg-white border border-champagne/40 p-5 transition-colors duration-300 hover:border-gold">
+            <ScrollReveal key={i} delay={i * 100} className="h-full">
+              <div className="bg-white border border-champagne/40 p-5 transition-colors duration-300 hover:border-gold h-full">
                 <h4 className="font-heading text-[17px] font-medium italic text-espresso mb-2 leading-[1.3]">
                   {item.question}
                 </h4>

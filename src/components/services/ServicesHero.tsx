@@ -31,7 +31,7 @@ export default function ServicesHero({ headline, description }: ServicesHeroProp
         {/* Left fade gradient */}
         <div
           className="absolute top-0 left-0 h-full w-[140px]"
-          style={{ background: "linear-gradient(to right, var(--lui-ivory) 0%, transparent 100%)" }}
+          style={{ background: "linear-gradient(to right, #F7F3EF 0%, transparent 100%)" }}
           aria-hidden="true"
         />
       </div>
