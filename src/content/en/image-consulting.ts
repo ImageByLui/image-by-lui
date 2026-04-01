@@ -55,7 +55,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         stepNumber: 2,
         name: "Closet Detox",
         duration: "~6 hours",
-        subtitle: "Strategic wardrobe transformation",
+        subtitle: "Wardrobe transformation",
         description:
           "We transform your wardrobe from overwhelming to functional. You'll discover you own more than you thought — and know exactly what's missing.",
         imageAlt:
@@ -72,7 +72,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         stepNumber: 3,
         name: "Personal Shopping",
         duration: "~5 hours",
-        subtitle: "Strategic, guided purchases",
+        subtitle: "Guided purchases",
         description:
           "No impulse purchases. We create a shopping roadmap from your closet detox findings, then Lu goes with you to curated stores where every purchase has a clear purpose.",
         imageAlt:
