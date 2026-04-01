@@ -60,7 +60,7 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
         ctaHref: "/es/servicios/estilismo-de-ocasion",
       },
       {
-        badge: "Transformación completa",
+        badge: "Transformación",
         name: "Consultoría de Imagen",
         tags: ["Color", "Clóset", "Compras", "Fotos"],
         description:
