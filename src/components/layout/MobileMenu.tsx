@@ -29,6 +29,7 @@ interface ExpandedNavItem {
 const NAV_EN: ExpandedNavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Services Overview", href: "/services", indent: true },
   { label: "Occasion Styling", href: "/services/occasion-styling", indent: true },
   { label: "Image Consulting", href: "/services/image-consulting", indent: true },
   { label: "FAQ", href: "/faq" },
@@ -39,6 +40,7 @@ const NAV_EN: ExpandedNavItem[] = [
 const NAV_ES: ExpandedNavItem[] = [
   { label: "Inicio", href: "/es" },
   { label: "Servicios", href: "/es/servicios" },
+  { label: "Vista General", href: "/es/servicios", indent: true },
   { label: "Estilismo de Ocasión", href: "/es/servicios/estilismo-de-ocasion", indent: true },
   { label: "Consultoría de Imagen", href: "/es/servicios/consultoria-de-imagen", indent: true },
   { label: "FAQ", href: "/es/faq" },

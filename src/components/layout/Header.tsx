@@ -51,6 +51,7 @@ const DESKTOP_NAV_EN: DesktopNavItem[] = [
     label: "Services",
     href: "/services",
     dropdown: [
+      { label: "Services Overview", subtitle: "All our services", href: "/services" },
       { label: "Occasion Styling", subtitle: "For your next event", href: "/services/occasion-styling" },
       { label: "Image Consulting", subtitle: "A complete transformation", href: "/services/image-consulting" },
     ],
@@ -66,6 +67,7 @@ const DESKTOP_NAV_ES: DesktopNavItem[] = [
     label: "Servicios",
     href: "/es/servicios",
     dropdown: [
+      { label: "Vista General", subtitle: "Todos nuestros servicios", href: "/es/servicios" },
       { label: "Estilismo de Ocasión", subtitle: "Para tu próximo evento", href: "/es/servicios/estilismo-de-ocasion" },
       { label: "Consultoría de Imagen", subtitle: "Una transformación completa", href: "/es/servicios/consultoria-de-imagen" },
     ],
