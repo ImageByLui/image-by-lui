@@ -1,0 +1,36 @@
+[
+  {
+    "id": "sc",
+    "name": "Silvia",
+    "handle": "@silviacastrillon",
+    "photo": "/images/testimonials/st.jpg",
+    "service": "occasion",
+    "display_on": ["occasion-styling"],
+    "placeholder": false,
+    "quote_en": "I was thrilled with the styling service — every detail was chosen to bring out the best in me. I loved the entire process from consultation to final look. The dress was absolutely perfect. Highly recommend.",
+    "quote_es": "Quedé encantada con el servicio de Styling, cada detalle fue pensado para resaltar lo mejor de mí. Amé todo el proceso desde la asesoría hasta el resultado final. El vestido fue simplemente perfecto! Súper recomendado."
+  },
+  {
+    "id": "vp",
+    "name": "Valentina",
+    "handle": "@valentinapachecof_",
+    "photo": "/images/testimonials/vp.jpg",
+    "service": "occasion",
+    "display_on": ["image-consulting"],
+    "placeholder": true,
+    "placeholder_note": "Closest match to IC experience — replace with real IC client testimonial when available",
+    "quote_en": "The styling consultation was an incredible experience. Lu was professional from the start — she understood my style, my body, and what I wanted to project. I walked away with tools I actually use every day to dress better and feel more confident. Thank you for everything!",
+    "quote_es": "Tuve una experiencia maravillosa en esta asesoría de styling. Desde el inicio fue muy profesional, ella entendió mi estilo, mi cuerpo y lo que quería proyectar. Me llevo herramientas súper útiles para vestir mejor y sentirme más segura en mi día a día. ¡Gracias por tanto!"
+  },
+  {
+    "id": "ap",
+    "name": "Angélica",
+    "handle": "@angelicagp8",
+    "photo": "/images/testimonials/ap.jpg",
+    "service": "general",
+    "display_on": ["services-overview"],
+    "placeholder": false,
+    "quote_en": "Lu helped me with my outfit and the result was perfect. She doesn't just have great taste — she knows exactly how to make you feel comfortable and confident in what you're wearing. Loved it.",
+    "quote_es": "Gracias a Luisa por ayudarme con mi outfit. No solo tiene buen gusto, sino que sabe exactamente cómo hacerte sentir cómoda y segura con lo que llevas. ¡Me encantó el resultado!"
+  }
+]
