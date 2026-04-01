@@ -13,7 +13,7 @@ export const faqEsContent: FAQPageContent = {
 
   categories: [
     {
-      id: "general", pillLabel: "General", count: 6,
+      id: "general", pillLabel: "General", count: 6, sectionLabel: "GENERAL", sectionTitle: "Sobre nuestro enfoque",
       items: [
         { question: "¿En qué se diferencia esto de contratar a una personal shopper?", answer: "<strong>Una personal shopper le ayuda a comprar ropa. Nosotros construimos un sistema de imagen completo.</strong> Cada recomendación está basada en análisis diagnóstico — colorimetría, arquitectura corporal, arquetipo de estilo — no en gustos personales. El resultado no es una bolsa de compras nuevas; es un sistema que usará por años." },
         { question: "¿Esto es solo para mujeres?", answer: "<strong>No.</strong> Trabajamos con profesionales de todos los géneros. La metodología — análisis de color, arquitectura corporal, identidad de estilo — aplica universalmente. Si desea una imagen profesional más intencional, podemos ayudarle." },
@@ -25,7 +25,7 @@ export const faqEsContent: FAQPageContent = {
       crossLinks: { text: "¿Buscas algo específico?", links: [{ label: "Ocasiones", categoryId: "occasions" }, { label: "Consultoría de Imagen", categoryId: "image" }] },
     },
     {
-      id: "occasions", pillLabel: "Ocasiones", count: 3,
+      id: "occasions", pillLabel: "Ocasiones", count: 3, sectionLabel: "ESTILISMO DE OCASIÓN", sectionTitle: "Preparación para eventos",
       items: [
         { question: "¿Con cuánta anticipación debo reservar para un evento?", answer: `<strong>Idealmente 2–4 semanas antes de su evento.</strong> Esto nos da tiempo para la consulta, revisión de guardarropa y cualquier compra necesaria. Para VIP con acompañamiento el día del evento, recomendamos mínimo 3–4 semanas. ¿Tiene algo más pronto? <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">Contáctenos</a> — haremos lo posible por acomodarlo.` },
         { question: "¿Qué pasa si no tengo nada en mi clóset para este evento?", answer: '<strong>Más común de lo que piensa — y no es un problema.</strong> El nivel Essential incluye curaduría virtual de piezas nuevas. Complete y VIP incluyen compras acompañadas presenciales donde Lu le ayuda a encontrar todo lo que necesita. <a href="/es/servicios/estilismo-de-ocasion">Ver los tres niveles →</a>' },
@@ -34,7 +34,7 @@ export const faqEsContent: FAQPageContent = {
       crossLinks: { text: "¿Buscas algo más?", links: [{ label: "General", categoryId: "general" }, { label: "Consultoría de Imagen", categoryId: "image" }] },
     },
     {
-      id: "image", pillLabel: "Consultoría de Imagen", count: 6,
+      id: "image", pillLabel: "Consultoría de Imagen", count: 6, sectionLabel: "CONSULTORÍA DE IMAGEN", sectionTitle: "La transformación completa",
       items: [
         { question: "¿Cuánto dura el proceso completo?", answer: "<strong>De 4 a 6 sesiones en un período de 4 a 8 semanas, según su disponibilidad.</strong> Inversión total de tiempo: 20–24 horas de trabajo personalizado, más tiempo de creación de entregables." },
         { question: "¿Necesito comprar un guardarropa nuevo?", answer: "<strong>No.</strong> El Detox de Clóset está diseñado específicamente para maximizar lo que ya tiene. La mayoría de las clientas descubren que tienen más piezas utilizables de lo que pensaban. El componente de compras se enfoca solo en vacíos estratégicos — compra únicamente lo que realmente falta." },

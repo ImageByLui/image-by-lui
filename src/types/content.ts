@@ -666,6 +666,10 @@ export interface FAQCategory {
     text: string;
     links: { label: string; categoryId: string }[];
   };
+  /** Desktop section label (e.g., "GENERAL") — LUI-DESK-005 §5.4 */
+  sectionLabel?: string;
+  /** Desktop section title (e.g., "About our approach") — LUI-DESK-005 §5.4 */
+  sectionTitle?: string;
 }
 
 export interface FAQPageContent {
