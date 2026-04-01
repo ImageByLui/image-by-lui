@@ -20,7 +20,7 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 const libreFranklin = Libre_Franklin({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "600"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-libre-franklin",
   display: "swap",
 });
