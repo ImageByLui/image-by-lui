@@ -25,10 +25,6 @@ export default function ServicesPage() {
       <ServicesHero headline={content.hero.headline} description={content.hero.description} />
       <FreeSessionCard imageAlt={content.freeSession.imageAlt} title={content.freeSession.title} subtitle={content.freeSession.subtitle} description={content.freeSession.description} deliverables={content.freeSession.deliverables} cta={content.freeSession.cta} footnote={content.freeSession.footnote} />
       <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
-      {/* V2 fix 3d: Trust indicator */}
-      <div className="bg-warm-ivory py-3 px-5 text-center">
-        <p className="font-heading font-light italic text-caption text-warm-taupe">Trusted by professionals across Miami-Dade County</p>
-      </div>
       <section className="bg-warm-ivory pt-4 px-3.5 pb-3.5" aria-label="Our services">
         <p className="font-body font-semibold text-caption text-espresso text-center tracking-[1px] uppercase mb-1">{content.selector.heading}</p>
         <p className="font-body text-caption text-warm-taupe text-center leading-[1.5] mb-[22px]">{content.selector.subheading}</p>
