@@ -16,6 +16,8 @@ export const faqContent: FAQPageContent = {
       id: "general",
       pillLabel: "General",
       count: 6,
+      sectionLabel: "GENERAL",
+      sectionTitle: "About our approach",
       items: [
         { question: "How is this different from hiring a personal shopper?", answer: "<strong>A personal shopper helps you buy clothes. We build a complete image system.</strong> Every recommendation is grounded in diagnostic analysis — colorimetry, body architecture, style archetype — not personal taste. The result isn't a bag of new purchases; it's a framework you'll use for years." },
         { question: "Is this only for women?", answer: "<strong>No.</strong> We work with professionals of all genders. The methodology — color analysis, body architecture, style identity — applies universally. If you want a more intentional professional image, we can help." },
@@ -30,6 +32,8 @@ export const faqContent: FAQPageContent = {
       id: "occasions",
       pillLabel: "Occasions",
       count: 3,
+      sectionLabel: "OCCASION STYLING",
+      sectionTitle: "Event preparation",
       items: [
         { question: "How far in advance should I book for an event?", answer: `<strong>Ideally 2–4 weeks before your event.</strong> This gives us time for the consultation, wardrobe review, and any shopping or sourcing needed. For VIP with event-day accompaniment, we recommend 3–4 weeks minimum. Have something sooner? <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">Reach out</a> — we'll do our best to accommodate.` },
         { question: "What if I don't have anything in my closet for this event?", answer: '<strong>More common than you\'d think — and not a problem.</strong> The Essential tier includes virtual curation of new pieces. Complete and VIP include in-person accompanied shopping where Lu helps you find everything you need. <a href="/services/occasion-styling">See all three tiers →</a>' },
@@ -41,6 +45,8 @@ export const faqContent: FAQPageContent = {
       id: "image",
       pillLabel: "Image Consulting",
       count: 6,
+      sectionLabel: "IMAGE CONSULTING",
+      sectionTitle: "The full transformation",
       items: [
         { question: "How long does the full process take?", answer: "<strong>4–6 sessions across 4–8 weeks, depending on your schedule.</strong> Total time investment: 20–24 hours of one-on-one work, plus deliverable creation time." },
         { question: "Do I need to buy a new wardrobe?", answer: "<strong>No.</strong> The Closet Detox is specifically designed to maximize what you already own. Most clients discover they have more usable pieces than they realized. The shopping component focuses only on strategic gaps — you buy what's actually missing, nothing more." },
