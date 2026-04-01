@@ -71,7 +71,7 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
         isPremium: true,
         price: "$1,500",
         priceStrikethrough: "$2,000",
-        priceNote: "Tarifa introductoria · disponibilidad limitada",
+        priceNote: "",
         ctaText: "Ver el proceso completo →",
         ctaHref: "/es/servicios/consultoria-de-imagen",
       },
