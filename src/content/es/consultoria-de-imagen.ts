@@ -54,7 +54,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         stepNumber: 2,
         name: "Detox de Clóset",
         duration: "~6 horas",
-        subtitle: "Transformación estratégica de guardarropa",
+        subtitle: "Transformación de guardarropa",
         description:
           "Transformamos su guardarropa de abrumador a funcional. Descubrirá que tiene más de lo que pensaba — y sabrá exactamente qué falta.",
         imageAlt: "Lu evaluando el guardarropa de una clienta — clasificando, organizando, descubriendo combinaciones",
@@ -70,7 +70,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         stepNumber: 3,
         name: "Compras Personalizadas",
         duration: "~5 horas",
-        subtitle: "Compras estratégicas y guiadas",
+        subtitle: "Compras y guiadas",
         description:
           "Sin compras impulsivas. Creamos un plan de compras basado en los hallazgos del detox, y Lu va con usted a tiendas seleccionadas donde cada compra tiene un propósito claro.",
         imageAlt: "Lu y clienta en una tienda seleccionada — eligiendo piezas con intención",
