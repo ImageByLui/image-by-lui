@@ -68,7 +68,8 @@ export default function StyledLooksGallery({
                   <img
                     src={item.image}
                     alt={item.alt}
-                    className="w-full h-full object-cover warm-filter transition-transform duration-[400ms] ease-out group-hover/img:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover/img:scale-105"
+                    style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
                   />
                 </div>
               ))}
