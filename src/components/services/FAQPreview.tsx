@@ -26,7 +26,7 @@ export default function FAQPreview({ heading, items, linkText, linkHref, columns
   const headingSize = columns === 2 ? "text-[22px]" : "text-[24px]";
 
   return (
-    <section className="hidden lg:block bg-warm-ivory pb-16" aria-label="FAQ preview">
+    <section className="hidden lg:block bg-warm-ivory pt-12 pb-16" aria-label="FAQ preview">
       <div className="max-w-[1200px] mx-auto px-12">
         <ScrollReveal>
           <h3 className={`font-heading ${headingSize} font-normal text-espresso text-center mb-7`}>
