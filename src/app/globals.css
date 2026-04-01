@@ -70,6 +70,16 @@
   /* ── Opacity ── */
   --lui-op-secondary: 0.6;
   --lui-op-tertiary:  0.4;
+
+  /* ── Desktop hero H1 (responsive) ── */
+  --lui-hero-h1-size: 32px;
+}
+
+/* Desktop hero H1 override */
+@media (min-width: 1024px) {
+  :root {
+    --lui-hero-h1-size: 68px;
+  }
 }
 
 /* ---------------------------------------------------------------------------

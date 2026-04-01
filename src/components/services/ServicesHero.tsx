@@ -44,8 +44,8 @@ export default function ServicesHero({ headline, description }: ServicesHeroProp
         </p>
 
         <h1
-          className="font-heading text-[32px] font-semibold text-espresso leading-[1.18] lg:text-[68px] lg:font-normal lg:italic lg:leading-[1.06] lg:tracking-[-1px] lg:max-w-[480px]"
-          style={{ opacity: 0, animation: "fadeUp 0.7s ease 0.15s forwards" }}
+          className="font-heading font-semibold text-espresso leading-[1.18] lg:font-normal lg:italic lg:leading-[1.06] lg:tracking-[-1px] lg:max-w-[480px]"
+          style={{ fontSize: "var(--lui-hero-h1-size)", opacity: 0, animation: "fadeUp 0.7s ease 0.15s forwards" }}
         >
           {headline}
         </h1>
