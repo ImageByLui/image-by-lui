@@ -34,6 +34,7 @@ export default function EstilismoDeOcasionPage() {
         imageAlt={content.hero.imageAlt}
         tags={content.hero.tags}
         desktopPhoto={desktop?.hero}
+        desktopH1Size={56}
       />
 
       {/* Trust line — mobile only */}

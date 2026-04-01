@@ -34,6 +34,7 @@ export default function OccasionStylingPage() {
         imageAlt={content.hero.imageAlt}
         tags={content.hero.tags}
         desktopPhoto={desktop?.hero}
+        desktopH1Size={56}
       />
 
       {/* Trust line — mobile only per §3.10 (deliberately removed on desktop) */}

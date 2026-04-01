@@ -29,12 +29,14 @@ interface ServicePageHeroProps {
   tagsPosition?: "above-image" | "below-image";
   /** Desktop photo bleed config — when provided, enables desktop layout */
   desktopPhoto?: DesktopPhotoConfig;
+  /** Desktop H1 font-size in px — applied via data attribute at lg: breakpoint */
+  desktopH1Size?: number;
 }
 
 export default function ServicePageHero({
   label, labelColor = "terracotta", headline, description, imageAlt,
   imageBorderColor = "champagne", tags, tagsPosition = "below-image",
-  desktopPhoto,
+  desktopPhoto, desktopH1Size,
 }: ServicePageHeroProps) {
   const labelCls = labelColor === "gold" ? "text-gold" : "text-terracotta";
   const borderCls = imageBorderColor === "gold" ? "border-gold" : "border-champagne";
@@ -80,6 +82,7 @@ export default function ServicePageHero({
             style={{
               objectPosition: desktopPhoto.imagePosition,
               filter: desktopPhoto.filter || "none",
+              transform: "scale(1.08)",
             }}
           />
           {/* Left fade gradient */}
@@ -105,7 +108,8 @@ export default function ServicePageHero({
 
         {/* H1 */}
         <h1
-          className={`font-heading text-[length:var(--lui-fs-hero)] font-semibold text-espresso leading-[1.18] ${hasDesktop ? "lg:text-[56px] lg:font-normal lg:italic lg:leading-[1.08] lg:max-w-[460px]" : ""}`}
+          className={`font-heading text-[length:var(--lui-fs-hero)] font-semibold text-espresso leading-[1.18] ${hasDesktop ? "lg:leading-[1.08] lg:max-w-[460px]" : ""}`}
+          data-desktop-h1={hasDesktop ? String(desktopH1Size ?? 56) : undefined}
           style={hasDesktop ? { opacity: 0, animation: "fadeUp 0.7s ease 0.15s forwards" } : undefined}
         >
           {headline}

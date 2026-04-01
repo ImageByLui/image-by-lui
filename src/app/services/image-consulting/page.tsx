@@ -44,6 +44,7 @@ export default function ImageConsultingPage() {
         tags={content.hero.tags}
         tagsPosition="above-image"
         desktopPhoto={desktop?.hero}
+        desktopH1Size={52}
       />
 
       {/* Trust line — mobile only */}
