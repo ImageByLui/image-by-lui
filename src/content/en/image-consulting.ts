@@ -200,7 +200,7 @@ export const imageConsultingContent: ImageConsultingContent = {
   desktop: {
     hero: {
       image: "/images/heroes/ic-hero-lu-cartier.jpg",
-      imagePosition: "40% 80%",
+      imagePosition: "40% 60%",
       filter: "saturate(0.45) sepia(0.15) brightness(0.95) contrast(1.05)",
       minHeight: 560,
       photoWidth: "48%",
