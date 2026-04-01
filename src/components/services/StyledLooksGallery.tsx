@@ -51,14 +51,14 @@ export default function StyledLooksGallery({
 
       {/* Desktop layout — 5-column grid */}
       {hasDesktop && (
-        <div className="hidden lg:block max-w-[1200px] mx-auto px-12">
+        <div className="hidden lg:block max-w-[1400px] mx-auto px-8">
           <ScrollReveal>
-            <h3 className="font-heading text-[22px] font-normal italic text-espresso text-center mb-7">
+            <h3 className="font-heading text-[24px] font-normal italic text-espresso text-center mb-7">
               {desktopHeading ?? label}
             </h3>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-5 gap-3.5">
               {desktopItems.map((item, i) => (
                 <div
                   key={i}

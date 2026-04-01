@@ -100,7 +100,8 @@ export default function ServicePageHero({
       >
         {/* Label */}
         <p
-          className={`font-body font-semibold text-[length:var(--lui-fs-label)] tracking-[2px] uppercase ${labelCls} mb-3 ${hasDesktop ? "lg:text-[11px] lg:tracking-[2px] lg:mb-3" : ""}`}
+          className={`font-body font-semibold text-[length:var(--lui-fs-label)] tracking-[2px] uppercase ${labelCls} mb-3 ${hasDesktop ? "lg:tracking-[2px] lg:mb-3" : ""}`}
+          data-desktop-label={hasDesktop ? "" : undefined}
           style={hasDesktop ? { opacity: 0, animation: "fadeUp 0.5s ease 0.1s forwards" } : undefined}
         >
           {label}
