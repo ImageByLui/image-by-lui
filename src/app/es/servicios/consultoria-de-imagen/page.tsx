@@ -91,6 +91,7 @@ export default function ConsultoriaDeImagenPage() {
           title={content.testimonial.title}
           photo={content.testimonial.photo}
           handle={content.testimonial.handle}
+          bgColor="warm-ivory"
         />
       )}
 

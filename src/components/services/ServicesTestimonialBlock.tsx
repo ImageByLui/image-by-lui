@@ -29,7 +29,7 @@ export default function ServicesTestimonialBlock({
   const igUrl = handle ? `https://instagram.com/${handle.replace("@", "")}` : null;
 
   return (
-    <section className={`${BG_MAP[bgColor]} py-8 px-5 lg:py-0 lg:px-0 lg:bg-soft-stone`} aria-label="Client testimonial">
+    <section className={`${BG_MAP[bgColor]} py-8 px-5 lg:py-0 lg:px-0`} aria-label="Client testimonial">
       <ScrollReveal>
         {/* Mobile layout */}
         <div className="flex gap-3.5 items-start lg:hidden">

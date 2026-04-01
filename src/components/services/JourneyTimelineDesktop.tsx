@@ -52,7 +52,7 @@ export default function JourneyTimelineDesktop({
             const isLast = i === components.length - 1;
             return (
               <ScrollReveal key={comp.stepNumber} delay={i * 100}>
-                <div className="grid gap-5 mb-9 last:mb-0 relative" style={{ gridTemplateColumns: "48px 1fr 220px" }}>
+                <div className="grid gap-5 mb-14 last:mb-0 relative" style={{ gridTemplateColumns: "48px 1fr 220px" }}>
                   {/* Number circle */}
                   <div className="flex justify-center pt-6">
                     <div className="w-12 h-12 rounded-full bg-terracotta text-white flex items-center justify-center relative z-[2] shrink-0">
