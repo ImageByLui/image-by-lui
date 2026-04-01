@@ -82,7 +82,6 @@ export default function ServicePageHero({
             style={{
               objectPosition: desktopPhoto.imagePosition,
               filter: desktopPhoto.filter || "none",
-              transform: "scale(1.08)",
             }}
           />
           {/* Left fade gradient */}
