@@ -3,7 +3,6 @@ import Link from "next/link";
 import { consultoriaDeImagenContent } from "@/content/es/consultoria-de-imagen";
 import { buildPageMetadata } from "@/lib/metadata";
 import ServicePageHero from "@/components/services/ServicePageHero";
-import TrustLine from "@/components/services/TrustLine";
 import CompactPricingCard from "@/components/services/CompactPricingCard";
 import InvestmentPrestigeCard from "@/components/services/InvestmentPrestigeCard";
 import JourneySection from "@/components/services/JourneySection";
@@ -33,7 +32,6 @@ export default function ConsultoriaDeImagenPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
-      {/* §4.2 Hero */}
       <ServicePageHero
         label={content.hero.label}
         labelColor="gold"
@@ -47,8 +45,6 @@ export default function ConsultoriaDeImagenPage() {
         mobileHeroImage="/images/mobile/heroes/ic-hero-lu-cartier.jpg"
       />
 
-
-      {/* §4.3 Investment */}
       <div className="lg:hidden">
         <CompactPricingCard price={content.pricing.price} priceStrikethrough={content.pricing.priceStrikethrough} priceNote={content.pricing.priceNote} summary={content.pricing.summary} />
       </div>
@@ -56,9 +52,9 @@ export default function ConsultoriaDeImagenPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
-      {/* §4.4 Journey */}
       <div className="lg:hidden">
         <JourneySection label={content.journey.label} subheading={content.journey.subheading} components={content.journey.components} />
+        <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
       </div>
       {desktop?.journey && (
         <JourneyTimelineDesktop
@@ -70,7 +66,6 @@ export default function ConsultoriaDeImagenPage() {
         />
       )}
 
-      {/* §4.5 Deliverables */}
       <div className="lg:hidden">
         <DeliverablesCompact label={content.deliverables.label} subheading={content.deliverables.subheading} items={content.deliverables.items} whatsappCallout={content.deliverables.whatsappCallout} />
       </div>
@@ -78,7 +73,6 @@ export default function ConsultoriaDeImagenPage() {
         <DeliverablesPrestigeCard {...desktop.deliverables} />
       )}
 
-      {/* §4.6 Testimonial — Valentina (placeholder) */}
       {content.testimonial && (
         <ServicesTestimonialBlock
           quote={content.testimonial.quote}
@@ -91,7 +85,6 @@ export default function ConsultoriaDeImagenPage() {
         />
       )}
 
-      {/* §4.7 Before/After slider */}
       <BeforeAfterSlider
         label={content.transformations.label}
         subheading={content.transformations.subheading}
@@ -101,12 +94,6 @@ export default function ConsultoriaDeImagenPage() {
         desktopHeading="Transformaciones reales"
       />
 
-      {/* Photo options — mobile only */}
-      <div className="lg:hidden">
-        <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
-      </div>
-
-      {/* §4.8 FAQ Preview — desktop only */}
       {desktop?.faqPreview && (
         <FAQPreview
           heading={desktop.faqPreview.heading}
@@ -118,7 +105,6 @@ export default function ConsultoriaDeImagenPage() {
         />
       )}
 
-      {/* §4.9 Cross-nav — desktop only */}
       {desktop?.crossNav && (
         <CrossNavLink
           text={desktop.crossNav.text}
@@ -127,7 +113,6 @@ export default function ConsultoriaDeImagenPage() {
         />
       )}
 
-      {/* §4.10 Bottom CTA */}
       <BottomCTASection>
         <h2 className="font-heading font-normal text-[length:var(--lui-fs-section)] text-warm-ivory mb-2.5 lg:text-[28px] lg:italic lg:mb-3">
           {desktop?.bottomCta?.heading ?? content.bottomCta.heading}
@@ -136,7 +121,6 @@ export default function ConsultoriaDeImagenPage() {
           {desktop?.bottomCta?.description ?? content.bottomCta.description}
         </p>
 
-        {/* Mobile CTA */}
         <div className="lg:hidden">
           <a href={content.bottomCta.primaryCta.href} target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-body font-semibold text-[length:var(--lui-fs-cta)] tracking-[1.5px] uppercase px-9 py-4 no-underline hover:no-underline transition-all duration-150 active:bg-terracotta-dark">
             {content.bottomCta.primaryCta.text}
@@ -150,7 +134,6 @@ export default function ConsultoriaDeImagenPage() {
           </p>
         </div>
 
-        {/* Desktop CTA */}
         {desktop?.bottomCta && (
           <div className="hidden lg:block">
             <a href={desktop.bottomCta.primaryCta.href} target="_blank" rel="noopener noreferrer" className="cta-primary">

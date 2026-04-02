@@ -3,7 +3,6 @@ import Link from "next/link";
 import { imageConsultingContent } from "@/content/en/image-consulting";
 import { buildPageMetadata } from "@/lib/metadata";
 import ServicePageHero from "@/components/services/ServicePageHero";
-import TrustLine from "@/components/services/TrustLine";
 import CompactPricingCard from "@/components/services/CompactPricingCard";
 import InvestmentPrestigeCard from "@/components/services/InvestmentPrestigeCard";
 import JourneySection from "@/components/services/JourneySection";
@@ -33,7 +32,7 @@ export default function ImageConsultingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
-      {/* §4.2 Hero — Cartier photo bleed (48%, 560px) */}
+      {/* §4.2 Hero — tags below image, no tagsPosition override */}
       <ServicePageHero
         label={content.hero.label}
         labelColor="gold"
@@ -42,16 +41,10 @@ export default function ImageConsultingPage() {
         imageAlt={content.hero.imageAlt}
         imageBorderColor="gold"
         tags={content.hero.tags}
-        tagsPosition="above-image"
         desktopPhoto={desktop?.hero}
         desktopH1Size={52}
         mobileHeroImage="/images/mobile/heroes/ic-hero-lu-cartier.jpg"
       />
-
-      {/* Trust line — mobile only */}
-      <div className="lg:hidden">
-        <TrustLine name="Lu · Image Consultant" credentials={["Certified colorimetry specialist", "Bilingual EN/ES", "Miami"]} compact />
-      </div>
 
       {/* §4.3 Investment — mobile: compact bar, desktop: prestige card */}
       <div className="lg:hidden">
@@ -61,9 +54,10 @@ export default function ImageConsultingPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
-      {/* §4.4 Journey — mobile: accordion, desktop: vertical timeline with images */}
+      {/* §4.4 Journey + Photo Options — mobile: accordion + photo cards, desktop: timeline */}
       <div className="lg:hidden">
         <JourneySection label={content.journey.label} subheading={content.journey.subheading} components={content.journey.components} />
+        <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
       </div>
       {desktop?.journey && (
         <JourneyTimelineDesktop
@@ -83,7 +77,7 @@ export default function ImageConsultingPage() {
         <DeliverablesPrestigeCard {...desktop.deliverables} />
       )}
 
-      {/* §4.6 Testimonial — Valentina (placeholder, flag for replacement) */}
+      {/* §4.6 Testimonial */}
       {content.testimonial && (
         <ServicesTestimonialBlock
           quote={content.testimonial.quote}
@@ -96,7 +90,7 @@ export default function ImageConsultingPage() {
         />
       )}
 
-      {/* §4.7 Before/After slider — responsive styling */}
+      {/* §4.7 Before/After slider */}
       <BeforeAfterSlider
         label={content.transformations.label}
         subheading={content.transformations.subheading}
@@ -106,12 +100,7 @@ export default function ImageConsultingPage() {
         desktopHeading="Real transformations"
       />
 
-      {/* Photo session options — mobile only (embedded in desktop journey) */}
-      <div className="lg:hidden">
-        <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
-      </div>
-
-      {/* §4.8 FAQ Preview — desktop only, 2 columns */}
+      {/* §4.8 FAQ Preview — desktop only */}
       {desktop?.faqPreview && (
         <FAQPreview
           heading={desktop.faqPreview.heading}
@@ -132,7 +121,7 @@ export default function ImageConsultingPage() {
         />
       )}
 
-      {/* §4.10 Bottom CTA — responsive */}
+      {/* §4.10 Bottom CTA */}
       <BottomCTASection>
         <h2 className="font-heading font-normal text-[length:var(--lui-fs-section)] text-warm-ivory mb-2.5 lg:text-[28px] lg:italic lg:mb-3">
           {desktop?.bottomCta?.heading ?? content.bottomCta.heading}
@@ -141,7 +130,6 @@ export default function ImageConsultingPage() {
           {desktop?.bottomCta?.description ?? content.bottomCta.description}
         </p>
 
-        {/* Mobile CTA */}
         <div className="lg:hidden">
           <a href={content.bottomCta.primaryCta.href} target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-body font-semibold text-[length:var(--lui-fs-cta)] tracking-[1.5px] uppercase px-9 py-4 no-underline hover:no-underline transition-all duration-150 active:bg-terracotta-dark">
             {content.bottomCta.primaryCta.text}
@@ -155,7 +143,6 @@ export default function ImageConsultingPage() {
           </p>
         </div>
 
-        {/* Desktop CTA */}
         {desktop?.bottomCta && (
           <div className="hidden lg:block">
             <a href={desktop.bottomCta.primaryCta.href} target="_blank" rel="noopener noreferrer" className="cta-primary">
