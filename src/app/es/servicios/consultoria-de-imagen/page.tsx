@@ -45,6 +45,7 @@ export default function ConsultoriaDeImagenPage() {
         tagsPosition="above-image"
         desktopPhoto={desktop?.hero}
         desktopH1Size={52}
+        mobileHeroImage="/images/mobile/heroes/ic-hero-lu-cartier.jpg"
       />
 
       {/* Trust line — mobile only */}

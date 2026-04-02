@@ -31,12 +31,14 @@ interface ServicePageHeroProps {
   desktopPhoto?: DesktopPhotoConfig;
   /** Desktop H1 font-size in px — applied via data attribute at lg: breakpoint */
   desktopH1Size?: number;
+  /** Mobile hero image path — replaces ImagePlaceholder */
+  mobileHeroImage?: string;
 }
 
 export default function ServicePageHero({
   label, labelColor = "terracotta", headline, description, imageAlt,
   imageBorderColor = "champagne", tags, tagsPosition = "below-image",
-  desktopPhoto, desktopH1Size,
+  desktopPhoto, desktopH1Size, mobileHeroImage,
 }: ServicePageHeroProps) {
   const labelCls = labelColor === "gold" ? "text-gold" : "text-terracotta";
   const borderCls = imageBorderColor === "gold" ? "border-gold" : "border-champagne";
@@ -55,8 +57,13 @@ export default function ServicePageHero({
 
   const imageBlock = (
     <div className={`${tagsPosition === "above-image" ? "px-3.5 pb-7" : "px-3.5"} ${hasDesktop ? "lg:hidden" : ""}`}>
-      <div className={`border ${borderCls} p-0.5`}>
-        <ImagePlaceholder alt={imageAlt} width={347} height={174} colorIndex={1} className="w-full" />
+      <div className={`border ${borderCls} p-0.5 overflow-hidden`}>
+        {mobileHeroImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[2/1] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+        ) : (
+          <ImagePlaceholder alt={imageAlt} width={347} height={174} colorIndex={1} className="w-full" />
+        )}
       </div>
     </div>
   );

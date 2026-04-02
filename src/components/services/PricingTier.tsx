@@ -7,6 +7,7 @@ interface PricingTierProps {
   name: string; price: string; subtitle: string; duration: string; description: string;
   inclusions: string[]; ctaText: string; ctaHref: string;
   variant: "essential" | "complete" | "vip"; badge?: string; imageAlt?: string;
+  mobileImage?: string;
   footnote?: string; defaultOpen?: boolean;
   isOpen?: boolean; onToggle?: () => void;
 }
@@ -23,7 +24,7 @@ function Chevron() {
 
 export default function PricingTier({
   name, price, subtitle, duration, description, inclusions, ctaText, ctaHref,
-  variant, badge, imageAlt, footnote, defaultOpen = false, isOpen, onToggle,
+  variant, badge, imageAlt, mobileImage, footnote, defaultOpen = false, isOpen, onToggle,
 }: PricingTierProps) {
   const s = STYLES[variant];
   const summaryContent = (
@@ -44,7 +45,16 @@ export default function PricingTier({
     <AccordionCard summary={summaryContent} defaultOpen={defaultOpen} borderClasses={s.border} className="mb-3 last:mb-0" isOpen={isOpen} onToggle={onToggle}>
       <div className="px-5 pb-6">
         <div className={`h-px ${s.separator} mb-[18px]`} aria-hidden="true" />
-        {imageAlt && variant === "complete" && <div className="border border-gold p-0.5 mb-[18px]"><ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" /></div>}
+        {imageAlt && variant === "complete" && (
+          <div className="border border-gold p-0.5 mb-[18px] overflow-hidden">
+            {mobileImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={mobileImage} alt={imageAlt} className="w-full aspect-[5/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+            ) : (
+              <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
+            )}
+          </div>
+        )}
         <p className="font-body text-card text-warm-grey leading-[1.6] mb-[18px]">{description}</p>
         <div className={`h-px ${s.separator} opacity-75 mb-4`} aria-hidden="true" />
         <div className="mb-0">

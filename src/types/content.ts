@@ -383,6 +383,8 @@ export interface PricingTierData {
   badge?: string;
   /** Only for Complete tier */
   imageAlt?: string;
+  /** Mobile image path for Complete tier */
+  mobileImage?: string;
   /** Only for VIP tier */
   footnote?: string;
 }

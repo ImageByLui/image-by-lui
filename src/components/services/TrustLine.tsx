@@ -1,5 +1,3 @@
-import ImagePlaceholder from "@/components/features/ImagePlaceholder";
-
 interface TrustLineProps {
   name: string;
   credentials: string | string[];
@@ -12,7 +10,8 @@ export default function TrustLine({ name, credentials, compact = false }: TrustL
     <section className="bg-warm-ivory py-4 px-5" aria-label="About your consultant">
       <div className="flex items-center gap-3.5">
         <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 border border-champagne">
-          <ImagePlaceholder alt="Lu — Image Consultant" width={56} height={56} colorIndex={0} className="w-full h-full" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/mobile/heroes/lu-image-consultant-profile.JPG" alt="Lu — Image Consultant" className="w-full h-full object-cover" />
         </div>
         <div>
           <p className="font-body font-semibold text-[length:var(--lui-fs-card)] text-espresso leading-tight">{name}</p>

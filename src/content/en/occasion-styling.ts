@@ -81,6 +81,7 @@ export const occasionStylingContent: OccasionStylingContent = {
         ctaHref: getCalendlyUrl("powerPalette"),
         variant: "complete",
         badge: "Recommended",
+        mobileImage: "/images/mobile/services/occasion-complete.jpg",
         imageAlt:
           "Lu and client selecting pieces at a curated Miami boutique",
       },
@@ -120,10 +121,10 @@ export const occasionStylingContent: OccasionStylingContent = {
     label: "Styled by Lu",
     subheading: "Event looks curated for real clients",
     items: [
-      { label: "Gala evening look", caption: "Black-tie gala", background: "stone", image: "/images/gallery/styled-gala.jpg" },
-      { label: "Corporate keynote", caption: "Corporate keynote", background: "ivory", image: "/images/gallery/styled-corporate.jpg" },
-      { label: "Wedding guest", caption: "Wedding guest", background: "stone", image: "/images/gallery/styled-wedding-1.jpg" },
-      { label: "Interview look", caption: "Executive interview", background: "ivory", image: "/images/gallery/styled-model.jpg" },
+      { label: "Gala evening look", caption: "Black-tie gala", background: "stone", image: "/images/mobile/gallery/styled-gala.jpg" },
+      { label: "Corporate keynote", caption: "Corporate keynote", background: "ivory", image: "/images/mobile/gallery/styled-corporate.jpg" },
+      { label: "Wedding guest", caption: "Wedding guest", background: "stone", image: "/images/mobile/gallery/styled-wedding-1.jpg" },
+      { label: "Interview look", caption: "Executive interview", background: "ivory", image: "/images/mobile/gallery/styled-model.jpg" },
     ],
   },
 

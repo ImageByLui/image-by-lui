@@ -35,6 +35,7 @@ export default function OccasionStylingPage() {
         tags={content.hero.tags}
         desktopPhoto={desktop?.hero}
         desktopH1Size={56}
+        mobileHeroImage="/images/mobile/heroes/occasion-hero-lu-gala.jpg"
       />
 
       {/* Trust line — mobile only per §3.10 (deliberately removed on desktop) */}
@@ -49,6 +50,7 @@ export default function OccasionStylingPage() {
         imageAlt={content.howItWorks.imageAlt}
         desktopHeading={desktop?.howItWorks.heading}
         desktopSteps={desktop?.howItWorks.steps}
+        mobileImage="/images/mobile/services/occasion-how-it-works.jpg"
       />
 
       {/* §3.4 Pricing — mobile accordion, desktop 3-column grid */}

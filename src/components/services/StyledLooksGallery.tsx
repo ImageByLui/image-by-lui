@@ -47,7 +47,7 @@ export default function StyledLooksGallery({
                     src={item.image}
                     alt={item.label}
                     className="w-full aspect-[3/4] object-cover"
-                    style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
+                    style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)", objectPosition: "center 20%" }}
                   />
                 ) : (
                   <ImagePlaceholder alt={item.label} width={200} height={267} colorIndex={item.background === "stone" ? 1 : 2} className="w-full" />

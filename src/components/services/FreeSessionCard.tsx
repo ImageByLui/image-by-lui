@@ -1,5 +1,4 @@
 import type { FreeSessionDeliverable } from "@/types/content";
-import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // =============================================================================
@@ -31,7 +30,13 @@ export default function FreeSessionCard({
         <div className="bg-white border border-champagne lg:border-gold overflow-hidden lg:max-w-[880px] lg:mx-auto lg:px-12 lg:py-8 text-center">
           {/* Mobile-only image */}
           <div className="p-1.5 lg:hidden">
-            <ImagePlaceholder alt={imageAlt} width={340} height={121} colorIndex={0} className="w-full" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/mobile/heroes/power-palette-hero.jpg"
+              alt={imageAlt}
+              className="w-full aspect-[3/1] object-cover"
+              style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
+            />
           </div>
 
           <div className="pt-4 px-5 pb-5 lg:pt-0 lg:px-0 lg:pb-0">

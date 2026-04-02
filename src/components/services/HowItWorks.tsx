@@ -17,9 +17,11 @@ interface HowItWorksProps {
   /** Desktop overrides — heading text and shorter step descriptions */
   desktopHeading?: string;
   desktopSteps?: ServiceProcessStep[];
+  /** Mobile image path — replaces ImagePlaceholder */
+  mobileImage?: string;
 }
 
-export default function HowItWorks({ label, steps, imageAlt, desktopHeading, desktopSteps }: HowItWorksProps) {
+export default function HowItWorks({ label, steps, imageAlt, desktopHeading, desktopSteps, mobileImage }: HowItWorksProps) {
   const dSteps = desktopSteps ?? steps;
   const hasDesktop = !!desktopHeading;
 
@@ -44,8 +46,13 @@ export default function HowItWorks({ label, steps, imageAlt, desktopHeading, des
             </div>
           ))}
         </div>
-        <div className="mt-4 border border-gold p-0.5">
-          <ImagePlaceholder alt={imageAlt} width={347} height={139} colorIndex={1} className="w-full" />
+        <div className="mt-4 border border-gold p-0.5 overflow-hidden">
+          {mobileImage ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={mobileImage} alt={imageAlt} className="w-full aspect-[5/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+          ) : (
+            <ImagePlaceholder alt={imageAlt} width={347} height={139} colorIndex={1} className="w-full" />
+          )}
         </div>
       </div>
 
