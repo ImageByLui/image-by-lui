@@ -22,15 +22,15 @@ export default function ServiceSelectorCard({
   return (
     <div className={`bg-white border border-champagne/50 ${topBorder} ${cardBg} mb-3.5 overflow-hidden`}>
       <div className="p-5">
-        {/* Badge — small, above the name */}
-        {badge && (
-          <span className={`inline-block font-body font-semibold text-[9px] tracking-[1px] uppercase px-2 py-[3px] border mb-2.5 ${badgeCls}`}>
-            {badge}
-          </span>
-        )}
-
-        {/* Name */}
-        <h3 className={`font-heading font-medium ${isGold ? "text-premium-title" : "text-card-title"} text-espresso mb-2.5`}>{name}</h3>
+        {/* Name + Badge — same line */}
+        <div className="flex items-baseline justify-between mb-2.5">
+          <h3 className={`font-heading font-medium ${isGold ? "text-premium-title" : "text-card-title"} text-espresso`}>{name}</h3>
+          {badge && (
+            <span className={`font-body font-semibold text-[9px] tracking-[1px] uppercase px-2 py-[3px] border shrink-0 ml-2 ${badgeCls}`}>
+              {badge}
+            </span>
+          )}
+        </div>
 
         {/* Tags with gold left-border accents */}
         <div className="flex flex-wrap gap-1.5 mb-3">
