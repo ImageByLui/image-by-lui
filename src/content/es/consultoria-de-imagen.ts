@@ -106,8 +106,8 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
   },
 
   deliverables: {
-    label: "Lo que recibe",
-    subheading: "Todo incluido en su inversión",
+    label: "Lo que conserva",
+    subheading: "7 ENTREGABLES INCLUIDOS EN SU INVERSIÓN",
     items: [
       { title: "Tarjeta de paleta de color completa", qualifier: "su espectro completo calibrado con Pantone" },
       { title: "Perfil de estilo personal", qualifier: "cuerpo, forma de rostro, arquetipo, guía de siluetas" },

@@ -1,18 +1,50 @@
 import type { DeliverableItem } from "@/types/content";
-interface DeliverablesCompactProps { label: string; subheading: string; items: DeliverableItem[]; whatsappCallout: { title: string; description: string }; }
+
+interface DeliverablesCompactProps {
+  label: string;
+  subheading: string;
+  items: DeliverableItem[];
+  whatsappCallout: { title: string; description: string };
+}
+
 export default function DeliverablesCompact({ label, subheading, items, whatsappCallout }: DeliverablesCompactProps) {
   return (
-    <section className="bg-soft-stone py-7 px-5" aria-label="What you receive">
-      <p className="font-body font-semibold text-label tracking-[1.5px] uppercase text-terracotta mb-1.5">{label}</p>
-      <p className="font-body text-inclusion text-warm-taupe leading-[1.5] mb-5">{subheading}</p>
-      {items.map((item, i) => (
-        <div key={i} className={`border-l-2 border-gold pl-4 ${i < items.length - 1 ? "mb-3" : "mb-0"}`}>
-          <p className="text-card leading-[1.5]"><strong className="text-espresso font-semibold">{item.title}</strong><span className="text-warm-taupe font-normal"> — {item.qualifier}</span></p>
+    <section className="py-7 px-3.5" style={{ backgroundColor: "#E8E0D6" }} aria-label="What you keep">
+      {/* Gold-framed white card */}
+      <div className="border border-gold/40 bg-white px-5 py-7">
+        {/* Heading — italic serif, centered */}
+        <h2 className="font-heading font-normal italic text-[22px] text-espresso text-center mb-2">
+          {label}
+        </h2>
+
+        {/* Subtitle — small caps, centered */}
+        <p className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-warm-taupe text-center mb-5">
+          {subheading}
+        </p>
+
+        {/* Gold separator */}
+        <div className="w-10 h-[1.5px] mx-auto mb-6" style={{ backgroundColor: "#C49A5C" }} aria-hidden="true" />
+
+        {/* Deliverables list — vertical with ✦ markers */}
+        <div className="space-y-4 mb-6">
+          {items.map((item, i) => (
+            <div key={i} className="flex gap-3">
+              <span className="shrink-0 mt-0.5" style={{ color: "#C49A5C", fontSize: 10 }} aria-hidden="true">✦</span>
+              <div>
+                <p className="font-body font-semibold text-[14px] text-espresso leading-[1.3] mb-0.5">{item.title}</p>
+                <p className="font-body text-[12px] text-warm-taupe leading-[1.4]">{item.qualifier}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      <div className="bg-gold/[0.08] border border-gold/50 py-3.5 px-4 flex items-center gap-3 mt-[18px]">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold shrink-0" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
-        <p className="text-inclusion leading-[1.4]"><strong className="text-espresso font-semibold">{whatsappCallout.title}</strong><span className="text-warm-taupe font-normal"> — {whatsappCallout.description}</span></p>
+
+        {/* Gold separator before WhatsApp */}
+        <div className="w-10 h-[1.5px] mx-auto mb-5" style={{ backgroundColor: "#C49A5C" }} aria-hidden="true" />
+
+        {/* WhatsApp callout — italic gold, centered */}
+        <p className="font-heading font-semibold italic text-[13px] text-center leading-[1.45]" style={{ color: "#C49A5C" }}>
+          {whatsappCallout.title} — {whatsappCallout.description}
+        </p>
       </div>
     </section>
   );

@@ -106,8 +106,8 @@ export const imageConsultingContent: ImageConsultingContent = {
   },
 
   deliverables: {
-    label: "What you receive",
-    subheading: "Everything included in your investment",
+    label: "What you keep",
+    subheading: "7 DELIVERABLES INCLUDED IN YOUR INVESTMENT",
     items: [
       { title: "Complete color palette card", qualifier: "your full Pantone-matched spectrum" },
       { title: "Personal style profile", qualifier: "body, face shape, archetype, silhouette guide" },
