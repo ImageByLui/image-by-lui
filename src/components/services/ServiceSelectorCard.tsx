@@ -55,7 +55,7 @@ export default function ServiceSelectorCard({
                 src={image}
                 alt={imageAlt}
                 className="w-full aspect-[3/2] object-cover"
-                style={{ filter: imageFilter || "none", objectPosition: "center 20%" }}
+                style={{ filter: imageFilter || "none", objectPosition: "center 0%" }}
               />
             ) : (
               <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
