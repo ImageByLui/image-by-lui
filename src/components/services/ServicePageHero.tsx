@@ -63,7 +63,7 @@ export default function ServicePageHero({
       <div className={`border ${borderCls} p-0.5 overflow-hidden`}>
         {mobileHeroImage ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[2/1] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[3/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
         ) : (
           <ImagePlaceholder alt={imageAlt} width={347} height={174} colorIndex={1} className="w-full" />
         )}
