@@ -42,6 +42,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         description:
           "Todo lo que sigue se construye sobre lo que descubrimos aquí. Un análisis profundo de sus colores, forma de rostro, arquitectura corporal y estilo personal — la base diagnóstica de cada recomendación.",
         imageAlt: "Lu realizando análisis profesional de color con telas Pantone calibradas",
+        image: "/images/journey/color-analysis.jpg",
         inclusions: [
           { key: "Análisis de color", detail: "paleta completa calibrada con Pantone, más allá de Tu Paleta de Poder" },
           { key: "Análisis facial", detail: "cortes de cabello, escotes, accesorios y marcos ideales" },
@@ -58,6 +59,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         description:
           "Transformamos su guardarropa de abrumador a funcional. Descubrirá que tiene más de lo que pensaba — y sabrá exactamente qué falta.",
         imageAlt: "Lu evaluando el guardarropa de una clienta — clasificando, organizando, descubriendo combinaciones",
+        image: "/images/journey/closet-detox.jpg",
         inclusions: [
           { key: "Evaluación completa", detail: "cada prenda, zapatos y accesorios evaluados" },
           { key: "Filtrado estratégico", detail: "por condición, alineación de estilo y versatilidad" },
@@ -74,6 +76,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         description:
           "Sin compras impulsivas. Creamos un plan de compras basado en los hallazgos del detox, y Lu va con usted a tiendas seleccionadas donde cada compra tiene un propósito claro.",
         imageAlt: "Lu y clienta en una tienda seleccionada — eligiendo piezas con intención",
+        image: "/images/journey/personal-shopping.jpg",
         inclusions: [
           { key: "Diagnóstico pre-compra", detail: "prioridades definidas antes de entrar a una tienda" },
           { key: "Plan de compras", detail: "básicos, piezas clave e inversiones estratégicas mapeadas" },
@@ -90,6 +93,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         description:
           "El capítulo final. Lu arma 15–20 outfits completos para cada contexto de su vida, luego estiliza y dirige una sesión de fotos para que su nueva imagen tenga un registro visual.",
         imageAlt: "Lu estilizando a una clienta para su sesión de fotos — looks completos para cada ocasión",
+        image: "/images/journey/photo-session.jpg",
         inclusions: [
           { key: "Looks completos armados", detail: "trabajo, social, eventos y casual con piezas nuevas y existentes" },
           { key: "Lookbook digital", detail: "15–20 outfits con notas de estilismo, etiquetas de ocasión y guías" },
@@ -196,7 +200,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
   desktop: {
     hero: {
       image: "/images/heroes/ic-hero-lu-cartier.jpg",
-      imagePosition: "40% 55%",
+      imagePosition: "40% 25%",
       filter: "saturate(0.45) sepia(0.15) brightness(0.95) contrast(1.05)",
       minHeight: 560,
       photoWidth: "48%",

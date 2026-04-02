@@ -10,7 +10,7 @@ import type { ServiceSelectorCardData } from "@/types/content";
 // =============================================================================
 
 export default function ServiceSelectorCard({
-  name, badge, accentColor, isPremium, price, priceStrikethrough, description, tags, imageAlt, ctaText, ctaHref,
+  name, badge, accentColor, isPremium, price, priceStrikethrough, description, tags, imageAlt, image, imageFilter, ctaText, ctaHref,
 }: ServiceSelectorCardData) {
   const isGold = accentColor === "gold";
   const topBorder = isGold ? "border-t-[4px] border-t-gold" : "border-t-[3px] border-t-terracotta";
@@ -48,8 +48,18 @@ export default function ServiceSelectorCard({
       {/* Image */}
       {imageAlt && (
         <div className="px-3.5 pb-3.5">
-          <div className={`border ${isGold ? "border-gold" : "border-champagne"} p-0.5`}>
-            <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
+          <div className={`border ${isGold ? "border-gold" : "border-champagne"} p-0.5 overflow-hidden`}>
+            {image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={image}
+                alt={imageAlt}
+                className="w-full aspect-[5/2] object-cover"
+                style={{ filter: imageFilter || "none" }}
+              />
+            ) : (
+              <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
+            )}
           </div>
         </div>
       )}

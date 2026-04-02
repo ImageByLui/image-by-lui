@@ -120,10 +120,10 @@ export const estilismoDeOcasionContent: OccasionStylingContent = {
     label: "Estilizada por Lu",
     subheading: "Looks de evento creados para clientas reales",
     items: [
-      { label: "Look de gala", caption: "Gala de etiqueta", background: "stone" },
-      { label: "Conferencia corporativa", caption: "Conferencia corporativa", background: "ivory" },
-      { label: "Invitada de boda", caption: "Invitada de boda", background: "stone" },
-      { label: "Entrevista ejecutiva", caption: "Entrevista ejecutiva", background: "ivory" },
+      { label: "Look de gala", caption: "Gala de etiqueta", background: "stone", image: "/images/gallery/styled-gala.jpg" },
+      { label: "Conferencia corporativa", caption: "Conferencia corporativa", background: "ivory", image: "/images/gallery/styled-corporate.jpg" },
+      { label: "Invitada de boda", caption: "Invitada de boda", background: "stone", image: "/images/gallery/styled-wedding-1.jpg" },
+      { label: "Entrevista ejecutiva", caption: "Entrevista ejecutiva", background: "ivory", image: "/images/gallery/styled-model.jpg" },
     ],
   },
 

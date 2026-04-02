@@ -41,8 +41,8 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "The diagnostic foundation",
         description:
           "Everything that follows is built on what we discover here. A deep analysis of your colors, face shape, body architecture, and personal style — the diagnostic foundation for every recommendation to come.",
-        imageAlt:
-          "Lu performing professional Pantone-matched color draping with a client",
+        imageAlt: "Lu performing professional Pantone-matched color draping with a client",
+        image: "/images/journey/color-analysis.jpg",
         inclusions: [
           { key: "Color analysis", detail: "complete Pantone-matched palette, beyond Your Power Palette" },
           { key: "Facial analysis", detail: "ideal haircuts, necklines, accessories, frames" },
@@ -58,8 +58,8 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "Wardrobe transformation",
         description:
           "We transform your wardrobe from overwhelming to functional. You'll discover you own more than you thought — and know exactly what's missing.",
-        imageAlt:
-          "Lu evaluating a client's wardrobe — sorting, organizing, discovering new combinations",
+        imageAlt: "Lu evaluating a client's wardrobe — sorting, organizing, discovering new combinations",
+        image: "/images/journey/closet-detox.jpg",
         inclusions: [
           { key: "Full wardrobe evaluation", detail: "every piece of clothing, shoes, and accessories assessed" },
           { key: "Strategic filtering", detail: "by condition, style alignment, and versatility" },
@@ -75,8 +75,8 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "Guided purchases",
         description:
           "No impulse purchases. We create a shopping roadmap from your closet detox findings, then Lu goes with you to curated stores where every purchase has a clear purpose.",
-        imageAlt:
-          "Lu and client at a curated store — selecting pieces with intention, not impulse",
+        imageAlt: "Lu and client at a curated store — selecting pieces with intention, not impulse",
+        image: "/images/journey/personal-shopping.jpg",
         inclusions: [
           { key: "Pre-shopping diagnostic", detail: "priorities defined before entering a store" },
           { key: "Purchase roadmap", detail: "basics, key pieces, and strategic investments mapped" },
@@ -92,8 +92,8 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "The final chapter",
         description:
           "The final chapter. Lu builds 15–20 complete outfits for every context in your life, then styles and directs a photo session so your new image has a visual record.",
-        imageAlt:
-          "Lu styling a client for their photo session — complete looks for every occasion",
+        imageAlt: "Lu styling a client for their photo session — complete looks for every occasion",
+        image: "/images/journey/photo-session.jpg",
         inclusions: [
           { key: "Complete looks built", detail: "work, social, events, and casual from new + existing pieces" },
           { key: "Digital lookbook", detail: "15–20 outfits with styling notes, occasion tags, and guides" },
@@ -200,7 +200,7 @@ export const imageConsultingContent: ImageConsultingContent = {
   desktop: {
     hero: {
       image: "/images/heroes/ic-hero-lu-cartier.jpg",
-      imagePosition: "40% 55%",
+      imagePosition: "40% 25%",
       filter: "saturate(0.45) sepia(0.15) brightness(0.95) contrast(1.05)",
       minHeight: 560,
       photoWidth: "48%",

@@ -120,10 +120,10 @@ export const occasionStylingContent: OccasionStylingContent = {
     label: "Styled by Lu",
     subheading: "Event looks curated for real clients",
     items: [
-      { label: "Gala evening look", caption: "Black-tie gala", background: "stone" },
-      { label: "Corporate keynote", caption: "Corporate keynote", background: "ivory" },
-      { label: "Wedding guest", caption: "Wedding guest", background: "stone" },
-      { label: "Interview look", caption: "Executive interview", background: "ivory" },
+      { label: "Gala evening look", caption: "Black-tie gala", background: "stone", image: "/images/gallery/styled-gala.jpg" },
+      { label: "Corporate keynote", caption: "Corporate keynote", background: "ivory", image: "/images/gallery/styled-corporate.jpg" },
+      { label: "Wedding guest", caption: "Wedding guest", background: "stone", image: "/images/gallery/styled-wedding-1.jpg" },
+      { label: "Interview look", caption: "Executive interview", background: "ivory", image: "/images/gallery/styled-model.jpg" },
     ],
   },
 

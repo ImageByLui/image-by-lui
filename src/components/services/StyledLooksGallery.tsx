@@ -40,8 +40,18 @@ export default function StyledLooksGallery({
         >
           {items.map((item, i) => (
             <div key={i} className="shrink-0 snap-start" style={{ width: 200 }}>
-              <div className="border border-gold p-0.5">
-                <ImagePlaceholder alt={item.label} width={200} height={267} colorIndex={item.background === "stone" ? 1 : 2} className="w-full" />
+              <div className="border border-gold p-0.5 overflow-hidden">
+                {item.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={item.image}
+                    alt={item.label}
+                    className="w-full aspect-[3/4] object-cover"
+                    style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
+                  />
+                ) : (
+                  <ImagePlaceholder alt={item.label} width={200} height={267} colorIndex={item.background === "stone" ? 1 : 2} className="w-full" />
+                )}
               </div>
               <p className="font-body italic text-caption text-warm-taupe mt-1.5">{item.caption}</p>
             </div>

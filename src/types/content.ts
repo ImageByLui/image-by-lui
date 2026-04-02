@@ -247,6 +247,10 @@ export interface ServiceSelectorCardData {
   tags: string[];
   description: string;
   imageAlt: string;
+  /** Real image path — replaces ImagePlaceholder when provided */
+  image?: string;
+  /** CSS filter for real image */
+  imageFilter?: string;
   /** Border accent: 'champagne' for Occasion Styling, 'gold' for Image Consulting */
   accentColor: "champagne" | "gold";
   /** Gold top border on premium card */
@@ -388,6 +392,8 @@ export interface GalleryItem {
   caption: string;
   /** Alternating backgrounds for visual variety */
   background: "stone" | "ivory";
+  /** Real image path — replaces ImagePlaceholder when provided */
+  image?: string;
 }
 
 /** Desktop gallery item — real photography instead of placeholders */
@@ -511,6 +517,8 @@ export interface JourneyComponentData {
   subtitle: string;
   description: string;
   imageAlt: string;
+  /** Real image path — replaces ImagePlaceholder when provided */
+  image?: string;
   inclusions: {
     /** Bold key phrase */
     key: string;
