@@ -60,7 +60,7 @@ export default function PricingTier({
         <div className="mb-0">
           {inclusions.map((item, i) => <p key={i} className="text-inclusion text-warm-grey leading-[1.7] pl-[18px] mb-[5px] relative"><span className="absolute left-0 text-gold font-semibold" aria-hidden="true">—</span>{item}</p>)}
         </div>
-        {footnote && <p className="font-heading font-semibold italic text-caption text-gold mt-3.5">{footnote}</p>}
+        {footnote && <p className="font-heading font-semibold italic mt-3.5" style={{ fontSize: 13, color: "#C49A5C" }}>{footnote}</p>}
         <a href={ctaHref} target="_blank" rel="noopener noreferrer" className={`block text-center font-body font-semibold text-cta tracking-[1.5px] uppercase py-[15px] mt-[22px] no-underline hover:no-underline transition-all duration-150 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${s.cta}`}>{ctaText}</a>
       </div>
     </AccordionCard>

@@ -34,7 +34,7 @@ export default function HowItWorks({ label, steps, imageAlt, desktopHeading, des
           {steps.map((step, i) => (
             <div key={i}>
               <div className="border-l border-l-gold/30 pl-5 pb-5 relative">
-                <span className="absolute -left-3 top-0 font-heading text-[28px] font-medium text-terracotta leading-none bg-warm-ivory px-1">{i + 1}</span>
+                <span className="absolute -left-3 top-0 font-heading text-[36px] font-medium text-terracotta leading-none bg-warm-ivory px-1">{i + 1}</span>
                 <div className="pt-0.5">
                   <h3 className="font-body font-semibold text-nav text-espresso mb-1.5">{step.title}</h3>
                   <p className="font-body text-card text-warm-grey leading-[1.55]">{step.description}</p>

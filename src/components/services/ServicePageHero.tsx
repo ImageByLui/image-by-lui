@@ -55,6 +55,7 @@ export default function ServicePageHero({
           </span>
         ))}
       </div>
+      <div className="h-[1px] mt-4" style={{ backgroundColor: "rgba(196,154,92,0.3)" }} aria-hidden="true" />
     </div>
   );
 
