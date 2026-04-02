@@ -104,8 +104,9 @@ export default function ServicePageHero({
       )}
 
       {/* Text content */}
-      <div className={`relative z-[2] ${hasDesktop ? "max-w-[1200px] mx-auto" : ""} pt-7 px-5 pb-0 ${hasDesktop ? `lg:px-12 lg:pt-[100px] lg:pb-[80px] lg:flex lg:flex-col lg:justify-center` : ""}`}
-        style={hasDesktop ? { minHeight: `${minH}px` } : undefined}
+      <div
+        className={`relative z-[2] ${hasDesktop ? "max-w-[1200px] mx-auto" : ""} pt-7 px-5 pb-0 ${hasDesktop ? "lg:px-12 lg:pt-[100px] lg:pb-[80px] lg:flex lg:flex-col lg:justify-center" : ""}`}
+        data-desktop-min-h={hasDesktop ? String(minH) : undefined}
       >
         {/* Label */}
         <p

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { occasionStylingContent } from "@/content/en/occasion-styling";
 import { buildPageMetadata } from "@/lib/metadata";
 import ServicePageHero from "@/components/services/ServicePageHero";
-import TrustLine from "@/components/services/TrustLine";
 import HowItWorks from "@/components/services/HowItWorks";
 import PricingSection from "@/components/services/PricingSection";
 import DesktopPricingGrid from "@/components/services/DesktopPricingGrid";
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
 export default function OccasionStylingPage() {
   return (
     <>
-      {/* §3.2 Hero — desktop photo bleed right (45%, 480px) */}
+      {/* §3.2 Hero */}
       <ServicePageHero
         label={content.hero.label}
         headline={content.hero.headline}
@@ -38,12 +37,7 @@ export default function OccasionStylingPage() {
         mobileHeroImage="/images/mobile/heroes/occasion-hero-lu-gala.jpg"
       />
 
-      {/* Trust line — mobile only per §3.10 (deliberately removed on desktop) */}
-      <div className="lg:hidden">
-        <TrustLine name="Lu · Image Consultant" credentials={["Certified colorimetry specialist", "Bilingual EN/ES", "Miami"]} compact />
-      </div>
-
-      {/* §3.3 How It Works — mobile vertical, desktop horizontal */}
+      {/* §3.3 How It Works */}
       <HowItWorks
         label={content.howItWorks.label}
         steps={content.howItWorks.steps}
@@ -53,7 +47,7 @@ export default function OccasionStylingPage() {
         mobileImage="/images/mobile/services/occasion-how-it-works.jpg"
       />
 
-      {/* §3.4 Pricing — mobile accordion, desktop 3-column grid */}
+      {/* §3.4 Pricing */}
       <div className="lg:hidden">
         <PricingSection label={content.pricing.label} subheading={content.pricing.subheading} tiers={content.pricing.tiers} />
       </div>
@@ -76,7 +70,7 @@ export default function OccasionStylingPage() {
         bgColor="warm-ivory"
       />
 
-      {/* §3.6 Gallery — mobile scroll, desktop 5-col grid */}
+      {/* §3.6 Gallery */}
       <StyledLooksGallery
         label={content.gallery.label}
         subheading={content.gallery.subheading}
@@ -106,7 +100,7 @@ export default function OccasionStylingPage() {
         />
       )}
 
-      {/* §3.9 Bottom CTA — responsive: WhatsApp mobile, Calendly desktop */}
+      {/* §3.9 Bottom CTA */}
       <BottomCTASection>
         <h2 className="font-heading font-normal text-section text-warm-ivory mb-2.5 lg:text-[28px] lg:italic lg:mb-3">
           {desktop?.bottomCta?.heading ?? content.bottomCta.heading}
@@ -134,15 +128,12 @@ export default function OccasionStylingPage() {
         {/* Desktop CTA: Calendly primary, WhatsApp secondary */}
         {desktop?.bottomCta && (
           <div className="hidden lg:block">
-            <a href={desktop.bottomCta.primaryCta.href} target="_blank" rel="noopener noreferrer"
-              className="cta-primary">
+            <a href={desktop.bottomCta.primaryCta.href} target="_blank" rel="noopener noreferrer" className="cta-primary">
               {desktop.bottomCta.primaryCta.text}
             </a>
             <p className="font-body text-[13px] text-warm-ivory/30 mt-[18px]">
               {desktop.bottomCta.secondaryText.split("WhatsApp")[0]}
-              <a href={desktop.bottomCta.secondaryLinkHref} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium no-underline hover:opacity-80 transition-opacity">
-                WhatsApp
-              </a>
+              <a href={desktop.bottomCta.secondaryLinkHref} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium no-underline hover:opacity-80 transition-opacity">WhatsApp</a>
             </p>
           </div>
         )}

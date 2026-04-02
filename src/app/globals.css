@@ -87,6 +87,8 @@
   [data-desktop-h1="52"] { font-size: 52px !important; }
   [data-desktop-h1="48"] { font-size: 48px !important; }
   [data-desktop-label] { font-size: 11px !important; }
+  [data-desktop-min-h="480"] { min-height: 480px; }
+  [data-desktop-min-h="560"] { min-height: 560px; }
 }
 
 /* ---------------------------------------------------------------------------
