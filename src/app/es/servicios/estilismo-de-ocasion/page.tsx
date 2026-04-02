@@ -38,11 +38,6 @@ export default function EstilismoDeOcasionPage() {
         mobileHeroImage="/images/mobile/heroes/occasion-hero-lu-gala.jpg"
       />
 
-      {/* Trust line — mobile only */}
-      <div className="lg:hidden">
-        <TrustLine name="Lu · Consultora de Imagen" credentials={["Especialista certificada en colorimetría", "Bilingüe EN/ES", "Miami"]} compact />
-      </div>
-
       {/* §3.3 How It Works */}
       <HowItWorks
         label={content.howItWorks.label}
