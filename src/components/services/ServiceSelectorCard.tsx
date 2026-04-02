@@ -2,29 +2,50 @@ import Link from "next/link";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 import type { ServiceSelectorCardData } from "@/types/content";
 
+// =============================================================================
+// ServiceSelectorCard — Image by LUI (Mobile mockup match)
+// =============================================================================
+// Badge above name (small label), tags with gold left-border accents,
+// price + text link at bottom row. No full-width CTA button.
+// =============================================================================
+
 export default function ServiceSelectorCard({
-  name, badge, accentColor, isPremium, price, priceNote, description, tags, imageAlt, ctaText, ctaHref,
+  name, badge, accentColor, isPremium, price, priceStrikethrough, description, tags, imageAlt, ctaText, ctaHref,
 }: ServiceSelectorCardData) {
   const isGold = accentColor === "gold";
-  const cardBg = isGold ? "bg-gold/[0.03] border-l-[3px] border-l-gold" : "";
   const topBorder = isGold ? "border-t-[4px] border-t-gold" : "border-t-[3px] border-t-terracotta";
-  const badgeCls = isGold ? "bg-gold/10 text-[#9A7B40]" : "bg-terracotta/[0.06] text-terracotta";
+  const cardBg = isGold ? "bg-gold/[0.03] border-l-[3px] border-l-gold" : "";
+  const badgeCls = isGold
+    ? "text-[#9A7B40] border-[#9A7B40]/30"
+    : "text-terracotta border-terracotta/30";
 
   return (
     <div className={`bg-white border border-champagne/50 ${topBorder} ${cardBg} mb-3.5 overflow-hidden`}>
       <div className="p-5">
-        <div className="flex items-baseline justify-between mb-2">
-          <h3 className={`font-heading font-medium ${isGold ? "text-premium-title" : "text-card-title"} text-espresso`}>{name}</h3>
-          {badge && <span className={`font-body font-semibold text-label tracking-[0.3px] uppercase px-2.5 py-1 shrink-0 ml-2 ${badgeCls}`}>{badge}</span>}
+        {/* Badge — small, above the name */}
+        {badge && (
+          <span className={`inline-block font-body font-semibold text-[9px] tracking-[1px] uppercase px-2 py-[3px] border mb-2.5 ${badgeCls}`}>
+            {badge}
+          </span>
+        )}
+
+        {/* Name */}
+        <h3 className={`font-heading font-medium ${isGold ? "text-premium-title" : "text-card-title"} text-espresso mb-2.5`}>{name}</h3>
+
+        {/* Tags with gold left-border accents */}
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {tags.map((tag, i) => (
+            <span key={i} className="font-body text-[11px] text-warm-taupe border-l-[2px] border-l-gold/40 pl-2 py-0.5">
+              {tag}
+            </span>
+          ))}
         </div>
-        <div className="flex items-baseline gap-2 mb-1">
-          <span className="font-body font-semibold text-price text-terracotta">{price}</span>
-          {priceNote && <span className="font-body text-caption text-warm-taupe">{priceNote}</span>}
-        </div>
-        <div className="w-8 h-[length:var(--lui-gold-line-h)] bg-gold my-3" aria-hidden="true" />
+
+        {/* Description */}
         <p className="font-body text-card text-warm-grey leading-[1.6] mb-3">{description}</p>
-        <p className="font-body text-tag text-warm-taupe mb-4">{tags.join(" · ")}</p>
       </div>
+
+      {/* Image */}
       {imageAlt && (
         <div className="px-3.5 pb-3.5">
           <div className={`border ${isGold ? "border-gold" : "border-champagne"} p-0.5`}>
@@ -32,8 +53,16 @@ export default function ServiceSelectorCard({
           </div>
         </div>
       )}
-      <div className="px-5 pb-5">
-        <Link href={ctaHref} className="block text-center font-body font-semibold text-cta tracking-[1px] uppercase py-3.5 bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2">
+
+      {/* Bottom row: price + text link */}
+      <div className="flex items-baseline justify-between px-5 pb-5 pt-1">
+        <div className="flex items-baseline gap-2">
+          <span className="font-body font-semibold text-[length:var(--lui-fs-card)] text-terracotta">{price}</span>
+          {priceStrikethrough && (
+            <span className="font-body text-caption text-warm-taupe line-through">{priceStrikethrough}</span>
+          )}
+        </div>
+        <Link href={ctaHref} className="font-body font-semibold text-[13px] text-terracotta no-underline hover:underline">
           {ctaText}
         </Link>
       </div>

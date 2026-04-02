@@ -3,12 +3,12 @@ import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // =============================================================================
-// FreeSessionCard — Image by LUI (Desktop Overhaul — LUI-DESK-002 §2.3)
+// FreeSessionCard — Image by LUI (Mobile + Desktop unified)
 // =============================================================================
-// Mobile: full-width card with image on top, champagne border, vertical deliverables
-// Desktop (≥1024px): 880px centered, gold border, no image, centered text,
-//   subtitle bar with flanking gold lines, horizontal deliverables separated by
-//   gold vertical lines, inline trust line below CTA
+// Both mobile and desktop: centered text, subtitle bar with flanking gold lines,
+// horizontal deliverables with vertical separators, CTA button.
+// Mobile: has image on top, full-width card.
+// Desktop: 880px max-width, gold border, no image, inline trust line.
 // =============================================================================
 
 interface FreeSessionCardProps {
@@ -19,7 +19,6 @@ interface FreeSessionCardProps {
   deliverables: FreeSessionDeliverable[];
   cta: { text: string; href: string; external?: boolean };
   footnote: string;
-  /** Desktop trust line — rendered inside the card on lg: */
   trustLine?: string;
 }
 
@@ -29,25 +28,20 @@ export default function FreeSessionCard({
   return (
     <section className="bg-soft-stone py-5 px-3.5 lg:py-10" aria-label="Free session">
       <ScrollReveal>
-        <div className="bg-white border border-champagne lg:border-gold overflow-hidden lg:max-w-[880px] lg:mx-auto lg:px-12 lg:py-8 lg:text-center">
+        <div className="bg-white border border-champagne lg:border-gold overflow-hidden lg:max-w-[880px] lg:mx-auto lg:px-12 lg:py-8 text-center">
           {/* Mobile-only image */}
           <div className="p-1.5 lg:hidden">
             <ImagePlaceholder alt={imageAlt} width={340} height={121} colorIndex={0} className="w-full" />
           </div>
 
           <div className="pt-4 px-5 pb-5 lg:pt-0 lg:px-0 lg:pb-0">
-            {/* Mobile subtitle */}
-            <p className="font-body font-semibold text-label tracking-[1.5px] uppercase text-terracotta mb-2 lg:hidden">
-              {subtitle}
-            </p>
-
             {/* Title */}
             <h2 className="font-heading font-medium text-card-title text-espresso leading-[1.15] mb-1.5 lg:text-[28px] lg:font-normal lg:italic lg:mb-1.5">
               {title}
             </h2>
 
-            {/* Desktop subtitle bar with flanking gold lines */}
-            <div className="hidden lg:flex items-center justify-center gap-3.5 mb-5">
+            {/* Subtitle bar with flanking gold lines */}
+            <div className="flex items-center justify-center gap-3.5 mb-4 lg:mb-5">
               <div className="w-7 h-[1px] bg-gold" aria-hidden="true" />
               <span className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-gold">
                 {subtitle}
@@ -55,32 +49,19 @@ export default function FreeSessionCard({
               <div className="w-7 h-[1px] bg-gold" aria-hidden="true" />
             </div>
 
-            {/* Mobile gold rule */}
-            <div className="w-8 h-[length:var(--lui-gold-line-h)] bg-gold my-3 lg:hidden" aria-hidden="true" />
-
             {/* Description */}
             <p className="font-body text-card text-warm-grey leading-[1.6] mb-3.5 lg:text-[15px] lg:max-w-[440px] lg:mx-auto lg:mb-5">
               {description}
             </p>
 
-            {/* Mobile deliverables (vertical) */}
-            <div className="mb-4 lg:hidden">
-              {deliverables.map((d, i) => (
-                <p key={i} className="text-inclusion text-warm-grey leading-[1.7] pl-[18px] mb-[5px] relative">
-                  <span className="absolute left-0 text-gold font-semibold" aria-hidden="true">—</span>
-                  <span className="font-semibold text-espresso">{d.label}</span> — {d.sublabel}
-                </p>
-              ))}
-            </div>
-
-            {/* Desktop deliverables (horizontal with gold separators) */}
-            <div className="hidden lg:flex items-center justify-center border-t border-b border-champagne/35 py-3 mb-6">
+            {/* Deliverables — horizontal row with gold separators */}
+            <div className="flex items-center justify-center border-t border-b border-champagne/35 py-3 mb-5 lg:mb-6">
               {deliverables.map((d, i) => (
                 <div key={i} className="flex items-center">
                   {i > 0 && <div className="w-[1px] h-8 bg-gold/30 mx-0" aria-hidden="true" />}
-                  <div className="w-[150px] text-center px-3">
-                    <p className="text-[14px] font-semibold text-espresso mb-0.5">{d.label}</p>
-                    <p className="text-[11px] text-warm-taupe">{d.sublabel}</p>
+                  <div className="w-[110px] lg:w-[150px] text-center px-2 lg:px-3">
+                    <p className="text-[13px] lg:text-[14px] font-semibold text-espresso mb-0.5">{d.label}</p>
+                    <p className="text-[10px] lg:text-[11px] text-warm-taupe">{d.sublabel}</p>
                   </div>
                 </div>
               ))}
@@ -96,7 +77,7 @@ export default function FreeSessionCard({
               {cta.text}
             </a>
 
-            {/* Mobile footnote */}
+            {/* Footnote */}
             <p className="font-body text-caption text-warm-taupe text-center mt-2 lg:hidden">{footnote}</p>
 
             {/* Desktop trust line (inside card) */}

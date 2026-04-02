@@ -38,11 +38,6 @@ export default function ServicesHero({ headline, description }: ServicesHeroProp
 
       {/* Text content */}
       <div className="relative z-[2] max-w-[1200px] mx-auto px-5 lg:px-12 pt-8 pb-6 lg:pt-[120px] lg:pb-[100px] lg:flex lg:flex-col lg:justify-center lg:min-h-[580px]">
-        {/* Mobile-only label */}
-        <p className="font-body font-semibold text-label tracking-[2px] uppercase text-terracotta mb-3 lg:hidden">
-          Our Services
-        </p>
-
         <h1
           className="font-heading font-semibold text-espresso leading-[1.18] lg:leading-[1.06] lg:tracking-[-1px] lg:max-w-[480px]"
           data-desktop-h1="68"

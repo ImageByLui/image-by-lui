@@ -49,7 +49,7 @@ export default function ServiciosPage() {
 
       {/* §2.4 Service cards — MOBILE: stacked, DESKTOP: 2-col photography grid */}
       <section className="bg-warm-ivory pt-4 px-3.5 pb-3.5 lg:hidden" aria-label="Nuestros servicios">
-        <p className="font-body font-semibold text-caption text-espresso text-center tracking-[1px] uppercase mb-1">{content.selector.heading}</p>
+        <p className="font-heading font-semibold text-[20px] text-espresso text-center mb-1">{content.selector.heading}</p>
         <p className="font-body text-caption text-warm-taupe text-center leading-[1.5] mb-[22px]">{content.selector.subheading}</p>
         {content.selector.cards.map((card: ServiceSelectorCardData) => <ServiceSelectorCard key={card.name} {...card} />)}
       </section>

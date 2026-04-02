@@ -31,22 +31,26 @@ export default function ServicesTestimonialBlock({
   return (
     <section className={`${BG_MAP[bgColor]} py-8 px-5 lg:py-0 lg:px-0`} aria-label="Client testimonial">
       <ScrollReveal>
-        {/* Mobile layout */}
-        <div className="flex gap-3.5 items-start lg:hidden">
-          <div className="w-11 h-11 rounded-full bg-champagne border border-gold flex items-center justify-center shrink-0 overflow-hidden">
-            {photo ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={photo} alt={name} className="w-full h-full object-cover" />
-            ) : (
-              <span className="font-body font-semibold text-tag text-warm-taupe">{initials}</span>
-            )}
-          </div>
-          <div>
-            <p className="font-heading font-light italic text-testimonial text-espresso leading-[1.4] mb-2">&ldquo;{quote}&rdquo;</p>
-            <p className="font-body font-semibold text-inclusion text-espresso">{name}</p>
-            <p className="font-body text-caption text-warm-taupe">{title}</p>
+        {/* Mobile layout — white card with gold left border */}
+        <div className="lg:hidden">
+          <div className="bg-white border-l-[3px] border-l-gold p-5 shadow-[0_1px_6px_rgba(44,36,32,0.04)]">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-champagne border-[1.5px] border-gold flex items-center justify-center shrink-0 overflow-hidden">
+                {photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={photo} alt={name} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="font-body font-semibold text-tag text-warm-taupe">{initials}</span>
+                )}
+              </div>
+              <div>
+                <p className="font-body font-semibold text-[13px] text-espresso">{name}</p>
+                <p className="font-body text-[11px] text-warm-taupe">{title}</p>
+              </div>
+            </div>
+            <p className="font-heading font-light italic text-testimonial text-espresso leading-[1.45] mb-2">&ldquo;{quote}&rdquo;</p>
             {handle && igUrl && (
-              <a href={igUrl} target="_blank" rel="noopener noreferrer" className="font-body text-caption text-warm-taupe hover:text-terracotta transition-colors no-underline">{handle}</a>
+              <a href={igUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[11px] text-warm-taupe hover:text-terracotta transition-colors no-underline">{handle}</a>
             )}
           </div>
         </div>

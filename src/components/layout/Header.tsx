@@ -230,29 +230,32 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Mobile Hamburger (unchanged) */}
-            <button
-              className="lg:hidden text-espresso p-2"
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label="Open menu"
-            >
-              <svg
-                width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                aria-hidden="true"
+            {/* Mobile: Language toggle + Hamburger */}
+            <div className="lg:hidden flex items-center gap-2">
+              <LanguageSwitcher />
+              <button
+                className="text-espresso p-2"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
               >
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            </button>
+                <svg
+                  width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Bottom rule — fades out on scroll */}
         <div
-          className="h-[1px] bg-champagne transition-opacity duration-[350ms]"
-          style={{ opacity: scrolled ? 0 : 0.3 }}
+          className="h-[1px] bg-gold transition-opacity duration-[350ms]"
+          style={{ opacity: scrolled ? 0 : 0.4 }}
           aria-hidden="true"
         />
       </header>
