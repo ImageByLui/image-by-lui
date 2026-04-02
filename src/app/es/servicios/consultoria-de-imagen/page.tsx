@@ -42,16 +42,11 @@ export default function ConsultoriaDeImagenPage() {
         imageAlt={content.hero.imageAlt}
         imageBorderColor="gold"
         tags={content.hero.tags}
-        tagsPosition="above-image"
         desktopPhoto={desktop?.hero}
         desktopH1Size={52}
         mobileHeroImage="/images/mobile/heroes/ic-hero-lu-cartier.jpg"
       />
 
-      {/* Trust line — mobile only */}
-      <div className="lg:hidden">
-        <TrustLine name="Lu · Consultora de Imagen" credentials={["Especialista certificada en colorimetría", "Bilingüe EN/ES", "Miami"]} compact />
-      </div>
 
       {/* §4.3 Investment */}
       <div className="lg:hidden">
