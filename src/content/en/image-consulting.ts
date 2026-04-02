@@ -141,7 +141,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         badgeVariant: "terracotta",
         borderColor: "champagne",
         description:
-          "Styled session with professional lighting, directed and photographed by Lu. Included in your investment — no additional cost.",
+          "Styled and directed photo session",
       },
       {
         title: "Professional photographer",
@@ -149,7 +149,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         badgeVariant: "gold",
         borderColor: "gold",
         description:
-          "3-hour session with a professional photographer for premium-quality images — visual assets you'll use for years.",
+          "3-hour session, visual assets for years",
       },
     ],
   },

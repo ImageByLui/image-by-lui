@@ -141,7 +141,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         badgeVariant: "terracotta",
         borderColor: "champagne",
         description:
-          "Sesión estilizada con iluminación profesional, dirigida y fotografiada por Lu. Incluida en su inversión — sin costo adicional.",
+          "Sesión estilizada y dirigida por Lu",
       },
       {
         title: "Fotógrafo profesional",
@@ -149,7 +149,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         badgeVariant: "gold",
         borderColor: "gold",
         description:
-          "Sesión de 3 horas con un fotógrafo profesional para imágenes de calidad premium — activos visuales que usará por años.",
+          "Sesión de 3 horas, activos visuales por años",
       },
     ],
   },
