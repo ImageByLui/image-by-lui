@@ -47,11 +47,14 @@ export default function ServicePageHero({
   const photoW = desktopPhoto?.photoWidth ?? "45%";
 
   const tagsBlock = (
-    <div className={`${tagsPosition === "above-image" ? "px-5 pb-5" : "pt-5 px-5 pb-7"} ${hasDesktop ? "lg:hidden" : ""}`}>
-      <div className="w-full h-px bg-gold/25 mb-3" aria-hidden="true" />
-      <p className="font-body font-medium text-[length:var(--lui-fs-tag)] text-warm-taupe tracking-[0.5px]">
-        {tags.join("  ·  ")}
-      </p>
+    <div className={`${tagsPosition === "above-image" ? "px-5 pb-3" : "pt-3 px-5 pb-5"} ${hasDesktop ? "lg:hidden" : ""}`}>
+      <div className="flex flex-wrap gap-1.5">
+        {tags.map((tag, i) => (
+          <span key={i} className="font-body text-[11px] text-warm-taupe border-l-[2px] border-l-gold/40 pl-2 py-0.5">
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   );
 
@@ -60,7 +63,7 @@ export default function ServicePageHero({
       <div className={`border ${borderCls} p-0.5 overflow-hidden`}>
         {mobileHeroImage ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[3/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[2/1] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
         ) : (
           <ImagePlaceholder alt={imageAlt} width={347} height={174} colorIndex={1} className="w-full" />
         )}
@@ -106,9 +109,9 @@ export default function ServicePageHero({
       >
         {/* Label */}
         <p
-          className={`font-body font-semibold text-[length:var(--lui-fs-label)] tracking-[2px] uppercase ${labelCls} mb-3 ${hasDesktop ? "lg:tracking-[2px] lg:mb-3" : ""}`}
+          className={`font-body font-semibold tracking-[2px] uppercase ${labelCls} mb-3 ${hasDesktop ? "lg:tracking-[2px] lg:mb-3" : ""}`}
           data-desktop-label={hasDesktop ? "" : undefined}
-          style={hasDesktop ? { opacity: 0, animation: "fadeUp 0.5s ease 0.1s forwards" } : undefined}
+          style={{ fontSize: 11, ...(hasDesktop ? { opacity: 0, animation: "fadeUp 0.5s ease 0.1s forwards" } : {}) }}
         >
           {label}
         </p>
@@ -131,7 +134,7 @@ export default function ServicePageHero({
 
         {/* Description */}
         <p
-          className={`text-[length:var(--lui-fs-body)] text-warm-grey leading-[1.65] mb-3 ${hasDesktop ? "lg:text-[16px] lg:font-light lg:leading-[1.65] lg:max-w-[420px] lg:mb-0" : ""}`}
+          className={`text-[length:var(--lui-fs-body)] text-warm-grey leading-[1.65] mb-1 ${hasDesktop ? "lg:text-[16px] lg:font-light lg:leading-[1.65] lg:max-w-[420px] lg:mb-0" : ""}`}
           style={hasDesktop ? { opacity: 0, animation: "fadeUp 0.5s ease 0.95s forwards" } : undefined}
         >
           {description}

@@ -29,7 +29,7 @@ export default function PricingTier({
   const s = STYLES[variant];
   const summaryContent = (
     <div className={`${s.summaryPt} px-5 pb-[18px]`}>
-      {badge && <span className="absolute top-[-1px] left-5 bg-terracotta text-white font-body font-semibold text-label tracking-[1.2px] uppercase px-3 py-1 z-[1]">{badge}</span>}
+      {badge && <span className="absolute top-[-1px] left-5 bg-terracotta text-white font-body font-semibold text-[9px] tracking-[1px] uppercase px-2.5 py-[3px] z-[1]">{badge}</span>}
       <div className="flex justify-between items-start mb-2">
         <h3 className={`font-heading font-medium ${s.nameSize} text-espresso`}>{name}</h3>
         <span className={`font-body font-semibold ${s.priceSize} ${s.priceCls}`}>{price}</span>

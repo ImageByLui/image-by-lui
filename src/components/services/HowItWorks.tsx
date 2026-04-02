@@ -29,20 +29,17 @@ export default function HowItWorks({ label, steps, imageAlt, desktopHeading, des
     <section className={`bg-warm-ivory py-7 px-3.5 ${hasDesktop ? "lg:bg-soft-stone lg:py-16 lg:px-0" : ""}`} aria-label="How it works">
       {/* Mobile layout */}
       <div className={hasDesktop ? "lg:hidden" : ""}>
-        <p className="font-body font-semibold text-label tracking-[1.5px] uppercase text-terracotta px-1.5 mb-5">{label}</p>
+        <p className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta px-1.5 mb-5">{label}</p>
         <div className="px-1.5">
           {steps.map((step, i) => (
             <div key={i}>
-              <div className="border-l-2 border-l-gold pl-5 pb-5 relative">
-                <div className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-terracotta text-white flex items-center justify-center">
-                  <span className="font-heading font-semibold text-inclusion leading-none">{i + 1}</span>
-                </div>
+              <div className="border-l border-l-gold/30 pl-5 pb-5 relative">
+                <span className="absolute -left-3 top-0 font-heading text-[28px] font-medium text-terracotta leading-none bg-warm-ivory px-1">{i + 1}</span>
                 <div className="pt-0.5">
                   <h3 className="font-body font-semibold text-nav text-espresso mb-1.5">{step.title}</h3>
                   <p className="font-body text-card text-warm-grey leading-[1.55]">{step.description}</p>
                 </div>
               </div>
-              {i < steps.length - 1 && <div className="h-px bg-champagne ml-5 mb-3" aria-hidden="true" />}
             </div>
           ))}
         </div>
