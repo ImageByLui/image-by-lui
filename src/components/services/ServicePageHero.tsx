@@ -47,7 +47,7 @@ export default function ServicePageHero({
   const photoW = desktopPhoto?.photoWidth ?? "45%";
 
   const tagsBlock = (
-    <div className={`${tagsPosition === "above-image" ? "px-5 pb-3" : "pt-3 px-5 pb-5"} ${hasDesktop ? "lg:hidden" : ""}`}>
+    <div className={`${tagsPosition === "above-image" ? "px-5 pb-3" : "pt-3 px-5 pb-3"} ${hasDesktop ? "lg:hidden" : ""}`}>
       <div className="flex flex-wrap gap-1.5">
         {tags.map((tag, i) => (
           <span key={i} className="font-body text-[11px] text-warm-taupe border-l-[2px] border-l-gold/40 pl-2 py-0.5">
