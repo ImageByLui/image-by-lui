@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import AccordionCard from "@/components/ui/AccordionCard";
 import ImagePlaceholder from "@/components/features/ImagePlaceholder";
 
@@ -7,12 +8,14 @@ interface JourneyComponentProps {
   inclusions: { key: string; detail: string }[]; deliverableLine: string;
   defaultOpen?: boolean; isFirst?: boolean;
   isOpen?: boolean; onToggle?: () => void;
+  /** Optional content rendered at the bottom of the accordion body */
+  footer?: ReactNode;
 }
 
 export default function JourneyComponent({
   stepNumber, name, duration, subtitle, description, imageAlt, image,
   inclusions, deliverableLine, defaultOpen = false, isFirst = false,
-  isOpen, onToggle,
+  isOpen, onToggle, footer,
 }: JourneyComponentProps) {
   const borderClasses = isFirst ? "border border-gold/50 border-t-[3px] border-t-gold" : "border border-gold/50";
   const summaryContent = (
@@ -48,7 +51,8 @@ export default function JourneyComponent({
             </p>
           ))}
         </div>
-        <p className="font-heading font-light italic text-[length:var(--lui-fs-inclusion)] text-gold mt-3.5">{deliverableLine}</p>
+        <p className="font-heading font-semibold italic mt-3.5" style={{ fontSize: 13, color: "#C49A5C" }}>{deliverableLine}</p>
+        {footer}
       </div>
     </AccordionCard>
   );

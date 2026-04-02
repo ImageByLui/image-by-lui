@@ -51,10 +51,13 @@ export default function ConsultoriaDeImagenPage() {
       {desktop?.investment && (
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
-
       <div className="lg:hidden">
-        <JourneySection label={content.journey.label} subheading={content.journey.subheading} components={content.journey.components} />
-        <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
+        <JourneySection
+          label={content.journey.label}
+          subheading={content.journey.subheading}
+          components={content.journey.components}
+          lastStepFooter={<PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />}
+        />
       </div>
       {desktop?.journey && (
         <JourneyTimelineDesktop

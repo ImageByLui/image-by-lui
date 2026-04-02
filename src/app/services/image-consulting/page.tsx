@@ -54,10 +54,14 @@ export default function ImageConsultingPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
-      {/* §4.4 Journey + Photo Options — mobile: accordion + photo cards, desktop: timeline */}
+      {/* §4.4 Journey + Photo Options — mobile: accordion with photo cards in last step */}
       <div className="lg:hidden">
-        <JourneySection label={content.journey.label} subheading={content.journey.subheading} components={content.journey.components} />
-        <PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />
+        <JourneySection
+          label={content.journey.label}
+          subheading={content.journey.subheading}
+          components={content.journey.components}
+          lastStepFooter={<PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />}
+        />
       </div>
       {desktop?.journey && (
         <JourneyTimelineDesktop
