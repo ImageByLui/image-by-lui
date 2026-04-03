@@ -16,6 +16,7 @@ import FAQPreview from "@/components/services/FAQPreview";
 import CrossNavLink from "@/components/services/CrossNavLink";
 import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const content = imageConsultingContent;
 const desktop = content.desktop;
@@ -54,6 +55,8 @@ export default function ImageConsultingPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
+      <SectionDivider />
+      
       {/* §4.4 Journey + Photo Options — mobile: accordion with photo cards in last step */}
       <div className="lg:hidden">
         <JourneySection
@@ -73,6 +76,8 @@ export default function ImageConsultingPage() {
         />
       )}
 
+      <SectionDivider />
+      
       {/* §4.5 Deliverables — mobile: compact grid, desktop: prestige card */}
       <div className="lg:hidden">
         <DeliverablesCompact label={content.deliverables.label} subheading={content.deliverables.subheading} items={content.deliverables.items} whatsappCallout={content.deliverables.whatsappCallout} />
@@ -81,6 +86,8 @@ export default function ImageConsultingPage() {
         <DeliverablesPrestigeCard {...desktop.deliverables} />
       )}
 
+      <SectionDivider />
+      
       {/* §4.6 Testimonial */}
       {content.testimonial && (
         <ServicesTestimonialBlock
@@ -94,6 +101,8 @@ export default function ImageConsultingPage() {
         />
       )}
 
+      <SectionDivider />
+      
       {/* §4.7 Before/After slider */}
       <BeforeAfterSlider
         label={content.transformations.label}
@@ -104,6 +113,8 @@ export default function ImageConsultingPage() {
         desktopHeading="Real transformations"
       />
 
+      <SectionDivider />
+      
       {/* §4.8 FAQ Preview — desktop only */}
       {desktop?.faqPreview && (
         <FAQPreview
