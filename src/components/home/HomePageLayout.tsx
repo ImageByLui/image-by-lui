@@ -80,12 +80,6 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
 
         {/* Desktop text — RIGHT side */}
         <div className="hidden lg:flex lg:flex-col lg:justify-center" style={{ marginLeft: "52%", padding: "0 48px 0 24px", maxWidth: 520 }}>
-          <p
-            className="font-heading font-light text-[14px] text-warm-taupe mb-3"
-            style={{ opacity: 0, animation: "fadeUp 0.6s ease 0.1s forwards" }}
-          >
-            {c.hero.label}
-          </p>
           <h1
             className="font-heading italic text-espresso leading-[1.06]"
             style={{ fontSize: 58, letterSpacing: "-0.5px", opacity: 0, animation: "fadeUp 0.7s ease 0.15s forwards" }}
@@ -272,7 +266,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
             src="/images/mobile/home/home-lu-about.jpg"
             alt={c.meetLu.imageAlt}
             className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.75) sepia(0.03) brightness(1.05)" }}
+            style={{ objectPosition: "center 35%", filter: "saturate(0.75) sepia(0.03) brightness(1.05)" }}
           />
         </div>
 
