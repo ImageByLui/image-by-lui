@@ -118,6 +118,6 @@ export const homeContent: HomeContent = {
   seo: {
     title: "Image Consultant Miami \u2014 Diagnostic Styling | Image by LUI",
     description: "Diagnostic image consulting and occasion styling for Miami professionals. Complimentary 20-min color analysis. Bilingual EN/ES.",
-    ogImage: "/og/homepage.jpg",
+    ogImage: "/og/og-default.jpg",
   },
 };
