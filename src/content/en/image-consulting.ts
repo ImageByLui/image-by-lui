@@ -109,12 +109,12 @@ export const imageConsultingContent: ImageConsultingContent = {
     label: "What you keep",
     subheading: "7 DELIVERABLES INCLUDED IN YOUR INVESTMENT",
     items: [
-      { title: "Complete color palette card", qualifier: "your full Pantone-matched spectrum" },
+      { title: "Color palette card", qualifier: "Full Pantone-matched spectrum" },
       { title: "Personal style profile", qualifier: "body, face shape, archetype, silhouette guide" },
-      { title: "Closet organization guide", qualifier: "PDF with your personalized system" },
-      { title: "Personalized shopping list", qualifier: "strategic gaps and priorities" },
-      { title: "Digital lookbook", qualifier: "15–20 complete outfits with styling notes" },
-      { title: "Professional photos", qualifier: "styled session for LinkedIn, social, headshots" },
+      { title: "Closet organization guide", qualifier: "Your personalized wardrobe system" },
+      { title: "Personalized shopping list", qualifier: "Gaps and priorities identified" },
+      { title: "Digital lookbook", qualifier: "15–20 outfits with styling notes" },
+      { title: "Professional photos", qualifier: "LinkedIn, social, headshots ready" },
     ],
     whatsappCallout: {
       title: "Plus: 7 days of WhatsApp support",
