@@ -124,9 +124,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 transition-all duration-300"
-              style={{ padding: "16px 40px", boxShadow: "none" }}
-              onMouseOver={(e) => { (e.currentTarget.style.boxShadow = "0 6px 20px rgba(163,87,65,0.15)"); }}
-              onMouseOut={(e) => { (e.currentTarget.style.boxShadow = "none"); }}
+              style={{ padding: "16px 40px" }}
             >
               {c.hero.cta.text}
             </a>
