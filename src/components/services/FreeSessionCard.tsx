@@ -41,7 +41,7 @@ export default function FreeSessionCard({
 
           <div className="pt-4 px-5 pb-5 lg:pt-0 lg:px-0 lg:pb-0">
             {/* Title */}
-            <h2 className="font-heading font-medium text-[22px] text-espresso leading-[1.15] mb-1.5 lg:text-[28px] lg:font-normal lg:italic lg:mb-1.5">
+            <h2 className="font-heading font-medium text-[26px] text-espresso leading-[1.15] mb-1.5 lg:text-[28px] lg:font-normal lg:italic lg:mb-1.5">
               {title}
             </h2>
 
