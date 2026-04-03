@@ -9,7 +9,7 @@ interface DeliverablesCompactProps {
 
 export default function DeliverablesCompact({ label, subheading, items, whatsappCallout }: DeliverablesCompactProps) {
   return (
-    <section className="py-7 px-3.5" style={{ backgroundColor: "#EDE7DF" }} aria-label="What you keep">
+    <section className="py-7 px-3.5" style={{ backgroundColor: "var(--lui-soft-stone)" }} aria-label="What you keep">
       {/* Gold-framed white card */}
       <div className="border border-gold/40 bg-white px-5 py-7">
         {/* Heading — italic serif, centered */}
