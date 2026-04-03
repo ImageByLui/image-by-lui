@@ -64,7 +64,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
           >
             {c.hero.subcopy}
           </p>
-          <div style={{ padding: "28px 40px 0" }}>
+          <div style={{ padding: "28px 40px 28px" }}>
             <a
               href={c.hero.cta.href}
               target="_blank"
