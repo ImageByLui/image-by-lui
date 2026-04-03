@@ -59,7 +59,7 @@ export default function FAQInteractive({ content, lang }: FAQInteractiveProps) {
     return () => observer.disconnect();
   }, []);
 
-  const BG_COLORS = ["#EDE7DF", "#FAF8F5", "#EDE7DF"]; // stone, ivory, stone
+  const BG_COLORS = ["#FAF8F5", "#FAF8F5", "#FAF8F5"]; // stone, ivory, stone
 
   return (
     <>
