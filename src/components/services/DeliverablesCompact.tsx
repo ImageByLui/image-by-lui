@@ -31,8 +31,8 @@ export default function DeliverablesCompact({ label, subheading, items, whatsapp
             <div key={i} className="flex gap-3">
               <span className="shrink-0 mt-0.5" style={{ color: "#C49A5C", fontSize: 10 }} aria-hidden="true">✦</span>
               <div>
-                <p className="font-body font-semibold text-[14px] text-espresso leading-[1.3] mb-0.5">{item.title}</p>
-                <p className="font-body text-[12px] text-warm-taupe leading-[1.4]">{item.qualifier}</p>
+               <p className="font-body text-[13px] text-warm-grey leading-[1.5]">
+                <strong className="text-espresso font-semibold">{item.title}</strong> — {item.qualifier}</p>
               </div>
             </div>
           ))}
