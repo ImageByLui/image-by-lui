@@ -55,9 +55,9 @@ export default function ImageConsultingPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
-     <div className="-my-2">
-      <SectionDivider />
-      </div>
+    <div className="-my-2 -mb-6">
+    <SectionDivider />
+    </div>
       
       {/* §4.4 Journey + Photo Options — mobile: accordion with photo cards in last step */}
       <div className="lg:hidden">
