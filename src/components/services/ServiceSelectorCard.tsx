@@ -72,7 +72,7 @@ export default function ServiceSelectorCard({
             <span className="font-body text-caption text-warm-taupe line-through">{priceStrikethrough}</span>
           )}
         </div>
-        <Link href={ctaHref} className="font-body font-semibold text-[13px] text-terracotta no-underline hover:underline">
+        <Link href={ctaHref} className="font-body font-semibold text-[15px] text-terracotta no-underline hover:underline">
           {ctaText}
         </Link>
       </div>
