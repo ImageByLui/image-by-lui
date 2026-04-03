@@ -55,7 +55,7 @@ export default function ImageConsultingPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
-      <div className="-mb-3">
+      <div className="-my-3">
      <SectionDivider />
       </div>
       
