@@ -37,7 +37,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
         </div>
 
         {/* Mobile photo */}
-        <div className="lg:hidden relative overflow-hidden" style={{ height: 420 }}>
+        <div className="lg:hidden relative overflow-hidden" style={{ height: 500 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/mobile/heroes/home-hero-page.jpg"
@@ -64,7 +64,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
           >
             {c.hero.subcopy}
           </p>
-          <div style={{ padding: "28px 40px 48px" }}>
+          <div style={{ padding: "28px 40px 0" }}>
             <a
               href={c.hero.cta.href}
               target="_blank"
