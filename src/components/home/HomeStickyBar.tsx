@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 interface HomeStickyBarProps {
   text: string;
@@ -7,18 +7,29 @@ interface HomeStickyBarProps {
 }
 
 export default function HomeStickyBar({ text, href }: HomeStickyBarProps) {
-  const [visible, setVisible] = useState(true);
+  const [scrolledPast, setScrolledPast] = useState(false);
+  const [atBottom, setAtBottom] = useState(false);
 
+  // Show after user scrolls past hero (~300px)
+  useEffect(() => {
+    const onScroll = () => setScrolledPast(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Hide when bottom CTA enters viewport
   useEffect(() => {
     const target = document.querySelector("[data-section='bcta']");
     if (!target) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
+      ([entry]) => setAtBottom(entry.isIntersecting),
       { threshold: 0.1 }
     );
     observer.observe(target);
     return () => observer.disconnect();
   }, []);
+
+  const visible = scrolledPast && !atBottom;
 
   return (
     <div
@@ -26,6 +37,7 @@ export default function HomeStickyBar({ text, href }: HomeStickyBarProps) {
       style={{
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
+        transform: visible ? "translateY(0)" : "translateY(100%)",
         backgroundColor: "#A35741",
         boxShadow: "0 -4px 20px rgba(44,36,32,0.1)",
       }}
