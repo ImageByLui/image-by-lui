@@ -324,7 +324,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
         {/* Mobile — horizontal scroll on ivory */}
         <div className="lg:hidden" style={{ backgroundColor: "var(--lui-warm-ivory)", padding: "48px 0" }}>
           <ScrollReveal>
-            <h2 className="font-heading italic text-[22px] text-espresso text-center mb-6 px-6">{c.moreVoices.heading}</h2>
+            <h2 className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-warm-taupe text-center mb-6 px-6">{c.moreVoices.heading}</h2>
             <div
               className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory pb-3"
               style={{ padding: "0 20px 12px", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
@@ -333,7 +333,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
                 <div
                   key={i}
                   className="shrink-0 snap-start bg-white"
-                  style={{ minWidth: 265, padding: "20px 18px", boxShadow: "0 2px 20px rgba(44,36,32,0.05)", border: "0.5px solid rgba(212,197,178,0.2)" }}
+                  style={{ width: 265, minWidth: 265, padding: "20px 18px", boxShadow: "0 2px 20px rgba(44,36,32,0.05)", border: "0.5px solid rgba(212,197,178,0.2)" }}
                 >
                   <p className="font-heading italic font-light text-[16px] text-espresso leading-[1.4] mb-3">&ldquo;{t.quote}&rdquo;</p>
                   <p className="font-body font-semibold text-[11px] text-espresso">{t.name}</p>
