@@ -73,7 +73,7 @@ export default function ServiceSelectorCard({
           )}
         </div>
         <Link href={ctaHref} className="font-body font-semibold text-[15px] text-terracotta no-underline hover:underline">
-          {ctaText}
+          {ctaText.replace("→", "")}<span className="text-[15px] ml-1">→</span>
         </Link>
       </div>
     </div>
