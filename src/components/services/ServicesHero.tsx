@@ -29,13 +29,19 @@ export default function ServicesHero({ headline, description, heroImageAlt }: Se
           className="w-full h-full object-cover"
           style={{ objectPosition: "center 15%" }}
         />
-        {/* Left fade gradient */}
-        <div
-          className="absolute top-0 left-0 h-full w-[140px]"
-          style={{ background: "linear-gradient(to right, #FAF8F5 0%, transparent 100%)" }}
-          aria-hidden="true"
-        />
-      </div>
+     {/* Left fade gradient */}
+          <div
+            className="absolute top-0 left-0 h-full w-[140px]"
+            style={{ background: "linear-gradient(to right, #FAF8F5 0%, transparent 100%)" }}
+            aria-hidden="true"
+          />
+          {/* Bottom fade gradient */}
+          <div
+            className="absolute bottom-0 left-0 w-full h-[100px]"
+            style={{ background: "linear-gradient(to top, #FAF8F5 0%, transparent 100%)" }}
+            aria-hidden="true"
+          />
+        </div>
 
       {/* Text content */}
       <div className="relative z-[2] max-w-[1200px] mx-auto px-5 lg:px-12 pt-8 pb-6 lg:pt-[120px] lg:pb-[100px] lg:flex lg:flex-col lg:justify-center lg:min-h-[580px]">
