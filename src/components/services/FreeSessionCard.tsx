@@ -25,7 +25,7 @@ export default function FreeSessionCard({
   imageAlt, title, subtitle, description, deliverables, cta, footnote, trustLine,
 }: FreeSessionCardProps) {
   return (
-    <section className="bg-soft-stone py-5 px-3.5 lg:py-10" aria-label="Free session">
+    <section className="bg-soft-stone py-2 px-3.5 lg:py-10" aria-label="Free session">
       <ScrollReveal>
         <div className="bg-white border border-champagne lg:border-gold overflow-hidden lg:max-w-[880px] lg:mx-auto lg:px-12 lg:py-8 text-center">
           {/* Mobile-only image */}
