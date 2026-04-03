@@ -27,7 +27,7 @@ export default function ServicesHero({ headline, description, heroImageAlt }: Se
           src="/images/heroes/services-hero-lu-bw.jpg"
           alt={heroImageAlt || "Lu — Image Consultant"}
           className="w-full h-full object-cover"
-          style={{ objectPosition: "center 15%" }}
+        style={{ objectPosition: "center 15%", transform: "scale(0.9)" }}
         />
      {/* Left fade gradient */}
           <div
