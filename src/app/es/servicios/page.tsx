@@ -11,6 +11,7 @@ import ServicesTestimonialBlock from "@/components/services/ServicesTestimonialB
 import FAQPreview from "@/components/services/FAQPreview";
 import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const content = serviciosOverviewContent;
 export const metadata: Metadata = {
@@ -47,6 +48,8 @@ export default function ServiciosPage() {
         <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
       </div>
 
+      <SectionDivider />
+      
       {/* §2.4 Service cards — MOBILE: stacked, DESKTOP: 2-col photography grid */}
       <section className="bg-warm-ivory pt-4 px-3.5 pb-3.5 lg:hidden" aria-label="Nuestros servicios">
         <p className="font-heading font-semibold text-[20px] text-espresso text-center mb-1">{content.selector.heading}</p>
@@ -58,6 +61,8 @@ export default function ServiciosPage() {
         <DesktopServiceCards heading={content.selector.heading} cards={desktop.serviceCards} />
       )}
 
+      <SectionDivider />
+      
       {/* §2.5 Testimonial */}
       <ServicesTestimonialBlock
         quote={content.testimonial.quote}
@@ -68,6 +73,8 @@ export default function ServiciosPage() {
         handle={content.testimonial.handle}
       />
 
+      <SectionDivider />
+      
       {/* §2.6 FAQ Preview — desktop only */}
       {desktop?.faqPreview && (
         <FAQPreview
