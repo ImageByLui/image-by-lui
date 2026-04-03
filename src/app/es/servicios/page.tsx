@@ -48,7 +48,9 @@ export default function ServiciosPage() {
         <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
       </div>
 
-      <SectionDivider />
+   <div className="-mb-2">
+    <SectionDivider />
+    </div>
       
       {/* §2.4 Service cards — MOBILE: stacked, DESKTOP: 2-col photography grid */}
       <section className="bg-warm-ivory pt-4 px-3.5 pb-3.5 lg:hidden" aria-label="Nuestros servicios">
