@@ -124,7 +124,9 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 transition-all duration-300"
-              style={{ padding: "16px 40px" }}
+              style={{ padding: "16px 40px", boxShadow: "none" }}
+              onMouseOver={(e) => { (e.currentTarget.style.boxShadow = "0 6px 20px rgba(163,87,65,0.15)"); }}
+              onMouseOut={(e) => { (e.currentTarget.style.boxShadow = "none"); }}
             >
               {c.hero.cta.text}
             </a>
@@ -136,8 +138,8 @@ export default function HomePage() {
       {/* ================================================================= */}
       {/* §4 — STATEMENT                                                   */}
       {/* ================================================================= */}
-      <section className="text-center px-8 lg:px-12" style={{ padding: "28px 32px 36px" }}>
-        <div className="lg:hidden">
+      <section className="text-center">
+        <div className="lg:hidden" style={{ padding: "28px 32px 36px" }}>
           <ScrollReveal>
             <h2 className="font-heading italic font-light text-[28px] text-espresso mb-2">{c.statement.heading}</h2>
             <p className="font-body text-[13px] text-warm-taupe" style={{ letterSpacing: "0.2px" }}>{c.statement.body}</p>
@@ -273,7 +275,15 @@ export default function HomePage() {
       {/* ================================================================= */}
       <section className="relative lg:min-h-[480px] lg:flex lg:items-center">
         {/* Desktop photo — bleeds RIGHT with mask-image feathering */}
-        <div className="hidden lg:block absolute top-0 right-0 w-[48%] h-full meet-photo-wrap overflow-hidden">
+        <div
+          className="hidden lg:block absolute top-0 right-0 w-[48%] h-full overflow-hidden"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 14%, black 100%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 4%, black 10%, black 90%, rgba(0,0,0,0.3) 96%, transparent 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 14%, black 100%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 4%, black 10%, black 90%, rgba(0,0,0,0.3) 96%, transparent 100%)",
+            WebkitMaskComposite: "source-in",
+            maskComposite: "intersect",
+          }}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/mobile/home/home-lu-about.jpg"

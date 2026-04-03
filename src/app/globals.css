@@ -21,7 +21,7 @@
   --lui-terracotta: #A35741;
   --lui-terracotta-dark: #8A4735;
   --lui-gold: #C49A5C;
-  --lui-soft-stone: #FAF8F5;
+  --lui-soft-stone: #EDE7DF;
   --lui-warm-grey: #6B6560;
   --lui-white: #FFFFFF;
 
@@ -523,4 +523,42 @@ details .accordion-content > div {
   .cta-primary:hover,
   .cta-gold:hover,
   .cta-whatsapp:hover { transform: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Homepage — White Background + Meet Lu Mask
+   --------------------------------------------------------------------------- */
+
+[data-page="home"] {
+  background-color: #FFFFFF;
+}
+
+body:has([data-page="home"]) {
+  background-color: #FFFFFF;
+}
+
+/* Meet Lu desktop photo feathering (§9.2) */
+.meet-photo-wrap {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 14%, black 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 4%, black 10%, black 90%, rgba(0,0,0,0.3) 96%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 14%, black 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 4%, black 10%, black 90%, rgba(0,0,0,0.3) 96%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* Fallback: simple left-edge fade if mask-composite not supported */
+@supports not (mask-composite: intersect) {
+  .meet-photo-wrap {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%);
+  }
+}
+
+/* Homepage hero photo entrance — desktop only */
+@keyframes heroPhotoIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }

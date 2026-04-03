@@ -129,8 +129,8 @@ export default function HomePageEs() {
       {/* ================================================================= */}
       {/* §4 — STATEMENT                                                   */}
       {/* ================================================================= */}
-      <section className="text-center" style={{ padding: "28px 32px 36px" }}>
-        <div className="lg:hidden">
+      <section className="text-center">
+        <div className="lg:hidden" style={{ padding: "28px 32px 36px" }}>
           <ScrollReveal>
             <h2 className="font-heading italic font-light text-[28px] text-espresso mb-2">{c.statement.heading}</h2>
             <p className="font-body text-[13px] text-warm-taupe" style={{ letterSpacing: "0.2px" }}>{c.statement.body}</p>
@@ -259,7 +259,15 @@ export default function HomePageEs() {
       {/* §9 — MEET LU                                                     */}
       {/* ================================================================= */}
       <section className="relative lg:min-h-[480px] lg:flex lg:items-center">
-        <div className="hidden lg:block absolute top-0 right-0 w-[48%] h-full meet-photo-wrap overflow-hidden">
+        <div
+          className="hidden lg:block absolute top-0 right-0 w-[48%] h-full overflow-hidden"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 14%, black 100%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 4%, black 10%, black 90%, rgba(0,0,0,0.3) 96%, transparent 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 14%, black 100%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 4%, black 10%, black 90%, rgba(0,0,0,0.3) 96%, transparent 100%)",
+            WebkitMaskComposite: "source-in",
+            maskComposite: "intersect",
+          }}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/mobile/home/home-lu-about.jpg"
