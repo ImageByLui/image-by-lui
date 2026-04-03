@@ -7,7 +7,7 @@ interface TrustLineProps {
 export default function TrustLine({ name, credentials, compact = false }: TrustLineProps) {
   const credText = Array.isArray(credentials) ? credentials.join(" · ") : credentials;
   return (
-    <section className="bg-warm-ivory py-4 px-5" aria-label="About your consultant">
+    <section className="bg-warm-ivory pt-1 pb-3 px-5" aria-label="About your consultant">
       <div className="flex items-center gap-3.5">
         <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 border border-champagne">
           {/* eslint-disable-next-line @next/next/no-img-element */}
