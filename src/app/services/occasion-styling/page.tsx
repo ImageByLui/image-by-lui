@@ -63,7 +63,9 @@ export default function OccasionStylingPage() {
         mobileImage="/images/mobile/services/occasion-how-it-works.jpg"
       />
 
+      <div className="-mb-3">
       <SectionDivider />
+      </div>
 
       {/* §3.4 Pricing */}
       <div className="lg:hidden">
@@ -77,7 +79,9 @@ export default function OccasionStylingPage() {
         />
       )}
 
+       <div className="-mt-3">
       <SectionDivider />
+      </div>
       
       {/* §3.5 Testimonial — Silvia */}
       <ServicesTestimonialBlock
@@ -101,6 +105,8 @@ export default function OccasionStylingPage() {
         desktopItems={desktop?.gallery.items}
       />
 
+      <SectionDivider />
+      
       {/* §3.7 FAQ Preview — desktop only, 2 columns */}
       {desktop?.faqPreview && (
         <FAQPreview
