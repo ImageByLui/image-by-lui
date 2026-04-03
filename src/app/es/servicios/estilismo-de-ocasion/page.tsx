@@ -64,7 +64,9 @@ export default function EstilismoDeOcasionPage() {
         mobileImage="/images/mobile/services/occasion-how-it-works.jpg"
       />
 
+      <div className="-mb-2">
       <SectionDivider />
+      </div>
       
       {/* §3.4 Pricing */}
       <div className="lg:hidden">
