@@ -16,6 +16,7 @@ import FAQPreview from "@/components/services/FAQPreview";
 import CrossNavLink from "@/components/services/CrossNavLink";
 import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const content = consultoriaDeImagenContent;
 const desktop = content.desktop;
@@ -59,6 +60,11 @@ export default function ConsultoriaDeImagenPage() {
           lastStepFooter={<PhotoSessionOptions label={content.photoOptions.label} options={content.photoOptions.options} />}
         />
       </div>
+
+       <div className="-my-2 -mb-6">
+      <SectionDivider />
+      </div>
+      
       {desktop?.journey && (
         <JourneyTimelineDesktop
           heading={desktop.journey.heading}
@@ -72,10 +78,19 @@ export default function ConsultoriaDeImagenPage() {
       <div className="lg:hidden">
         <DeliverablesCompact label={content.deliverables.label} subheading={content.deliverables.subheading} items={content.deliverables.items} whatsappCallout={content.deliverables.whatsappCallout} />
       </div>
+
+        <div className="-my-2">
+        <SectionDivider />
+        </div>
+      
       {desktop?.deliverables && (
         <DeliverablesPrestigeCard {...desktop.deliverables} />
       )}
 
+       <div className="-my-2">
+      <SectionDivider />
+      </div>
+      
       {content.testimonial && (
         <ServicesTestimonialBlock
           quote={content.testimonial.quote}
@@ -88,6 +103,9 @@ export default function ConsultoriaDeImagenPage() {
         />
       )}
 
+      
+      <SectionDivider />
+      
       <BeforeAfterSlider
         label={content.transformations.label}
         subheading={content.transformations.subheading}
@@ -97,6 +115,8 @@ export default function ConsultoriaDeImagenPage() {
         desktopHeading="Transformaciones reales"
       />
 
+      <SectionDivider />
+      
       {desktop?.faqPreview && (
         <FAQPreview
           heading={desktop.faqPreview.heading}
