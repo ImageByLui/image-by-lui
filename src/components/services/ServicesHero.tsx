@@ -19,7 +19,7 @@ export default function ServicesHero({ headline, description, heroImageAlt }: Se
     <section id="hero" className="bg-warm-ivory relative overflow-hidden lg:min-h-[580px]" aria-label="Services hero">
       {/* Desktop photo — bleeds to viewport right edge */}
       <div
-        className="hidden lg:block absolute top-0 right-0 w-[52%] h-full overflow-hidden"
+        className="hidden lg:block absolute top-0 right-0 w-[48%] h-full overflow-hidden"
         style={{ opacity: 0, animation: "heroImgIn 0.9s ease 0.3s forwards" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -27,7 +27,7 @@ export default function ServicesHero({ headline, description, heroImageAlt }: Se
           src="/images/heroes/services-hero-lu-bw.jpg"
           alt={heroImageAlt || "Lu — Image Consultant"}
           className="w-full h-full object-cover"
-        style={{ objectPosition: "center 15%", transform: "scale(0.9)" }}
+       style={{ objectPosition: "center 25%" }}
         />
      {/* Left fade gradient */}
           <div
