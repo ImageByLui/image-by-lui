@@ -55,7 +55,9 @@ export default function ImageConsultingPage() {
         <InvestmentPrestigeCard {...desktop.investment} />
       )}
 
-      <SectionDivider />
+      <div className="-mb-3">
+     <SectionDivider />
+      </div>
       
       {/* §4.4 Journey + Photo Options — mobile: accordion with photo cards in last step */}
       <div className="lg:hidden">
@@ -76,7 +78,9 @@ export default function ImageConsultingPage() {
         />
       )}
 
-      <SectionDivider />
+        <div className="-my-2">
+        <SectionDivider />
+        </div>
       
       {/* §4.5 Deliverables — mobile: compact grid, desktop: prestige card */}
       <div className="lg:hidden">
@@ -86,7 +90,9 @@ export default function ImageConsultingPage() {
         <DeliverablesPrestigeCard {...desktop.deliverables} />
       )}
 
+      <div className="-mt-2">
       <SectionDivider />
+      </div>
       
       {/* §4.6 Testimonial */}
       {content.testimonial && (
