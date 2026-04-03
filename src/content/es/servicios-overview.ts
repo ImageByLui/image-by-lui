@@ -52,7 +52,7 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
         tags: ["Bodas", "Galas", "Conferencias", "Entrevistas"],
         description:
           "Tiene algo importante por delante. Analizamos el evento, su rol y lo que necesita comunicar — para que llegue con total seguridad y sin dudarlo.",
-        imageAlt: "Clienta estilizada para un evento profesional por Image by LUI Miami",
+        imageAlt: "Mujer estilizada con bolsas de compras para un evento por Image by LUI Miami",
         image: "/images/mobile/services/occasion-card-shopping.png",
         imageFilter: "saturate(0.65) sepia(0.08) brightness(1.02)",
         accentColor: "champagne",
@@ -66,7 +66,7 @@ export const serviciosOverviewContent: ServicesOverviewContent = {
         tags: ["Color", "Clóset", "Compras", "Fotos"],
         description:
           "No es para una noche — es para su próximo capítulo. Una reinvención completa de su imagen profesional, basada en ciencia y entregada en más de 20 horas de trabajo personalizado.",
-        imageAlt: "Lu revisando el perfil diagnóstico completo de una clienta",
+        imageAlt: "Consultora de imagen revisando opciones de vestuario con clienta en Miami",
         image: "/images/mobile/services/ic-card-consulting.jpg",
         imageFilter: "saturate(0.6) sepia(0.1) brightness(1.0)",
         accentColor: "gold",

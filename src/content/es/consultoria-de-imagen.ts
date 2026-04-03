@@ -15,7 +15,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
       "Una reinvención diagnóstica de su imagen profesional — basada en colorimetría, análisis morfológico y ciencia del estilo personal. Cuatro componentes. Más de 20 horas. Un sistema que usará por años.",
     tags: ["Ejecutivas", "Emprendedoras", "Transiciones", "Agentes inmobiliarias"],
     imageAlt:
-      "Lu realizando una sesión diagnóstica completa de consultoría de imagen en Miami",
+      "Lu, consultora de imagen en evento de lujo con vestido dorado — Image by LUI Miami",
   },
 
   pricing: {
@@ -41,7 +41,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         subtitle: "La base diagnóstica",
         description:
           "Todo lo que sigue se construye sobre lo que descubrimos aquí. Un análisis profundo de sus colores, forma de rostro, arquitectura corporal y estilo personal — la base diagnóstica de cada recomendación.",
-        imageAlt: "Lu realizando análisis profesional de color con telas Pantone calibradas",
+        imageAlt: "Sesión profesional de análisis de color Pantone — consultoría de imagen Miami",
         image: "/images/mobile/journey/color-analysis.jpg",
         inclusions: [
           { key: "Análisis de color", detail: "paleta completa calibrada con Pantone, más allá de Tu Paleta de Poder" },
@@ -58,7 +58,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         subtitle: "Transformación de guardarropa",
         description:
           "Transformamos su guardarropa de abrumador a funcional. Descubrirá que tiene más de lo que pensaba — y sabrá exactamente qué falta.",
-        imageAlt: "Lu evaluando el guardarropa de una clienta — clasificando, organizando, descubriendo combinaciones",
+        imageAlt: "Guardarropa organizado después de detox de clóset por Image by LUI",
         image: "/images/mobile/journey/closet-detox.jpg",
         inclusions: [
           { key: "Evaluación completa", detail: "cada prenda, zapatos y accesorios evaluados" },
@@ -75,7 +75,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         subtitle: "Compras y guiadas",
         description:
           "Sin compras impulsivas. Creamos un plan de compras basado en los hallazgos del detox, y Lu va con usted a tiendas seleccionadas donde cada compra tiene un propósito claro.",
-        imageAlt: "Lu y clienta en una tienda seleccionada — eligiendo piezas con intención",
+        imageAlt: "Sesión de compras personalizadas con consultora de imagen — probando piezas en Miami",
         image: "/images/mobile/journey/personal-shopping.jpg",
         inclusions: [
           { key: "Diagnóstico pre-compra", detail: "prioridades definidas antes de entrar a una tienda" },
@@ -92,7 +92,7 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
         subtitle: "El capítulo final",
         description:
           "El capítulo final. Lu arma 15–20 outfits completos para cada contexto de su vida, luego estiliza y dirige una sesión de fotos para que su nueva imagen tenga un registro visual.",
-        imageAlt: "Lu estilizando a una clienta para su sesión de fotos — looks completos para cada ocasión",
+        imageAlt: "Sesión de fotos estilizada dirigida por la consultora de imagen Lu en Miami",
         image: "/images/mobile/journey/photo-session.jpg",
         inclusions: [
           { key: "Looks completos armados", detail: "trabajo, social, eventos y casual con piezas nuevas y existentes" },
@@ -109,12 +109,12 @@ export const consultoriaDeImagenContent: ImageConsultingContent = {
     label: "Lo que conserva",
     subheading: "7 ENTREGABLES INCLUIDOS EN SU INVERSIÓN",
     items: [
-      { title: "Tarjeta de paleta de color completa", qualifier: "su espectro completo calibrado con Pantone" },
-      { title: "Perfil de estilo personal", qualifier: "cuerpo, forma de rostro, arquetipo, guía de siluetas" },
-      { title: "Guía de organización de clóset", qualifier: "PDF con su sistema personalizado" },
-      { title: "Lista de compras personalizada", qualifier: "brechas estratégicas y prioridades" },
-      { title: "Lookbook digital", qualifier: "15–20 outfits completos con notas de estilismo" },
-      { title: "Fotos profesionales", qualifier: "sesión estilizada para LinkedIn, redes, headshots" },
+      { title: "Tarjeta de paleta de color", qualifier: "Espectro completo Pantone" },
+      { title: "Perfil de estilo personal", qualifier: "Cuerpo, rostro, arquetipo, guía de silueta" },
+      { title: "Guía de organización de clóset", qualifier: "Tu sistema de guardarropa personalizado" },
+      { title: "Lista de compras estratégica", qualifier: "Brechas y prioridades identificadas" },
+      { title: "Lookbook digital", qualifier: "15–20 outfits con notas de estilismo" },
+      { title: "Fotos profesionales", qualifier: "LinkedIn, redes sociales, headshots" },
     ],
     whatsappCallout: {
       title: "Además: 7 días de soporte por WhatsApp",

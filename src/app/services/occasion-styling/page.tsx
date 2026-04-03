@@ -19,12 +19,27 @@ const desktop = content.desktop;
 export const metadata: Metadata = {
   ...buildPageMetadata(content.seo, "en", "occasionStyling"),
   alternates: { canonical: "/services/occasion-styling", languages: { en: "/services/occasion-styling", es: "/es/servicios/estilismo-de-ocasion", "x-default": "/services/occasion-styling" } },
-  openGraph: { title: "Occasion Styling — Weddings, Galas, Keynotes | Miami", description: "Three tiers from $250.", images: [{ url: "/og/occasion-styling.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" },
+  openGraph: { title: "Event & Occasion Styling from $250 in Miami", description: "Three styling tiers for weddings, galas, keynotes. Wardrobe curation, shopping, event-day styling. Bilingual EN/ES.", images: [{ url: "/og/occasion-styling.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Occasion Styling",
+  description: "Event styling for weddings, galas, keynotes, and interviews. Three tiers from $250.",
+  provider: { "@type": "LocalBusiness", name: "Image by LUI" },
+  areaServed: "Miami",
+  offers: [
+    { "@type": "Offer", name: "Essential", price: "250", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Complete", price: "450", priceCurrency: "USD" },
+    { "@type": "Offer", name: "VIP", price: "750", priceCurrency: "USD" },
+  ],
 };
 
 export default function OccasionStylingPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       {/* §3.2 Hero */}
       <ServicePageHero
         label={content.hero.label}

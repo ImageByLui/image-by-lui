@@ -15,7 +15,7 @@ export const imageConsultingContent: ImageConsultingContent = {
       "A diagnostic reinvention of your professional image — built on colorimetry, morphological analysis, and personal style science. Four components. 20+ hours. A system you'll use for years.",
     tags: ["Executives", "Entrepreneurs", "Career transitions", "Realtors"],
     imageAlt:
-      "Lu conducting a full image consulting diagnostic session in Miami",
+      "Lu, image consultant at luxury event in gold dress — Image by LUI Miami",
   },
 
   pricing: {
@@ -41,7 +41,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "The diagnostic foundation",
         description:
           "Everything that follows is built on what we discover here. A deep analysis of your colors, face shape, body architecture, and personal style — the diagnostic foundation for every recommendation to come.",
-        imageAlt: "Lu performing professional Pantone-matched color draping with a client",
+        imageAlt: "Professional Pantone color analysis session — image consulting Miami",
         image: "/images/mobile/journey/color-analysis.jpg",
         inclusions: [
           { key: "Color analysis", detail: "complete Pantone-matched palette, beyond Your Power Palette" },
@@ -58,7 +58,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "Wardrobe transformation",
         description:
           "We transform your wardrobe from overwhelming to functional. You'll discover you own more than you thought — and know exactly what's missing.",
-        imageAlt: "Lu evaluating a client's wardrobe — sorting, organizing, discovering new combinations",
+        imageAlt: "Organized wardrobe after closet detox by Image by LUI",
         image: "/images/mobile/journey/closet-detox.jpg",
         inclusions: [
           { key: "Full wardrobe evaluation", detail: "every piece of clothing, shoes, and accessories assessed" },
@@ -75,7 +75,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "Guided purchases",
         description:
           "No impulse purchases. We create a shopping roadmap from your closet detox findings, then Lu goes with you to curated stores where every purchase has a clear purpose.",
-        imageAlt: "Lu and client at a curated store — selecting pieces with intention, not impulse",
+        imageAlt: "Personal shopping session with image consultant — trying on pieces in Miami",
         image: "/images/mobile/journey/personal-shopping.jpg",
         inclusions: [
           { key: "Pre-shopping diagnostic", detail: "priorities defined before entering a store" },
@@ -92,7 +92,7 @@ export const imageConsultingContent: ImageConsultingContent = {
         subtitle: "The final chapter",
         description:
           "The final chapter. Lu builds 15–20 complete outfits for every context in your life, then styles and directs a photo session so your new image has a visual record.",
-        imageAlt: "Lu styling a client for their photo session — complete looks for every occasion",
+        imageAlt: "Styled photo session directed by image consultant Lu in Miami",
         image: "/images/mobile/journey/photo-session.jpg",
         inclusions: [
           { key: "Complete looks built", detail: "work, social, events, and casual from new + existing pieces" },
@@ -110,9 +110,9 @@ export const imageConsultingContent: ImageConsultingContent = {
     subheading: "7 DELIVERABLES INCLUDED IN YOUR INVESTMENT",
     items: [
       { title: "Color palette card", qualifier: "Full Pantone-matched spectrum" },
-      { title: "Personal style profile", qualifier: "body, face shape, archetype, silhouette guide" },
+      { title: "Personal style profile", qualifier: "Body, face, archetype, silhouette guide" },
       { title: "Closet organization guide", qualifier: "Your personalized wardrobe system" },
-      { title: "Personalized shopping list", qualifier: "Gaps and priorities identified" },
+      { title: "Strategic shopping list", qualifier: "Gaps and priorities identified" },
       { title: "Digital lookbook", qualifier: "15–20 outfits with styling notes" },
       { title: "Professional photos", qualifier: "LinkedIn, social, headshots ready" },
     ],

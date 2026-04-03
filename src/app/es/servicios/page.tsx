@@ -16,7 +16,7 @@ const content = serviciosOverviewContent;
 export const metadata: Metadata = {
   ...buildPageMetadata(content.seo, "es", "services"),
   alternates: { canonical: "/es/servicios", languages: { en: "/services", es: "/es/servicios", "x-default": "/services" } },
-  openGraph: { title: "Consultoría de Imagen y Estilismo de Ocasión en Miami", description: "Estrategia de imagen profesional basada en colorimetría.", images: [{ url: "/og/services-overview.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" },
+  openGraph: { title: "Consultoría de Imagen y Estilismo en Miami", description: "Estrategia de imagen profesional basada en colorimetría y ciencia del estilo. Análisis de color de cortesía. Bilingüe EN/ES.", images: [{ url: "/og/services-overview.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" },
 };
 const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Consultoría de Imagen y Estilismo de Ocasión", description: content.hero.description, provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", availableLanguage: ["English", "Spanish"] };
 
@@ -28,7 +28,7 @@ export default function ServiciosPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* §2.2 Hero */}
-      <ServicesHero headline={content.hero.headline} description={content.hero.description} />
+      <ServicesHero headline={content.hero.headline} description={content.hero.description} heroImageAlt="Lu, consultora de imagen en Miami, retrato editorial en blanco y negro" />
 
       {/* §2.3 Power Palette prestige card */}
       <FreeSessionCard

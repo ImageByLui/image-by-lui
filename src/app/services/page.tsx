@@ -16,7 +16,7 @@ const content = servicesOverviewContent;
 export const metadata: Metadata = {
   ...buildPageMetadata(content.seo, "en", "services"),
   alternates: { canonical: "/services", languages: { en: "/services", es: "/es/servicios", "x-default": "/services" } },
-  openGraph: { title: "Image Consulting & Occasion Styling in Miami", description: "Professional image strategy built on colorimetry and style science.", images: [{ url: "/og/services-overview.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" },
+  openGraph: { title: "Image Consulting & Occasion Styling in Miami", description: "Professional image strategy built on colorimetry and style science. Complimentary color analysis available. Bilingual EN/ES.", images: [{ url: "/og/services-overview.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" },
 };
 const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Image Consulting & Occasion Styling", description: content.hero.description, provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", availableLanguage: ["English", "Spanish"] };
 
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* §2.2 Hero — asymmetric photo bleed on desktop */}
-      <ServicesHero headline={content.hero.headline} description={content.hero.description} />
+      <ServicesHero headline={content.hero.headline} description={content.hero.description} heroImageAlt="Lu, image consultant in Miami, black and white editorial portrait" />
 
       {/* §2.3 Power Palette prestige card — trust line embedded on desktop */}
       <FreeSessionCard

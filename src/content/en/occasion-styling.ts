@@ -15,7 +15,7 @@ export const occasionStylingContent: OccasionStylingContent = {
     description:
       "We analyze the occasion, your role in it, and what you need to communicate through your presence — then take care of everything so you arrive with nothing to second-guess.",
     imageAlt:
-      "Lu styling a client for a formal event in Miami",
+      "Lu in burgundy evening dress at formal venue — occasion styling Miami",
     tags: ["Weddings", "Galas", "Keynotes", "Corporate"],
   },
 
@@ -247,11 +247,11 @@ export const occasionStylingContent: OccasionStylingContent = {
     gallery: {
       heading: "Styled by Lu",
       items: [
-        { image: "/images/gallery/styled-corporate.jpg", alt: "Corporate event styling" },
-        { image: "/images/gallery/styled-gala.jpg", alt: "Black-tie gala styling" },
-        { image: "/images/gallery/styled-model.jpg", alt: "Editorial styling" },
-        { image: "/images/gallery/styled-wedding-1.jpg", alt: "Wedding guest styling" },
-        { image: "/images/gallery/styled-wedding-2.jpg", alt: "Wedding guest styling" },
+        { image: "/images/gallery/styled-corporate.jpg", alt: "Corporate event styling by Image by LUI — professional look Miami" },
+        { image: "/images/gallery/styled-gala.jpg", alt: "Black-tie gala styling by Image by LUI Miami" },
+        { image: "/images/gallery/styled-model.jpg", alt: "Editorial styling by image consultant Lu in Miami" },
+        { image: "/images/gallery/styled-wedding-1.jpg", alt: "Wedding guest styling by Image by LUI — event look Miami" },
+        { image: "/images/gallery/styled-wedding-2.jpg", alt: "Wedding guest occasion styling by Image by LUI Miami" },
       ],
     },
     faqPreview: {

@@ -15,7 +15,7 @@ export const estilismoDeOcasionContent: OccasionStylingContent = {
     description:
       "Analizamos la ocasión, su rol en ella, y lo que necesita comunicar a través de su presencia — para que llegue sin nada que cuestionar.",
     imageAlt:
-      "Lu estilizando a una clienta para un evento formal en Miami",
+      "Lu en vestido de noche burdeos en venue formal — estilismo de ocasión Miami",
     tags: ["Bodas", "Galas", "Conferencias", "Entrevistas"],
   },
 
@@ -247,11 +247,11 @@ export const estilismoDeOcasionContent: OccasionStylingContent = {
     gallery: {
       heading: "Estilizada por Lu",
       items: [
-        { image: "/images/gallery/styled-corporate.jpg", alt: "Estilismo para evento corporativo" },
-        { image: "/images/gallery/styled-gala.jpg", alt: "Estilismo para gala de etiqueta" },
-        { image: "/images/gallery/styled-model.jpg", alt: "Estilismo editorial" },
-        { image: "/images/gallery/styled-wedding-1.jpg", alt: "Estilismo para invitada de boda" },
-        { image: "/images/gallery/styled-wedding-2.jpg", alt: "Estilismo para invitada de boda" },
+        { image: "/images/gallery/styled-corporate.jpg", alt: "Estilismo para evento corporativo por Image by LUI — look profesional Miami" },
+        { image: "/images/gallery/styled-gala.jpg", alt: "Estilismo para gala de etiqueta por Image by LUI Miami" },
+        { image: "/images/gallery/styled-model.jpg", alt: "Estilismo editorial por la consultora de imagen Lu en Miami" },
+        { image: "/images/gallery/styled-wedding-1.jpg", alt: "Estilismo para invitada de boda por Image by LUI — look de evento Miami" },
+        { image: "/images/gallery/styled-wedding-2.jpg", alt: "Estilismo de ocasión para boda por Image by LUI Miami" },
       ],
     },
     faqPreview: {

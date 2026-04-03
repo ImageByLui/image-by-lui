@@ -20,12 +20,27 @@ const desktop = content.desktop;
 export const metadata: Metadata = {
   ...buildPageMetadata(content.seo, "es", "occasionStyling"),
   alternates: { canonical: "/es/servicios/estilismo-de-ocasion", languages: { en: "/services/occasion-styling", es: "/es/servicios/estilismo-de-ocasion", "x-default": "/services/occasion-styling" } },
-  openGraph: { title: "Estilismo de Ocasión — Bodas, Galas, Conferencias | Miami", description: "Tres niveles desde $250.", images: [{ url: "/og/occasion-styling.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" },
+  openGraph: { title: "Estilismo de Ocasión desde $250 en Miami", description: "Tres niveles de estilismo para bodas, galas, conferencias. Curación de vestuario, compras, estilismo de evento. Bilingüe EN/ES.", images: [{ url: "/og/occasion-styling.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Estilismo de Ocasión",
+  description: "Estilismo para bodas, galas, conferencias y entrevistas. Tres niveles desde $250.",
+  provider: { "@type": "LocalBusiness", name: "Image by LUI" },
+  areaServed: "Miami",
+  offers: [
+    { "@type": "Offer", name: "Essential", price: "250", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Complete", price: "450", priceCurrency: "USD" },
+    { "@type": "Offer", name: "VIP", price: "750", priceCurrency: "USD" },
+  ],
 };
 
 export default function EstilismoDeOcasionPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       {/* §3.2 Hero */}
       <ServicePageHero
         label={content.hero.label}

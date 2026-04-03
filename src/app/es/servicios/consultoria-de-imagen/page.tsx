@@ -23,9 +23,9 @@ const desktop = content.desktop;
 export const metadata: Metadata = {
   ...buildPageMetadata(content.seo, "es", "imageConsulting"),
   alternates: { canonical: "/es/servicios/consultoria-de-imagen", languages: { en: "/services/image-consulting", es: "/es/servicios/consultoria-de-imagen", "x-default": "/services/image-consulting" } },
-  openGraph: { title: "Consultoría de Imagen Completa — 4 Componentes, 7 Entregables", description: "Reinvención diagnóstica de su imagen profesional. $1,500.", images: [{ url: "/og/image-consulting.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" },
+  openGraph: { title: "Consultoría de Imagen Completa — 4 Componentes, 7 Entregables", description: "Reinvención diagnóstica de su imagen profesional. Tarifa introductoria $1,500. Análisis, clóset, compras, fotos.", images: [{ url: "/og/image-consulting.jpg", width: 1200, height: 630 }], locale: "es_US", type: "website" },
 };
-const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Consultoría de Imagen", description: content.hero.description, provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", availableLanguage: ["English", "Spanish"], offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", description: "Tarifa introductoria. Tarifa estándar $2,000." } };
+const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Consultoría de Imagen", description: "Consultoría de imagen diagnóstica completa. 4 componentes, +20 horas, 7 entregables.", provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", description: "Tarifa introductoria. Tarifa estándar $2,000." } };
 
 export default function ConsultoriaDeImagenPage() {
   return (

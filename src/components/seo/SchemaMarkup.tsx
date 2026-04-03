@@ -1,40 +1,35 @@
 import { siteConfig } from "@/config/site.config";
 
 // =============================================================================
-// SchemaMarkup Component — Image by LUI
+// SchemaMarkup — Image by LUI (SEO Spec v1.1 §4.1)
 // =============================================================================
-// Injects ProfessionalService JSON-LD structured data on every page.
-// Data sourced from siteConfig.schema. Must validate on Google's Rich
-// Results Test (https://search.google.com/test/rich-results).
+// Injects LocalBusiness JSON-LD on every page. Establishes LUI as an entity
+// that Google and AI assistants can reference.
 // =============================================================================
 
 export default function SchemaMarkup() {
-  const schema = siteConfig.schema;
-
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": schema.type,
-    name: schema.name,
-    description: schema.description,
+    "@type": "LocalBusiness",
+    name: "Image by LUI",
+    description: "Diagnostic image consulting and occasion styling for professionals in Miami. Bilingual EN/ES.",
     url: siteConfig.domain,
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: schema.areaServed,
-    },
-    serviceType: schema.serviceType,
-    priceRange: schema.priceRange,
-    availableLanguage: schema.availableLanguage.map((lang) => ({
-      "@type": "Language",
-      name: lang,
-    })),
-    ...(schema.telephone ? { telephone: schema.telephone } : {}),
-    ...(schema.image ? { image: schema.image } : {}),
+    telephone: siteConfig.schema.telephone || undefined,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Miami",
       addressRegion: "FL",
       addressCountry: "US",
     },
+    areaServed: "Miami-Dade County",
+    founder: {
+      "@type": "Person",
+      name: "Lu",
+      jobTitle: "Image Consultant",
+      knowsLanguage: ["en", "es"],
+    },
+    priceRange: "$250-$2000",
+    availableLanguage: ["English", "Spanish"],
   };
 
   return (

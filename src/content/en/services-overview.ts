@@ -17,8 +17,7 @@ export const servicesOverviewContent: ServicesOverviewContent = {
   },
 
   freeSession: {
-    imageAlt:
-      "Lu performing a color analysis session with Pantone drapes in Miami",
+    imageAlt: "Lu performing a color analysis session with Pantone drapes in Miami",
     title: "Your Power Palette",
     subtitle: "Complimentary session",
     description:
@@ -52,7 +51,7 @@ export const servicesOverviewContent: ServicesOverviewContent = {
         tags: ["Weddings", "Galas", "Keynotes", "Interviews"],
         description:
           "You have something important ahead. We analyze the event, your role, and what you need to communicate — so you walk in without a second thought.",
-        imageAlt: "Client styled for a professional event by Image by LUI Miami",
+        imageAlt: "Stylish woman with shopping bags styled for an event by Image by LUI Miami",
         image: "/images/mobile/services/occasion-card-shopping.png",
         imageFilter: "saturate(0.65) sepia(0.08) brightness(1.02)",
         accentColor: "champagne",
@@ -66,7 +65,7 @@ export const servicesOverviewContent: ServicesOverviewContent = {
         tags: ["Color", "Closet", "Shopping", "Photos"],
         description:
           "Not for one event — for the next chapter. A complete reinvention of your professional image, built on science and delivered across 20+ hours of one-on-one work.",
-        imageAlt: "Lu reviewing a client diagnostic profile during image consulting",
+        imageAlt: "Image consultant reviewing wardrobe options with client in Miami",
         image: "/images/mobile/services/ic-card-consulting.jpg",
         imageFilter: "saturate(0.6) sepia(0.1) brightness(1.0)",
         accentColor: "gold",

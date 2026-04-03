@@ -23,9 +23,9 @@ const desktop = content.desktop;
 export const metadata: Metadata = {
   ...buildPageMetadata(content.seo, "en", "imageConsulting"),
   alternates: { canonical: "/services/image-consulting", languages: { en: "/services/image-consulting", es: "/es/servicios/consultoria-de-imagen", "x-default": "/services/image-consulting" } },
-  openGraph: { title: "Complete Image Consulting — 4 Components, 7 Deliverables", description: "Diagnostic reinvention of your professional image. $1,500 introductory rate.", images: [{ url: "/og/image-consulting.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" },
+  openGraph: { title: "Complete Image Consulting — 4 Components, 7 Deliverables", description: "Diagnostic reinvention of your professional image. $1,500 introductory rate. Color analysis, closet detox, shopping, styled photos.", images: [{ url: "/og/image-consulting.jpg", width: 1200, height: 630 }], locale: "en_US", type: "website" },
 };
-const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Image Consulting", description: content.hero.description, provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", availableLanguage: ["English", "Spanish"], offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", description: "Introductory rate. Standard rate $2,000." } };
+const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Image Consulting", description: "Complete diagnostic image consulting. 4 components, 20+ hours, 7 deliverables.", provider: { "@type": "LocalBusiness", name: "Image by LUI", url: "https://imagebylui.com" }, areaServed: "Miami", offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", description: "Introductory rate. Standard rate $2,000." } };
 
 export default function ImageConsultingPage() {
   return (

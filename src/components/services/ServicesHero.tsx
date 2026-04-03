@@ -11,9 +11,10 @@
 interface ServicesHeroProps {
   headline: string;
   description: string;
+  heroImageAlt?: string;
 }
 
-export default function ServicesHero({ headline, description }: ServicesHeroProps) {
+export default function ServicesHero({ headline, description, heroImageAlt }: ServicesHeroProps) {
   return (
     <section id="hero" className="bg-warm-ivory relative overflow-hidden lg:min-h-[580px]" aria-label="Services hero">
       {/* Desktop photo — bleeds to viewport right edge */}
@@ -24,7 +25,7 @@ export default function ServicesHero({ headline, description }: ServicesHeroProp
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/heroes/services-hero-lu-bw.jpg"
-          alt="Lu — Image Consultant"
+          alt={heroImageAlt || "Lu — Image Consultant"}
           className="w-full h-full object-cover"
           style={{ objectPosition: "center 15%" }}
         />
