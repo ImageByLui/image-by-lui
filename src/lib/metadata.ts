@@ -26,7 +26,7 @@ export function buildPageMetadata(
   const esUrl = `${domain}${urls.es}`;
 
   // Default OG image — used when page doesn't specify its own
-  const ogImageUrl = seo.ogImage || `${domain}/images/og-image.png`;
+  const ogImageUrl = seo.ogImage || `${domain}/og/og-default.jpg`;
 
   return {
     title: seo.title,
