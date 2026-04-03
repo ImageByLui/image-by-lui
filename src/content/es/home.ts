@@ -120,6 +120,6 @@ export const homeContentEs: HomeContent = {
   seo: {
     title: "Consultora de Imagen Miami \u2014 Estilismo Diagn\u00f3stico | Image by LUI",
     description: "Consultor\u00eda de imagen diagn\u00f3stica y estilismo de ocasi\u00f3n para profesionales en Miami. An\u00e1lisis de color de cortes\u00eda de 20 min. Biling\u00fce EN/ES.",
-    ogImage: "/og/homepage.jpg",
+    ogImage: "/og/og-default.jpg",
   },
 };
