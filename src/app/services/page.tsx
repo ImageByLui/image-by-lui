@@ -46,18 +46,22 @@ export default function ServicesPage() {
       <div className="lg:hidden">
         <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
       </div>
-
+      
+      <SectionDivider /> 
+      
       {/* §2.4 Service cards — MOBILE: stacked, DESKTOP: 2-col photography grid */}
       <section className="bg-warm-ivory pt-4 px-3.5 pb-3.5 lg:hidden" aria-label="Our services">
         <p className="font-heading font-semibold text-[20px] text-espresso text-center mb-1">{content.selector.heading}</p>
         <p className="font-body text-caption text-warm-taupe text-center leading-[1.5] mb-[22px]">{content.selector.subheading}</p>
         {content.selector.cards.map((card: ServiceSelectorCardData) => <ServiceSelectorCard key={card.name} {...card} />)}
       </section>
-
+      
       {desktop?.serviceCards && (
         <DesktopServiceCards heading={content.selector.heading} cards={desktop.serviceCards} />
       )}
-
+      
+      <SectionDivider /> 
+      
       {/* §2.5 Testimonial */}
       <ServicesTestimonialBlock
         quote={content.testimonial.quote}
@@ -67,7 +71,9 @@ export default function ServicesPage() {
         photo={content.testimonial.photo}
         handle={content.testimonial.handle}
       />
-
+      
+      <SectionDivider /> 
+      
       {/* §2.6 FAQ Preview — desktop only */}
       {desktop?.faqPreview && (
         <FAQPreview
