@@ -36,7 +36,6 @@ export default function HomePage() {
         {/* Desktop photo — bleeds LEFT */}
         <div
           className="hidden lg:block absolute top-0 left-0 w-[48%] h-full overflow-hidden"
-          style={{ opacity: 0, animation: "heroPhotoIn 0.9s ease 0.3s forwards" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -123,10 +122,8 @@ export default function HomePage() {
               href={c.hero.cta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 transition-all duration-300"
-              style={{ padding: "16px 40px", boxShadow: "none" }}
-              onMouseOver={(e) => { (e.currentTarget.style.boxShadow = "0 6px 20px rgba(163,87,65,0.15)"); }}
-              onMouseOut={(e) => { (e.currentTarget.style.boxShadow = "none"); }}
+              className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(163,87,65,0.15)] transition-all duration-300"
+              style={{ padding: "16px 40px" }}
             >
               {c.hero.cta.text}
             </a>

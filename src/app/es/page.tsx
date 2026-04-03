@@ -32,7 +32,6 @@ export default function HomePageEs() {
         {/* Desktop photo — bleeds LEFT */}
         <div
           className="hidden lg:block absolute top-0 left-0 w-[48%] h-full overflow-hidden"
-          style={{ opacity: 0, animation: "heroPhotoIn 0.9s ease 0.3s forwards" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
