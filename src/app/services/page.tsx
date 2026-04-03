@@ -31,6 +31,11 @@ export default function ServicesPage() {
       {/* §2.2 Hero — asymmetric photo bleed on desktop */}
       <ServicesHero headline={content.hero.headline} description={content.hero.description} heroImageAlt="Lu, image consultant in Miami, black and white editorial portrait" />
 
+       {/* Trust line — mobile only (embedded in card on desktop) */}
+        <div className="lg:hidden">
+        <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
+        </div>
+      
       {/* §2.3 Power Palette prestige card — trust line embedded on desktop */}
       <FreeSessionCard
         imageAlt={content.freeSession.imageAlt}
@@ -42,11 +47,6 @@ export default function ServicesPage() {
         footnote={content.freeSession.footnote}
         trustLine={`With <strong>Lu</strong> · ${content.trustLine.credentials}`}
       />
-
-      {/* Trust line — mobile only (embedded in card on desktop) */}
-      <div className="lg:hidden">
-        <TrustLine name={content.trustLine.name} credentials={content.trustLine.credentials} />
-      </div>
       
       <SectionDivider /> 
       
