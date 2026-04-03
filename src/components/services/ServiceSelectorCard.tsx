@@ -72,9 +72,9 @@ export default function ServiceSelectorCard({
             <span className="font-body text-[13px] text-warm-taupe line-through">{priceStrikethrough}</span>
           )}
         </div>
-        <Link href={ctaHref} className="font-body font-semibold text-[15px] text-terracotta no-underline hover:underline">
-        {ctaText.replace("→", "")}<span style={{ fontSize: 20 }} className="ml-1">→</span>
-          </Link>
+       <Link href={ctaHref} className="font-body font-semibold text-[15px] text-terracotta no-underline hover:underline flex items-center">
+          <span>{ctaText.replace(/→|→/g, "").trim()}</span>
+          <span style={{ fontSize: 20 }} className="ml-1">→</span>
         </Link>
       </div>
     </div>
