@@ -67,9 +67,9 @@ export default function ServiceSelectorCard({
       {/* Bottom row: price + text link */}
       <div className="flex items-baseline justify-between px-5 pb-5 pt-1">
         <div className="flex items-baseline gap-2">
-          <span className="font-body font-semibold text-[length:var(--lui-fs-card)] text-terracotta">{price}</span>
+          <span className="font-body font-semibold text-[15] text-terracotta">{price}</span>
           {priceStrikethrough && (
-            <span className="font-body text-caption text-warm-taupe line-through">{priceStrikethrough}</span>
+            <span className="font-body text-[13px] text-warm-taupe line-through">{priceStrikethrough}</span>
           )}
         </div>
         <Link href={ctaHref} className="font-body font-semibold text-[15px] text-terracotta no-underline hover:underline">
