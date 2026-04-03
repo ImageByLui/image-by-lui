@@ -12,6 +12,7 @@ import FAQPreview from "@/components/services/FAQPreview";
 import CrossNavLink from "@/components/services/CrossNavLink";
 import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const content = occasionStylingContent;
 const desktop = content.desktop;
@@ -62,6 +63,8 @@ export default function OccasionStylingPage() {
         mobileImage="/images/mobile/services/occasion-how-it-works.jpg"
       />
 
+      <SectionDivider />
+
       {/* §3.4 Pricing */}
       <div className="lg:hidden">
         <PricingSection label={content.pricing.label} subheading={content.pricing.subheading} tiers={content.pricing.tiers} />
@@ -74,6 +77,8 @@ export default function OccasionStylingPage() {
         />
       )}
 
+      <SectionDivider />
+      
       {/* §3.5 Testimonial — Silvia */}
       <ServicesTestimonialBlock
         quote={content.testimonial.quote}
@@ -85,6 +90,8 @@ export default function OccasionStylingPage() {
         bgColor="warm-ivory"
       />
 
+      <SectionDivider />
+      
       {/* §3.6 Gallery */}
       <StyledLooksGallery
         label={content.gallery.label}
