@@ -133,23 +133,75 @@ export interface TransformationsSection {
 }
 
 export interface HomeContent {
-  hero: HeroSection;
-  /** Inspirational quote — displayed as espresso poster moment */
-  quote?: {
-    text: string;
-    attribution: string;
+  hero: {
+    label?: string;
+    headline: string;
+    subcopy: string;
+    cta: CTAButton;
+    trustNote: string;
+    mobileImageAlt: string;
+    desktopImageAlt: string;
   };
-  whoIsThisFor: WhoIsThisForSection;
-  /** @deprecated — Removed from homepage in V6. Kept for backward compat. */
-  howItWorks?: HowItWorksSection;
-  servicePreview: ServicePreviewSection;
-  /** @deprecated — Removed from homepage in V6. Kept for backward compat. */
-  transformations?: TransformationsSection;
-  socialProof: SocialProofSection;
-  aboutPreview: AboutPreviewSection;
-  /** @deprecated — Instagram link moved into aboutPreview. Kept for backward compat. */
-  instagramCta?: InstagramCTASection;
-  finalCta: FinalCTASection;
+  statement: {
+    heading: string;
+    body: string;
+  };
+  pullquote: {
+    quote: string;
+    name: string;
+    handle: string;
+    handleUrl: string;
+  };
+  servicesMenu: {
+    heading: string;
+    services: {
+      name: string;
+      teaser: string;
+      price: string;
+      linkText: string;
+      linkHref: string;
+    }[];
+  };
+  powerPalette: {
+    question: string;
+    name: string;
+    meta: string;
+    description: string;
+    cta: CTAButton;
+    note: string;
+  };
+  meetLu: {
+    label?: string;
+    heading: string;
+    lead: string;
+    bio: string;
+    learnMoreText: string;
+    learnMoreHref: string;
+    instagramText: string;
+    instagramHref: string;
+    imageAlt: string;
+  };
+  moreVoices: {
+    heading: string;
+    testimonials: {
+      quote: string;
+      name: string;
+      handle: string;
+      handleUrl: string;
+      photo: string;
+    }[];
+  };
+  bottomCta: {
+    heading: string;
+    body: string;
+    primaryCta: CTAButton;
+    whatsappText: string;
+    whatsappHref: string;
+  };
+  stickyBar: {
+    text: string;
+    href: string;
+  };
   seo: PageSEO;
 }
 

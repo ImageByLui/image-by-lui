@@ -1,137 +1,123 @@
 import type { HomeContent } from "@/types/content";
-import { getCalendlyUrl } from "@/config/site.config";
+import { getCalendlyUrl, getWhatsAppUrl } from "@/config/site.config";
 import { siteConfig } from "@/config/site.config";
 
 // =============================================================================
-// Homepage Content — English (V6 — Final Approved)
-// =============================================================================
-// Changes from V4:
-//   - Hero subtitle: aspirational serif italic, not informational
-//   - CTA: "DISCOVER YOUR COLORS" not "DISCOVER YOUR POWER PALETTE"
-//   - Coco Chanel quote added as poster moment
-//   - Three Steps section removed (lives on Services page)
-//   - Transformations section removed
-//   - About preview: warmer copy
-//   - Final CTA: personal, different from Power Palette pitch
+// Homepage Content — English (V7 — LUI-DESK-007)
 // =============================================================================
 
 export const homeContent: HomeContent = {
   hero: {
+    label: "Image by LUI",
     headline: "Your Image, Architected.",
-    subheadline:
-      "When you walk into a room, your image speaks before you do. We make sure it says exactly what you intend.",
+    subcopy: "Image strategy for professionals who refuse to leave their presence to chance.",
     cta: {
       text: "DISCOVER YOUR COLORS",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },
-    ctaSubtext:
-      "Complimentary 20-minute session — virtual or in-person",
-    imageAlt:
-      "Lu consulting with a client during an image strategy session",
+    trustNote: "Complimentary · 20 minutes · No commitment",
+    mobileImageAlt: "Lu, image consultant — Image by LUI Miami",
+    desktopImageAlt: "Lu, founder of Image by LUI, diagnostic image consulting Miami",
   },
 
-  quote: {
-    text: "Dress shabbily and they remember the dress; dress impeccably and they remember the woman.",
-    attribution: "Coco Chanel",
+  statement: {
+    heading: "We don\u2019t guess. We analyze.",
+    body: "Colorimetry. Body architecture. Style science. Every recommendation begins with diagnosis.",
   },
 
-  whoIsThisFor: {
-    sectionHeading: "Designed for Professionals Who...",
-    cards: [
+  pullquote: {
+    quote: "Every detail was chosen to bring out the best in me. I loved the entire process. The dress was absolutely perfect.",
+    name: "Silvia",
+    handle: "@silviacastrillon",
+    handleUrl: "https://www.instagram.com/silviacastrillon",
+  },
+
+  servicesMenu: {
+    heading: "Your journey begins here",
+    services: [
       {
-        headline: "Navigate two cultures",
-        body: "You moved to the U.S. for your career. LUI helps you bridge both worlds — strategically.",
+        name: "Occasion Styling",
+        teaser: "For your next event \u2014 wardrobe curation, styling, and event-day accompaniment.",
+        price: "From $250",
+        linkText: "Explore three packages \u2192",
+        linkHref: "/services/occasion-styling",
       },
       {
-        headline: "Stand out in a crowded market",
-        body: "In a city with 61,000 real estate agents, your image is your first listing presentation.",
-      },
-      {
-        headline: "Upgrade without the guesswork",
-        body: "You know image matters but don't have time to figure it out. LUI delivers a clear, actionable system.",
-      },
-      {
-        headline: "Prepare for what's next",
-        body: "A promotion. A career pivot. When the stakes are high, your image should be as intentional as your strategy.",
+        name: "Image Consulting",
+        teaser: "A complete transformation \u2014 four components, 20+ hours, seven deliverables.",
+        price: "$1,500",
+        linkText: "See the full journey \u2192",
+        linkHref: "/services/image-consulting",
       },
     ],
   },
 
-  servicePreview: {
-    heading: "Where to Begin",
-    cards: [
-      {
-        name: "Your Power Palette",
-        price: "Complimentary",
-        description:
-          "A 20-minute color analysis that identifies your undertone and reveals your top 5 power colors.",
-        cta: {
-          text: "DISCOVER YOUR COLORS",
-          href: getCalendlyUrl("powerPalette"),
-          external: true,
-        },
-      },
-      {
-        name: "First Impression",
-        price: "$400",
-        positioningLine: "A professional investment in clarity.",
-        outcomeText: "You'll walk away knowing",
-        description:
-          "exactly which colors and silhouettes work for your body and your career — with 3–5 outfits you can wear this week.",
-        detailsLine: "~2 hours · Color analysis · Style diagnostic · Digital lookbook",
-        cta: {
-          text: "Explore First Impression",
-          href: "/services#first-impression",
-        },
-      },
-      {
-        name: "Identity Transformation",
-        price: "$1,800",
-        positioningLine: "The complete reinvention.",
-        outcomeText: "You'll never stand in front of your closet feeling lost again.",
-        description:
-          "Full colorimetric and morphological analysis, closet audit, personal shopping, and a complete style system built around your life.",
-        detailsLine: "12–15 hours across 7 distinct deliverables",
-        cta: {
-          text: "Explore Identity Transformation",
-          href: "/services#identity-transformation",
-        },
-      },
-    ],
-  },
-
-  socialProof: {
-    heading: "What Clients Experience",
-  },
-
-  aboutPreview: {
-    heading: "Meet Lu",
-    body: "Born in Colombia. Based in Miami. With a foundation in fashion design and specialized training in colorimetry and styling, Lu brings diagnostic precision and personal warmth to every engagement.",
-    link: {
-      text: "Learn more about Lu",
-      href: "/about",
-    },
-    instagramLink: {
-      text: "@imagebylui",
-      href: siteConfig.instagram.url,
-      external: true,
-    },
-  },
-
-  finalCta: {
-    heading: "Have questions? Talk to Lu directly.",
-    body: "Whether you're ready to book or just want to learn more, Lu is happy to chat — no pressure, no commitment.",
+  powerPalette: {
+    question: "Not sure where to begin?",
+    name: "Your Power Palette",
+    meta: "Free \u00b7 20 min \u00b7 Virtual",
+    description: "We identify your natural undertone and reveal the five colors that make your features come alive. The starting point for every LUI engagement.",
     cta: {
-      text: "BOOK A FREE CONVERSATION",
+      text: "BOOK YOUR FREE SESSION",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },
+    note: "No commitment required",
+  },
+
+  meetLu: {
+    label: "THE FOUNDER",
+    heading: "Meet Lu",
+    lead: "Diagnostic precision meets personal warmth.",
+    bio: "Born in Colombia. Based in Miami. With a foundation in fashion design and specialized training in colorimetry and styling, Lu built LUI on a simple belief: your image should be as intentional as your ambition.",
+    learnMoreText: "Learn more \u2192",
+    learnMoreHref: "/about",
+    instagramText: "@imagebylui",
+    instagramHref: siteConfig.instagram.url,
+    imageAlt: "Lu, image consultant and founder of Image by LUI",
+  },
+
+  moreVoices: {
+    heading: "What clients experience",
+    testimonials: [
+      {
+        quote: "Lu understood my style, my body, and what I wanted to project. I walked away with tools I use every day to feel more confident.",
+        name: "Valentina",
+        handle: "@valentinapachecof_",
+        handleUrl: "https://www.instagram.com/valentinapachecof_",
+        photo: "/images/testimonials/vp.jpg",
+      },
+      {
+        quote: "She knows exactly how to make you feel comfortable and confident in what you\u2019re wearing. Loved it.",
+        name: "Ang\u00e9lica",
+        handle: "@angelicagp8",
+        handleUrl: "https://www.instagram.com/angelicagp8",
+        photo: "/images/testimonials/ap.jpg",
+      },
+    ],
+  },
+
+  bottomCta: {
+    heading: "Ready to begin?",
+    body: "A complimentary color analysis takes 20 minutes and gives Lu everything she needs to recommend the right path for you.",
+    primaryCta: {
+      text: "BOOK YOUR FREE COLOR ANALYSIS",
+      href: getCalendlyUrl("powerPalette"),
+      external: true,
+    },
+    whatsappText: "Or message Lu on WhatsApp",
+    whatsappHref: getWhatsAppUrl("en"),
+  },
+
+  stickyBar: {
+    text: "Free color analysis \u00b7 20 min",
+    href: getCalendlyUrl("powerPalette"),
   },
 
   seo: {
-    title: "Image by LUI | Diagnostic Image Consulting Miami",
-    description:
-      "Diagnostic image consulting in Miami. Colorimetry, morphological analysis, and lifestyle mapping for professionals. Book your complimentary color analysis.",
+    title: "Image Consultant Miami \u2014 Diagnostic Styling | Image by LUI",
+    description: "Diagnostic image consulting and occasion styling for Miami professionals. Complimentary 20-min color analysis. Bilingual EN/ES.",
+    ogImage: "/og/homepage.jpg",
   },
 };

@@ -1,491 +1,410 @@
 import type { Metadata } from "next";
-import { homeContentEs } from "@/content/es/home";
-import { testimonials, testimonialsContextLine } from "@/content/shared/testimonials";
-import { buildPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
-import TestimonialCard from "@/components/ui/TestimonialCard";
-import PersonaCard from "@/components/ui/PersonaCard";
+import { homeContentEs } from "@/content/es/home";
+import { buildPageMetadata } from "@/lib/metadata";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import ImagePlaceholder from "@/components/features/ImagePlaceholder";
+import HomeStickyBar from "@/components/home/HomeStickyBar";
 
 // =============================================================================
-// Homepage — Spanish (/es) — V6 Final
-// =============================================================================
-// Structure:
-//   1. Hero — image left (desktop) / above (mobile), aspirational serif italic subtitle
-//   2. Coco Chanel quote — espresso poster with decorative gold quotes
-//   3. Where to Begin — Power Palette invitation + transition + editorial paid tiers
-//   4. Image break
-//   5. Designed for Professionals — espresso, terracotta bars
-//   6. Testimonials — champagne, headshots + @handles
-//   7. Meet Lu — image + text
-//   8. Final CTA — espresso, button
+// Homepage — Spanish (/es) — V7 (LUI-DESK-007 §18)
 // =============================================================================
 
-export const metadata: Metadata = buildPageMetadata(homeContentEs.seo, "en", "home");
+const c = homeContentEs;
+
+export const metadata: Metadata = {
+  ...buildPageMetadata(c.seo, "es", "home"),
+  openGraph: {
+    title: "Image by LUI — Consultoría de Imagen Diagnóstica en Miami",
+    description: "Estrategia de imagen basada en colorimetría y ciencia del estilo. Análisis de color de cortesía para profesionales. Bilingüe EN/ES.",
+    images: [{ url: "/og/homepage.jpg", width: 1200, height: 630 }],
+    locale: "es_US",
+    type: "website",
+  },
+};
 
 export default function HomePageEs() {
-  const c = homeContentEs;
-  const freeCard = c.servicePreview.cards[0];
-  const paidCards = c.servicePreview.cards.slice(1);
-
   return (
-    <>
-      {/* ----------------------------------------------------------------- */}
-      {/* 1. HERO                                                          */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="bg-warm-ivory">
-        {/* Desktop: image left, text right */}
-        <div className="hidden lg:grid grid-cols-[1.2fr_1fr] h-[680px]">
-          <div className="overflow-hidden">
-            <ImagePlaceholder
-              src="/images/hero-burgundy-dress.jpg"
-              alt="Lu, fundadora de Image by LUI, con un elegante vestido burdeos en un evento en Miami"
-              width={800}
-              height={1000}
-              colorIndex={0}
-              className="w-full h-full object-cover"
-              fill
-              objectPosition="center 15%"
-              priority
-            />
-          </div>
-          <div className="flex items-center px-12 py-16">
-            <ScrollReveal>
-              <div>
-                <div className="w-12 h-[1px] bg-terracotta mb-6" />
-                <h1 className="font-heading font-semibold text-[48px] leading-[1.08] text-espresso mb-5">
-                  {c.hero.headline}
-                </h1>
-                <p className="font-heading italic text-[22px] text-warm-grey leading-snug mb-8">
-                  {c.hero.subheadline}
-                </p>
-                <Button href={c.hero.cta.href} external={c.hero.cta.external}>
-                  {c.hero.cta.text}
-                </Button>
-                <p className="font-body text-[13px] text-warm-taupe mt-3">
-                  {c.hero.ctaSubtext}
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
+    <div data-page="home">
+      {/* ================================================================= */}
+      {/* §3 — HERO                                                        */}
+      {/* ================================================================= */}
+      <section id="hero" className="relative overflow-hidden lg:min-h-[calc(100vh-64px)] lg:flex lg:items-center">
+        {/* Desktop photo — bleeds LEFT */}
+        <div
+          className="hidden lg:block absolute top-0 left-0 w-[48%] h-full overflow-hidden"
+          style={{ opacity: 0, animation: "heroPhotoIn 0.9s ease 0.3s forwards" }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/heroes/home-hero-page.jpg"
+            alt={c.hero.desktopImageAlt}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 25%", filter: "saturate(0.78) sepia(0.03) brightness(1.0)" }}
+          />
+          <div className="absolute top-0 right-0 h-full w-[160px]" style={{ background: "linear-gradient(to left, #FFFFFF 0%, transparent 100%)" }} aria-hidden="true" />
+          <div className="absolute bottom-0 left-0 w-full h-[140px]" style={{ background: "linear-gradient(to top, #FFFFFF 0%, rgba(255,255,255,0.5) 40%, transparent 100%)" }} aria-hidden="true" />
         </div>
 
-        {/* Mobile: image above, text below */}
-        <div className="lg:hidden">
-          <ImagePlaceholder
-            src="/images/hero-burgundy-dress.jpg"
-            alt="Lu, fundadora de Image by LUI, con un elegante vestido burdeos en un evento en Miami"
-            width={750}
-            height={950}
-            colorIndex={0}
-            className="w-full"
-            fill
-            objectPosition="center 15%"
-            priority
+        {/* Mobile photo */}
+        <div className="lg:hidden relative overflow-hidden" style={{ height: 420 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/mobile/heroes/home-hero-page.jpg"
+            alt={c.hero.mobileImageAlt}
+            className="w-full h-full object-cover"
+            style={{ filter: "saturate(0.78) sepia(0.03) brightness(1.0)" }}
           />
-          <div className="px-6 py-6">
-            <h1 className="font-heading font-semibold text-[30px] leading-[1.15] text-espresso mb-3">
-              {c.hero.headline}
-            </h1>
-            <p className="font-heading italic text-[18px] text-warm-grey leading-snug mb-5">
-              {c.hero.subheadline}
-            </p>
-            <Button
+          <div className="absolute bottom-0 left-0 w-full h-[140px]" style={{ background: "linear-gradient(to top, #FFFFFF 0%, transparent 100%)" }} aria-hidden="true" />
+        </div>
+
+        {/* Mobile text */}
+        <div className="lg:hidden text-center" style={{ padding: "0 36px", marginTop: -20 }}>
+          <h1
+            className="font-heading italic text-espresso leading-[1.06]"
+            style={{ fontSize: 38, opacity: 0, animation: "fadeUp 0.7s ease 0.15s forwards" }}
+          >
+            {c.hero.headline}
+          </h1>
+          <div className="w-8 h-[1.5px] bg-gold mx-auto my-3.5" style={{ transformOrigin: "center", transform: "scaleX(0)", animation: "lineGrow 0.5s ease 0.65s forwards" }} aria-hidden="true" />
+          <p
+            className="font-body font-light text-[15px] text-warm-grey leading-[1.6]"
+            style={{ opacity: 0, animation: "fadeUp 0.5s ease 0.85s forwards" }}
+          >
+            {c.hero.subcopy}
+          </p>
+          <div style={{ padding: "28px 40px 0" }}>
+            <a
               href={c.hero.cta.href}
-              external={c.hero.cta.external}
-              className="w-full"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center font-body font-semibold text-[12px] tracking-[1.8px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark transition-all duration-300"
+              style={{ padding: "16px 28px", opacity: 0, animation: "fadeUp 0.4s ease 1.0s forwards" }}
             >
               {c.hero.cta.text}
-            </Button>
-            <p className="font-body text-[12px] text-warm-taupe text-center mt-2">
-              {c.hero.ctaSubtext}
-            </p>
+            </a>
+            <p className="font-body text-[12px] text-warm-grey mt-3">{c.hero.trustNote}</p>
+          </div>
+        </div>
+
+        {/* Desktop text — RIGHT side */}
+        <div className="hidden lg:flex lg:flex-col lg:justify-center" style={{ marginLeft: "52%", padding: "0 48px 0 24px", maxWidth: 520 }}>
+          <p
+            className="font-heading font-light text-[14px] text-warm-taupe mb-3"
+            style={{ opacity: 0, animation: "fadeUp 0.6s ease 0.1s forwards" }}
+          >
+            {c.hero.label}
+          </p>
+          <h1
+            className="font-heading italic text-espresso leading-[1.06]"
+            style={{ fontSize: 58, letterSpacing: "-0.5px", opacity: 0, animation: "fadeUp 0.7s ease 0.15s forwards" }}
+          >
+            {c.hero.headline}
+          </h1>
+          <div
+            className="w-11 h-[1.5px] bg-gold"
+            style={{ margin: "20px 0", transformOrigin: "left", transform: "scaleX(0)", animation: "lineGrow 0.5s ease 0.65s forwards" }}
+            aria-hidden="true"
+          />
+          <p
+            className="font-body font-light text-[17px] text-warm-grey leading-[1.6] mb-7"
+            style={{ opacity: 0, animation: "fadeUp 0.5s ease 0.85s forwards" }}
+          >
+            {c.hero.subcopy}
+          </p>
+          <div style={{ opacity: 0, animation: "fadeUp 0.4s ease 1.0s forwards" }}>
+            <a
+              href={c.hero.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 transition-all duration-300"
+              style={{ padding: "16px 40px" }}
+            >
+              {c.hero.cta.text}
+            </a>
+            <p className="font-body text-[13px] text-warm-grey mt-3">{c.hero.trustNote}</p>
           </div>
         </div>
       </section>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* 2. QUOTE — Espresso poster with decorative gold quotes            */}
-      {/* ----------------------------------------------------------------- */}
-      {c.quote && (
-        <section className="bg-espresso relative overflow-hidden py-9 md:py-14">
-          <span
-            className="font-heading absolute top-2 left-3 md:left-10 text-[120px] md:text-[180px] text-gold/[0.10] leading-none select-none"
-            aria-hidden="true"
-          >
-            &ldquo;
-          </span>
-          <span
-            className="font-heading absolute -bottom-6 right-3 md:right-10 text-[120px] md:text-[180px] text-gold/[0.10] leading-none select-none"
-            aria-hidden="true"
-          >
-            &rdquo;
-          </span>
-          <div className="max-w-[720px] mx-auto px-6 md:px-10 text-center relative z-10">
-            <p className="font-heading italic text-warm-ivory text-[24px] md:text-[26px] leading-snug">
-              {c.quote.text}
-            </p>
-            <div className="w-8 h-[1px] bg-gold mx-auto my-4 md:my-5" />
-            <p className="font-body font-semibold text-[11px] md:text-[13px] tracking-[1.5px] uppercase text-warm-ivory/35">
-              {c.quote.attribution}
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* ----------------------------------------------------------------- */}
-      {/* 3. WHERE TO BEGIN                                                 */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="bg-warm-ivory pt-10 md:pt-[72px]">
-        <div className="max-w-[960px] mx-auto px-6 lg:px-10">
+      {/* ================================================================= */}
+      {/* §4 — STATEMENT                                                   */}
+      {/* ================================================================= */}
+      <section className="text-center" style={{ padding: "28px 32px 36px" }}>
+        <div className="lg:hidden">
           <ScrollReveal>
-            <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso text-center mb-2">
-              Por Dónde Empezar
-            </h2>
-            <p className="font-body text-[15px] md:text-[16px] text-warm-taupe text-center mb-8 md:mb-12">
-              Tres niveles de transformación — empieza con una sesión de cortesía
-            </p>
+            <h2 className="font-heading italic font-light text-[28px] text-espresso mb-2">{c.statement.heading}</h2>
+            <p className="font-body text-[13px] text-warm-taupe" style={{ letterSpacing: "0.2px" }}>{c.statement.body}</p>
           </ScrollReveal>
-
-          {/* Power Palette — invitation card */}
+        </div>
+        <div className="hidden lg:block" style={{ padding: "88px 48px 48px" }}>
           <ScrollReveal>
-            <div className="bg-warm-ivory border border-champagne overflow-hidden md:grid md:grid-cols-2 mb-8 md:mb-10">
-              <div className="p-1.5 md:p-0 md:min-h-[300px]">
-                <ImagePlaceholder
-                  alt="Color draping session"
-                  width={800}
-                  height={600}
-                  colorIndex={1}
-                  className="w-full md:h-full md:object-cover"
-                />
-              </div>
-              <div className="px-5 pb-5 pt-3 md:px-10 md:py-9 flex flex-col justify-center">
-                <span className="font-body font-semibold text-[11px] md:text-[13px] tracking-[2px] uppercase text-terracotta mb-2">
-                  Empieza aquí — de cortesía
-                </span>
-                <h3 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso mb-3">
-                  {freeCard.name}
-                </h3>
-                <p className="font-body text-warm-grey text-[15px] md:text-[16px] leading-relaxed mb-5">
-                  {freeCard.description}
-                </p>
-                <div>
-                  <Button
-                    href={freeCard.cta.href}
-                    external={freeCard.cta.external}
-                    className="w-full md:w-auto"
-                  >
-                    {freeCard.cta.text}
-                  </Button>
-                </div>
-                <p className="font-body text-[12px] text-warm-taupe mt-2 text-center md:text-left">
-                  Sin compromiso
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Transition */}
-          <div className="text-center mb-8 md:mb-10 py-2">
-            <div className="w-16 h-[1px] bg-champagne mx-auto mb-3" />
-            <p className="font-heading italic text-[18px] md:text-[18px] text-espresso/50">
-              Cuando estés lista para más
-            </p>
-            <div className="w-16 h-[1px] bg-champagne mx-auto mt-3" />
-          </div>
-
-          {/* First Impression — editorial layout */}
-          <ScrollReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-6 lg:mb-12 pb-0 lg:pb-12 lg:border-b lg:border-b-soft-stone">
-              <div>
-                {/* Mobile: inline price. Desktop: stacked */}
-                <div className="flex items-baseline justify-between lg:block">
-                  <h3 className="font-heading font-medium text-[20px] lg:text-[26px] text-espresso">
-                    {paidCards[0].name}
-                  </h3>
-                  <p className="font-body font-semibold text-[15px] lg:text-[18px] text-terracotta lg:mt-1">
-                    {paidCards[0].price}
-                  </p>
-                </div>
-                <div className="w-8 h-[1px] bg-terracotta my-3 lg:my-4" />
-                {paidCards[0].positioningLine && (
-                  <p className="font-heading italic text-[14px] lg:text-[17px] text-warm-taupe mb-2 lg:mb-3">
-                    {paidCards[0].positioningLine}
-                  </p>
-                )}
-                <p className="font-body text-[15px] lg:text-[16px] text-warm-grey leading-relaxed mb-3">
-                  {paidCards[0].outcomeText && (
-                    <strong className="text-espresso">{paidCards[0].outcomeText} </strong>
-                  )}
-                  {paidCards[0].description}
-                </p>
-                {paidCards[0].detailsLine && (
-                  <p className="font-body text-[13px] text-warm-taupe mb-4">
-                    {paidCards[0].detailsLine}
-                  </p>
-                )}
-                <Link
-                  href={paidCards[0].cta.href || "#"}
-                  className="font-body font-semibold text-terracotta text-[14px] lg:text-[15px] tracking-[0.5px] no-underline hover:underline"
-                >
-                  {paidCards[0].cta.text} →
-                </Link>
-              </div>
-              {/* Desktop-only image */}
-              <div className="hidden lg:block border border-champagne p-1.5 bg-warm-ivory">
-                <ImagePlaceholder
-                  alt="Style diagnostic session"
-                  width={600}
-                  height={450}
-                  colorIndex={1}
-                  className="w-full"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Identity Transformation — flagship, champagne on mobile */}
-          <ScrollReveal>
-            <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start pb-10 md:pb-[72px]">
-              {/* Desktop-only image — gold frame */}
-              <div className="hidden lg:block border border-gold/40 p-1.5 bg-warm-ivory">
-                <ImagePlaceholder
-                  alt="Complete transformation"
-                  width={600}
-                  height={450}
-                  colorIndex={1}
-                  className="w-full"
-                />
-              </div>
-              {/* Mobile: champagne card. Desktop: no background */}
-              <div className="bg-champagne p-5 lg:bg-transparent lg:p-0">
-                <div className="border-t-[3px] border-t-gold pt-4 lg:border-t-0 lg:pt-0">
-                  <span className="font-body font-semibold text-[10px] tracking-[1.5px] uppercase text-gold mb-2 block">
-                    Más Completo
-                  </span>
-                  <div className="flex items-baseline justify-between lg:block">
-                    <h3 className="font-heading font-medium text-[20px] lg:text-[26px] text-espresso">
-                      {paidCards[1].name}
-                    </h3>
-                    <p className="font-body font-semibold text-[15px] lg:text-[18px] text-terracotta lg:mt-1">
-                      {paidCards[1].price}
-                    </p>
-                  </div>
-                  <div className="w-8 h-[1px] bg-gold my-3 lg:my-4" />
-                  {paidCards[1].positioningLine && (
-                    <p className="font-heading italic text-[14px] lg:text-[17px] text-warm-taupe mb-2 lg:mb-3">
-                      {paidCards[1].positioningLine}
-                    </p>
-                  )}
-                  <p className="font-body text-[15px] lg:text-[16px] text-warm-grey leading-relaxed mb-3">
-                    {paidCards[1].outcomeText && (
-                      <strong className="text-espresso">{paidCards[1].outcomeText} </strong>
-                    )}
-                    {paidCards[1].description}
-                  </p>
-                  {paidCards[1].detailsLine && (
-                    <div className="bg-warm-ivory/70 lg:bg-champagne px-3 py-2 inline-block mb-4">
-                      <p className="font-body font-semibold text-[12px] lg:text-[13px] text-espresso">
-                        {paidCards[1].detailsLine}
-                      </p>
-                    </div>
-                  )}
-                  <div className="block">
-                    <Link
-                      href={paidCards[1].cta.href || "#"}
-                      className="font-body font-semibold text-terracotta text-[14px] lg:text-[15px] tracking-[0.5px] no-underline hover:underline"
-                    >
-                      {paidCards[1].cta.text} →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 className="font-heading italic font-light text-[40px] text-espresso mb-3">{c.statement.heading}</h2>
+            <p className="font-body text-[15px] text-warm-taupe">{c.statement.body}</p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* 4. IMAGE BREAK                                                    */}
-      {/* ----------------------------------------------------------------- */}
-      <ImagePlaceholder
-        alt="Color draping in action"
-        width={1200}
-        height={400}
-        colorIndex={1}
-        className="w-full"
-      />
-
-      {/* ----------------------------------------------------------------- */}
-      {/* 5. DESIGNED FOR PROFESSIONALS — Espresso                          */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="bg-espresso">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
+      {/* ================================================================= */}
+      {/* §5 — PULLQUOTE (Silvia)                                          */}
+      {/* ================================================================= */}
+      <section>
+        <div className="lg:hidden" style={{ padding: "56px 24px" }}>
           <ScrollReveal>
-            <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-warm-ivory text-center mb-1 md:mb-2">
-              {c.whoIsThisFor.sectionHeading}
-            </h2>
-            <div className="w-8 h-[1px] bg-gold mx-auto mb-5 md:mb-9" />
+            <div style={{ borderLeft: "3px solid var(--lui-gold)", paddingLeft: 20 }}>
+              <span className="font-heading text-[44px] text-gold/40 leading-none block mb-1" aria-hidden="true">&ldquo;</span>
+              <p className="font-heading italic font-light text-[19px] text-espresso leading-[1.4] mb-3">{c.pullquote.quote}</p>
+              <p className="font-body font-semibold text-[12px] text-espresso">{c.pullquote.name}</p>
+              <a href={c.pullquote.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[11px] text-terracotta no-underline hover:underline">{c.pullquote.handle}</a>
+            </div>
           </ScrollReveal>
+        </div>
+        <div className="hidden lg:block text-center" style={{ padding: "80px 48px" }}>
+          <ScrollReveal>
+            <span className="font-heading text-[72px] text-gold/30 leading-none block mb-2" aria-hidden="true">&ldquo;</span>
+            <p className="font-heading italic font-light text-[24px] text-espresso leading-[1.4] max-w-[640px] mx-auto mb-4">{c.pullquote.quote}</p>
+            <p className="font-body font-semibold text-[13px] text-espresso">{c.pullquote.name}</p>
+            <a href={c.pullquote.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[12px] text-terracotta no-underline hover:underline">{c.pullquote.handle}</a>
+          </ScrollReveal>
+        </div>
+      </section>
 
-          {/* Desktop: 2x2 grid */}
-          <div className="hidden md:grid grid-cols-2 gap-6 max-w-[900px] mx-auto">
-            {c.whoIsThisFor.cards.map((card, i) => (
-              <ScrollReveal key={card.headline} delay={i * 100}>
-                <div className="pl-5 border-l-[3px] border-l-terracotta py-2">
-                  <p className="font-body font-semibold text-[18px] text-warm-ivory mb-2">
-                    {card.headline}
-                  </p>
-                  <p className="font-body text-[15px] text-warm-ivory/55 leading-relaxed">
-                    {card.body}
-                  </p>
-                </div>
-              </ScrollReveal>
+      {/* ================================================================= */}
+      {/* §6 — SERVICES MENU                                               */}
+      {/* ================================================================= */}
+      <section>
+        <div className="lg:hidden text-center" style={{ padding: "56px 32px 28px" }}>
+          <ScrollReveal>
+            <h2 className="font-heading italic text-[22px] text-espresso mb-8">{c.servicesMenu.heading}</h2>
+            {c.servicesMenu.services.map((svc, i) => (
+              <div key={svc.name}>
+                {i > 0 && <div className="w-6 h-[1px] bg-champagne mx-auto my-6" aria-hidden="true" />}
+                <h3 className="font-heading italic text-[28px] text-espresso mb-2">{svc.name}</h3>
+                <p className="font-body text-[13px] text-warm-grey leading-[1.5] mb-2">{svc.teaser}</p>
+                <p className="font-heading font-medium text-[18px] text-terracotta mb-2">{svc.price}</p>
+                <Link href={svc.linkHref} className="font-body font-medium text-[11px] text-terracotta tracking-[0.5px] no-underline hover:underline">{svc.linkText}</Link>
+              </div>
             ))}
-          </div>
+          </ScrollReveal>
+        </div>
+        <div className="hidden lg:block" style={{ padding: "48px 48px 96px" }}>
+          <ScrollReveal>
+            <h2 className="font-heading italic text-[24px] text-espresso text-center mb-12">{c.servicesMenu.heading}</h2>
+            <div className="flex max-w-[800px] mx-auto">
+              {c.servicesMenu.services.map((svc, i) => (
+                <div
+                  key={svc.name}
+                  className="flex-1 text-center px-10"
+                  style={i === 0 ? { borderRight: "0.5px solid rgba(196,154,92,0.3)" } : {}}
+                >
+                  <h3 className="font-heading italic text-[32px] text-espresso mb-3">{svc.name}</h3>
+                  <p className="font-body text-[14px] text-warm-grey leading-[1.5] mb-3">{svc.teaser}</p>
+                  <p className="font-heading font-medium text-[22px] text-terracotta mb-3">{svc.price}</p>
+                  <Link href={svc.linkHref} className="font-body font-medium text-[12px] text-terracotta tracking-[0.5px] no-underline hover:underline hover:tracking-[1px] transition-all duration-300">{svc.linkText}</Link>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
-          {/* Mobile: stacked */}
-          <div className="md:hidden flex flex-col">
-            {c.whoIsThisFor.cards.map((card, i) => (
-              <div
-                key={card.headline}
-                className={`flex items-start gap-3 py-3.5 ${
-                  i < c.whoIsThisFor.cards.length - 1
-                    ? "border-b border-b-warm-ivory/10"
-                    : ""
-                }`}
+      {/* ================================================================= */}
+      {/* §8 — POWER PALETTE                                               */}
+      {/* ================================================================= */}
+      <section>
+        <div className="lg:hidden" style={{ padding: "20px 0 56px" }}>
+          <ScrollReveal>
+            <div className="text-center" style={{ border: "1px solid var(--lui-gold)", padding: "36px 28px" }}>
+              <p className="font-heading text-[22px] text-espresso mb-1">{c.powerPalette.question}</p>
+              <h2 className="font-heading italic text-[26px] text-espresso mb-2">{c.powerPalette.name}</h2>
+              <p className="font-body font-medium text-[10px] tracking-[1.5px] uppercase text-gold mb-4">{c.powerPalette.meta}</p>
+              <p className="font-body text-[14px] text-warm-grey leading-[1.6] mb-5">{c.powerPalette.description}</p>
+              <a
+                href={c.powerPalette.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center font-body font-semibold text-[12px] tracking-[1.5px] uppercase bg-terracotta text-white py-4 no-underline hover:no-underline hover:bg-terracotta-dark transition-colors duration-300"
               >
-                <div className="w-[3px] min-h-full bg-terracotta shrink-0 mt-1 self-stretch" />
-                <div>
-                  <p className="font-body font-semibold text-[17px] text-warm-ivory mb-1">
-                    {card.headline}
-                  </p>
-                  <p className="font-body text-[14px] text-warm-ivory/55 leading-relaxed">
-                    {card.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ----------------------------------------------------------------- */}
-      {/* 6. TESTIMONIALS — Champagne, headshots + @handles                 */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="bg-champagne">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
-          <ScrollReveal>
-            <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso text-center mb-1">
-              {c.socialProof.heading}
-            </h2>
-            <p className="text-center font-heading italic text-warm-taupe text-[13px] md:text-[14px] mb-4 md:mb-8">
-              {testimonialsContextLine.es}
-            </p>
+                {c.powerPalette.cta.text}
+              </a>
+              <p className="font-body text-[12px] text-warm-grey mt-3">{c.powerPalette.note}</p>
+            </div>
           </ScrollReveal>
-
-          {/* Desktop: 3-column */}
-          <div className="hidden md:grid grid-cols-3 gap-5 max-w-[960px] mx-auto">
-            {testimonials.map((t, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-             <TestimonialCard
-                  quote={t.quote.es}
-                  attribution={t.attribution.es}
-                  initials={t.initials}
-                  social={t.social}
-                  socialUrl={t.socialUrl}
-                  image={t.image}
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* Mobile: stacked */}
-          <div className="md:hidden flex flex-col gap-3">
-            {testimonials.map((t, i) => (
-              <TestimonialCard
-                  quote={t.quote.es}
-                  attribution={t.attribution.es}
-                  initials={t.initials}
-                  social={t.social}
-                  socialUrl={t.socialUrl}
-                  image={t.image}
-                />
-            ))}
-          </div>
+        </div>
+        <div className="hidden lg:block" style={{ padding: "96px 48px" }}>
+          <ScrollReveal>
+            <div
+              className="max-w-[640px] mx-auto text-center"
+              style={{ border: "1px solid var(--lui-gold)", padding: "48px 56px", boxShadow: "0 2px 24px rgba(196,154,92,0.08)" }}
+            >
+              <p className="font-heading text-[22px] text-espresso mb-1">{c.powerPalette.question}</p>
+              <h2 className="font-heading italic text-[30px] text-espresso mb-2">{c.powerPalette.name}</h2>
+              <p className="font-body font-medium text-[11px] tracking-[1.5px] uppercase text-gold mb-5">{c.powerPalette.meta}</p>
+              <p className="font-body text-[15px] text-warm-grey leading-[1.6] max-w-[440px] mx-auto mb-6">{c.powerPalette.description}</p>
+              <a
+                href={c.powerPalette.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 transition-all duration-300"
+                style={{ padding: "16px 40px" }}
+              >
+                {c.powerPalette.cta.text}
+              </a>
+              <p className="font-body text-[12px] text-warm-grey mt-3">{c.powerPalette.note}</p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* 7. MEET LU                                                        */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="bg-warm-ivory">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-start max-w-[960px] mx-auto">
+      {/* ================================================================= */}
+      {/* §9 — MEET LU                                                     */}
+      {/* ================================================================= */}
+      <section className="relative lg:min-h-[480px] lg:flex lg:items-center">
+        <div className="hidden lg:block absolute top-0 right-0 w-[48%] h-full meet-photo-wrap overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/mobile/home/home-lu-about.jpg"
+            alt={c.meetLu.imageAlt}
+            className="w-full h-full object-cover"
+            style={{ filter: "saturate(0.75) sepia(0.03) brightness(1.05)" }}
+          />
+        </div>
+
+        <div className="lg:hidden">
+          <div className="text-center pt-12 px-8 mb-5">
             <ScrollReveal>
-              <ImagePlaceholder
-                src="/images/meet-lu-square.jpg"
-                alt="Lu en un evento profesional en Miami rodeada de vegetación tropical"
-                width={600}
-                height={600}
-                colorIndex={1}
-                className="w-full"
-              />
+              <h2 className="font-heading italic text-[28px] text-espresso mb-3">{c.meetLu.heading}</h2>
+              <div className="w-7 h-[1px] bg-gold mx-auto mb-3" aria-hidden="true" />
+              <p className="font-heading italic font-light text-[16px] text-espresso">{c.meetLu.lead}</p>
             </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <h2 className="font-heading font-medium text-[22px] md:text-[28px] text-espresso mb-3 md:mb-4">
-                {c.aboutPreview.heading}
-              </h2>
-              <p className="font-body text-warm-grey leading-relaxed text-[16px] md:text-[17px] mb-5">
-                {c.aboutPreview.body}
-              </p>
-              <div className="flex items-center gap-10">
-                <Link
-                  href={c.aboutPreview.link.href}
-                  className="font-body font-semibold text-terracotta text-[14px] md:text-[15px] tracking-[0.5px] no-underline hover:underline"
-                >
-                  {c.aboutPreview.link.text} →
-                </Link>
-                {c.aboutPreview.instagramLink && (
-                  <a
-                    href={c.aboutPreview.instagramLink.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-body font-semibold text-terracotta text-[14px] md:text-[15px] tracking-[0.5px] no-underline hover:underline"
-                  >
-                    {c.aboutPreview.instagramLink.text} →
-                  </a>
-                )}
+          </div>
+          <div className="relative overflow-hidden" style={{ height: 340 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/mobile/home/home-lu-about.jpg"
+              alt={c.meetLu.imageAlt}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "40% 30%", filter: "saturate(0.75) sepia(0.03) brightness(1.05)" }}
+            />
+            <div className="absolute top-0 left-0 w-full h-[80px]" style={{ background: "linear-gradient(to bottom, #FFFFFF 0%, rgba(255,255,255,0.3) 40%, transparent 100%)" }} aria-hidden="true" />
+            <div className="absolute bottom-0 left-0 w-full h-[140px]" style={{ background: "linear-gradient(to top, #FFFFFF 0%, rgba(255,255,255,0.6) 40%, transparent 100%)" }} aria-hidden="true" />
+          </div>
+          <div className="text-center px-8 pb-12">
+            <ScrollReveal>
+              <p className="font-body text-[14px] text-warm-grey leading-[1.6] mb-4">{c.meetLu.bio}</p>
+              <div className="flex items-center justify-center gap-6">
+                <Link href={c.meetLu.learnMoreHref} className="font-body font-medium text-[12px] text-terracotta no-underline hover:underline">{c.meetLu.learnMoreText}</Link>
+                <a href={c.meetLu.instagramHref} target="_blank" rel="noopener noreferrer" className="font-body font-medium text-[12px] text-terracotta no-underline hover:underline">{c.meetLu.instagramText}</a>
               </div>
             </ScrollReveal>
           </div>
         </div>
-      </section>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* 8. FINAL CTA                                                      */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="hidden md:block bg-espresso">
-        <div className="max-w-3xl mx-auto px-6 lg:px-10 py-16 text-center">
+        <div className="hidden lg:block" style={{ marginRight: "auto", maxWidth: 460, paddingLeft: 48 }}>
           <ScrollReveal>
-            <div className="w-8 h-[1px] bg-gold mx-auto mb-6" />
-            <h2 className="text-warm-ivory font-heading font-medium text-[28px] mb-3">
-              {c.finalCta.heading}
-            </h2>
-            <p className="text-warm-ivory/70 leading-relaxed text-[17px] mb-8">
-              {c.finalCta.body}
-            </p>
-            {c.finalCta.cta && (
-              <Button href={c.finalCta.cta.href} external={c.finalCta.cta.external}>
-                {c.finalCta.cta.text}
-              </Button>
-            )}
+            <p className="font-body font-semibold text-[10px] tracking-[2px] uppercase text-gold mb-3">{c.meetLu.label}</p>
+            <h2 className="font-heading italic text-[40px] text-espresso mb-0">{c.meetLu.heading}</h2>
+            <div className="w-8 h-[1px] bg-gold my-4" aria-hidden="true" />
+            <p className="font-heading italic font-light text-[18px] text-espresso mb-4">{c.meetLu.lead}</p>
+            <p className="font-body text-[15px] text-warm-grey leading-[1.7] mb-5">{c.meetLu.bio}</p>
+            <div className="flex items-center gap-6">
+              <Link href={c.meetLu.learnMoreHref} className="font-body font-medium text-[13px] text-terracotta no-underline hover:underline">{c.meetLu.learnMoreText}</Link>
+              <a href={c.meetLu.instagramHref} target="_blank" rel="noopener noreferrer" className="font-body font-medium text-[13px] text-terracotta no-underline hover:underline">{c.meetLu.instagramText}</a>
+            </div>
           </ScrollReveal>
         </div>
       </section>
-    </>
+
+      {/* ================================================================= */}
+      {/* §10 — MORE VOICES                                                */}
+      {/* ================================================================= */}
+      <section>
+        <div className="lg:hidden" style={{ backgroundColor: "var(--lui-warm-ivory)", padding: "48px 0" }}>
+          <ScrollReveal>
+            <h2 className="font-heading italic text-[22px] text-espresso text-center mb-6 px-6">{c.moreVoices.heading}</h2>
+            <div
+              className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory pb-3"
+              style={{ padding: "0 20px 12px", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+            >
+              {c.moreVoices.testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  className="shrink-0 snap-start bg-white"
+                  style={{ minWidth: 265, padding: "20px 18px", boxShadow: "0 2px 20px rgba(44,36,32,0.05)", border: "0.5px solid rgba(212,197,178,0.2)" }}
+                >
+                  <p className="font-heading italic font-light text-[16px] text-espresso leading-[1.4] mb-3">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="font-body font-semibold text-[11px] text-espresso">{t.name}</p>
+                  <a href={t.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[10px] text-terracotta no-underline hover:underline">{t.handle}</a>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+        <div className="hidden lg:block" style={{ padding: "80px 48px 120px" }}>
+          <ScrollReveal>
+            <h2 className="font-heading italic text-[28px] text-espresso text-center mb-12">{c.moreVoices.heading}</h2>
+            <div className="grid grid-cols-2 gap-16 max-w-[880px] mx-auto">
+              {c.moreVoices.testimonials.map((t, i) => (
+                <div key={i} className="text-center">
+                  <span className="font-heading text-[40px] text-gold/30 leading-none block mb-2" aria-hidden="true">&ldquo;</span>
+                  <p className="font-heading italic font-light text-[18px] text-espresso leading-[1.4] mb-4">{t.quote}</p>
+                  <p className="font-body font-semibold text-[12px] text-espresso">{t.name}</p>
+                  <a href={t.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[11px] text-terracotta no-underline hover:underline">{t.handle}</a>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ================================================================= */}
+      {/* §11 — BOTTOM CTA                                                 */}
+      {/* ================================================================= */}
+      <section data-section="bcta" style={{ backgroundColor: "var(--lui-espresso)" }}>
+        <div className="lg:hidden text-center" style={{ padding: "36px 20px" }}>
+          <ScrollReveal>
+            <h2 className="font-heading italic text-[26px] text-warm-ivory mb-3">{c.bottomCta.heading}</h2>
+            <p className="font-body text-[14px] text-warm-ivory/60 leading-[1.6] mb-6">{c.bottomCta.body}</p>
+            <a
+              href={c.bottomCta.primaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center font-body font-semibold text-[12px] tracking-[1.5px] uppercase bg-terracotta text-white py-4 mb-3 no-underline hover:no-underline"
+            >
+              {c.bottomCta.primaryCta.text}
+            </a>
+            <a
+              href={c.bottomCta.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-4 bg-[#25D366] text-white font-body font-semibold text-[12px] tracking-[1px] uppercase no-underline hover:no-underline"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              {c.bottomCta.whatsappText}
+            </a>
+          </ScrollReveal>
+        </div>
+        <div className="hidden lg:block text-center" style={{ padding: "72px 48px" }}>
+          <ScrollReveal>
+            <h2 className="font-heading italic text-[30px] text-warm-ivory mb-3">{c.bottomCta.heading}</h2>
+            <p className="font-body font-light text-[15px] leading-[1.7] mb-8" style={{ color: "rgba(247,243,239,0.4)" }}>{c.bottomCta.body}</p>
+            <a
+              href={c.bottomCta.primaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-body font-semibold text-[11px] tracking-[2px] uppercase bg-terracotta text-white no-underline hover:no-underline hover:bg-terracotta-dark hover:tracking-[2.5px] hover:-translate-y-0.5 transition-all duration-300"
+              style={{ padding: "16px 40px" }}
+            >
+              {c.bottomCta.primaryCta.text}
+            </a>
+            <p className="mt-4" style={{ fontSize: 13, color: "rgba(247,243,239,0.4)" }}>
+              {c.bottomCta.whatsappText.split("WhatsApp")[0]}
+              <a href={c.bottomCta.whatsappHref} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium no-underline hover:opacity-80 transition-opacity">WhatsApp</a>
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <HomeStickyBar text={c.stickyBar.text} href={c.stickyBar.href} />
+    </div>
   );
 }
