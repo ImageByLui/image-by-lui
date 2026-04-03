@@ -11,6 +11,7 @@ import ServicesTestimonialBlock from "@/components/services/ServicesTestimonialB
 import FAQPreview from "@/components/services/FAQPreview";
 import BottomCTASection from "@/components/services/BottomCTASection";
 import ServicesStickyBar from "@/components/services/ServicesStickyBar";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const content = servicesOverviewContent;
 export const metadata: Metadata = {
