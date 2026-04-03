@@ -59,7 +59,7 @@ export default function FAQInteractive({ content, lang }: FAQInteractiveProps) {
     return () => observer.disconnect();
   }, []);
 
-  const BG_COLORS = ["#E8E0D6", "#F7F3EF", "#E8E0D6"]; // stone, ivory, stone
+  const BG_COLORS = ["#EDE7DF", "#FAF8F5", "#EDE7DF"]; // stone, ivory, stone
 
   return (
     <>
@@ -160,7 +160,7 @@ export default function FAQInteractive({ content, lang }: FAQInteractiveProps) {
             id={`faq-${cat.id}`}
             ref={(el) => registerSection(cat.id, el)}
             className="py-12"
-            style={{ scrollMarginTop: 140, backgroundColor: BG_COLORS[catIdx] ?? "#F7F3EF" }}
+            style={{ scrollMarginTop: 140, backgroundColor: BG_COLORS[catIdx] ?? "#FAF8F5" }}
             aria-label={cat.sectionTitle ?? cat.pillLabel}
           >
             <div className="max-w-[800px] mx-auto px-12">

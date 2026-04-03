@@ -51,7 +51,7 @@ export default function JourneyTimelineDesktop({
           {components.map((comp, i) => {
             const isLast = i === components.length - 1;
             return (
-              <ScrollReveal key={comp.stepNumber} delay={i * 100} className={isLast ? "" : "mb-10"}>
+              <ScrollReveal key={comp.stepNumber} delay={i * 100} className={isLast ? "" : "mb-20"}>
                 <div className="grid gap-5 relative" style={{ gridTemplateColumns: "48px 1fr 220px" }}>
                   {/* Number circle */}
                   <div className="flex justify-center pt-6">
@@ -62,7 +62,7 @@ export default function JourneyTimelineDesktop({
 
                   {/* Content card */}
                   <div className="bg-white border border-champagne p-6 px-7 transition-colors duration-300 hover:border-gold">
-                    <h3 className="font-heading text-[22px] font-semibold italic text-espresso mb-1">{comp.name}</h3>
+                    <h3 className="font-heading text-[22px] font-normal italic text-espresso mb-1">{comp.name}</h3>
                     <p className="text-[11px] text-warm-taupe mb-2.5">
                       {comp.duration} · {comp.subtitle}
                     </p>
@@ -107,7 +107,7 @@ export default function JourneyTimelineDesktop({
                       src={images[i] || ""}
                       alt={comp.imageAlt}
                       className="w-full h-full object-cover"
-                      style={{ filter: "saturate(0.5) sepia(0.12) brightness(1.0)" }}
+                      style={{ filter: "saturate(0.65) sepia(0.06) brightness(1.0)" }}
                     />
                   </div>
                 </div>

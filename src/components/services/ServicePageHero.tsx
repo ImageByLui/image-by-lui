@@ -47,7 +47,7 @@ export default function ServicePageHero({
   const photoW = desktopPhoto?.photoWidth ?? "45%";
 
   const tagsBlock = (
-    <div className={`${tagsPosition === "above-image" ? "px-5 pb-3" : "pt-3 px-5 pb-3"} ${hasDesktop ? "lg:hidden" : ""}`}>
+    <div className={`${tagsPosition === "above-image" ? "px-5 pb-3" : "pt-3 px-5 pb-5"} ${hasDesktop ? "lg:hidden" : ""}`}>
       <div className="flex flex-wrap gap-1.5">
         {tags.map((tag, i) => (
           <span key={i} className="font-body text-[11px] text-warm-taupe border-l-[2px] border-l-gold/40 pl-2 py-0.5">
@@ -55,7 +55,7 @@ export default function ServicePageHero({
           </span>
         ))}
       </div>
-      <div className="h-[1px] mt-5" style={{ backgroundColor: "rgba(196,154,92,0.3)" }} aria-hidden="true" />
+      <div className="h-[1px] mt-4" style={{ backgroundColor: "rgba(196,154,92,0.3)" }} aria-hidden="true" />
     </div>
   );
 
@@ -64,7 +64,7 @@ export default function ServicePageHero({
       <div className={`border ${borderCls} p-0.5 overflow-hidden`}>
         {mobileHeroImage ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[3/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+          <img src={mobileHeroImage} alt={imageAlt} className="w-full aspect-[3/2] object-cover" style={{ filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }} />
         ) : (
           <ImagePlaceholder alt={imageAlt} width={347} height={174} colorIndex={1} className="w-full" />
         )}
@@ -98,7 +98,7 @@ export default function ServicePageHero({
           {/* Left fade gradient */}
           <div
             className="absolute top-0 left-0 h-full w-[140px]"
-            style={{ background: "linear-gradient(to right, #F7F3EF 0%, transparent 100%)" }}
+            style={{ background: "linear-gradient(to right, #FAF8F5 0%, transparent 100%)" }}
             aria-hidden="true"
           />
         </div>

@@ -35,7 +35,7 @@ export default function FreeSessionCard({
               src="/images/mobile/heroes/power-palette-hero.jpg"
               alt={imageAlt}
               className="w-full aspect-[3/1] object-cover"
-              style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
+              style={{ filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }}
             />
           </div>
 

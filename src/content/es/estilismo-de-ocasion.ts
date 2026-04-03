@@ -164,7 +164,7 @@ export const estilismoDeOcasionContent: OccasionStylingContent = {
     hero: {
       image: "/images/heroes/occasion-hero-lu-gala.jpg",
       imagePosition: "center 40%",
-      filter: "saturate(0.7) sepia(0.06) brightness(1.0)",
+      filter: "saturate(0.78) sepia(0.03) brightness(1.0)",
       minHeight: 480,
       photoWidth: "45%",
     },

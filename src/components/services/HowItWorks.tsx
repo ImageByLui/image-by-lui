@@ -26,14 +26,14 @@ export default function HowItWorks({ label, steps, imageAlt, desktopHeading, des
   const hasDesktop = !!desktopHeading;
 
   return (
-    <section className={`bg-warm-ivory py-5 px-3.5 ${hasDesktop ? "lg:bg-soft-stone lg:py-16 lg:px-0" : ""}`} aria-label="How it works">
+    <section className={`bg-warm-ivory py-7 px-3.5 ${hasDesktop ? "lg:bg-soft-stone lg:py-16 lg:px-0" : ""}`} aria-label="How it works">
       {/* Mobile layout */}
       <div className={hasDesktop ? "lg:hidden" : ""}>
         <p className="font-body font-semibold text-[11px] tracking-[1.5px] uppercase text-terracotta px-1.5 mb-5">{label}</p>
         <div className="px-1.5">
           {steps.map((step, i) => (
             <div key={i}>
-              <div className="border-l border-l-gold/30 pl-5 pb-3 relative">
+              <div className="border-l border-l-gold/30 pl-5 pb-5 relative">
                 <span className="absolute -left-3 top-0 font-heading text-[36px] font-medium text-terracotta leading-none bg-warm-ivory px-1">{i + 1}</span>
                 <div className="pt-0.5">
                   <h3 className="font-body font-semibold text-nav text-espresso mb-1.5">{step.title}</h3>
@@ -46,7 +46,7 @@ export default function HowItWorks({ label, steps, imageAlt, desktopHeading, des
         <div className="mt-4 border border-gold p-0.5 overflow-hidden">
           {mobileImage ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={mobileImage} alt={imageAlt} className="w-full aspect-[5/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+            <img src={mobileImage} alt={imageAlt} className="w-full aspect-[5/2] object-cover" style={{ filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }} />
           ) : (
             <ImagePlaceholder alt={imageAlt} width={347} height={139} colorIndex={1} className="w-full" />
           )}

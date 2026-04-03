@@ -31,7 +31,7 @@ function OccasionCard({ card }: { card: DesktopServiceCardData }) {
             src={card.image}
             alt={card.title}
             className="w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover/card:scale-105"
-            style={{ objectPosition: card.imagePosition, filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
+            style={{ objectPosition: card.imagePosition, filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }}
           />
           {/* Dark gradient overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-[55%] pointer-events-none" style={{ background: "linear-gradient(to top, rgba(44,36,32,0.55) 0%, rgba(44,36,32,0.1) 60%, transparent 100%)" }} aria-hidden="true" />
@@ -85,7 +85,7 @@ function PremiumCard({ card }: { card: DesktopServiceCardData }) {
             src={card.image}
             alt={card.title}
             className="w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover/card:scale-105"
-            style={{ objectPosition: card.imagePosition, filter: "saturate(0.6) sepia(0.1) brightness(1.0)" }}
+            style={{ objectPosition: card.imagePosition, filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }}
           />
           {/* Dark gradient overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-[55%] pointer-events-none" style={{ background: "linear-gradient(to top, rgba(44,36,32,0.6) 0%, rgba(44,36,32,0.15) 60%, transparent 100%)" }} aria-hidden="true" />

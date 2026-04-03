@@ -9,7 +9,7 @@ interface DeliverablesCompactProps {
 
 export default function DeliverablesCompact({ label, subheading, items, whatsappCallout }: DeliverablesCompactProps) {
   return (
-    <section className="py-7 px-3.5" style={{ backgroundColor: "#E8E0D6" }} aria-label="What you keep">
+    <section className="py-7 px-3.5" style={{ backgroundColor: "#EDE7DF" }} aria-label="What you keep">
       {/* Gold-framed white card */}
       <div className="border border-gold/40 bg-white px-5 py-7">
         {/* Heading — italic serif, centered */}
@@ -30,10 +30,9 @@ export default function DeliverablesCompact({ label, subheading, items, whatsapp
           {items.map((item, i) => (
             <div key={i} className="flex gap-3">
               <span className="shrink-0 mt-0.5" style={{ color: "#C49A5C", fontSize: 10 }} aria-hidden="true">✦</span>
-              <div>
-               <p className="font-body text-[13px] text-warm-grey leading-[1.5]">
-                <strong className="text-espresso font-semibold">{item.title}</strong> — {item.qualifier}</p>
-              </div>
+              <p className="font-body text-[13px] text-warm-grey leading-[1.5]">
+                <strong className="text-espresso font-semibold">{item.title}</strong> — {item.qualifier}
+              </p>
             </div>
           ))}
         </div>

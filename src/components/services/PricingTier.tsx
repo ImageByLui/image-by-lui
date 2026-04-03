@@ -49,7 +49,7 @@ export default function PricingTier({
           <div className="border border-gold p-0.5 mb-[18px] overflow-hidden">
             {mobileImage ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={mobileImage} alt={imageAlt} className="w-full aspect-[5/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }} />
+              <img src={mobileImage} alt={imageAlt} className="w-full aspect-[5/2] object-cover" style={{ filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }} />
             ) : (
               <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
             )}

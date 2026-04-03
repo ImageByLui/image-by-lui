@@ -17,11 +17,11 @@
   --lui-espresso: #2C2420;
   --lui-warm-taupe: #8C7B6B;
   --lui-champagne: #D4C5B2;
-  --lui-warm-ivory: #F7F3EF;
+  --lui-warm-ivory: #FAF8F5;
   --lui-terracotta: #A35741;
   --lui-terracotta-dark: #8A4735;
   --lui-gold: #C49A5C;
-  --lui-soft-stone: #E8E0D6;
+  --lui-soft-stone: #EDE7DF;
   --lui-warm-grey: #6B6560;
   --lui-white: #FFFFFF;
 
@@ -428,15 +428,15 @@ details .accordion-content > div {
    --------------------------------------------------------------------------- */
 
 .warm-filter {
-  filter: saturate(0.65) sepia(0.08) brightness(1.02);
+  filter: saturate(0.75) sepia(0.04) brightness(1.02);
 }
 
 .warm-filter-strong {
-  filter: saturate(0.45) sepia(0.15) brightness(0.95) contrast(1.05);
+  filter: saturate(0.55) sepia(0.08) brightness(0.95) contrast(1.05);
 }
 
 .warm-filter-journey {
-  filter: saturate(0.5) sepia(0.12) brightness(1.0);
+  filter: saturate(0.65) sepia(0.06) brightness(1.0);
 }
 
 /* ---------------------------------------------------------------------------

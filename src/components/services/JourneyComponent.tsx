@@ -36,7 +36,7 @@ export default function JourneyComponent({
         <div className="border border-gold p-0.5 mb-4 overflow-hidden">
           {image ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={image} alt={imageAlt} className="w-full aspect-[3/2] object-cover" style={{ filter: "saturate(0.5) sepia(0.12) brightness(1.0)", objectPosition: "center 30%" }} />
+            <img src={image} alt={imageAlt} className="w-full aspect-[3/2] object-cover" style={{ filter: "saturate(0.65) sepia(0.06) brightness(1.0)", objectPosition: "center 30%" }} />
           ) : (
             <ImagePlaceholder alt={imageAlt} width={300} height={120} colorIndex={1} className="w-full" />
           )}

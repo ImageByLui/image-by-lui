@@ -47,7 +47,7 @@ export default function StyledLooksGallery({
                     src={item.image}
                     alt={item.label}
                     className="w-full aspect-[3/4] object-cover"
-                    style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)", objectPosition: "center 20%" }}
+                    style={{ filter: "saturate(0.75) sepia(0.04) brightness(1.02)", objectPosition: "center 20%" }}
                   />
                 ) : (
                   <ImagePlaceholder alt={item.label} width={200} height={267} colorIndex={item.background === "stone" ? 1 : 2} className="w-full" />
@@ -79,7 +79,7 @@ export default function StyledLooksGallery({
                     src={item.image}
                     alt={item.alt}
                     className="w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover/img:scale-105"
-                    style={{ filter: "saturate(0.65) sepia(0.08) brightness(1.02)" }}
+                    style={{ filter: "saturate(0.75) sepia(0.04) brightness(1.02)" }}
                   />
                 </div>
               ))}

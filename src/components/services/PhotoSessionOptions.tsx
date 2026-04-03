@@ -11,7 +11,7 @@ export default function PhotoSessionOptions({ label, options }: PhotoSessionOpti
         {options.map((option, i) => {
           const borderCls = option.borderColor === "gold" ? "border-gold/50" : "border-champagne/50";
           return (
-            <div key={i} className={`border ${borderCls} py-4 px-3 text-center`} style={{ backgroundColor: "#F7F3EF" }}>
+            <div key={i} className={`border ${borderCls} py-4 px-3 text-center`} style={{ backgroundColor: "#FAF8F5" }}>
               <h3 className="font-heading font-normal italic text-[14px] text-espresso leading-[1.2] mb-1.5">{option.title}</h3>
               <p className="font-body font-semibold text-[13px] mb-1.5" style={{ color: "#A35741" }}>{option.badge}</p>
               <p className="font-body text-[11px] text-warm-taupe leading-[1.4]">{option.description}</p>
