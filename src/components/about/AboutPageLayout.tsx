@@ -256,12 +256,12 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           {/* Desktop one-offs: 30px quote, 38px connection */}
           <div className="w-[45%] flex flex-col justify-center items-center text-center" style={{ padding: "80px 64px 80px 48px" }}>
             <blockquote>
-              <p className="font-heading font-light italic text-[30px] leading-[1.3] text-espresso">
+              <p className="font-heading font-light italic text-[32px] leading-[1.3] text-espresso">
                 {c.hero.quoteBefore}{" "}
                 <span className="text-terracotta">{c.hero.quoteHighlight}</span>
               </p>
             </blockquote>
-            <p className="font-heading italic text-espresso" style={{ fontSize: 38, fontWeight: 400, marginTop: 16 }}>
+            <p className="font-heading italic text-espresso" style={{ fontSize: 40, fontWeight: 400, marginTop: 16 }}>
               {c.hero.connection}
             </p>
             <div className="bg-gold" style={{ width: 40, height: 1.5, marginTop: 28 }} aria-hidden="true" />
@@ -313,7 +313,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               style={{ height: 0.5 }}
               aria-hidden="true"
             />
-            <p className="font-heading font-light italic text-section lg:text-[32px] text-espresso leading-[1.35]">
+            <p className="font-heading font-light italic text-section lg:text-[36px] text-espresso leading-[1.35]">
               {c.pivot.line1}
               <br />
               {c.pivot.line2}
@@ -349,10 +349,10 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       {/* ================================================================= */}
       <section className="text-center px-[28px] py-[40px] lg:px-[48px] lg:py-[64px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
-          <p className="font-heading font-light italic text-section lg:text-[28px] text-espresso leading-[1.4]">
+          <p className="font-heading font-light italic text-section lg:text-[32px] text-espresso leading-[1.4]">
             {c.statement.text}
             {/* text-pull-quote (28px) mobile, 36px desktop one-off */}
-            <span className="font-heading font-normal text-espresso block text-pull-quote mt-[10px] lg:text-[36px] lg:mt-[14px]">
+            <span className="font-heading font-normal text-espresso block text-pull-quote mt-[10px] lg:text-[40px] lg:mt-[14px]">
               {c.statement.closer}
             </span>
           </p>
