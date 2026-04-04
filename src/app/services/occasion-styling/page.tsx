@@ -130,10 +130,10 @@ export default function OccasionStylingPage() {
 
       {/* §3.9 Bottom CTA */}
       <BottomCTASection>
-        <h2 className="font-heading font-normal text-section text-warm-ivory mb-2.5 lg:text-[28px] lg:italic lg:mb-3">
+        <h2 className="font-heading font-normal text-section text-warm-ivory mb-2.5 lg:italic lg:mb-3" data-desktop-fs="28">
           {desktop?.bottomCta?.heading ?? content.bottomCta.heading}
         </h2>
-        <p className="font-body text-card leading-[1.6] text-warm-ivory/65 mb-6 lg:text-[14px] lg:font-light lg:text-warm-ivory/40 lg:leading-[1.7] lg:mb-8">
+        <p className="font-body text-card leading-[1.6] text-warm-ivory/65 mb-6 lg:font-light lg:text-warm-ivory/40 lg:leading-[1.7] lg:mb-8" data-desktop-fs="14">
           {desktop?.bottomCta?.description ?? content.bottomCta.description}
         </p>
 
