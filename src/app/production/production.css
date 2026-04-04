@@ -174,7 +174,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0 var(--p-px) 56px;
+  padding: 0 var(--p-px) 32px;
   z-index: 10;
 }
 
@@ -195,7 +195,7 @@
   font-weight: 300;
   color: var(--p-gold);
   font-size: 38px;
-  margin-top: 6px;
+  margin-top: -2px;
   letter-spacing: 0;
   line-height: 1.15;
 }
