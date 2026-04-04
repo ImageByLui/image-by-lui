@@ -30,7 +30,7 @@
   --lui-fs-section:       24px;
   --lui-fs-card-title:    24px;
   --lui-fs-premium-title: 24px;
-  --lui-fs-body:          17px;
+  --lui-fs-body:          18px;
   --lui-fs-card:          16px;
   --lui-fs-caption:       13px;
   --lui-fs-cta:           14px;
@@ -48,8 +48,8 @@
   --lui-fs-footnote:      13px;
   --lui-fs-nav:           16px;
   --lui-fs-nav-sub:       14px;
-  --lui-fs-pull-quote:      28px;
-  --lui-fs-story-desktop:   22px;
+  --lui-fs-pull-quote:    28px;
+  --lui-fs-story-desktop: 20px;
 
   /* ── Font Weights ── */
   --lui-fw-hero:     600;
