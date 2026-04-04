@@ -206,7 +206,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               src={IMAGES.hero}
               alt={c.hero.imageAlt}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 35%" }}
+              style={{ objectPosition: "center 0%" }}
             />
             <div
               className="absolute bottom-0 left-0 w-full pointer-events-none"
@@ -240,7 +240,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               src={IMAGES.hero}
               alt={c.hero.imageAlt}
               className="w-full h-full object-cover"
-              style={{ objectPosition: "center 15%" }}
+              style={{ objectPosition: "center 0%" }}
             />
             <div
               className="absolute top-0 right-0 bottom-0 pointer-events-none"
@@ -280,8 +280,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           </p>
         </ScrollReveal>
       </section>
-      <MobileStoryPhoto src={IMAGES.colombia} alt={c.photoAlts.colombia} objectPosition="center 25%" filter={BRAND_FILTER} height={340} />
-      <DesktopStoryBleed src={IMAGES.colombia} alt={c.photoAlts.colombia} objectPosition="center 25%" filter={BRAND_FILTER} photoSide="right" marginTop={96}>
+      <MobileStoryPhoto src={IMAGES.colombia} alt={c.photoAlts.colombia} objectPosition="center 30%" filter={BRAND_FILTER} height={340} />
+      <DesktopStoryBleed src={IMAGES.colombia} alt={c.photoAlts.colombia} objectPosition="center 35%" filter={BRAND_FILTER} photoSide="right" marginTop={96}>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.one}</p>
       </DesktopStoryBleed>
 
@@ -295,8 +295,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           <p className="font-body text-body text-warm-grey leading-[1.65]">{c.beats.twoB}</p>
         </ScrollReveal>
       </section>
-      <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 0%" filter={BRAND_FILTER} height={340} />
-      <DesktopStoryBleed src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 45%" filter={BRAND_FILTER} photoSide="left" marginTop={80}>
+      <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 65%" filter={BRAND_FILTER} height={340} />
+      <DesktopStoryBleed src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 55%" filter={BRAND_FILTER} photoSide="left" marginTop={80}>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75] mb-4">{c.beats.twoA}</p>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.twoB}</p>
       </DesktopStoryBleed>
@@ -337,8 +337,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           <p className="font-body text-body text-warm-grey leading-[1.65]">{c.beats.threeB}</p>
         </ScrollReveal>
       </section>
-      <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 40%" filter={INTERVIEW_FILTER} height={300} />
-      <DesktopStoryBleed src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 50%" filter={INTERVIEW_FILTER} photoSide="right">
+      <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 45%" filter={INTERVIEW_FILTER} height={300} />
+      <DesktopStoryBleed src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 25%" filter={INTERVIEW_FILTER} photoSide="right">
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75] mb-4">{c.beats.threeA}</p>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.threeB}</p>
       </DesktopStoryBleed>
@@ -369,7 +369,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           src={IMAGES.closing}
           alt={c.photoAlts.closing}
           className="w-full h-[380px] lg:h-[440px] object-cover"
-          style={{ objectPosition: "center 20%", filter: BRAND_FILTER }}
+          style={{ objectPosition: "center 35%", filter: BRAND_FILTER }}
           loading="lazy"
         />
         <div
