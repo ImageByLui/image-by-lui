@@ -7,22 +7,27 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 // =============================================================================
 // AboutPageLayout — Shared layout for EN and ES about pages (LUI-ABOUT-001)
 // =============================================================================
-// Mobile (V7 + QA pass):
-//   Hero fills viewport (100svh). Uses global typography tokens from
-//   globals.css — text-body (17px), text-section (24px), text-secondary (13px).
-//   Only editorial one-offs are hardcoded (hero connection, closer, gold lines).
+// Mobile (V7 + QA):
+//   Hero fills viewport (100svh). Global typography tokens from globals.css:
+//   text-body (17px), text-section (24px), text-pull-quote (28px),
+//   text-secondary (13px).
 //
 // Desktop (V1):
-//   Split-screen hero (55/45) → alternating bleed story beats → centered
-//   pivot/statement → full-width closing → CTA.
+//   55/45 split hero → alternating bleed story beats (text-story-desktop 18px)
+//   → centered pivot/statement → full-width closing → CTA.
 //
-// Typography token usage:
-//   text-body      (--lui-fs-body: 17px)     → story beat paragraphs
-//   text-section   (--lui-fs-section: 24px)  → pivot, statement
-//   text-secondary (--lui-fs-secondary: 13px)→ CTA description
-//   blockquote base (22px / md:26px)         → hero empathy quote
-//   Hardcoded: "I understand" 28/38px, closer 28/36px, CTA button 11/12px,
-//              gold lines 32×0.5px (intentionally smaller than global 48×2px)
+// Token usage:
+//   text-body           (17px)  → story beat paragraphs (mobile)
+//   text-story-desktop  (18px)  → story beat paragraphs (desktop bleed)
+//   text-section        (24px)  → pivot, statement
+//   text-pull-quote     (28px)  → "I understand.", "Yours." (mobile)
+//   text-secondary      (13px)  → CTA description
+//   text-tag            (12px)  → WhatsApp link
+//   blockquote base     (22/26) → hero empathy quote
+//
+// Hardcoded one-offs (single use, desktop-only):
+//   Desktop hero quote 30px, desktop connection 38px, desktop closer 36px,
+//   desktop CTA heading 34px, CTA button 11/12px, gold lines 32×0.5px
 // =============================================================================
 
 // -- Constants ---------------------------------------------------------------
@@ -189,8 +194,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
     <div className="bg-warm-ivory">
       {/* ================================================================= */}
       {/* §1 — HERO                                                        */}
-      {/* Mobile: dynamic height (100svh - nav), center 25%                */}
-      {/* Desktop: 55/45 split, full vh - 64px, center 15%                 */}
+      {/* Mobile: 100svh - nav, center 25%. blockquote base = 22px.        */}
+      {/* Desktop: 55/45, full vh - 64px, center 15%.                      */}
       {/* ================================================================= */}
       <section id="about-hero" className="relative overflow-hidden">
         {/* MOBILE */}
@@ -209,7 +214,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               aria-hidden="true"
             />
           </div>
-          {/* Quote — uses blockquote base styles (22px) from globals.css */}
+          {/* Quote — blockquote base styles (22px) from globals.css */}
           <div className="relative z-[2] text-center" style={{ padding: "0 28px", marginTop: -24 }}>
             <ScrollReveal>
               <blockquote className="mb-3">
@@ -218,8 +223,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
                   <span className="text-terracotta">{c.hero.quoteHighlight}</span>
                 </p>
               </blockquote>
-              {/* "I understand." — editorial one-off, 28px */}
-              <p className="font-heading italic text-espresso" style={{ fontSize: 28, fontWeight: 400, marginTop: 12 }}>
+              {/* text-pull-quote (28px) from global token */}
+              <p className="font-heading italic text-espresso text-pull-quote" style={{ fontWeight: 400, marginTop: 12 }}>
                 {c.hero.connection}
               </p>
               <div className="bg-gold mx-auto" style={{ width: 32, height: 1.5, marginTop: 20 }} aria-hidden="true" />
@@ -248,9 +253,9 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               aria-hidden="true"
             />
           </div>
+          {/* Desktop one-offs: 30px quote, 38px connection */}
           <div className="w-[45%] flex flex-col justify-center items-center text-center" style={{ padding: "80px 64px 80px 48px" }}>
             <blockquote>
-              {/* Desktop hero quote — 30px one-off (larger than base blockquote 26px) */}
               <p className="font-heading font-light italic text-[30px] leading-[1.3] text-espresso">
                 {c.hero.quoteBefore}{" "}
                 <span className="text-terracotta">{c.hero.quoteHighlight}</span>
@@ -266,7 +271,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §2 — BEAT 1: Colombia                                            */}
-      {/* text-body (17px) from global token, text-[18px] desktop           */}
+      {/* Mobile: text-body (17px). Desktop: text-story-desktop (18px).    */}
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
@@ -277,13 +282,12 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       </section>
       <MobileStoryPhoto src={IMAGES.colombia} alt={c.photoAlts.colombia} objectPosition="center 25%" filter={BRAND_FILTER} height={340} />
       <DesktopStoryBleed src={IMAGES.colombia} alt={c.photoAlts.colombia} objectPosition="center 25%" filter={BRAND_FILTER} photoSide="right" marginTop={96}>
-        <p className="font-body text-[18px] text-warm-grey leading-[1.75]">{c.beats.one}</p>
+        <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.one}</p>
       </DesktopStoryBleed>
 
       {/* ================================================================= */}
       {/* §3 — BEAT 2: Fashion world                                       */}
-      {/* text-body (17px), backstage center 25% (QA: 45% had too much     */}
-      {/* space above head on real devices)                                 */}
+      {/* Backstage center 25% (QA: 45% had too much space above head)     */}
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
@@ -293,13 +297,13 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       </section>
       <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 25%" filter={BRAND_FILTER} height={340} />
       <DesktopStoryBleed src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 45%" filter={BRAND_FILTER} photoSide="left" marginTop={80}>
-        <p className="font-body text-[18px] text-warm-grey leading-[1.75] mb-4">{c.beats.twoA}</p>
-        <p className="font-body text-[18px] text-warm-grey leading-[1.75]">{c.beats.twoB}</p>
+        <p className="font-body text-story-desktop text-warm-grey leading-[1.75] mb-4">{c.beats.twoA}</p>
+        <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.twoB}</p>
       </DesktopStoryBleed>
 
       {/* ================================================================= */}
       {/* §4 — PIVOT                                                       */}
-      {/* text-section (24px) from global token, lg:text-[32px] desktop     */}
+      {/* text-section (24px) mobile, 32px desktop one-off                 */}
       {/* ================================================================= */}
       <section className="px-[28px] pt-[24px] pb-[12px] lg:py-[64px] lg:px-[48px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
@@ -325,7 +329,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §5 — BEAT 3: São Paulo                                           */}
-      {/* text-body (17px), interview center 40% (QA: 55% cropped heads)   */}
+      {/* Interview center 40% (QA: 55% cropped heads)                     */}
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "20px 28px 28px" }}>
         <ScrollReveal>
@@ -335,20 +339,20 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       </section>
       <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 40%" filter={INTERVIEW_FILTER} height={300} />
       <DesktopStoryBleed src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 50%" filter={INTERVIEW_FILTER} photoSide="right">
-        <p className="font-body text-[18px] text-warm-grey leading-[1.75] mb-4">{c.beats.threeA}</p>
-        <p className="font-body text-[18px] text-warm-grey leading-[1.75]">{c.beats.threeB}</p>
+        <p className="font-body text-story-desktop text-warm-grey leading-[1.75] mb-4">{c.beats.threeA}</p>
+        <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.threeB}</p>
       </DesktopStoryBleed>
 
       {/* ================================================================= */}
       {/* §6 — STATEMENT                                                   */}
-      {/* text-section (24px), closer 28px one-off / lg:36px               */}
+      {/* text-section (24px), text-pull-quote (28px) closer, lg:36px      */}
       {/* ================================================================= */}
       <section className="text-center px-[28px] py-[40px] lg:px-[48px] lg:py-[64px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
           <p className="font-heading font-light italic text-section lg:text-[28px] text-espresso leading-[1.4]">
             {c.statement.text}
-            {/* "Yours." / "Tuya." — editorial one-off, larger than text-section */}
-            <span className="font-heading font-normal text-espresso block text-[28px] mt-[10px] lg:text-[36px] lg:mt-[14px]">
+            {/* text-pull-quote (28px) mobile, 36px desktop one-off */}
+            <span className="font-heading font-normal text-espresso block text-pull-quote mt-[10px] lg:text-[36px] lg:mt-[14px]">
               {c.statement.closer}
             </span>
           </p>
@@ -357,7 +361,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §7 — CLOSING PHOTO                                               */}
-      {/* Mobile: 380px, 60px/140px fades. Desktop: 440px, 80px/160px.     */}
+      {/* Mobile: 380px, 60/140px fades. Desktop: 440px, 80/160px.         */}
       {/* ================================================================= */}
       <div className="relative w-full overflow-hidden h-[380px] lg:h-[440px] lg:mt-[24px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -382,8 +386,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §8 — CTA                                                         */}
-      {/* text-secondary (13px) for description. pb-[100px] on mobile      */}
-      {/* absorbs sticky bar space inside espresso bg (no ivory gap).      */}
+      {/* text-secondary (13px) description. pb-[100px] mobile absorbs     */}
+      {/* sticky bar space inside espresso bg (no ivory gap to footer).    */}
       {/* ================================================================= */}
       <section className="bg-espresso">
         <div className="text-center px-[24px] pt-[48px] pb-[100px] md:pb-[48px] lg:px-[48px] lg:pt-[64px] lg:pb-[64px]">
