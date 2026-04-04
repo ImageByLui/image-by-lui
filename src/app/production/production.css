@@ -426,8 +426,8 @@
 .p-ind-scroll::-webkit-scrollbar { display: none; }
 
 .p-ind-item {
-  flex: 0 0 170px;
-  height: 260px;
+  flex: 0 0 220px;
+  height: 320px;
   overflow: hidden;
   scroll-snap-align: start;
   position: relative;
