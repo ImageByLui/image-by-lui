@@ -313,7 +313,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               style={{ height: 0.5 }}
               aria-hidden="true"
             />
-            <p className="font-heading font-light italic text-section lg:text-[36px] text-espresso leading-[1.35]">
+            <p className="font-heading font-light italic text-section lg:text-[40px] text-espresso leading-[1.35]">
               {c.pivot.line1}
               <br />
               {c.pivot.line2}
