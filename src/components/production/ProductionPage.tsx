@@ -5,6 +5,14 @@
 // =============================================================================
 // Client component for scroll-reveal animations via IntersectionObserver.
 // Receives all content as props — no hardcoded strings.
+//
+// Desktop adaptations (LUI-PROD-002):
+//   - Hero: split 60/40 grid with cinematic dissolve
+//   - Beat: horizontal gold lines (via line divs, hidden on mobile)
+//   - Portfolio: 3-column asymmetric grid (separate from mobile zigzag)
+//   - Rates + CTA: merged side by side
+//   - Footer: horizontal layout
+// Mobile/desktop variants use CSS display:none/block toggling.
 // =============================================================================
 
 import { useEffect, useRef, useCallback } from "react";
@@ -42,6 +50,44 @@ const EmailIcon = () => (
     <path d="M22 4L12 13 2 4" />
   </svg>
 );
+
+// ── Reusable portfolio image renderer ──
+function PortfolioImage({
+  index,
+  className,
+  sizes,
+}: {
+  index: number;
+  className?: string;
+  sizes: string;
+}) {
+  const img = IMAGES.portfolio[index];
+  return (
+    <Image
+      src={img.src}
+      alt={img.alt}
+      width={600}
+      height={800}
+      style={{
+        objectPosition: img.objectPosition,
+        filter: BRAND_FILTER,
+        ...(index === 2 ? { transform: "scale(1.15)" } : {}),
+        ...(index === 3 ? { transform: "scale(1.30)" } : {}),
+      }}
+      loading="lazy"
+      sizes={sizes}
+    />
+  );
+}
+
+function PortfolioCaption({ index, locale }: { index: number; locale: string }) {
+  const img = IMAGES.portfolio[index];
+  return (
+    <span className="p-folio-caption">
+      {locale === "es" ? img.captionES : img.captionEN}
+    </span>
+  );
+}
 
 export default function ProductionPage({ content: c }: Props) {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -106,23 +152,31 @@ export default function ProductionPage({ content: c }: Props) {
 
       {/* ══════════════════════════════════════════════════════════════════
           S1: HERO
+          Mobile: full-bleed photo with text overlay at bottom
+          Desktop: 60/40 split grid with cinematic dissolve
           ══════════════════════════════════════════════════════════════════ */}
       <section className="p-hero">
-        <Image
-          src={IMAGES.hero.src}
-          alt={IMAGES.hero.alt}
-          width={750}
-          height={1000}
-          priority
-          className="p-hero-img"
-          style={{
-            objectPosition: IMAGES.hero.objectPosition,
-            filter: BRAND_FILTER,
-          }}
-          sizes="100vw"
-        />
-        <div className="p-hero-overlay" aria-hidden="true" />
-        <div className="p-hero-text">
+        {/* Image cell — on mobile this fills viewport, on desktop it's 60% */}
+        <div className="p-hero-img-cell">
+          <Image
+            src={IMAGES.hero.src}
+            alt={IMAGES.hero.alt}
+            width={1200}
+            height={800}
+            priority
+            className="p-hero-img"
+            style={{
+              objectPosition: IMAGES.hero.objectPosition,
+              filter: BRAND_FILTER,
+            }}
+            sizes="(min-width: 1024px) 60vw, 100vw"
+          />
+          {/* Mobile: bottom gradient. Desktop: right + bottom dissolve (via ::after on .p-hero-img-cell) */}
+          <div className="p-hero-overlay" aria-hidden="true" />
+        </div>
+
+        {/* Mobile text overlay — absolute over the image */}
+        <div className="p-hero-text p-hero-text--mobile">
           <h1 className="p-hero-h1">
             {c.hero.headline.split("\n").map((line, i) => (
               <span key={i}>
@@ -133,151 +187,136 @@ export default function ProductionPage({ content: c }: Props) {
             <span className="p-hero-h1-italic">{c.hero.headlineItalic}</span>
           </h1>
         </div>
+
+        {/* Desktop right panel — hidden on mobile */}
+        <div className="p-hero-right">
+          <h1 className="p-hero-h1">
+            {c.hero.headline.split("\n").map((line, i) => (
+              <span key={i}>
+                {i > 0 && <br />}
+                {line}
+              </span>
+            ))}
+            <span className="p-hero-h1-italic">{c.hero.headlineItalic}</span>
+          </h1>
+          <div className="p-hero-storyline" aria-hidden="true">
+            <div className="p-hero-sl-bar" />
+          </div>
+        </div>
       </section>
 
-      {/* ── Story Line ── */}
+      {/* ── Story Line (mobile only) ── */}
       <div className="p-story-line" aria-hidden="true">
         <div className="p-story-bar" />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════
           S2: SERVICES
+          Mobile: stacked cards. Desktop: 4-column row.
           ══════════════════════════════════════════════════════════════════ */}
       <section className="p-services p-reveal">
         <div className="p-label">{c.services.label}</div>
         <p className="p-svc-intro">{c.services.intro}</p>
-        {c.services.capabilities.map((cap, i) => (
-          <div
-            key={cap.number}
-            className={`p-cap p-reveal p-delay-${i + 1}`}
-          >
-            <div className="p-cap-num">{cap.number}</div>
-            <div>
-              <h3>{cap.title}</h3>
-              <p>{cap.description}</p>
+        <div className="p-caps-row">
+          {c.services.capabilities.map((cap, i) => (
+            <div
+              key={cap.number}
+              className={`p-cap p-reveal p-delay-${i + 1}`}
+            >
+              <div className="p-cap-num">{cap.number}</div>
+              <div>
+                <h3>{cap.title}</h3>
+                <p>{cap.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
           TRANSITIONAL BEAT
+          Mobile: vertical gold lines (::before/::after)
+          Desktop: horizontal gold lines (actual divs)
           ══════════════════════════════════════════════════════════════════ */}
       <div className="p-beat p-reveal" role="presentation">
+        <div className="p-beat-line" aria-hidden="true" />
         <span className="p-beat-text">{c.beat}</span>
+        <div className="p-beat-line" aria-hidden="true" />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════
           S3: PORTFOLIO — On Set
+          Mobile: zigzag rows. Desktop: 3-column asymmetric grid.
           ══════════════════════════════════════════════════════════════════ */}
       <section className="p-folio">
         <div className="p-label">{c.portfolio.label}</div>
 
-        {/* Lead — full bleed */}
-        <div className="p-reveal-scale" style={{ position: "relative" }}>
-          <Image
-            src={IMAGES.portfolio[0].src}
-            alt={IMAGES.portfolio[0].alt}
-            width={750}
-            height={520}
-            className="p-folio-lead"
-            style={{
-              objectPosition: IMAGES.portfolio[0].objectPosition,
-              filter: BRAND_FILTER,
-            }}
-            loading="lazy"
-            sizes="100vw"
-          />
-          <span className="p-folio-caption">
-            {locale === "es"
-              ? IMAGES.portfolio[0].captionES
-              : IMAGES.portfolio[0].captionEN}
-          </span>
-        </div>
-
-        {/* Row 1: tall left (57%) + small right */}
-        <div className="p-folio-row p-folio-r1">
-          <div className="p-folio-cell p-reveal-scale p-delay-1">
+        {/* ── Mobile layout: lead + zigzag rows ── */}
+        <div className="p-folio-mobile">
+          <div className="p-reveal-scale" style={{ position: "relative" }}>
             <Image
-              src={IMAGES.portfolio[1].src}
-              alt={IMAGES.portfolio[1].alt}
-              width={440}
-              height={660}
+              src={IMAGES.portfolio[0].src}
+              alt={IMAGES.portfolio[0].alt}
+              width={750}
+              height={520}
+              className="p-folio-lead"
               style={{
-                objectPosition: IMAGES.portfolio[1].objectPosition,
+                objectPosition: IMAGES.portfolio[0].objectPosition,
                 filter: BRAND_FILTER,
               }}
               loading="lazy"
-              sizes="(max-width: 768px) 57vw, 400px"
+              sizes="100vw"
             />
-            <span className="p-folio-caption">
-              {locale === "es"
-                ? IMAGES.portfolio[1].captionES
-                : IMAGES.portfolio[1].captionEN}
-            </span>
+            <PortfolioCaption index={0} locale={locale} />
           </div>
-          <div className="p-folio-cell p-reveal-scale p-delay-2">
-            <Image
-              src={IMAGES.portfolio[2].src}
-              alt={IMAGES.portfolio[2].alt}
-              width={300}
-              height={400}
-              style={{
-                objectPosition: IMAGES.portfolio[2].objectPosition,
-                filter: BRAND_FILTER,
-                transform: "scale(1.15)",
-              }}
-              loading="lazy"
-              sizes="(max-width: 768px) 43vw, 300px"
-            />
-            <span className="p-folio-caption">
-              {locale === "es"
-                ? IMAGES.portfolio[2].captionES
-                : IMAGES.portfolio[2].captionEN}
-            </span>
+
+          <div className="p-folio-row p-folio-r1">
+            <div className="p-folio-cell p-reveal-scale p-delay-1">
+              <PortfolioImage index={1} sizes="(max-width: 768px) 57vw, 400px" />
+              <PortfolioCaption index={1} locale={locale} />
+            </div>
+            <div className="p-folio-cell p-reveal-scale p-delay-2">
+              <PortfolioImage index={2} sizes="(max-width: 768px) 43vw, 300px" />
+              <PortfolioCaption index={2} locale={locale} />
+            </div>
+          </div>
+
+          <div className="p-folio-row p-folio-r2">
+            <div className="p-folio-cell p-reveal-scale p-delay-1">
+              <PortfolioImage index={3} sizes="(max-width: 768px) 43vw, 300px" />
+              <PortfolioCaption index={3} locale={locale} />
+            </div>
+            <div className="p-folio-cell p-reveal-scale p-delay-2">
+              <PortfolioImage index={4} sizes="(max-width: 768px) 57vw, 400px" />
+              <PortfolioCaption index={4} locale={locale} />
+            </div>
           </div>
         </div>
 
-        {/* Row 2: small left + tall right (57%) */}
-        <div className="p-folio-row p-folio-r2">
-          <div className="p-folio-cell p-reveal-scale p-delay-1">
-            <Image
-              src={IMAGES.portfolio[3].src}
-              alt={IMAGES.portfolio[3].alt}
-              width={300}
-              height={400}
-              style={{
-                objectPosition: IMAGES.portfolio[3].objectPosition,
-                filter: BRAND_FILTER,
-                transform: "scale(1.30)",
-              }}
-              loading="lazy"
-              sizes="(max-width: 768px) 43vw, 300px"
-            />
-            <span className="p-folio-caption">
-              {locale === "es"
-                ? IMAGES.portfolio[3].captionES
-                : IMAGES.portfolio[3].captionEN}
-            </span>
-          </div>
-          <div className="p-folio-cell p-reveal-scale p-delay-2">
-            <Image
-              src={IMAGES.portfolio[4].src}
-              alt={IMAGES.portfolio[4].alt}
-              width={440}
-              height={560}
-              style={{
-                objectPosition: IMAGES.portfolio[4].objectPosition,
-                filter: BRAND_FILTER,
-              }}
-              loading="lazy"
-              sizes="(max-width: 768px) 57vw, 400px"
-            />
-            <span className="p-folio-caption">
-              {locale === "es"
-                ? IMAGES.portfolio[4].captionES
-                : IMAGES.portfolio[4].captionEN}
-            </span>
+        {/* ── Desktop layout: 3-col asymmetric grid ── */}
+        {/* Image order per brief: lead(0), studio(1), editorial(3), runway(2), press(4) */}
+        <div className="p-folio-desktop">
+          <div className="p-folio-grid">
+            <div className="p-folio-gi p-folio-gi--lead p-reveal-scale">
+              <PortfolioImage index={0} sizes="40vw" />
+              <PortfolioCaption index={0} locale={locale} />
+            </div>
+            <div className="p-folio-gi p-reveal-scale p-delay-1">
+              <PortfolioImage index={1} sizes="30vw" />
+              <PortfolioCaption index={1} locale={locale} />
+            </div>
+            <div className="p-folio-gi p-reveal-scale p-delay-2">
+              <PortfolioImage index={3} sizes="30vw" />
+              <PortfolioCaption index={3} locale={locale} />
+            </div>
+            <div className="p-folio-gi p-reveal-scale p-delay-3">
+              <PortfolioImage index={2} sizes="30vw" />
+              <PortfolioCaption index={2} locale={locale} />
+            </div>
+            <div className="p-folio-gi p-reveal-scale p-delay-4">
+              <PortfolioImage index={4} sizes="30vw" />
+              <PortfolioCaption index={4} locale={locale} />
+            </div>
           </div>
         </div>
       </section>
@@ -315,11 +354,11 @@ export default function ProductionPage({ content: c }: Props) {
               <Image
                 src={item.src}
                 alt={item.alt}
-                width={272}
-                height={352}
+                width={400}
+                height={520}
                 style={{ filter: BRAND_FILTER }}
                 loading="lazy"
-                sizes="136px"
+                sizes="(min-width: 1024px) 25vw, 220px"
               />
               <div className="p-ind-label">{item.label}</div>
             </div>
@@ -328,80 +367,86 @@ export default function ProductionPage({ content: c }: Props) {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          S6: RATES
+          S6+S7: RATES + CONTACT
+          Mobile: separate stacked sections
+          Desktop: merged side by side in p-rates-cta wrapper
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="p-rates p-reveal">
-        <div className="p-label p-label--solo">{c.rates.label}</div>
-        <p
-          className="p-rates-quote"
-          dangerouslySetInnerHTML={{ __html: c.rates.priceText }}
-        />
-        <div className="p-rates-dot" aria-hidden="true" />
-        <div className="p-rates-meta">
-          {c.rates.details.map((d, i) => (
-            <span key={i}>
-              {d}
-              <br />
-            </span>
-          ))}
-          <span className="p-rates-bilingual">{c.rates.bilingual}</span>
-        </div>
-      </section>
+      <div className="p-rates-cta">
+        <section className="p-rates p-reveal">
+          <div className="p-label p-label--solo">{c.rates.label}</div>
+          <p
+            className="p-rates-quote"
+            dangerouslySetInnerHTML={{ __html: c.rates.priceText }}
+          />
+          <div className="p-rates-dot" aria-hidden="true" />
+          <div className="p-rates-meta">
+            {c.rates.details.map((d, i) => (
+              <span key={i}>
+                {d}
+                <br />
+              </span>
+            ))}
+            <span className="p-rates-bilingual">{c.rates.bilingual}</span>
+          </div>
+        </section>
 
-      {/* ══════════════════════════════════════════════════════════════════
-          S7: CONTACT CTA
-          ══════════════════════════════════════════════════════════════════ */}
-      <section className="p-cta p-reveal">
-        <h2
-          className="p-cta-h2"
-          dangerouslySetInnerHTML={{
-            __html: c.contact.headline.replace(/\n/g, "<br>"),
-          }}
-        />
-        <div className="p-cta-buttons">
+        <section className="p-cta p-reveal">
+          <h2
+            className="p-cta-h2"
+            dangerouslySetInnerHTML={{
+              __html: c.contact.headline.replace(/\n/g, "<br>"),
+            }}
+          />
+          <div className="p-cta-buttons">
+            <a
+              href={c.contact.whatsappUrl}
+              className="p-btn p-btn--gold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon />
+              {c.contact.whatsappLabel}
+            </a>
+            <a href={c.contact.emailUrl} className="p-btn p-btn--outline">
+              <EmailIcon />
+              {c.contact.emailLabel}
+            </a>
+          </div>
           <a
-            href={c.contact.whatsappUrl}
-            className="p-btn p-btn--gold"
+            href={c.contact.instagramUrl}
+            className="p-cta-ig"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <WhatsAppIcon />
-            {c.contact.whatsappLabel}
+            {c.contact.instagram}
           </a>
-          <a href={c.contact.emailUrl} className="p-btn p-btn--outline">
-            <EmailIcon />
-            {c.contact.emailLabel}
-          </a>
-        </div>
-        <a
-          href={c.contact.instagramUrl}
-          className="p-cta-ig"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {c.contact.instagram}
-        </a>
-      </section>
+        </section>
+      </div>
 
       {/* ══════════════════════════════════════════════════════════════════
           FOOTER
+          Mobile: centered stacked. Desktop: horizontal split.
           ══════════════════════════════════════════════════════════════════ */}
       <footer className="p-footer">
-        <div className="p-ft-logo" aria-hidden="true">
-          <span className="p-ft-logo-main">IMAGE</span>
-          <div className="p-ft-logo-rule" />
-          <span className="p-ft-logo-sub">by LUI</span>
+        <div className="p-ft-left">
+          <div className="p-ft-logo" aria-hidden="true">
+            <span className="p-ft-logo-main">IMAGE</span>
+            <div className="p-ft-logo-rule" />
+            <span className="p-ft-logo-sub">by LUI</span>
+          </div>
+          <div className="p-ft-tagline">{c.footer.tagline}</div>
         </div>
-        <div className="p-ft-tagline">{c.footer.tagline}</div>
-        <a
-          href="https://imagebylui.com"
-          className="p-ft-crosslink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {c.footer.crossLink} {c.footer.crossLinkSite}
-        </a>
-        <div className="p-ft-copyright">{c.footer.copyright}</div>
+        <div className="p-ft-right">
+          <a
+            href="https://imagebylui.com"
+            className="p-ft-crosslink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {c.footer.crossLink} {c.footer.crossLinkSite}
+          </a>
+          <div className="p-ft-copyright">{c.footer.copyright}</div>
+        </div>
       </footer>
     </div>
   );
