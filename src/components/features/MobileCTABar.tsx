@@ -1,10 +1,8 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { getCurrentLanguage } from "@/lib/language";
 import { getCalendlyUrl } from "@/config/site.config";
-
 // =============================================================================
 // MobileCTABar Component — Image by LUI (V3 — Redesign)
 // =============================================================================
@@ -12,16 +10,14 @@ import { getCalendlyUrl } from "@/config/site.config";
 // Hides when footer (#site-footer) enters viewport — the footer has its own
 // CTA button that takes over. Smooth slide animation.
 //
-// Pages with their own sticky CTA (e.g., Services Overview) are excluded
+// Pages with their own sticky CTA (e.g., Services Overview, About) are excluded
 // via PAGES_WITH_OWN_STICKY to avoid double-bar overlap.
 // =============================================================================
-
 const CTA_TEXT = {
   en: "BOOK A FREE CONSULTATION",
   es: "RESERVA TU CONSULTA GRATIS",
 };
-
-/** Pages that render their own ServicesStickyBar — suppress this global bar */
+/** Pages that render their own sticky bar — suppress this global bar */
 const PAGES_WITH_OWN_STICKY = [
   "/services",
   "/es/servicios",
@@ -31,29 +27,25 @@ const PAGES_WITH_OWN_STICKY = [
   "/es/servicios/consultoria-de-imagen",
   "/faq",
   "/es/faq",
+  "/about",
+  "/es/sobre-mi",
 ];
-
 export default function MobileCTABar() {
   const pathname = usePathname();
   const lang = getCurrentLanguage(pathname);
   const [pastHero, setPastHero] = useState(false);
   const [atFooter, setAtFooter] = useState(false);
-
   const hideOnThisPage = PAGES_WITH_OWN_STICKY.includes(pathname);
-
   useEffect(() => {
     if (hideOnThisPage) return;
-
     // Watch the hero — show bar when scrolled past
     const hero = document.querySelector("main > section:first-of-type");
     if (!hero) return;
-
     const heroObserver = new IntersectionObserver(
       ([entry]) => setPastHero(!entry.isIntersecting),
       { threshold: 0 }
     );
     heroObserver.observe(hero);
-
     // Watch the footer — hide bar when footer is visible
     const footer = document.getElementById("site-footer");
     let footerObserver: IntersectionObserver | null = null;
@@ -64,16 +56,13 @@ export default function MobileCTABar() {
       );
       footerObserver.observe(footer);
     }
-
     return () => {
       heroObserver.disconnect();
       footerObserver?.disconnect();
     };
   }, [hideOnThisPage]);
-
   // Visible = past the hero AND not at the footer AND not on a page with its own bar
   const visible = !hideOnThisPage && pastHero && !atFooter;
-
   // Shift WhatsApp button when bar is visible
   useEffect(() => {
     const whatsappBtn = document.querySelector<HTMLElement>("a[aria-label*='WhatsApp']");
@@ -82,12 +71,9 @@ export default function MobileCTABar() {
       whatsappBtn.style.transform = visible ? "translateY(-56px)" : "translateY(0)";
     }
   }, [visible]);
-
   // Return null AFTER all hooks (React rules of hooks compliance)
   if (hideOnThisPage) return null;
-
   const calendlyUrl = getCalendlyUrl("powerPalette");
-
   return (
     <div
       className={`fixed bottom-0 left-0 right-0 z-30 lg:hidden transition-transform duration-300 ease-out ${
