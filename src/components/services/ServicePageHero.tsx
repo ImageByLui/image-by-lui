@@ -141,8 +141,9 @@ export default function ServicePageHero({
         />
 
         {/* Description */}
-        <p
-          className={`text-[length:var(--lui-fs-body)] text-warm-grey leading-[1.65] mb-1 ${hasDesktop ? "lg:text-[16px] lg:font-light lg:leading-[1.65] lg:max-w-[420px] lg:mb-0" : ""}`}
+       <p
+          className={`text-[length:var(--lui-fs-body)] text-warm-grey leading-[1.65] mb-1 ${hasDesktop ? "lg:font-light lg:leading-[1.65] lg:max-w-[420px] lg:mb-0" : ""}`}
+          data-desktop-fs={hasDesktop ? "16" : undefined}
           style={hasDesktop ? { opacity: 0, animation: "fadeUp 0.5s ease 0.95s forwards" } : undefined}
         >
           {description}
