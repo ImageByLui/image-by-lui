@@ -1,74 +1,79 @@
 import type { AboutContent } from "@/types/content";
-import { getCalendlyUrl } from "@/config/site.config";
+import { getCalendlyUrl, getWhatsAppUrl } from "@/config/site.config";
 
 // =============================================================================
-// About Page Content — Spanish (V7 — Final Approved)
+// About Page Content — Spanish (V8 — Editorial Narrative, LUI-ABOUT-001)
 // =============================================================================
-// Natively written Spanish, NOT a translation.
+// Natively written Spanish, NOT a translation. Uses "tú" form.
+// Copy source: LUI_About_Copy_Final.md (locked).
+// Do NOT edit copy — all text was approved by the Web Strategist.
 // =============================================================================
 
 export const aboutContentEs: AboutContent = {
   hero: {
-    headline: "Precisión como base. Calidez como entrega.",
-    subheadline:
-      "Nacida en Colombia. Basada en Miami. Consultora de imagen diagnóstica que ayuda a profesionales a alinear cómo se ven con hacia dónde van.",
-    imageAlt: "Lu — retrato en luz natural",
+    quoteBefore:
+      "Si alguna vez abriste tu cl\u00F3set antes de un d\u00EDa importante y pensaste",
+    quoteHighlight: "no tengo nada que ponerme",
+    connection: "Te entiendo.",
+    imageAlt:
+      "Lu, consultora de imagen bilingüe en Miami, retrato editorial en blanco y negro",
   },
 
-  pullQuote:
-    "Si alguna vez te paraste frente a tu clóset antes de un día importante y pensaste 'no tengo nada que ponerme' — te entiendo.",
+  beats: {
+    one: "Comenc\u00E9 mi carrera dise\u00F1ando ropa en una casa de moda en Colombia. Pero lo que realmente me fascinaba no era la prenda. Era el momento en que la pieza correcta llegaba a la persona correcta. Ese instante en el que la presencia encaja.",
 
-  origin: {
-    intro: [
-      "Lu sabe lo que es navegar entre dos culturas. La imagen correcta abre puertas — la incorrecta las mantiene cerradas.",
-      "Su camino comenzó en una escuela de diseño de moda en Colombia. No con tendencias — con estructura:",
-    ],
-    disciplines: [
-      "Patronaje",
-      "Ciencia Textil",
-      "Ingeniería de Prendas",
-    ],
+    twoA:
+      "Entend\u00ED que mi trabajo no era crear ropa. Era construir imagen.",
+    twoB:
+      "Estudi\u00E9 producci\u00F3n de moda en Miami y comenc\u00E9 a trabajar con una revista de moda internacional, cubriendo semanas de la moda y escribiendo sobre ellas. Colabor\u00E9 con fot\u00F3grafos y dise\u00F1adores en Estados Unidos, Francia, Inglaterra y Espa\u00F1a.",
+
+    threeA:
+      "En S\u00E3o Paulo, lo encontr\u00E9. Colorimetr\u00EDa. No tendencias, no intuici\u00F3n. La ciencia del color, la silueta y la presencia.",
+    threeB:
+      "Volv\u00ED a Miami con todo lo que hab\u00EDa construido. La base t\u00E9cnica del dise\u00F1o. La mirada editorial de la producci\u00F3n. La precisi\u00F3n diagn\u00F3stica de la colorimetr\u00EDa. Y una convicci\u00F3n clara.",
+  },
+
+  pivot: {
+    line1: "Pero faltaba algo.",
+    line2: "El marco diagn\u00F3stico.",
+  },
+
+  statement: {
+    text: "Tu imagen debe reflejar tu ambici\u00F3n, tu cultura y tu realidad. No una portada de revista. No la idea de \u00E9xito de alguien m\u00E1s.",
+    closer: "Tuya.",
+  },
+
+  photoAlts: {
+    colombia:
+      "Lu durante sus inicios en dise\u00F1o de moda en Colombia",
+    backstage:
+      "Detr\u00E1s de c\u00E1maras en una producci\u00F3n de moda",
+    interview:
+      "Lu colaborando con dise\u00F1adores en un evento de moda internacional",
     closing:
-      "Esa base llevó a años de formación especializada — colorimetría certificada, estilismo profesional, producción de moda — y una metodología clara: imagen construida sobre ciencia, no tendencias.",
-    imageAlt: "Lu con muestras de color",
-  },
-
-  sessionImageAlt: "Lu durante una sesión de drapeado de color",
-
-  clientVoice: {
-    quote:
-      "Lu no solo cambió mi guardarropa — cambió cómo entro a una habitación. Por fin me veo como la líder que soy.",
-    name: "C.L.",
-    initials: "CL",
-    title: "Agente de Bienes Raíces, Miami",
-    instagram: "@placeholder",
-  },
-
-  imageStrip: {
-    leftAlt: "Muestras de color",
-    rightAlt: "Espacio de trabajo de Lu",
-  },
-
-  philosophy: {
-    statement:
-      "Tu imagen debe reflejar tu ambición, tu cultura y tu realidad.",
-    closer:
-      "No una portada de revista. No la idea de éxito de otra persona. La tuya.",
+      "Lu en un retrato editorial con tonos c\u00E1lidos y confianza",
   },
 
   cta: {
-    heading: "¿Lista para empezar?",
-    body: "Tu Power Palette es un análisis de color de cortesía de 20 minutos — y el primer paso para entender cómo el método LUI puede trabajar para ti.",
-    cta: {
-      text: "RESERVA TU SESIÓN GRATIS",
+    heading: "\u00BFLista para comenzar?",
+    body: "Tu Power Palette es un an\u00E1lisis de color gratuito de 20 minutos. El primer paso para descubrir c\u00F3mo el m\u00E9todo LUI puede funcionar para ti.",
+    primaryCta: {
+      text: "DESCUBRE TUS COLORES",
       href: getCalendlyUrl("powerPalette"),
       external: true,
     },
+    secondaryText: "O escr\u00EDbele a Lu por WhatsApp",
+    secondaryHref: getWhatsAppUrl("es"),
+  },
+
+  stickyBar: {
+    text: "An\u00E1lisis de color gratis \u00B7 20 min",
+    href: getCalendlyUrl("powerPalette"),
   },
 
   seo: {
     title: "Sobre Lu | Consultora de Imagen Miami | Image by LUI",
     description:
-      "Conoce a Lu — consultora de imagen bilingüe en Miami. Formación en diseño de moda, especialista certificada en colorimetría, y metodología diagnóstica para profesionales.",
+      "Conoce a Lu \u2014 consultora de imagen biling\u00FCe en Miami. Formaci\u00F3n en dise\u00F1o de moda, especialista certificada en colorimetr\u00EDa, y metodolog\u00EDa diagn\u00F3stica para profesionales.",
   },
 };
