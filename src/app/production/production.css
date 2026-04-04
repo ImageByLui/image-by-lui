@@ -233,7 +233,7 @@
   /* Industry — grid row */
   .p-industry { padding: 28px 64px 24px; max-width: var(--p-max); margin: 0 auto; }
   .p-industry .p-label { margin-bottom: 20px; }
-  .p-ind-scroll { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; overflow: visible; padding: 0; scroll-snap-type: none; }
+  .p-ind-scroll { padding: 0 64px; gap: 12px; }
   .p-ind-item { flex: none; height: 320px; }
   .p-ind-label { padding: 32px 12px 10px; font-size: 10px; }
 
