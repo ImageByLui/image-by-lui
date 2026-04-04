@@ -425,7 +425,7 @@
 
 .p-ind-item {
   flex: 0 0 170px;
-  height: 220px;
+  height: 260px;
   overflow: hidden;
   scroll-snap-align: start;
   position: relative;
