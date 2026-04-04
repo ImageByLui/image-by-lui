@@ -338,7 +338,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
         </ScrollReveal>
       </section>
       <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 45%" filter={INTERVIEW_FILTER} height={300} />
-      <DesktopStoryBleed src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 25%" filter={INTERVIEW_FILTER} photoSide="right">
+      <DesktopStoryBleed src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 45%" filter={INTERVIEW_FILTER} photoSide="right">
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75] mb-4">{c.beats.threeA}</p>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.threeB}</p>
       </DesktopStoryBleed>
