@@ -349,7 +349,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       {/* ================================================================= */}
       <section className="text-center px-[28px] py-[40px] lg:px-[48px] lg:py-[64px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
-          <p className="font-heading font-light italic text-section text-espresso leading-[1.4]" data-desktop-fs="32">
+          <p className="font-heading font-light italic text-section text-espresso leading-[1.4]" data-desktop-fs="30">
             {c.statement.text}
             {/* text-pull-quote (28px) mobile, 36px desktop one-off */}
             <span className="font-heading font-normal text-espresso block text-pull-quote mt-[10px] lg:mt-[14px]" data-desktop-fs="40">
