@@ -70,7 +70,7 @@
 .p-hero-storyline { display: flex; justify-content: flex-start; padding: 32px 0 0; }
 .p-hero-sl-bar { width: 1px; height: 56px; background: linear-gradient(to bottom, var(--p-gold-25), var(--p-gold-08)); }
 
-.p-story-line { display: flex; justify-content: center; padding: 16px 0; }
+.p-story-line { display: flex; justify-content: center; padding: 0 0 16px; }
 .p-story-bar { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--p-gold-08), var(--p-gold-25), var(--p-gold-08)); }
 
 /* ── SERVICES Mobile ── */
