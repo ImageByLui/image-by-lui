@@ -11,7 +11,7 @@
 // =============================================================================
 
 import type { Metadata } from "next";
-import "./production.css";
+
 
 export const metadata: Metadata = {
   // Default production metadata — overridden per locale in page files
