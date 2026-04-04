@@ -143,12 +143,16 @@
 .p-hero {
   position: relative;
   width: 100%;
+  min-height: 100svh;
+  min-height: 100vh;
 }
 
 .p-hero-img {
   width: 100%;
-  min-height: 100svh;
-  min-height: 100vh; /* fallback for older browsers */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   object-fit: cover;
   display: block;
 }
