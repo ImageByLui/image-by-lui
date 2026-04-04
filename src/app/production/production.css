@@ -222,7 +222,7 @@
 
 /* ── Services ── */
 .p-services {
-  padding: 0 var(--p-px) 20px;
+  padding: 0 var(--p-px) ;
 }
 
 .p-services .p-label {
