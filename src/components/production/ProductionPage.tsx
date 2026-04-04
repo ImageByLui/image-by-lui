@@ -348,21 +348,29 @@ export default function ProductionPage({ content: c }: Props) {
           ══════════════════════════════════════════════════════════════════ */}
       <section className="p-industry p-reveal">
         <div className="p-label">{c.industry.label}</div>
-        <div className="p-ind-scroll">
-          {IMAGES.industry.map((item) => (
-            <div key={item.label} className="p-ind-item">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={400}
-                height={520}
-                style={{ filter: BRAND_FILTER }}
-                loading="lazy"
-                sizes="(min-width: 1024px) 25vw, 220px"
-              />
-              <div className="p-ind-label">{item.label}</div>
-            </div>
-          ))}
+        <div className="p-ind-wrap">
+          <button className="p-ind-arrow p-ind-arrow--left" aria-label="Scroll left" onClick={(e) => { const s = (e.currentTarget.parentElement?.querySelector('.p-ind-scroll') as HTMLElement); if (s) s.scrollBy({ left: -240, behavior: 'smooth' }); }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M15 4l-8 8 8 8"/></svg>
+          </button>
+          <div className="p-ind-scroll">
+            {IMAGES.industry.map((item) => (
+              <div key={item.label} className="p-ind-item">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={400}
+                  height={520}
+                  style={{ filter: BRAND_FILTER }}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 25vw, 220px"
+                />
+                <div className="p-ind-label">{item.label}</div>
+              </div>
+            ))}
+          </div>
+          <button className="p-ind-arrow p-ind-arrow--right" aria-label="Scroll right" onClick={(e) => { const s = (e.currentTarget.parentElement?.querySelector('.p-ind-scroll') as HTMLElement); if (s) s.scrollBy({ left: 240, behavior: 'smooth' }); }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 4l8 8-8 8"/></svg>
+          </button>
         </div>
       </section>
 
