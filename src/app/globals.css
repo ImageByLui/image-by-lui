@@ -48,6 +48,8 @@
   --lui-fs-footnote:      13px;
   --lui-fs-nav:           16px;
   --lui-fs-nav-sub:       14px;
+  --lui-fs-pull-quote:      28px;
+  --lui-fs-story-desktop:   18px;
 
   /* ── Font Weights ── */
   --lui-fw-hero:     600;
@@ -134,6 +136,8 @@
   --font-size-footnote: var(--lui-fs-footnote);
   --font-size-nav: var(--lui-fs-nav);
   --font-size-nav-sub: var(--lui-fs-nav-sub);
+   --font-size-pull-quote: var(--lui-fs-pull-quote);
+--font-size-story-desktop: var(--lui-fs-story-desktop);
 }
 
 /* ---------------------------------------------------------------------------
@@ -371,6 +375,8 @@ details .accordion-content > div {
   .text-footnote { font-size: var(--lui-fs-footnote); }
   .text-nav { font-size: var(--lui-fs-nav); }
   .text-nav-sub { font-size: var(--lui-fs-nav-sub); }
+   .text-pull-quote { font-size: var(--lui-fs-pull-quote); }
+.text-story-desktop { font-size: var(--lui-fs-story-desktop); }
 }
 
 /* =============================================================================
