@@ -11,7 +11,7 @@ const en: ProductionContent = {
   langToggle: { active: "EN", inactive: "ES", href: "/production/es" },
 
   hero: {
-    headline: "Production\nStyling.",
+    headline: "Production Styling.",
     headlineItalic: "Concept to Final Frame.",
   },
 
