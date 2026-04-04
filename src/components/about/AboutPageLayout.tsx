@@ -218,13 +218,13 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           <div className="relative z-[2] text-center" style={{ padding: "0 28px", marginTop: -24 }}>
             <ScrollReveal>
               <blockquote className="mb-3">
-                <p className="leading-[1.35]">
+                <p className="leading-[1.35] text-[26px]">
                   {c.hero.quoteBefore}{" "}
                   <span className="text-terracotta">{c.hero.quoteHighlight}</span>
                 </p>
               </blockquote>
               {/* text-pull-quote (28px) from global token */}
-              <p className="font-heading italic text-espresso text-pull-quote" style={{ fontWeight: 400, marginTop: 12 }}>
+              <p className="font-heading italic text-espresso text-hero" style={{ fontWeight: 400, marginTop: 12 }}>
                 {c.hero.connection}
               </p>
               <div className="bg-gold mx-auto" style={{ width: 32, height: 1.5, marginTop: 20 }} aria-hidden="true" />
