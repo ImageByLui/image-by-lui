@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Libre_Franklin } from "next/font/google";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { siteConfig } from "@/config/site.config";
 import Header from "@/components/layout/Header";
@@ -14,13 +15,15 @@ import "./globals.css";
 // =============================================================================
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-cormorant-garamond",
   display: "swap",
 });
 const libreFranklin = Libre_Franklin({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-libre-franklin",
   display: "swap",
 });
@@ -68,25 +71,38 @@ export const metadata: Metadata = {
 // - Google Analytics 4 script (loaded after interactive, skipped if no ID)
 // - Global components: Header, Footer, WhatsAppButton, SchemaMarkup
 // =============================================================================
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const ga4Id = siteConfig.ga4MeasurementId;
+
+  // Detect production subdomain via middleware header
+  const headersList = await headers();
+  const isProduction = headersList.get("x-production-site") === "true";
+
   return (
     <html
       lang="en"
       className={`${cormorantGaramond.variable} ${libreFranklin.variable}`}
     >
       <body className="min-h-screen flex flex-col">
-        <LangUpdater />
-        <SchemaMarkup />
-        <Header />
+        {!isProduction && (
+          <>
+            <LangUpdater />
+            <SchemaMarkup />
+            <Header />
+          </>
+        )}
         <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <MobileCTABar />
+        {!isProduction && (
+          <>
+            <Footer />
+            <WhatsAppButton />
+            <MobileCTABar />
+          </>
+        )}
         {/* Google Analytics 4 — only loads if measurement ID is configured */}
         {ga4Id && (
           <>
