@@ -759,44 +759,51 @@ export interface FAQPageContent {
 // About Page Content
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// About Page Content (V8 — Editorial Narrative)
+// ---------------------------------------------------------------------------
 export interface AboutContent {
   hero: {
-    headline: string;
-    subheadline: string;
-    imageAlt?: string;
+    quoteBefore: string;
+    quoteHighlight: string;
+    connection: string;
+    imageAlt: string;
   };
-  /** First-person pull-quote — displayed as poster moment */
-  pullQuote: string;
-  /** Origin story with discipline bars */
-  origin: {
-    intro: string[];
-    disciplines: string[];
-    closing: string;
-    imageAlt?: string;
+  beats: {
+    one: string;
+    twoA: string;
+    twoB: string;
+    threeA: string;
+    threeB: string;
   };
-  /** Full-width session image */
-  sessionImageAlt?: string;
-  /** Client testimonial — displayed before origin closing */
-  clientVoice: {
-    quote: string;
-    name: string;
-    initials: string;
-    title: string;
-    instagram?: string;
+  pivot: {
+    line1: string;
+    line2: string;
   };
-  /** Image strip — two atmospheric detail shots */
-  imageStrip?: {
-    leftAlt: string;
-    rightAlt: string;
-  };
-  philosophy: {
-    statement: string;
+  statement: {
+    text: string;
     closer: string;
+  };
+  photoAlts: {
+    colombia: string;
+    backstage: string;
+    interview: string;
+    closing: string;
   };
   cta: {
     heading: string;
     body: string;
-    cta: CTAButton;
+    primaryCta: {
+      text: string;
+      href: string;
+      external?: boolean;
+    };
+    secondaryText: string;
+    secondaryHref: string;
+  };
+  stickyBar: {
+    text: string;
+    href: string;
   };
   seo: PageSEO;
 }
