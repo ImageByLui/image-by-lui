@@ -7,16 +7,16 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 // =============================================================================
 // AboutPageLayout — Shared layout for EN and ES about pages (LUI-ABOUT-001)
 // =============================================================================
-// Mobile (V7):  Stacked editorial — B&W hero → empathy quote → story beats
-//               with inline photos → gold pivot → statement → closing → CTA.
-// Desktop (V1): Split-screen hero (55/45) → alternating bleed story beats
-//               (photo bleeds to viewport edge) → centered pivot/statement →
-//               full-width closing → CTA. No sticky bar on desktop.
+// Mobile (V7 + QA fixes):
+//   Stacked editorial — B&W hero → empathy quote → story beats with inline
+//   photos → gold pivot → statement → closing → CTA.
+//   Hero fills viewport dynamically (100svh) so the gold line lands at the fold
+//   on all phone sizes. Body text bumped to 15px for real-device readability.
 //
-// Sections with fundamentally different DOM at each breakpoint (hero, story
-// beats) use lg:hidden / hidden lg:flex toggle blocks. Sections that differ
-// only in sizing/spacing (pivot, statement, closing, CTA) use Tailwind
-// responsive utility classes on a single DOM tree.
+// Desktop (V1):
+//   Split-screen hero (55/45) → alternating bleed story beats (photo bleeds to
+//   viewport edge) → centered pivot/statement → full-width closing → CTA.
+//   No sticky bar on desktop.
 //
 // Page background: Warm Ivory (#FAF8F5), NOT white.
 // All fades use rgba(250,248,245,...) matching ivory.
@@ -203,26 +203,35 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
     <div className="bg-warm-ivory">
       {/* ================================================================= */}
       {/* §1 — HERO                                                        */}
-      {/* Mobile: stacked 500px photo + overlapping centered quote          */}
+      {/* Mobile: dynamic viewport-height hero so gold line hits the fold   */}
+      {/*   on all phone sizes. Photo fills remaining space via flex-1.     */}
+      {/*   100svh minus 64px nav = hero fills exactly one screen.          */}
       {/* Desktop: 55/45 split, full viewport height minus 64px nav         */}
       {/* ================================================================= */}
       <section id="about-hero" className="relative overflow-hidden">
         {/* ---- MOBILE HERO ---- */}
-        <div className="lg:hidden">
-          <div className="relative w-full" style={{ height: 500 }}>
+        {/* flex-col fills the viewport; photo grows, quote stays at bottom */}
+        <div
+          className="lg:hidden flex flex-col"
+          style={{ minHeight: "calc(100svh - 64px)" }}
+        >
+          {/* B&W hero photo — flex-1 fills remaining viewport, min 400px */}
+          <div className="relative w-full flex-1" style={{ minHeight: 400 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={IMAGES.hero}
               alt={c.hero.imageAlt}
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "center 15%" }}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 20%" }}
             />
+            {/* Bottom ivory fade — 140px, 3-stop */}
             <div
               className="absolute bottom-0 left-0 w-full pointer-events-none"
               style={{ height: 140, background: `linear-gradient(to top, ${IVORY}1) 0%, ${IVORY}0.6) 40%, ${IVORY}0) 100%)` }}
               aria-hidden="true"
             />
           </div>
+          {/* Empathy quote — -24px overlap, centered */}
           <div className="relative z-[2] text-center" style={{ padding: "0 28px", marginTop: -24 }}>
             <ScrollReveal>
               <blockquote className="mb-3">
@@ -277,12 +286,12 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §2 — BEAT 1: Early days in Colombia                              */}
-      {/* Mobile: stacked 14px text + 340px photo                          */}
+      {/* Mobile: stacked 15px text + 340px photo                          */}
       {/* Desktop: text left, photo right bleeding edge, 18px, 480px       */}
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[14px] text-warm-grey leading-[1.7]">
+          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">
             {c.beats.one}
           </p>
         </ScrollReveal>
@@ -294,16 +303,18 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §3 — BEAT 2: Fashion world                                       */}
-      {/* Mobile: both paras as 14px body text + 340px photo               */}
+      {/* Mobile: both paras as 15px body text + 340px photo               */}
+      {/*   Backstage photo: center 30% — QA fix, 45% left too much space  */}
+      {/*   above Lu's head on real devices.                               */}
       {/* Desktop: photo left bleeding, text right, 18px, 480px            */}
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[14px] text-warm-grey leading-[1.7] mb-3">{c.beats.twoA}</p>
-          <p className="font-body text-[14px] text-warm-grey leading-[1.7]">{c.beats.twoB}</p>
+          <p className="font-body text-[15px] text-warm-grey leading-[1.7] mb-3">{c.beats.twoA}</p>
+          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">{c.beats.twoB}</p>
         </ScrollReveal>
       </section>
-      <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 45%" filter={BRAND_FILTER} height={340} />
+      <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 30%" filter={BRAND_FILTER} height={340} />
       <DesktopStoryBleed src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 45%" filter={BRAND_FILTER} photoSide="left" marginTop={80}>
         <p className="font-body text-[18px] text-warm-grey leading-[1.75] mb-4">{c.beats.twoA}</p>
         <p className="font-body text-[18px] text-warm-grey leading-[1.75]">{c.beats.twoB}</p>
@@ -311,8 +322,9 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §4 — PIVOT                                                       */}
-      {/* Mobile: 24/28/12 pad, 22px, 32px gold lines                      */}
-      {/* Desktop: 64/48 pad, 32px, 40px gold lines, max-w 800             */}
+      {/* Mobile: 24/28/12 pad, 24px (bumped from 22 for readability),     */}
+      {/*         32px gold lines                                          */}
+      {/* Desktop: 64/48 pad, 32px, 40px gold lines, max-w 800            */}
       {/* ================================================================= */}
       <section className="px-[28px] pt-[24px] pb-[12px] lg:py-[64px] lg:px-[48px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
@@ -322,7 +334,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               style={{ height: 0.5 }}
               aria-hidden="true"
             />
-            <p className="font-heading font-light italic text-[22px] lg:text-[32px] text-espresso leading-[1.35]">
+            <p className="font-heading font-light italic text-[24px] lg:text-[32px] text-espresso leading-[1.35]">
               {c.pivot.line1}
               <br />
               {c.pivot.line2}
@@ -338,16 +350,17 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §5 — BEAT 3: São Paulo + The Method                              */}
-      {/* Mobile: 20px top, 14px body, 300px photo                         */}
-      {/* Desktop: text left, photo right bleeding, 18px, 480px            */}
+      {/* Mobile: 20px top, 15px body, 300px photo                         */}
+      {/*   Interview photo: center 40% — QA fix, 55% was cutting heads    */}
+      {/* Desktop: text left, photo right, 18px, 480px, center 50%         */}
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "20px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[14px] text-warm-grey leading-[1.7] mb-3">{c.beats.threeA}</p>
-          <p className="font-body text-[14px] text-warm-grey leading-[1.7]">{c.beats.threeB}</p>
+          <p className="font-body text-[15px] text-warm-grey leading-[1.7] mb-3">{c.beats.threeA}</p>
+          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">{c.beats.threeB}</p>
         </ScrollReveal>
       </section>
-      <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 55%" filter={INTERVIEW_FILTER} height={300} />
+      <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 40%" filter={INTERVIEW_FILTER} height={300} />
       <DesktopStoryBleed src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 50%" filter={INTERVIEW_FILTER} photoSide="right">
         <p className="font-body text-[18px] text-warm-grey leading-[1.75] mb-4">{c.beats.threeA}</p>
         <p className="font-body text-[18px] text-warm-grey leading-[1.75]">{c.beats.threeB}</p>
@@ -355,14 +368,14 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §6 — STATEMENT                                                   */}
-      {/* Mobile: 40/28 pad, 20px text, 24px closer                        */}
-      {/* Desktop: 64/48 pad, 28px text, 36px closer, max-w 800            */}
+      {/* Mobile: 40/28 pad, 22px text (bumped from 20), 26px closer       */}
+      {/* Desktop: 64/48 pad, 28px text, 36px closer, max-w 800           */}
       {/* ================================================================= */}
       <section className="text-center px-[28px] py-[40px] lg:px-[48px] lg:py-[64px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
-          <p className="font-heading font-light italic text-[20px] lg:text-[28px] text-espresso leading-[1.4]">
+          <p className="font-heading font-light italic text-[22px] lg:text-[28px] text-espresso leading-[1.4]">
             {c.statement.text}
-            <span className="font-heading font-normal text-espresso block text-[24px] mt-[10px] lg:text-[36px] lg:mt-[14px]">
+            <span className="font-heading font-normal text-espresso block text-[26px] mt-[10px] lg:text-[36px] lg:mt-[14px]">
               {c.statement.closer}
             </span>
           </p>
@@ -383,13 +396,11 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           style={{ objectPosition: "center 35%", filter: BRAND_FILTER }}
           loading="lazy"
         />
-        {/* Top fade — 60px mobile, 80px desktop */}
         <div
           className="absolute top-0 left-0 w-full pointer-events-none h-[60px] lg:h-[80px]"
           style={{ background: `linear-gradient(to bottom, ${IVORY}1) 0%, ${IVORY}0.3) 40%, ${IVORY}0) 100%)` }}
           aria-hidden="true"
         />
-        {/* Bottom fade — 140px mobile, 160px desktop */}
         <div
           className="absolute bottom-0 left-0 w-full pointer-events-none h-[140px] lg:h-[160px]"
           style={{ background: `linear-gradient(to top, ${ESPRESSO}1) 0%, ${ESPRESSO}0.6) 40%, ${ESPRESSO}0) 100%)` }}
@@ -414,7 +425,6 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
             >
               {c.cta.body}
             </p>
-            {/* Primary CTA — block mobile, inline desktop */}
             <a
               href={c.cta.primaryCta.href}
               target={c.cta.primaryCta.external ? "_blank" : undefined}
@@ -423,7 +433,6 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
             >
               {c.cta.primaryCta.text}
             </a>
-            {/* WhatsApp — subtle text link */}
             <a
               href={c.cta.secondaryHref}
               target="_blank"
@@ -466,8 +475,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
         </a>
       </div>
 
-      {/* Bottom spacer for sticky bar */}
-      <div className="h-[52px] md:hidden" aria-hidden="true" />
+      {/* Bottom spacer — bg-espresso to blend with CTA above and footer below */}
+      <div className="h-[52px] md:hidden bg-espresso" aria-hidden="true" />
     </div>
   );
 }
