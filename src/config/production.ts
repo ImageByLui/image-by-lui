@@ -34,7 +34,7 @@ export const IMAGES = {
     {
       src: `${IMG}/On-Set-1.jpg`,
       alt: "Backstage dressing room with vanity mirrors",
-      objectPosition: "center 40%",
+      objectPosition: "center 28%",
       captionEN: "Backstage",
       captionES: "Backstage",
     },
@@ -62,7 +62,7 @@ export const IMAGES = {
     {
       src: `${IMG}/On-Set-5.jpg`,
       alt: "Lu being interviewed at fashion venue",
-      objectPosition: "center 20%",
+      objectPosition: "center 38%",
       captionEN: "Press",
       captionES: "Prensa",
     },

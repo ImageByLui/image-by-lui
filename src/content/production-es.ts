@@ -54,7 +54,7 @@ const es: ProductionContent = {
   rates: {
     label: "Tarifas",
     priceText:
-      "Los proyectos comienzan en <strong>$800</strong> por media jornada de producción. Estilismo de campaña y producciones de varios días se cotizan individualmente.",
+      "Los proyectos comienzan en <strong>$500</strong> por media jornada de producción. Estilismo de campaña y producciones de varios días se cotizan individualmente.",
     details: [
       "Aceptando reservas en Miami-Dade.",
       "Disponibilidad de viaje para producciones de varios días.",

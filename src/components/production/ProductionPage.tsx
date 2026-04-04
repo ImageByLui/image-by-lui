@@ -225,6 +225,7 @@ export default function ProductionPage({ content: c }: Props) {
               style={{
                 objectPosition: IMAGES.portfolio[2].objectPosition,
                 filter: BRAND_FILTER,
+                transform: "scale(1.15)",
               }}
               loading="lazy"
               sizes="(max-width: 768px) 43vw, 300px"
@@ -248,6 +249,7 @@ export default function ProductionPage({ content: c }: Props) {
               style={{
                 objectPosition: IMAGES.portfolio[3].objectPosition,
                 filter: BRAND_FILTER,
+                transform: "scale(1.30)",
               }}
               loading="lazy"
               sizes="(max-width: 768px) 43vw, 300px"

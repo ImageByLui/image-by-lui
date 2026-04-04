@@ -56,7 +56,7 @@ const en: ProductionContent = {
   rates: {
     label: "Rates",
     priceText:
-      "Projects start at <strong>$800</strong> for a half-day production. Campaign styling and multi-day work scoped individually.",
+      "Projects start at <strong>$500</strong> for a half-day production. Campaign styling and multi-day work scoped individually.",
     details: [
       "Currently accepting bookings in Miami-Dade.",
       "Travel available for multi-day engagements.",
