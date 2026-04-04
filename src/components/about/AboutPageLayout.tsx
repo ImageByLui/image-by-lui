@@ -206,7 +206,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
               src={IMAGES.hero}
               alt={c.hero.imageAlt}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 25%" }}
+              style={{ objectPosition: "center 35%" }}
             />
             <div
               className="absolute bottom-0 left-0 w-full pointer-events-none"
@@ -295,7 +295,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           <p className="font-body text-body text-warm-grey leading-[1.65]">{c.beats.twoB}</p>
         </ScrollReveal>
       </section>
-      <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 25%" filter={BRAND_FILTER} height={340} />
+      <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 0%" filter={BRAND_FILTER} height={340} />
       <DesktopStoryBleed src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 45%" filter={BRAND_FILTER} photoSide="left" marginTop={80}>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75] mb-4">{c.beats.twoA}</p>
         <p className="font-body text-story-desktop text-warm-grey leading-[1.75]">{c.beats.twoB}</p>
@@ -369,7 +369,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           src={IMAGES.closing}
           alt={c.photoAlts.closing}
           className="w-full h-[380px] lg:h-[440px] object-cover"
-          style={{ objectPosition: "center 35%", filter: BRAND_FILTER }}
+          style={{ objectPosition: "center 20%", filter: BRAND_FILTER }}
           loading="lazy"
         />
         <div
