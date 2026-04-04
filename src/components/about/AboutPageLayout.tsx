@@ -291,7 +291,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">
+          <p className="font-body text-[16px] text-warm-grey leading-[1.7]">
             {c.beats.one}
           </p>
         </ScrollReveal>
@@ -310,8 +310,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7] mb-3">{c.beats.twoA}</p>
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">{c.beats.twoB}</p>
+          <p className="font-body text-[16px] text-warm-grey leading-[1.7] mb-3">{c.beats.twoA}</p>
+          <p className="font-body text-[16px] text-warm-grey leading-[1.7]">{c.beats.twoB}</p>
         </ScrollReveal>
       </section>
       <MobileStoryPhoto src={IMAGES.backstage} alt={c.photoAlts.backstage} objectPosition="center 30%" filter={BRAND_FILTER} height={340} />
@@ -356,8 +356,8 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       {/* ================================================================= */}
       <section className="lg:hidden" style={{ padding: "20px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7] mb-3">{c.beats.threeA}</p>
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">{c.beats.threeB}</p>
+          <p className="font-body text-[16px] text-warm-grey leading-[1.7] mb-3">{c.beats.threeA}</p>
+          <p className="font-body text-[16px] text-warm-grey leading-[1.7]">{c.beats.threeB}</p>
         </ScrollReveal>
       </section>
       <MobileStoryPhoto src={IMAGES.interview} alt={c.photoAlts.interview} objectPosition="center 40%" filter={INTERVIEW_FILTER} height={300} />
@@ -373,7 +373,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       {/* ================================================================= */}
       <section className="text-center px-[28px] py-[40px] lg:px-[48px] lg:py-[64px] lg:max-w-[800px] lg:mx-auto">
         <ScrollReveal>
-          <p className="font-heading font-light italic text-[22px] lg:text-[28px] text-espresso leading-[1.4]">
+          <p className="font-heading font-light italic text-[24px] lg:text-[28px] text-espresso leading-[1.4]">
             {c.statement.text}
             <span className="font-heading font-normal text-espresso block text-[26px] mt-[10px] lg:text-[36px] lg:mt-[14px]">
               {c.statement.closer}
@@ -416,7 +416,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
       <section className="bg-espresso">
         <div className="text-center px-[24px] py-[48px] lg:px-[48px] lg:py-[64px]">
           <ScrollReveal>
-            <h2 className="font-heading font-normal italic text-[26px] lg:text-[34px] text-warm-ivory mb-[10px] lg:mb-[12px]">
+            <h2 className="font-heading font-normal italic text-[28px] lg:text-[34px] text-warm-ivory mb-[10px] lg:mb-[12px]">
               {c.cta.heading}
             </h2>
             <p
