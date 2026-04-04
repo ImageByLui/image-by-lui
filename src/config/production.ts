@@ -70,21 +70,14 @@ export const IMAGES = {
   /** Industry strip — add entries here to scale. No layout changes needed. */
   industry: [
     { src: `${IMG}/Industry-1.jpg`, label: "Vogue", alt: "Vogue event" },
-    {
-      src: `${IMG}/Industry-2.jpg`,
-      label: "Mercedes-Benz",
-      alt: "Mercedes-Benz event",
-    },
-    {
-      src: `${IMG}/Industry-3.jpg`,
-      label: "Miami FW",
-      alt: "Miami Fashion Week",
-    },
+    { src: `${IMG}/Industry-2.jpg`, label: "Mercedes-Benz", alt: "Mercedes-Benz event"},
+    { src: `${IMG}/Industry-3.jpg`, label: "Miami FW", alt: "Miami Fashion Week"},
     { src: `${IMG}/Industry-4.jpg`, label: "Cartier", alt: "Cartier event" },
+    { src: `${IMG}/Industry-5.jpg`, label: "Brand", alt: "Description" },
+    { src: `${IMG}/Industry-6.jpg`, label: "Brand", alt: "Description" },
+    { src: `${IMG}/Industry-7.jpg`, label: "Brand", alt: "Description" },
     // ── Future additions: just append here ──
-    // { src: `${IMG}/Industry-5.jpg`, label: "Brand", alt: "Description" },
-    // { src: `${IMG}/Industry-6.jpg`, label: "Brand", alt: "Description" },
-  ],
+     ],
 } as const;
 
 // =============================================================================
