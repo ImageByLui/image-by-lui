@@ -13,6 +13,16 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 // Page background: Warm Ivory (#FAF8F5), NOT white.
 // All fades use rgba(250,248,245,...) matching ivory.
 // Hero is B&W (no color filter). Story photos get warm brand filter.
+//
+// V7 Mockup Alignment Pass — fixes applied:
+//   §1 Hero height 500px, quote -24px overlap, centered text, gold line added
+//   §2 Body text 14px, horizontal padding 28px
+//   §3 Beat 2 first line demoted to body text (was incorrectly elevated to heading)
+//   §4 Pivot: delicate gold lines (32px, 0.5px, 50% opacity), tighter padding
+//   §5 Beat 3 top padding 20px
+//   §7 Closing photo 380px, top fade 60px (was 140px)
+//   §8 CTA padding 48px top, WhatsApp as subtle text link (not green button)
+//   StoryPhoto: per-photo heights, 3-stop fade gradient with solid ivory anchor
 // =============================================================================
 
 // -- Constants ---------------------------------------------------------------
@@ -41,20 +51,26 @@ const IMAGES = {
 
 // -- Sub-components ----------------------------------------------------------
 
-/** Story photo with light ivory fades (60px, 0.3 opacity) */
+/**
+ * Story photo with 3-stop ivory fades (60px).
+ * Gradient: solid ivory → 0.3 opacity at 40% → transparent.
+ * Height is per-photo to match V7 mockup specs.
+ */
 function StoryPhoto({
   src,
   alt,
   objectPosition,
   filter,
+  height,
 }: {
   src: string;
   alt: string;
   objectPosition: string;
   filter: string;
+  height: number;
 }) {
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: 320 }}>
+    <div className="relative w-full overflow-hidden" style={{ height }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
@@ -63,21 +79,21 @@ function StoryPhoto({
         style={{ objectPosition, filter }}
         loading="lazy"
       />
-      {/* Top fade — light, 60px */}
+      {/* Top fade — 3-stop: solid ivory → 0.3 at 40% → transparent */}
       <div
         className="absolute top-0 left-0 w-full pointer-events-none"
         style={{
           height: 60,
-          background: `linear-gradient(to bottom, ${IVORY}0.3) 0%, ${IVORY}0) 100%)`,
+          background: `linear-gradient(to bottom, ${IVORY}1) 0%, ${IVORY}0.3) 40%, ${IVORY}0) 100%)`,
         }}
         aria-hidden="true"
       />
-      {/* Bottom fade — light, 60px */}
+      {/* Bottom fade — 3-stop: solid ivory → 0.3 at 40% → transparent */}
       <div
         className="absolute bottom-0 left-0 w-full pointer-events-none"
         style={{
           height: 60,
-          background: `linear-gradient(to top, ${IVORY}0.3) 0%, ${IVORY}0) 100%)`,
+          background: `linear-gradient(to top, ${IVORY}1) 0%, ${IVORY}0.3) 40%, ${IVORY}0) 100%)`,
         }}
         aria-hidden="true"
       />
@@ -138,10 +154,11 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
     <div className="bg-warm-ivory">
       {/* ================================================================= */}
       {/* §1 — HERO: B&W photo + empathy quote                            */}
+      {/* V7: 500px photo, -24px overlap, centered text, gold line         */}
       {/* ================================================================= */}
       <section id="about-hero" className="relative overflow-hidden">
-        {/* B&W hero photo */}
-        <div className="relative w-full" style={{ height: 520 }}>
+        {/* B&W hero photo — 500px per V7 */}
+        <div className="relative w-full" style={{ height: 500 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMAGES.hero}
@@ -150,7 +167,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
             style={{ objectPosition: "center 15%" }}
             /* Hero is above-fold — no lazy loading */
           />
-          {/* Bottom ivory fade — 140px, standard strength */}
+          {/* Bottom ivory fade — 140px, 3-stop */}
           <div
             className="absolute bottom-0 left-0 w-full pointer-events-none"
             style={{
@@ -161,137 +178,157 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           />
         </div>
 
-        {/* Empathy quote — overlaps bottom of photo via negative margin */}
-        <div className="relative z-[2] px-6 -mt-10">
+        {/* Empathy quote — -24px overlap per V7 (was -40px), centered */}
+        <div className="relative z-[2] text-center" style={{ padding: "0 28px", marginTop: -24 }}>
           <ScrollReveal>
             <blockquote className="mb-3">
-              <p className="font-heading font-light italic text-[22px] leading-[1.45] text-espresso">
+              <p className="font-heading font-light italic text-[22px] leading-[1.35] text-espresso">
                 {c.hero.quoteBefore}{" "}
                 <span className="text-terracotta">{c.hero.quoteHighlight}</span>
               </p>
             </blockquote>
-            {/* "I understand." — SEPARATE element per spec */}
+            {/* "I understand." — 28px, weight 400, italic, mt-12px per V7 */}
             <p
               className="font-heading italic text-espresso"
-              style={{ fontSize: 28, fontWeight: 400 }}
+              style={{ fontSize: 28, fontWeight: 400, marginTop: 12 }}
             >
               {c.hero.connection}
             </p>
+            {/* Gold separator line — 32px × 1.5px per V7 */}
+            <div
+              className="bg-gold mx-auto"
+              style={{ width: 32, height: 1.5, marginTop: 20 }}
+              aria-hidden="true"
+            />
           </ScrollReveal>
         </div>
       </section>
 
       {/* ================================================================= */}
       {/* §2 — BEAT 1: Early days in Colombia                              */}
+      {/* V7: 14px body text, 40px/28px/28px padding                       */}
       {/* ================================================================= */}
-      <section className="px-6 pt-10 pb-6">
+      <section style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">
+          <p className="font-body text-[14px] text-warm-grey leading-[1.7]">
             {c.beats.one}
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Photo: Colombia */}
+      {/* Photo: Colombia — 340px per V7 */}
       <StoryPhoto
         src={IMAGES.colombia}
         alt={c.photoAlts.colombia}
         objectPosition="center 25%"
         filter={BRAND_FILTER}
+        height={340}
       />
 
       {/* ================================================================= */}
       {/* §3 — BEAT 2: Fashion world                                       */}
+      {/* V7: Both paragraphs are body text (14px grey), NOT heading.       */}
+      {/* The live version incorrectly elevated twoA to a 20px heading.     */}
       {/* ================================================================= */}
-      <section className="px-6 pt-8 pb-6">
+      <section style={{ padding: "40px 28px 28px" }}>
         <ScrollReveal>
-          {/* 2a — the realization */}
-          <p className="font-heading font-normal text-[20px] text-espresso leading-[1.4] mb-5">
+          <p className="font-body text-[14px] text-warm-grey leading-[1.7] mb-3">
             {c.beats.twoA}
           </p>
-          {/* 2b — the detail */}
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">
+          <p className="font-body text-[14px] text-warm-grey leading-[1.7]">
             {c.beats.twoB}
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Photo: Backstage */}
+      {/* Photo: Backstage — 340px per V7 */}
       <StoryPhoto
         src={IMAGES.backstage}
         alt={c.photoAlts.backstage}
         objectPosition="center 45%"
         filter={BRAND_FILTER}
+        height={340}
       />
 
       {/* ================================================================= */}
       {/* §4 — PIVOT: Gold lines + "But something was missing."            */}
+      {/* V7: 32px wide, 0.5px tall, 50% opacity gold lines.              */}
+      {/*      24px top / 12px bottom padding. Uniform font-weight 300.    */}
       {/* ================================================================= */}
-      <section className="px-6 py-12">
+      <section style={{ padding: "24px 28px 12px" }}>
         <ScrollReveal>
           <div className="flex flex-col items-center text-center">
-            {/* Top gold line */}
-            <div className="w-12 h-[1px] bg-gold mb-6" aria-hidden="true" />
-            <p className="font-heading font-light italic text-[22px] text-espresso leading-[1.4] mb-1">
+            {/* Top gold line — 32px, 0.5px, 50% opacity per V7 */}
+            <div
+              className="bg-gold opacity-50 mx-auto"
+              style={{ width: 32, height: 0.5, marginBottom: 16 }}
+              aria-hidden="true"
+            />
+            <p className="font-heading font-light italic text-[22px] text-espresso leading-[1.35]">
               {c.pivot.line1}
-            </p>
-            <p className="font-heading font-medium text-[22px] text-espresso leading-[1.4]">
+              <br />
               {c.pivot.line2}
             </p>
-            {/* Bottom gold line */}
-            <div className="w-12 h-[1px] bg-gold mt-6" aria-hidden="true" />
+            {/* Bottom gold line — 32px, 0.5px, 50% opacity per V7 */}
+            <div
+              className="bg-gold opacity-50 mx-auto"
+              style={{ width: 32, height: 0.5, marginTop: 16 }}
+              aria-hidden="true"
+            />
           </div>
         </ScrollReveal>
       </section>
 
       {/* ================================================================= */}
       {/* §5 — BEAT 3: São Paulo + The Method                              */}
+      {/* V7: padding-top 20px, 14px body text                             */}
       {/* ================================================================= */}
-      <section className="px-6 pt-4 pb-6">
+      <section style={{ padding: "20px 28px 28px" }}>
         <ScrollReveal>
-          {/* 3a — São Paulo discovery */}
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7] mb-5">
+          <p className="font-body text-[14px] text-warm-grey leading-[1.7] mb-3">
             {c.beats.threeA}
           </p>
-          {/* 3b — Back to Miami with conviction */}
-          <p className="font-body text-[15px] text-warm-grey leading-[1.7]">
+          <p className="font-body text-[14px] text-warm-grey leading-[1.7]">
             {c.beats.threeB}
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Photo: Interview */}
+      {/* Photo: Interview — 300px per V7 */}
       <StoryPhoto
         src={IMAGES.interview}
         alt={c.photoAlts.interview}
         objectPosition="center 55%"
         filter={INTERVIEW_FILTER}
+        height={300}
       />
 
       {/* ================================================================= */}
       {/* §6 — STATEMENT: "Your image should reflect…" + "Yours."         */}
+      {/* V7: 40px vertical padding, 28px horizontal                       */}
       {/* ================================================================= */}
-      <section className="px-6 py-12">
+      <section style={{ padding: "40px 28px" }}>
         <ScrollReveal>
           <div className="text-center">
-            <p className="font-heading font-normal text-[20px] text-espresso leading-[1.45] mb-3">
+            <p className="font-heading font-light italic text-[20px] text-espresso leading-[1.4]">
               {c.statement.text}
+              {/* "Yours." / "Tuya." — inline block, 24px, weight 400, mt-10px */}
+              <span
+                className="font-heading font-normal text-espresso"
+                style={{ display: "block", fontSize: 24, marginTop: 10 }}
+              >
+                {c.statement.closer}
+              </span>
             </p>
-            {/* "Yours." / "Tuya." — block element, 24px, weight 400 */}
-            <span
-              className="font-heading font-normal text-espresso"
-              style={{ display: "block", fontSize: 24 }}
-            >
-              {c.statement.closer}
-            </span>
           </div>
         </ScrollReveal>
       </section>
 
       {/* ================================================================= */}
-      {/* §7 — CLOSING PHOTO: Ivory top fade + Espresso bottom fade        */}
+      {/* §7 — CLOSING PHOTO: Light top fade + Espresso bottom fade        */}
+      {/* V7: 380px height, 60px light top fade, 140px espresso bottom     */}
       {/* ================================================================= */}
-      <div className="relative w-full overflow-hidden" style={{ height: 400 }}>
+      <div className="relative w-full overflow-hidden" style={{ height: 380 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={IMAGES.closing}
@@ -300,12 +337,12 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           style={{ objectPosition: "center 35%", filter: BRAND_FILTER }}
           loading="lazy"
         />
-        {/* Top fade — ivory, 140px */}
+        {/* Top fade — light ivory, 60px, same 3-stop as story photos per V7 */}
         <div
           className="absolute top-0 left-0 w-full pointer-events-none"
           style={{
-            height: 140,
-            background: `linear-gradient(to bottom, ${IVORY}1) 0%, ${IVORY}0.5) 40%, ${IVORY}0) 100%)`,
+            height: 60,
+            background: `linear-gradient(to bottom, ${IVORY}1) 0%, ${IVORY}0.3) 40%, ${IVORY}0) 100%)`,
           }}
           aria-hidden="true"
         />
@@ -314,7 +351,7 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           className="absolute bottom-0 left-0 w-full pointer-events-none"
           style={{
             height: 140,
-            background: `linear-gradient(to top, ${ESPRESSO}1) 0%, ${ESPRESSO}0.5) 40%, ${ESPRESSO}0) 100%)`,
+            background: `linear-gradient(to top, ${ESPRESSO}1) 0%, ${ESPRESSO}0.6) 40%, ${ESPRESSO}0) 100%)`,
           }}
           aria-hidden="true"
         />
@@ -322,47 +359,57 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
 
       {/* ================================================================= */}
       {/* §8 — CTA: Espresso background                                    */}
+      {/* V7: 48px top padding, 11px/1.8px button, subtle WA text link     */}
       {/* ================================================================= */}
       <section className="bg-espresso">
-        <div className="px-6 pt-8 pb-10 text-center">
+        <div style={{ padding: "48px 24px" }} className="text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-normal italic text-[26px] text-warm-ivory mb-3">
+            <h2 className="font-heading font-normal italic text-[26px] text-warm-ivory mb-2.5">
               {c.cta.heading}
             </h2>
-            <p className="font-body text-[14px] text-warm-ivory/60 leading-[1.65] mb-7 max-w-[340px] mx-auto">
+            {/* V7: 13px, 40% opacity */}
+            <p
+              className="font-body leading-[1.6] mx-auto"
+              style={{ fontSize: 13, color: "rgba(247,243,239,0.4)", maxWidth: 300, marginBottom: 24 }}
+            >
               {c.cta.body}
             </p>
-            {/* Primary CTA — Calendly */}
+            {/* Primary CTA — V7: 11px, 1.8px tracking, 16px/28px padding, max-width 280 */}
             <a
               href={c.cta.primaryCta.href}
               target={c.cta.primaryCta.external ? "_blank" : undefined}
               rel={c.cta.primaryCta.external ? "noopener noreferrer" : undefined}
-              className="block text-center font-body font-semibold text-[12px] tracking-[1.5px] uppercase bg-terracotta text-white py-4 mb-3 no-underline hover:bg-[#8A4735] transition-colors duration-200"
+              className="block text-center font-body font-semibold uppercase bg-terracotta text-white no-underline hover:bg-[#8A4735] transition-colors duration-200 mx-auto"
+              style={{ fontSize: 11, letterSpacing: "1.8px", padding: "16px 28px", maxWidth: 280 }}
             >
               {c.cta.primaryCta.text}
             </a>
-            {/* Secondary — WhatsApp */}
+            {/* Secondary — WhatsApp subtle text link per V7 (NOT a green button) */}
             <a
               href={c.cta.secondaryHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-4 bg-[#25D366] text-white font-body font-semibold text-[12px] tracking-[1px] uppercase no-underline hover:bg-[#1DA851] transition-colors duration-200"
+              className="no-underline block"
+              style={{ marginTop: 14, fontSize: 12, color: "rgba(247,243,239,0.35)" }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-              </svg>
-              {c.cta.secondaryText}
+              Or{" "}
+              <span style={{ color: "#25D366", fontWeight: 500 }}>
+                {c.cta.secondaryText}
+              </span>
             </a>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ================================================================= */}
-      {/* §9 — STICKY BAR: Terracotta, anchored to Calendly               */}
+      {/* §9 — STICKY BAR: Terracotta, spread layout with arrow per V7     */}
       {/* ================================================================= */}
       <div
         className="fixed bottom-0 left-0 right-0 z-50 md:hidden transition-transform duration-300"
-        style={{ transform: stickyVisible ? "translateY(0)" : "translateY(100%)" }}
+        style={{
+          transform: stickyVisible ? "translateY(0)" : "translateY(100%)",
+          boxShadow: "0 -4px 20px rgba(44,36,32,0.1)",
+        }}
         role="complementary"
         aria-label={lang === "en" ? "Book free consultation" : "Reserva consulta gratis"}
       >
@@ -370,9 +417,13 @@ export default function AboutPageLayout({ content: c, lang }: AboutPageLayoutPro
           href={c.stickyBar.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-4 bg-terracotta text-white font-body font-semibold text-[13px] tracking-[1.5px] uppercase no-underline hover:no-underline"
+          className="flex items-center justify-between w-full bg-terracotta text-white no-underline hover:no-underline"
+          style={{ padding: "14px 20px" }}
         >
-          {c.stickyBar.text}
+          <span className="font-body font-semibold text-[11px] tracking-[1.2px] uppercase">
+            {c.stickyBar.text}
+          </span>
+          <span style={{ fontSize: 16 }}>→</span>
         </a>
       </div>
 
