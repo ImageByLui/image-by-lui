@@ -10,7 +10,7 @@
 [data-page="production"] {
   --p-espresso: #2C2420;
   --p-espresso-mid: #342C27;
-  --p-espresso-deep: #1E1815;
+  --p-espresso-deep: #1E1815;f
   --p-ivory: #F7F3EF;
   --p-champagne: #D4C5B2;
   --p-gold: #C49A5C;
@@ -171,7 +171,7 @@
 
 .p-hero-text {
   position: absolute;
-  bottom: 24;
+  bottom: 24px;
   left: 0;
   right: 0;
   padding: 0 var(--p-px) 32px;
