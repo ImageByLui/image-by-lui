@@ -91,10 +91,16 @@
   [data-desktop-label] { font-size: 11px !important; }
   [data-desktop-min-h="480"] { min-height: 480px; }
   [data-desktop-min-h="560"] { min-height: 560px; }
+  [data-desktop-fs="14"] { font-size: 14px !important; }
+  [data-desktop-fs="15"] { font-size: 15px !important; }
+  [data-desktop-fs="16"] { font-size: 16px !important; }
+  [data-desktop-fs="28"] { font-size: 28px !important; }
+  [data-desktop-fs="30"] { font-size: 30px !important; }
   [data-desktop-fs="32"] { font-size: 32px !important; }
   [data-desktop-fs="34"] { font-size: 34px !important; }
   [data-desktop-fs="36"] { font-size: 36px !important; }
   [data-desktop-fs="40"] { font-size: 40px !important; }
+}
 }
 
 /* ---------------------------------------------------------------------------
