@@ -87,7 +87,7 @@ export default function ServicesPage() {
 
       {/* §2.7 Bottom CTA — responsive: WhatsApp primary on mobile, Calendly on desktop */}
       <BottomCTASection>
-        <h2 className="font-heading font-normal text-section text-warm-ivory mb-2.5 lg:text-[30px] lg:italic lg:mb-3">
+        <h2 className="font-heading font-normal text-section text-warm-ivory mb-2.5 lg:italic lg:mb-3" data-desktop-fs="30">
           {desktop?.bottomCta?.heading ?? content.bottomCta.heading}
         </h2>
         <p className="font-body text-card leading-[1.6] text-warm-ivory/65 mb-6 lg:text-[15px] lg:font-light lg:text-warm-ivory/40 lg:leading-[1.7] lg:mb-8">
