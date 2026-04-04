@@ -9,7 +9,7 @@ const es: ProductionContent = {
   langToggle: { active: "ES", inactive: "EN", href: "/production" },
 
   hero: {
-    headline: "Styling de\nProducción.",
+    headline: "Styling de Producción.",
     headlineItalic: "Del concepto al cuadro final.",
   },
 
