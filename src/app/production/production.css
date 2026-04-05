@@ -238,7 +238,7 @@
    .p-folio-gi:nth-child(1) img { object-position: center 70% !important; }
    .p-folio-gi:nth-child(2) img { object-position: center 50% !important; }
    .p-folio-gi:nth-child(3) img { object-position: 60% 40% !important; }
-   .p-folio-gi:nth-child(4) img { object-position: center 50 !important; }
+.p-folio-gi:nth-child(4) img { object-position: center 50% !important; }
     .p-folio-gi:nth-child(5) img { object-position: center 70% !important; }
    .p-folio-gi::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(44,36,32,0.8) 0%, rgba(44,36,32,0.3) 12%, transparent 30%), linear-gradient(to top, rgba(44,36,32,0.9) 0%, rgba(44,36,32,0.4) 15%, transparent 35%), linear-gradient(to right, rgba(44,36,32,0.6) 0%, rgba(44,36,32,0.2) 10%, transparent 25%), linear-gradient(to left, rgba(44,36,32,0.6) 0%, rgba(44,36,32,0.2) 10%, transparent 25%); pointer-events: none; }
    
