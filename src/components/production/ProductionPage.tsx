@@ -300,11 +300,11 @@ export default function ProductionPage({ content: c }: Props) {
               <PortfolioCaption index={0} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-1">
-              <Image src={IMAGES.portfolio[1].src} alt={IMAGES.portfolio[1].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 15%" }} loading="lazy" sizes="30vw" />
+              <Image src={IMAGES.portfolio[1].src} alt={IMAGES.portfolio[1].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 50%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={1} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-2">
-              <Image src={IMAGES.portfolio[3].src} alt={IMAGES.portfolio[3].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "60% 70%" }} loading="lazy" sizes="30vw" />
+              <Image src={IMAGES.portfolio[3].src} alt={IMAGES.portfolio[3].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "60% 50%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={3} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-3">
