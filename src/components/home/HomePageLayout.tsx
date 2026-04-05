@@ -332,14 +332,18 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
               {c.moreVoices.testimonials.map((t, i) => (
                 <div
                   key={i}
-                  className="shrink-0 snap-start bg-white"
-                  style={{ width: 270, minWidth: 270, padding: "24px 20px", boxShadow: "0 2px 16px rgba(44,36,32,0.06)", borderLeft: "3px solid #C49A5C", position: "relative" }}
+                  className="shrink-0 snap-start bg-white flex flex-col"
+                  style={{ width: 270, minWidth: 270, height: 320, padding: "24px 20px", boxShadow: "0 2px 16px rgba(44,36,32,0.06)", borderLeft: "3px solid #C49A5C", position: "relative" }}
                 >
                   <span className="font-heading text-[48px] leading-none block" style={{ color: "rgba(196,154,92,0.25)", position: "absolute", top: 8, left: 16 }} aria-hidden="true">&ldquo;</span>
                   <p className="font-heading italic font-light text-[15px] text-espresso leading-[1.45]" style={{ marginTop: 16, marginBottom: 16 }}>{t.quote}</p>
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "#D4C5B2" }}>
-                      <span className="font-body font-semibold text-[12px] text-espresso">{t.name.charAt(0)}</span>
+                  <div className="flex items-center gap-2.5 mt-auto">
+                   <div className="w-9 h-9 rounded-full shrink-0 overflow-hidden" style={{ backgroundColor: "#D4C5B2", border: "1px solid #D4C5B2" }}>
+                      {t.photo ? (
+                        <img src={t.photo} alt={t.name} className="w-full h-full object-cover" style={{ objectPosition: "center center" }} />
+                      ) : (
+                        <span className="w-full h-full flex items-center justify-center font-body font-semibold text-[12px] text-espresso">{t.name.charAt(0)}</span>
+                      )}
                     </div>
                     <div>
                       <p className="font-body font-semibold text-[12px] text-espresso" style={{ margin: 0 }}>{t.name}</p>
@@ -356,7 +360,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
           <ScrollReveal>
             <h2 className="font-heading italic text-[28px] text-espresso text-center mb-12">{c.moreVoices.heading}</h2>
             <div
-              className="flex items-center overflow-x-auto snap-x snap-mandatory max-w-[1100px] mx-auto pb-4"
+             className="flex items-center overflow-x-auto snap-x snap-mandatory max-w-[1100px] mx-auto pb-4"
               style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
             >
               {c.moreVoices.testimonials.map((t, i) => (
