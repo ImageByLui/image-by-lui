@@ -78,7 +78,7 @@ export const homeContent: HomeContent = {
     imageAlt: "Lu, image consultant and founder of Image by LUI",
   },
 
-  moreVoices: {
+moreVoices: {
     heading: "What clients experience",
     testimonials: [
       {
@@ -94,6 +94,27 @@ export const homeContent: HomeContent = {
         handle: "@angelicagp8",
         handleUrl: "https://www.instagram.com/angelicagp8",
         photo: "/images/testimonials/ap.jpg",
+      },
+      {
+        quote: "I loved the entire experience. From the consultation to the final result, everything was thoughtful and personalized. She brought out the best in me without losing my essence, and that means everything. I felt spectacular in the dress. I\u2019d recommend her a thousand times over.",
+        name: "Dafne",
+        handle: "@dafneeorduz",
+        handleUrl: "https://www.instagram.com/dafneeorduz/",
+        photo: "/images/testimonials/do.jpg",
+      },
+      {
+        quote: "Thank you so much for your guidance. You truly understood my style and what I wanted to project. I love talking with you about design and how to elevate my image. You\u2019re genuinely incredible at what you do.",
+        name: "Luisa",
+        handle: "@luisa_marinc",
+        handleUrl: "https://www.instagram.com/luisa_marinc/",
+        photo: "/images/testimonials/lm.jpg",
+      },
+      {
+        quote: "I don\u2019t normally write these, but I have to thank you \u2014 since you started styling my looks, I feel so much more confident. Truly, thank you from the bottom of my heart.",
+        name: "Yuri",
+        handle: "@yurikolondono",
+        handleUrl: "https://www.instagram.com/yurikolondono/",
+        photo: "/images/testimonials/yo.jpg",
       },
     ],
   },
