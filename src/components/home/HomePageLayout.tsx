@@ -344,12 +344,15 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
           </ScrollReveal>
         </div>
         {/* Desktop — two-column grid on white */}
-        <div className="hidden lg:block" style={{ padding: "80px 48px 120px" }}>
+     <div className="hidden lg:block" style={{ padding: "80px 48px 120px" }}>
           <ScrollReveal>
             <h2 className="font-heading italic text-[28px] text-espresso text-center mb-12">{c.moreVoices.heading}</h2>
-            <div className="grid grid-cols-2 gap-16 max-w-[880px] mx-auto">
+            <div
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory max-w-[1100px] mx-auto pb-4"
+              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+            >
               {c.moreVoices.testimonials.map((t, i) => (
-                <div key={i} className="text-center">
+                <div key={i} className="shrink-0 snap-start text-center" style={{ width: 320, minWidth: 320 }}>
                   <span className="font-heading text-[40px] text-gold/30 leading-none block mb-2" aria-hidden="true">&ldquo;</span>
                   <p className="font-heading italic font-light text-[18px] text-espresso leading-[1.4] mb-4">{t.quote}</p>
                   <p className="font-body font-semibold text-[12px] text-espresso">{t.name}</p>
