@@ -97,6 +97,27 @@ export const homeContentEs: HomeContent = {
         handleUrl: "https://www.instagram.com/angelicagp8",
         photo: "/images/testimonials/ap.jpg",
       },
+      {
+        quote: "Am\u00e9 toda la experiencia contigo. Desde la asesor\u00eda hasta el resultado final, todo fue s\u00faper cuidado y personalizado. Lograste resaltar lo mejor de m\u00ed sin perder mi esencia, y eso para m\u00ed vale demasiado. Me sent\u00ed espectacular con el vestido. Gracias por tanto detalle y dedicaci\u00f3n. Te recomendar\u00eda mil veces.",
+        name: "Dafne",
+        handle: "@dafneeorduz",
+        handleUrl: "https://www.instagram.com/dafneeorduz/",
+        photo: "/images/testimonials/do.jpg",
+      },
+      {
+        quote: "Lu, mil gracias por tu asesor\u00eda. Lograste entender mi estilo y lo que quer\u00eda proyectar. Me encanta hablar contigo de estilos, dise\u00f1o y de c\u00f3mo puedo potencializar mi imagen. De verdad, eres una tesa.",
+        name: "Luisa",
+        handle: "@luisa_marinc",
+        handleUrl: "https://www.instagram.com/luisa_marinc/",
+        photo: "/images/testimonials/lm.jpg",
+      },
+      {
+        quote: "Normalmente no escribo esto, pero quiero agradecerte porque desde que me est\u00e1s asesorando con el styling de mis looks me siento m\u00e1s segura y con mucha m\u00e1s confianza. Mil gracias de verdad.",
+        name: "Yuri",
+        handle: "@yurikolondono",
+        handleUrl: "https://www.instagram.com/yurikolondono/",
+        photo: "/images/testimonials/yo.jpg",
+      },
     ],
   },
 
