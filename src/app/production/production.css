@@ -102,6 +102,12 @@
 .p-folio-cell { position: relative; overflow: hidden; height: 300px; }
 .p-folio-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .p-folio-caption { position: absolute; bottom: 10px; left: 14px; font-family: var(--font-body); font-size: 8px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,243,239,0.4); text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+.p-folio-lead { object-position: center 28%; }
+.p-folio-r1 .p-folio-cell:nth-child(1) img { object-position: center 20%; }
+.p-folio-r1 .p-folio-cell:nth-child(2) img { object-position: center center; }
+.p-folio-r2 .p-folio-cell:nth-child(1) img { object-position: center top; }
+.p-folio-r2 .p-folio-cell:nth-child(2) img { object-position: center 38%; }
+
 
 /* ── CREDITS ── */
 .p-credits { padding: 20px var(--p-px) 16px; }
