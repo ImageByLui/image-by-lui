@@ -55,7 +55,7 @@ export const IMAGES = {
     {
       src: `${IMG}/On-Set-4.jpg`,
       alt: "Lu at fashion event, tight crop",
-      objectPosition: "center top",
+      objectPosition: "center 50%",
       captionEN: "Editorial",
       captionES: "Editorial",
     },
