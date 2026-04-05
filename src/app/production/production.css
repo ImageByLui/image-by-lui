@@ -105,7 +105,7 @@
 .p-folio-lead { object-position: center 28%; }
 .p-folio-r1 .p-folio-cell:nth-child(1) img { object-position: center 20%; }
 .p-folio-r1 .p-folio-cell:nth-child(2) img { object-position: center center; }
-.p-folio-r2 .p-folio-cell:nth-child(1) img { object-position: center top; }
+.p-folio-r2 .p-folio-cell:nth-child(1) img { transform: scale(1.30); }
 .p-folio-r2 .p-folio-cell:nth-child(2) img { object-position: center 38%; }
 
 
