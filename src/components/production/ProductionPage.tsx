@@ -293,26 +293,26 @@ export default function ProductionPage({ content: c }: Props) {
 
         {/* ── Desktop layout: 3-col asymmetric grid ── */}
         {/* Image order per brief: lead(0), studio(1), editorial(3), runway(2), press(4) */}
-        <div className="p-folio-desktop">
+      <div className="p-folio-desktop">
           <div className="p-folio-grid">
             <div className="p-folio-gi p-folio-gi--lead p-reveal-scale">
-              <PortfolioImage index={0} sizes="40vw" />
+              <Image src={IMAGES.portfolio[0].src} alt={IMAGES.portfolio[0].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 22%" }} loading="lazy" sizes="40vw" />
               <PortfolioCaption index={0} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-1">
-              <PortfolioImage index={1} sizes="30vw" />
+              <Image src={IMAGES.portfolio[1].src} alt={IMAGES.portfolio[1].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 15%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={1} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-2">
-              <PortfolioImage index={3} sizes="30vw" />
+              <Image src={IMAGES.portfolio[3].src} alt={IMAGES.portfolio[3].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "55% 55%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={3} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-3">
-              <PortfolioImage index={2} sizes="30vw" />
+              <Image src={IMAGES.portfolio[2].src} alt={IMAGES.portfolio[2].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 30%", transform: "scale(1.15)" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={2} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-4">
-              <PortfolioImage index={4} sizes="30vw" />
+              <Image src={IMAGES.portfolio[4].src} alt={IMAGES.portfolio[4].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 30%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={4} locale={locale} />
             </div>
           </div>
