@@ -69,7 +69,6 @@ function PortfolioImage({
       width={600}
       height={800}
       style={{
-        objectPosition: img.objectPosition,
         filter: BRAND_FILTER,
         ...(index === 2 ? { transform: "scale(1.15)" } : {}),
         ...(index === 3 ? { transform: "scale(1.30)" } : {}),
@@ -261,7 +260,6 @@ export default function ProductionPage({ content: c }: Props) {
               height={520}
               className="p-folio-lead"
               style={{
-                objectPosition: IMAGES.portfolio[0].objectPosition,
                 filter: BRAND_FILTER,
               }}
               loading="lazy"
