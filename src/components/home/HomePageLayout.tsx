@@ -317,46 +317,61 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
         </div>
       </section>
 
-      {/* ================================================================= */}
+    {/* ================================================================= */}
       {/* §10 — MORE VOICES                                                */}
       {/* ================================================================= */}
       <section>
-        {/* Mobile — horizontal scroll on ivory */}
+        {/* Mobile — Option A: gold border cards */}
         <div className="lg:hidden" style={{ backgroundColor: "var(--lui-warm-ivory)", padding: "48px 0" }}>
           <ScrollReveal>
             <h2 className="font-body font-semibold text-[11px] tracking-[2px] uppercase text-warm-taupe text-center mb-6 px-6">{c.moreVoices.heading}</h2>
             <div
-              className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory pb-3"
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3"
               style={{ padding: "0 20px 12px", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
             >
               {c.moreVoices.testimonials.map((t, i) => (
                 <div
                   key={i}
                   className="shrink-0 snap-start bg-white"
-                  style={{ width: 265, minWidth: 265, padding: "20px 18px", boxShadow: "0 2px 20px rgba(44,36,32,0.05)", border: "0.5px solid rgba(212,197,178,0.2)" }}
+                  style={{ width: 270, minWidth: 270, padding: "24px 20px", boxShadow: "0 2px 16px rgba(44,36,32,0.06)", borderLeft: "3px solid #C49A5C", position: "relative" }}
                 >
-                  <p className="font-heading italic font-light text-[16px] text-espresso leading-[1.4] mb-3">&ldquo;{t.quote}&rdquo;</p>
-                  <p className="font-body font-semibold text-[11px] text-espresso">{t.name}</p>
-                  <a href={t.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[10px] text-terracotta no-underline hover:underline">{t.handle}</a>
+                  <span className="font-heading text-[48px] leading-none block" style={{ color: "rgba(196,154,92,0.25)", position: "absolute", top: 8, left: 16 }} aria-hidden="true">&ldquo;</span>
+                  <p className="font-heading italic font-light text-[15px] text-espresso leading-[1.45]" style={{ marginTop: 16, marginBottom: 16 }}>{t.quote}</p>
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "#D4C5B2" }}>
+                      <span className="font-body font-semibold text-[12px] text-espresso">{t.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="font-body font-semibold text-[12px] text-espresso" style={{ margin: 0 }}>{t.name}</p>
+                      <a href={t.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[10px] text-terracotta no-underline hover:underline">{t.handle}</a>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </ScrollReveal>
         </div>
-        {/* Desktop — two-column grid on white */}
-     <div className="hidden lg:block" style={{ padding: "80px 48px 120px" }}>
+        {/* Desktop — horizontal scroll with gold star separators */}
+        <div className="hidden lg:block" style={{ padding: "80px 48px 120px" }}>
           <ScrollReveal>
             <h2 className="font-heading italic text-[28px] text-espresso text-center mb-12">{c.moreVoices.heading}</h2>
             <div
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory max-w-[1100px] mx-auto pb-4"
+              className="flex items-center overflow-x-auto snap-x snap-mandatory max-w-[1100px] mx-auto pb-4"
               style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
             >
               {c.moreVoices.testimonials.map((t, i) => (
-                <div key={i} className="shrink-0 snap-start text-center" style={{ width: 320, minWidth: 320 }}>
-                  <span className="font-heading text-[40px] text-gold/30 leading-none block mb-2" aria-hidden="true">&ldquo;</span>
-                  <p className="font-heading italic font-light text-[18px] text-espresso leading-[1.4] mb-4">{t.quote}</p>
-                  <p className="font-body font-semibold text-[12px] text-espresso">{t.name}</p>
-                  <a href={t.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[11px] text-terracotta no-underline hover:underline">{t.handle}</a>
+                <div key={i} className="contents">
+                  {i > 0 && (
+                    <div className="shrink-0 flex items-center justify-center" style={{ width: 48 }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.8 3-1.1-6.5L.4 8.8l6.5-.9L12 2z" fill="#C49A5C" opacity="0.5"/></svg>
+                    </div>
+                  )}
+                  <div className="shrink-0 snap-start text-center" style={{ width: 320, minWidth: 320 }}>
+                    <span className="font-heading text-[40px] text-gold/30 leading-none block mb-2" aria-hidden="true">&ldquo;</span>
+                    <p className="font-heading italic font-light text-[18px] text-espresso leading-[1.4] mb-4">{t.quote}</p>
+                    <p className="font-body font-semibold text-[12px] text-espresso">{t.name}</p>
+                    <a href={t.handleUrl} target="_blank" rel="noopener noreferrer" className="font-body text-[11px] text-terracotta no-underline hover:underline">{t.handle}</a>
+                  </div>
                 </div>
               ))}
             </div>
