@@ -72,10 +72,10 @@ export const IMAGES = {
     { src: `${IMG}/Industry-1.jpg`, label: "Vogue", alt: "Vogue event" },
     { src: `${IMG}/Industry-2.jpg`, label: "Mercedes-Benz", alt: "Mercedes-Benz event"},
     { src: `${IMG}/Industry-3.jpg`, label: "Miami FW", alt: "Miami Fashion Week"},
-    { src: `${IMG}/Industry-4.jpg`, label: "Cartier", alt: "Cartier event" },
-    { src: `${IMG}/Industry-5.jpg`, label: "Brand", alt: "Description" },
-    { src: `${IMG}/Industry-6.jpg`, label: "Brand", alt: "Description" },
-    { src: `${IMG}/Industry-7.jpg`, label: "Brand", alt: "Description" },
+    { src: `${IMG}/Industry-4.jpg`, label: "Gartier", alt: "Gartier event" },
+    { src: `${IMG}/Industry-5.jpg`, label: "Cartier", alt: "Cartier event" },
+    { src: `${IMG}/Industry-6.jpg`, label: "Mercedes-Benz", alt: "Mercedes-Benz event" },
+    { src: `${IMG}/Industry-7.jpg`, label: "Lacoste", alt: "Miami Fashion Week" },
     // ── Future additions: just append here ──
      ],
 } as const;
