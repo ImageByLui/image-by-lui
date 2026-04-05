@@ -360,7 +360,7 @@ export default function HomePageLayout({ content: c }: HomePageLayoutProps) {
           <ScrollReveal>
             <h2 className="font-heading italic text-[28px] text-espresso text-center mb-12">{c.moreVoices.heading}</h2>
             <div
-             className="flex items-center overflow-x-auto snap-x snap-mandatory max-w-[1100px] mx-auto pb-4"
+              className="flex items-center gap-8 overflow-x-auto snap-x snap-mandatory max-w-[1400px] mx-auto pb-4"
               style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
             >
               {c.moreVoices.testimonials.map((t, i) => (
