@@ -296,11 +296,11 @@ export default function ProductionPage({ content: c }: Props) {
       <div className="p-folio-desktop">
           <div className="p-folio-grid">
             <div className="p-folio-gi p-folio-gi--lead p-reveal-scale">
-              <Image src={IMAGES.portfolio[0].src} alt={IMAGES.portfolio[0].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 22%" }} loading="lazy" sizes="40vw" />
+              <Image src={IMAGES.portfolio[0].src} alt={IMAGES.portfolio[0].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 35%" }} loading="lazy" sizes="40vw" />
               <PortfolioCaption index={0} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-1">
-              <Image src={IMAGES.portfolio[1].src} alt={IMAGES.portfolio[1].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 60%" }} loading="lazy" sizes="30vw" />
+              <Image src={IMAGES.portfolio[1].src} alt={IMAGES.portfolio[1].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 50%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={1} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-2">
@@ -312,7 +312,7 @@ export default function ProductionPage({ content: c }: Props) {
               <PortfolioCaption index={2} locale={locale} />
             </div>
             <div className="p-folio-gi p-reveal-scale p-delay-4">
-              <Image src={IMAGES.portfolio[4].src} alt={IMAGES.portfolio[4].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 60%" }} loading="lazy" sizes="30vw" />
+              <Image src={IMAGES.portfolio[4].src} alt={IMAGES.portfolio[4].alt} width={600} height={800} style={{ filter: BRAND_FILTER, objectPosition: "center 55%" }} loading="lazy" sizes="30vw" />
               <PortfolioCaption index={4} locale={locale} />
             </div>
           </div>
